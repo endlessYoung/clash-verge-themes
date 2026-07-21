@@ -1,143 +1,331 @@
 /*
  * Clash Verge Themes — Signal Instrument
- * Thesis: flight-instrument panel — high contrast, sharp, data-first.
+ * Thesis: flight-instrument panel — high contrast, sharp, data-first
  *
+ * Ported from clash-verge-rev:
+ *   src/assets/styles/themes/packs.scss  (cv-signal-*)
+ *   src/assets/styles/themes/surfaces.scss
+ *
+ * Usage (Clash Verge → Theme Setting → CSS Injection):
  * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/signal.css");
  */
 
+/* ========== Tokens: Light (full --cv-* matrix) ========== */
 html[data-theme='light'],
 :root:not([data-theme='dark']) {
-  --primary-main: #0f766e;
-  --background-color: #dce1e8;
-  --background-color-alpha: rgba(16, 185, 129, 0.14);
-  --divider-color: rgba(11, 18, 32, 0.12);
-  --selection-color: #f8fafc;
-  --scroller-color: #8b95a5;
-  --window-border-color: rgba(11, 18, 32, 0.22);
-  --scrollbar-bg: #e8edf3;
-  --scrollbar-thumb: #8b95a5;
-  --text-primary: #0b1220;
+
+  --cv-color-accent: #0f766e;
+  --cv-color-accent-muted: rgba(16, 185, 129, 0.14);
+  --cv-color-secondary: #b45309;
+  --cv-color-text-primary: #0b1220;
+  --cv-color-text-secondary: #3f4b5b;
+  --cv-color-text-disabled: #8b95a5;
+  --cv-color-info: #0369a1;
+  --cv-color-success: #047857;
+  --cv-color-warning: #b45309;
+  --cv-color-error: #b91c1c;
+  --cv-color-latency-fast: #047857;
+  --cv-color-latency-medium: #b45309;
+  --cv-color-latency-slow: #c2410c;
+  --cv-color-latency-timeout: #b91c1c;
+
+  --cv-surface-app: #dce1e8;
   --cv-surface-sidebar: #e8edf3;
+  --cv-surface-page: #f1f4f8;
   --cv-surface-content: #e9eef4;
   --cv-surface-card: #f7f9fc;
+  --cv-surface-item: #ffffff;
+  --cv-surface-nav-active: rgba(16, 185, 129, 0.14);
   --cv-surface-dialog: #ffffff;
-  --cv-text-secondary: #3f4b5b;
-  --cv-radius: 6px;
-  --cv-blur: 0px;
-  --cv-glow: none;
-  --cv-secondary: #b45309;
+  --cv-surface-overlay: rgba(10, 12, 15, 0.4);
+
+  --cv-border-subtle: rgba(11, 18, 32, 0.12);
+  --cv-border-strong: rgba(11, 18, 32, 0.22);
+  --cv-border-focus: #0f766e;
+
+  --cv-radius-xs: 2px;
+  --cv-radius-sm: 4px;
+  --cv-radius-md: 6px;
+  --cv-radius-lg: 8px;
+  --cv-radius-pill: 999px;
+
+  --cv-space-density: compact;
+  --cv-page-padding: 16px;
+  --cv-card-padding: 12px;
+  --cv-item-gap: 6px;
+
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
+    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: none;
+  --cv-selection-fg: #f8fafc;
+  --cv-scrollbar-bg: #e8edf3;
+  --cv-scrollbar-thumb: #8b95a5;
+  --cv-motion-fast: 90ms;
+  --cv-motion-normal: 160ms;
+  --cv-motion-ease: ease-out;
+
+  --background-color: var(--cv-surface-app);
+  --divider-color: var(--cv-border-subtle);
+  --primary-main: var(--cv-color-accent);
+  --text-primary: var(--cv-color-text-primary);
+  --selection-color: var(--cv-selection-fg);
+  --scroller-color: var(--cv-scrollbar-thumb);
+  --background-color-alpha: var(--cv-color-accent-muted);
+  --window-border-color: var(--cv-border-strong);
+  --scrollbar-bg: var(--cv-scrollbar-bg);
+  --scrollbar-thumb: var(--cv-scrollbar-thumb);
+  --border-radius: var(--cv-radius-md);
 }
 
+/* ========== Tokens: Dark (full --cv-* matrix) ========== */
 html[data-theme='dark'] {
-  --primary-main: #2dd4bf;
-  --background-color: #0a0c0f;
-  --background-color-alpha: rgba(52, 211, 153, 0.14);
-  --divider-color: rgba(255, 255, 255, 0.1);
-  --selection-color: #f3f6fa;
-  --scroller-color: #555555;
-  --window-border-color: rgba(255, 255, 255, 0.18);
-  --scrollbar-bg: #12151a;
-  --scrollbar-thumb: #555555;
-  --text-primary: #f3f6fa;
+
+  --cv-color-accent: #2dd4bf;
+  --cv-color-accent-muted: rgba(52, 211, 153, 0.14);
+  --cv-color-secondary: #f59e0b;
+  --cv-color-text-primary: #f3f6fa;
+  --cv-color-text-secondary: #a7b0bd;
+  --cv-color-text-disabled: #66707e;
+  --cv-color-info: #38bdf8;
+  --cv-color-success: #34d399;
+  --cv-color-warning: #fbbf24;
+  --cv-color-error: #f87171;
+  --cv-color-latency-fast: #34d399;
+  --cv-color-latency-medium: #fbbf24;
+  --cv-color-latency-slow: #fb923c;
+  --cv-color-latency-timeout: #f87171;
+
+  --cv-surface-app: #0a0c0f;
   --cv-surface-sidebar: #12151a;
+  --cv-surface-page: #0e1116;
   --cv-surface-content: #14181f;
   --cv-surface-card: #1a1f28;
+  --cv-surface-item: #1e2430;
+  --cv-surface-nav-active: rgba(52, 211, 153, 0.14);
   --cv-surface-dialog: #1a1f28;
-  --cv-text-secondary: #a7b0bd;
-  --cv-radius: 6px;
-  --cv-blur: 0px;
-  --cv-glow: none;
-  --cv-secondary: #f59e0b;
+  --cv-surface-overlay: rgba(0, 0, 0, 0.65);
+
+  --cv-border-subtle: rgba(255, 255, 255, 0.1);
+  --cv-border-strong: rgba(255, 255, 255, 0.18);
+  --cv-border-focus: #2dd4bf;
+
+  --cv-radius-xs: 2px;
+  --cv-radius-sm: 4px;
+  --cv-radius-md: 6px;
+  --cv-radius-lg: 8px;
+  --cv-radius-pill: 999px;
+
+  --cv-space-density: compact;
+  --cv-page-padding: 16px;
+  --cv-card-padding: 12px;
+  --cv-item-gap: 6px;
+
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
+    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: none;
+  --cv-selection-fg: #f3f6fa;
+  --cv-scrollbar-bg: #12151a;
+  --cv-scrollbar-thumb: #555555;
+  --cv-motion-fast: 90ms;
+  --cv-motion-normal: 160ms;
+  --cv-motion-ease: ease-out;
+
+  --background-color: var(--cv-surface-app);
+  --divider-color: var(--cv-border-subtle);
+  --primary-main: var(--cv-color-accent);
+  --text-primary: var(--cv-color-text-primary);
+  --selection-color: var(--cv-selection-fg);
+  --scroller-color: var(--cv-scrollbar-thumb);
+  --background-color-alpha: var(--cv-color-accent-muted);
+  --window-border-color: var(--cv-border-strong);
+  --scrollbar-bg: var(--cv-scrollbar-bg);
+  --scrollbar-thumb: var(--cv-scrollbar-thumb);
+  --border-radius: var(--cv-radius-md);
 }
 
+/* ========== Surfaces (from surfaces.scss) ========== */
+
 body {
-  background-color: var(--background-color) !important;
-  color: var(--text-primary) !important;
+  background-color: var(--cv-surface-app) !important;
+  color: var(--cv-color-text-primary) !important;
+  font-family: var(--cv-font-sans);
+  transition:
+    background-color var(--cv-motion-normal) var(--cv-motion-ease),
+    color var(--cv-motion-normal) var(--cv-motion-ease);
 }
 
 .layout {
-  background-color: var(--background-color) !important;
+  background-color: var(--cv-surface-app) !important;
+  color: var(--cv-color-text-primary);
 }
 
 .layout .layout-content__left {
-  background: var(--cv-surface-sidebar) !important;
-  border-right: 1px solid var(--divider-color) !important;
-  backdrop-filter: none !important;
+  background-color: var(--cv-surface-sidebar) !important;
+  backdrop-filter: blur(var(--cv-effect-blur));
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
+  border-right: 1px solid var(--cv-border-subtle) !important;
 }
 
 .layout .layout-content__right {
-  background-color: var(--background-color) !important;
+  background-color: var(--cv-surface-page) !important;
 }
 
 .base-page > header {
-  border-bottom-color: var(--divider-color) !important;
-  color: var(--text-primary) !important;
+  border-bottom-color: var(--cv-border-subtle) !important;
+  color: var(--cv-color-text-primary) !important;
 }
 
+.base-page .base-container,
+.base-page .base-container > section,
 .base-container,
 .base-container > section {
   background-color: var(--cv-surface-content) !important;
 }
 
-.MuiPaper-root {
+.cv-card,
+.enhanced-card {
   background-color: var(--cv-surface-card) !important;
-  border-color: var(--window-border-color) !important;
-  border-radius: var(--cv-radius) !important;
-  box-shadow: none !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
+  box-shadow: var(--cv-effect-glow) !important;
+  backdrop-filter: blur(var(--cv-effect-blur));
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
+  color: var(--cv-color-text-primary) !important;
+  transition:
+    background-color var(--cv-motion-fast) var(--cv-motion-ease),
+    border-color var(--cv-motion-fast) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+}
+
+.cv-item {
+  background-color: var(--cv-surface-item) !important;
+  border-radius: var(--cv-radius-sm);
+  border: 1px solid transparent;
+  transition:
+    background-color var(--cv-motion-fast) var(--cv-motion-ease),
+    border-color var(--cv-motion-fast) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+}
+
+.cv-item:hover {
+  border-color: var(--cv-border-subtle);
+}
+
+.cv-item.is-selected,
+.cv-item[data-selected='true'] {
+  background-color: var(--cv-surface-nav-active) !important;
+  border-color: var(--cv-border-focus);
+  box-shadow: var(--cv-effect-glow);
 }
 
 .MuiDialog-paper {
   background-color: var(--cv-surface-dialog) !important;
-  border: 1px solid var(--divider-color) !important;
-  border-radius: var(--cv-radius) !important;
-  color: var(--text-primary) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
+  color: var(--cv-color-text-primary) !important;
+}
+
+.MuiPaper-root {
+  background-color: var(--cv-surface-card) !important;
+  border-color: var(--cv-border-strong) !important;
+  color: var(--cv-color-text-primary);
 }
 
 .MuiButton-containedPrimary,
 .MuiButtonGroup-groupedContainedPrimary {
-  background-color: var(--primary-main) !important;
+  background-color: var(--cv-color-accent) !important;
   box-shadow: none !important;
-  border-radius: var(--cv-radius) !important;
 }
 
 .MuiButton-outlinedPrimary {
-  border-color: var(--primary-main) !important;
-  color: var(--primary-main) !important;
+  border-color: var(--cv-color-accent) !important;
+  color: var(--cv-color-accent) !important;
 }
 
 .MuiSwitch-switchBase.Mui-checked {
-  color: var(--primary-main) !important;
+  color: var(--cv-color-accent) !important;
 }
 
 .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: var(--primary-main) !important;
+  background-color: var(--cv-color-accent) !important;
 }
 
 .MuiListItemButton-root.Mui-selected {
-  background-color: var(--background-color-alpha) !important;
-  border-left: 3px solid var(--primary-main);
+  background-color: var(--cv-surface-nav-active) !important;
 }
 
-/* data-first mono hint */
-.MuiTypography-root[class*='latency'],
-.traffic-text,
-[class*='delay'] {
-  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace !important;
-  font-variant-numeric: tabular-nums;
+.MuiListItemText-primary {
+  color: var(--cv-color-text-primary) !important;
+}
+
+.MuiListItemText-secondary {
+  color: var(--cv-color-text-secondary) !important;
+}
+
+.MuiTypography-colorTextSecondary {
+  color: var(--cv-color-text-secondary) !important;
+}
+
+.MuiDivider-root {
+  border-color: var(--cv-border-subtle) !important;
+}
+
+.MuiBackdrop-root {
+  background-color: var(--cv-surface-overlay) !important;
 }
 
 ::selection {
-  color: var(--selection-color);
-  background-color: var(--primary-main);
+  color: var(--cv-selection-fg);
+  background-color: var(--cv-color-accent);
 }
 
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: var(--scrollbar-bg);
+  background: var(--cv-scrollbar-bg);
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background-color: var(--scrollbar-thumb);
+  border-radius: 6px;
+  background-color: var(--cv-scrollbar-thumb);
+}
+
+/* Stock Clash Verge hardcode beaters (upstream without our TSX patch) */
+.base-container[style],
+.base-container > section[style] {
+  background-color: var(--cv-surface-content) !important;
+}
+
+
+/* Pack flourish: Signal instrument */
+.layout .layout-content__left {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.cv-card,
+.enhanced-card,
+.MuiPaper-root {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-radius: var(--cv-radius-md) !important;
+}
+
+.cv-mono,
+.latency,
+.traffic-text,
+[class*='delay'] {
+  font-family: var(--cv-font-mono) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid var(--cv-color-accent);
 }

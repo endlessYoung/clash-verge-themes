@@ -1,135 +1,309 @@
 /*
  * Clash Verge Themes — Obsidian Glass
- * Thesis: calm glass console — soft depth, ice-blue accent.
+ * Thesis: calm glass console — soft depth, ice-blue accent
+ *
+ * Ported from clash-verge-rev:
+ *   src/assets/styles/themes/packs.scss  (cv-obsidian-*)
+ *   src/assets/styles/themes/surfaces.scss
  *
  * Usage (Clash Verge → Theme Setting → CSS Injection):
  * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/obsidian.css");
  */
 
-/* ---- Light tokens ---- */
+/* ========== Tokens: Light (full --cv-* matrix) ========== */
 html[data-theme='light'],
 :root:not([data-theme='dark']) {
-  --primary-main: #2563eb;
-  --background-color: #e8ecf2;
-  --background-color-alpha: rgba(37, 99, 235, 0.12);
-  --divider-color: rgba(15, 23, 42, 0.08);
-  --selection-color: #f8fafc;
-  --scroller-color: #90939980;
-  --window-border-color: rgba(15, 23, 42, 0.16);
-  --scrollbar-bg: #e8ecf2;
-  --scrollbar-thumb: #a0a6b0;
-  --text-primary: #0f172a;
+
+  --cv-color-accent: #2563eb;
+  --cv-color-accent-muted: rgba(59, 130, 246, 0.14);
+  --cv-color-secondary: #64748b;
+  --cv-color-text-primary: #0f172a;
+  --cv-color-text-secondary: #475569;
+  --cv-color-text-disabled: #94a3b8;
+  --cv-color-info: #2563eb;
+  --cv-color-success: #059669;
+  --cv-color-warning: #d97706;
+  --cv-color-error: #dc2626;
+  --cv-color-latency-fast: #059669;
+  --cv-color-latency-medium: #d97706;
+  --cv-color-latency-slow: #ea580c;
+  --cv-color-latency-timeout: #dc2626;
+
+  --cv-surface-app: #e8ecf2;
   --cv-surface-sidebar: rgba(255, 255, 255, 0.55);
+  --cv-surface-page: #f3f5f9;
   --cv-surface-content: #eef1f7;
-  --cv-surface-card: rgba(255, 255, 255, 0.82);
+  --cv-surface-card: rgba(255, 255, 255, 0.72);
+  --cv-surface-item: rgba(255, 255, 255, 0.55);
+  --cv-surface-nav-active: rgba(59, 130, 246, 0.14);
   --cv-surface-dialog: #ffffff;
-  --cv-text-secondary: #475569;
-  --cv-radius: 12px;
-  --cv-blur: 16px;
-  --cv-glow: none;
+  --cv-surface-overlay: rgba(15, 23, 42, 0.35);
+
+  --cv-border-subtle: rgba(15, 23, 42, 0.08);
+  --cv-border-strong: rgba(15, 23, 42, 0.16);
+  --cv-border-focus: #2563eb;
+
+  --cv-radius-xs: 4px;
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 12px;
+  --cv-radius-lg: 16px;
+  --cv-radius-pill: 999px;
+
+  --cv-space-density: comfortable;
+  --cv-page-padding: 20px;
+  --cv-card-padding: 16px;
+  --cv-item-gap: 10px;
+
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
+    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --cv-effect-blur: 16px;
+  --cv-effect-glow: none;
+  --cv-selection-fg: #f8fafc;
+  --cv-scrollbar-bg: #e8ecf2;
+  --cv-scrollbar-thumb: #90939980;
+  --cv-motion-fast: 120ms;
+  --cv-motion-normal: 200ms;
+  --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --background-color: var(--cv-surface-app);
+  --divider-color: var(--cv-border-subtle);
+  --primary-main: var(--cv-color-accent);
+  --text-primary: var(--cv-color-text-primary);
+  --selection-color: var(--cv-selection-fg);
+  --scroller-color: var(--cv-scrollbar-thumb);
+  --background-color-alpha: var(--cv-color-accent-muted);
+  --window-border-color: var(--cv-border-strong);
+  --scrollbar-bg: var(--cv-scrollbar-bg);
+  --scrollbar-thumb: var(--cv-scrollbar-thumb);
+  --border-radius: var(--cv-radius-md);
 }
 
-/* ---- Dark tokens ---- */
+/* ========== Tokens: Dark (full --cv-* matrix) ========== */
 html[data-theme='dark'] {
-  --primary-main: #60a5fa;
-  --background-color: #0b0f17;
-  --background-color-alpha: rgba(96, 165, 250, 0.16);
-  --divider-color: rgba(255, 255, 255, 0.08);
-  --selection-color: #e8eef9;
-  --scroller-color: #555555;
-  --window-border-color: rgba(255, 255, 255, 0.14);
-  --scrollbar-bg: #101623;
-  --scrollbar-thumb: #555555;
-  --text-primary: #e8eef9;
+
+  --cv-color-accent: #60a5fa;
+  --cv-color-accent-muted: rgba(96, 165, 250, 0.16);
+  --cv-color-secondary: #94a3b8;
+  --cv-color-text-primary: #e8eef9;
+  --cv-color-text-secondary: #9aa8c1;
+  --cv-color-text-disabled: #5b6b86;
+  --cv-color-info: #60a5fa;
+  --cv-color-success: #34d399;
+  --cv-color-warning: #fbbf24;
+  --cv-color-error: #f87171;
+  --cv-color-latency-fast: #34d399;
+  --cv-color-latency-medium: #fbbf24;
+  --cv-color-latency-slow: #fb923c;
+  --cv-color-latency-timeout: #f87171;
+
+  --cv-surface-app: #0b0f17;
   --cv-surface-sidebar: rgba(18, 24, 38, 0.72);
+  --cv-surface-page: #101623;
   --cv-surface-content: #0e1420;
-  --cv-surface-card: rgba(22, 30, 48, 0.72);
+  --cv-surface-card: rgba(22, 30, 48, 0.66);
+  --cv-surface-item: rgba(28, 36, 56, 0.55);
+  --cv-surface-nav-active: rgba(96, 165, 250, 0.16);
   --cv-surface-dialog: #161e30;
-  --cv-text-secondary: #9aa8c1;
-  --cv-radius: 12px;
-  --cv-blur: 18px;
-  --cv-glow: none;
+  --cv-surface-overlay: rgba(0, 0, 0, 0.55);
+
+  --cv-border-subtle: rgba(255, 255, 255, 0.08);
+  --cv-border-strong: rgba(255, 255, 255, 0.14);
+  --cv-border-focus: #60a5fa;
+
+  --cv-radius-xs: 4px;
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 12px;
+  --cv-radius-lg: 16px;
+  --cv-radius-pill: 999px;
+
+  --cv-space-density: comfortable;
+  --cv-page-padding: 20px;
+  --cv-card-padding: 16px;
+  --cv-item-gap: 10px;
+
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
+    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --cv-effect-blur: 18px;
+  --cv-effect-glow: none;
+  --cv-selection-fg: #e8eef9;
+  --cv-scrollbar-bg: #101623;
+  --cv-scrollbar-thumb: #555555;
+  --cv-motion-fast: 120ms;
+  --cv-motion-normal: 200ms;
+  --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --background-color: var(--cv-surface-app);
+  --divider-color: var(--cv-border-subtle);
+  --primary-main: var(--cv-color-accent);
+  --text-primary: var(--cv-color-text-primary);
+  --selection-color: var(--cv-selection-fg);
+  --scroller-color: var(--cv-scrollbar-thumb);
+  --background-color-alpha: var(--cv-color-accent-muted);
+  --window-border-color: var(--cv-border-strong);
+  --scrollbar-bg: var(--cv-scrollbar-bg);
+  --scrollbar-thumb: var(--cv-scrollbar-thumb);
+  --border-radius: var(--cv-radius-md);
 }
+
+/* ========== Surfaces (from surfaces.scss) ========== */
 
 body {
-  background-color: var(--background-color) !important;
-  color: var(--text-primary) !important;
+  background-color: var(--cv-surface-app) !important;
+  color: var(--cv-color-text-primary) !important;
+  font-family: var(--cv-font-sans);
+  transition:
+    background-color var(--cv-motion-normal) var(--cv-motion-ease),
+    color var(--cv-motion-normal) var(--cv-motion-ease);
 }
 
 .layout {
-  background-color: var(--background-color) !important;
-  color: var(--text-primary);
+  background-color: var(--cv-surface-app) !important;
+  color: var(--cv-color-text-primary);
 }
 
 .layout .layout-content__left {
-  background: var(--cv-surface-sidebar) !important;
-  border-right: 1px solid var(--divider-color) !important;
-  backdrop-filter: blur(var(--cv-blur));
-  -webkit-backdrop-filter: blur(var(--cv-blur));
+  background-color: var(--cv-surface-sidebar) !important;
+  backdrop-filter: blur(var(--cv-effect-blur));
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
+  border-right: 1px solid var(--cv-border-subtle) !important;
 }
 
 .layout .layout-content__right {
-  background-color: var(--background-color) !important;
+  background-color: var(--cv-surface-page) !important;
 }
 
 .base-page > header {
-  border-bottom-color: var(--divider-color) !important;
-  color: var(--text-primary) !important;
+  border-bottom-color: var(--cv-border-subtle) !important;
+  color: var(--cv-color-text-primary) !important;
 }
 
+.base-page .base-container,
+.base-page .base-container > section,
 .base-container,
 .base-container > section {
   background-color: var(--cv-surface-content) !important;
 }
 
-.MuiPaper-root {
+.cv-card,
+.enhanced-card {
   background-color: var(--cv-surface-card) !important;
-  border-color: var(--window-border-color) !important;
-  border-radius: var(--cv-radius) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
+  box-shadow: var(--cv-effect-glow) !important;
+  backdrop-filter: blur(var(--cv-effect-blur));
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
+  color: var(--cv-color-text-primary) !important;
+  transition:
+    background-color var(--cv-motion-fast) var(--cv-motion-ease),
+    border-color var(--cv-motion-fast) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+}
+
+.cv-item {
+  background-color: var(--cv-surface-item) !important;
+  border-radius: var(--cv-radius-sm);
+  border: 1px solid transparent;
+  transition:
+    background-color var(--cv-motion-fast) var(--cv-motion-ease),
+    border-color var(--cv-motion-fast) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+}
+
+.cv-item:hover {
+  border-color: var(--cv-border-subtle);
+}
+
+.cv-item.is-selected,
+.cv-item[data-selected='true'] {
+  background-color: var(--cv-surface-nav-active) !important;
+  border-color: var(--cv-border-focus);
+  box-shadow: var(--cv-effect-glow);
 }
 
 .MuiDialog-paper {
   background-color: var(--cv-surface-dialog) !important;
-  border: 1px solid var(--divider-color) !important;
-  border-radius: var(--cv-radius) !important;
-  color: var(--text-primary) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
+  color: var(--cv-color-text-primary) !important;
+}
+
+.MuiPaper-root {
+  background-color: var(--cv-surface-card) !important;
+  border-color: var(--cv-border-strong) !important;
+  color: var(--cv-color-text-primary);
 }
 
 .MuiButton-containedPrimary,
 .MuiButtonGroup-groupedContainedPrimary {
-  background-color: var(--primary-main) !important;
+  background-color: var(--cv-color-accent) !important;
   box-shadow: none !important;
 }
 
 .MuiButton-outlinedPrimary {
-  border-color: var(--primary-main) !important;
-  color: var(--primary-main) !important;
+  border-color: var(--cv-color-accent) !important;
+  color: var(--cv-color-accent) !important;
 }
 
 .MuiSwitch-switchBase.Mui-checked {
-  color: var(--primary-main) !important;
+  color: var(--cv-color-accent) !important;
 }
 
 .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: var(--primary-main) !important;
+  background-color: var(--cv-color-accent) !important;
 }
 
 .MuiListItemButton-root.Mui-selected {
-  background-color: var(--background-color-alpha) !important;
+  background-color: var(--cv-surface-nav-active) !important;
+}
+
+.MuiListItemText-primary {
+  color: var(--cv-color-text-primary) !important;
+}
+
+.MuiListItemText-secondary {
+  color: var(--cv-color-text-secondary) !important;
+}
+
+.MuiTypography-colorTextSecondary {
+  color: var(--cv-color-text-secondary) !important;
+}
+
+.MuiDivider-root {
+  border-color: var(--cv-border-subtle) !important;
+}
+
+.MuiBackdrop-root {
+  background-color: var(--cv-surface-overlay) !important;
 }
 
 ::selection {
-  color: var(--selection-color);
-  background-color: var(--primary-main);
+  color: var(--cv-selection-fg);
+  background-color: var(--cv-color-accent);
 }
 
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: var(--scrollbar-bg);
+  background: var(--cv-scrollbar-bg);
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: var(--scrollbar-thumb);
+  border-radius: 6px;
+  background-color: var(--cv-scrollbar-thumb);
+}
+
+/* Stock Clash Verge hardcode beaters (upstream without our TSX patch) */
+.base-container[style],
+.base-container > section[style] {
+  background-color: var(--cv-surface-content) !important;
+}
+
+
+/* Pack flourish: Obsidian glass */
+.layout .layout-content__left {
+  border-right: 1px solid var(--cv-border-subtle);
 }

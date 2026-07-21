@@ -1,72 +1,20 @@
-/*
- * Clash Verge Themes — Neon Circuit
- * Thesis: night circuit board — cyan primary, magenta secondary, restrained glow
- *
- * Ported from clash-verge-rev:
- *   src/assets/styles/themes/packs.scss  (cv-neon-*)
- *   src/assets/styles/themes/surfaces.scss
- *
- * Usage (Clash Verge → Theme Setting → CSS Injection):
- * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/neon.css");
- */
+import fs from 'node:fs'
+import path from 'node:path'
 
-/* ========== Tokens: Light (full --cv-* matrix) ========== */
-html[data-theme='light'],
-:root:not([data-theme='dark']) {
+const packsSrc =
+  'D:/OpenSourceCode/ClashVerge/clash-verge-rev/src/assets/styles/themes/packs.scss'
+const outDir = 'D:/IProjects/Front end projects/clash-verge-themes/themes'
 
-  --cv-color-accent: #007a99;
-  --cv-color-accent-muted: rgba(0, 170, 204, 0.12);
-  --cv-color-secondary: #c2185b;
-  --cv-color-text-primary: #0b1220;
-  --cv-color-text-secondary: #445066;
-  --cv-color-text-disabled: #8a97ab;
-  --cv-color-info: #007a99;
-  --cv-color-success: #0a7a4b;
-  --cv-color-warning: #b86e00;
-  --cv-color-error: #c62839;
-  --cv-color-latency-fast: #0a7a4b;
-  --cv-color-latency-medium: #b86e00;
-  --cv-color-latency-slow: #c2185b;
-  --cv-color-latency-timeout: #c62839;
+const packs = fs.readFileSync(packsSrc, 'utf8')
 
-  --cv-surface-app: #e6eaf0;
-  --cv-surface-sidebar: #f0f3f8;
-  --cv-surface-page: #f5f7fb;
-  --cv-surface-content: #eef2f7;
-  --cv-surface-card: #ffffff;
-  --cv-surface-item: #f8fafd;
-  --cv-surface-nav-active: rgba(0, 170, 204, 0.12);
-  --cv-surface-dialog: #ffffff;
-  --cv-surface-overlay: rgba(7, 10, 16, 0.4);
+function extractMixin(name) {
+  const re = new RegExp(`@mixin ${name} \\{([\\s\\S]*?)\\n\\}`)
+  const m = packs.match(re)
+  if (!m) throw new Error('mixin missing: ' + name)
+  return m[1].replace(/\n\s*@include cv-legacy-aliases;\s*/g, '\n').trimEnd()
+}
 
-  --cv-border-subtle: rgba(11, 18, 32, 0.1);
-  --cv-border-strong: rgba(0, 122, 153, 0.35);
-  --cv-border-focus: #007a99;
-
-  --cv-radius-xs: 4px;
-  --cv-radius-sm: 6px;
-  --cv-radius-md: 10px;
-  --cv-radius-lg: 12px;
-  --cv-radius-pill: 999px;
-
-  --cv-space-density: comfortable;
-  --cv-page-padding: 20px;
-  --cv-card-padding: 14px;
-  --cv-item-gap: 8px;
-
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
-    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
-
-  --cv-effect-blur: 0px;
-  --cv-effect-glow: 0 0 0 1px rgba(0, 122, 153, 0.35);
-  --cv-selection-fg: #f8fafd;
-  --cv-scrollbar-bg: #f0f3f8;
-  --cv-scrollbar-thumb: #8a97ab;
-  --cv-motion-fast: 100ms;
-  --cv-motion-normal: 180ms;
-  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
-
+const legacyAliases = `
   --background-color: var(--cv-surface-app);
   --divider-color: var(--cv-border-subtle);
   --primary-main: var(--cv-color-accent);
@@ -77,80 +25,9 @@ html[data-theme='light'],
   --window-border-color: var(--cv-border-strong);
   --scrollbar-bg: var(--cv-scrollbar-bg);
   --scrollbar-thumb: var(--cv-scrollbar-thumb);
-  --border-radius: var(--cv-radius-md);
-}
+  --border-radius: var(--cv-radius-md);`
 
-/* ========== Tokens: Dark (full --cv-* matrix) ========== */
-html[data-theme='dark'] {
-
-  --cv-color-accent: #00f0ff;
-  --cv-color-accent-muted: rgba(0, 240, 255, 0.12);
-  --cv-color-secondary: #ff2d95;
-  --cv-color-text-primary: #eaf6ff;
-  --cv-color-text-secondary: #9bb0c7;
-  --cv-color-text-disabled: #5e7088;
-  --cv-color-info: #00f0ff;
-  --cv-color-success: #00ff88;
-  --cv-color-warning: #ffb020;
-  --cv-color-error: #ff4455;
-  --cv-color-latency-fast: #00ff88;
-  --cv-color-latency-medium: #ffb020;
-  --cv-color-latency-slow: #ff2d95;
-  --cv-color-latency-timeout: #ff4455;
-
-  --cv-surface-app: #070a10;
-  --cv-surface-sidebar: #0c111b;
-  --cv-surface-page: #090d16;
-  --cv-surface-content: #0f1522;
-  --cv-surface-card: #121a2a;
-  --cv-surface-item: #162033;
-  --cv-surface-nav-active: rgba(0, 240, 255, 0.12);
-  --cv-surface-dialog: #121a2a;
-  --cv-surface-overlay: rgba(0, 0, 0, 0.7);
-
-  --cv-border-subtle: rgba(0, 240, 255, 0.14);
-  --cv-border-strong: rgba(0, 240, 255, 0.28);
-  --cv-border-focus: #00f0ff;
-
-  --cv-radius-xs: 4px;
-  --cv-radius-sm: 6px;
-  --cv-radius-md: 10px;
-  --cv-radius-lg: 12px;
-  --cv-radius-pill: 999px;
-
-  --cv-space-density: comfortable;
-  --cv-page-padding: 20px;
-  --cv-card-padding: 14px;
-  --cv-item-gap: 8px;
-
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
-    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
-
-  --cv-effect-blur: 0px;
-  --cv-effect-glow: 0 0 12px rgba(0, 240, 255, 0.25);
-  --cv-selection-fg: #eaf6ff;
-  --cv-scrollbar-bg: #0c111b;
-  --cv-scrollbar-thumb: #5e7088;
-  --cv-motion-fast: 100ms;
-  --cv-motion-normal: 180ms;
-  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
-
-  --background-color: var(--cv-surface-app);
-  --divider-color: var(--cv-border-subtle);
-  --primary-main: var(--cv-color-accent);
-  --text-primary: var(--cv-color-text-primary);
-  --selection-color: var(--cv-selection-fg);
-  --scroller-color: var(--cv-scrollbar-thumb);
-  --background-color-alpha: var(--cv-color-accent-muted);
-  --window-border-color: var(--cv-border-strong);
-  --scrollbar-bg: var(--cv-scrollbar-bg);
-  --scrollbar-thumb: var(--cv-scrollbar-thumb);
-  --border-radius: var(--cv-radius-md);
-}
-
-/* ========== Surfaces (from surfaces.scss) ========== */
-
+const sharedSurfaces = `
 body {
   background-color: var(--cv-surface-app) !important;
   color: var(--cv-color-text-primary) !important;
@@ -301,9 +178,56 @@ body {
 .base-container > section[style] {
   background-color: var(--cv-surface-content) !important;
 }
+`
 
+const flourishes = {
+  obsidian: `/* Pack flourish: Obsidian glass */
+.layout .layout-content__left {
+  border-right: 1px solid var(--cv-border-subtle);
+}`,
+  signal: `/* Pack flourish: Signal instrument */
+.layout .layout-content__left {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
 
-/* Pack flourish: Neon circuit */
+.cv-card,
+.enhanced-card,
+.MuiPaper-root {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-radius: var(--cv-radius-md) !important;
+}
+
+.cv-mono,
+.latency,
+.traffic-text,
+[class*='delay'] {
+  font-family: var(--cv-font-mono) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid var(--cv-color-accent);
+}`,
+  paper: `/* Pack flourish: Paper atelier */
+.layout .layout-content__left {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.base-page > header {
+  letter-spacing: 0.01em;
+}
+
+.cv-card,
+.enhanced-card,
+.MuiPaper-root {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}`,
+  neon: `/* Pack flourish: Neon circuit */
 .layout .layout-content__left {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -327,4 +251,64 @@ body {
 html[data-theme='dark'] .MuiButton-containedPrimary,
 html[data-theme='dark'] .MuiButtonGroup-groupedContainedPrimary {
   color: #041018 !important;
+}`,
+}
+
+const meta = {
+  obsidian: {
+    title: 'Obsidian Glass',
+    thesis: 'calm glass console — soft depth, ice-blue accent',
+  },
+  signal: {
+    title: 'Signal Instrument',
+    thesis: 'flight-instrument panel — high contrast, sharp, data-first',
+  },
+  paper: {
+    title: 'Paper Atelier',
+    thesis: 'editorial paper — warm white space, terracotta ink',
+  },
+  neon: {
+    title: 'Neon Circuit',
+    thesis:
+      'night circuit board — cyan primary, magenta secondary, restrained glow',
+  },
+}
+
+for (const id of ['obsidian', 'signal', 'paper', 'neon']) {
+  const light = extractMixin(`cv-${id}-light`)
+  const dark = extractMixin(`cv-${id}-dark`)
+  const m = meta[id]
+  const css = `/*
+ * Clash Verge Themes — ${m.title}
+ * Thesis: ${m.thesis}
+ *
+ * Ported from clash-verge-rev:
+ *   src/assets/styles/themes/packs.scss  (cv-${id}-*)
+ *   src/assets/styles/themes/surfaces.scss
+ *
+ * Usage (Clash Verge → Theme Setting → CSS Injection):
+ * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/${id}.css");
+ */
+
+/* ========== Tokens: Light (full --cv-* matrix) ========== */
+html[data-theme='light'],
+:root:not([data-theme='dark']) {
+${light}
+${legacyAliases}
+}
+
+/* ========== Tokens: Dark (full --cv-* matrix) ========== */
+html[data-theme='dark'] {
+${dark}
+${legacyAliases}
+}
+
+/* ========== Surfaces (from surfaces.scss) ========== */
+${sharedSurfaces}
+
+${flourishes[id]}
+`
+  const out = path.join(outDir, `${id}.css`)
+  fs.writeFileSync(out, css, 'utf8')
+  console.log('wrote', id, fs.statSync(out).size, 'bytes')
 }

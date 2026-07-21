@@ -3,7 +3,9 @@
 Spec-driven theme CSS packs for [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev).  
 Hosted for one-line `@import` via CSS Injection — no fork required.
 
-> SDD specs live in [`/specs`](./specs). Implementation follows those specs.
+> **Parity:** Theme tokens & surfaces are generated from the in-app implementation  
+> (`clash-verge-rev` → `src/assets/styles/themes/packs.scss` + `surfaces.scss`).  
+> See [`specs/04-parity.md`](./specs/04-parity.md).
 
 ## Themes
 
@@ -14,12 +16,12 @@ Hosted for one-line `@import` via CSS Injection — no fork required.
 | **Paper Atelier** | `themes/paper.css` | Warm editorial paper |
 | **Neon Circuit** | `themes/neon.css` | Cyan / magenta energy |
 
-Each file includes **Light + Dark** (follows app Theme Mode / `data-theme`).
+Each file includes the **full `--cv-*` token matrix** (colors, surfaces, radius, semantic, latency, fonts, motion) + Light/Dark + surface rules + pack flourishes.
 
 ## Usage
 
 1. Clash Verge → **Settings → Theme Setting → Edit CSS**
-2. Paste **one** of the lines below (only one pack at a time)
+2. Paste **one** line (only one pack at a time)
 3. Save
 
 ### Preferred (jsDelivr)
@@ -46,12 +48,21 @@ Each file includes **Light + Dark** (follows app Theme Mode / `data-theme`).
 @import url("https://raw.githubusercontent.com/endlessYoung/clash-verge-themes/main/themes/obsidian.css");
 ```
 
+## Rebuild from upstream packs
+
+If you update tokens in the Clash Verge Rev checkout:
+
+```bash
+node scripts/build-from-packs.mjs
+```
+
+(Path to `packs.scss` is set inside the script.)
+
 ## Limits
 
-- Shell / MUI surfaces / CSS variables: good coverage.
-- Some in-app hardcoded inline colors (proxy cards etc.) may not fully change.
-- Needs network for first load of `@import`. Offline = theme won't fetch.
-- After first publish, jsDelivr may cache for a few minutes.
+- Shell / MUI surfaces / full CSS variables: strong coverage (aligned with in-app packs).
+- Emotion/`sx` hardcoded colors in upstream builds may still win in some list items.
+- Needs network for `@import`. jsDelivr may cache a few minutes after push.
 
 ## SDD
 
@@ -61,6 +72,7 @@ Each file includes **Light + Dark** (follows app Theme Mode / `data-theme`).
 | Requirements | [`specs/01-requirements.md`](./specs/01-requirements.md) |
 | Design | [`specs/02-design.md`](./specs/02-design.md) |
 | Acceptance | [`specs/03-acceptance.md`](./specs/03-acceptance.md) |
+| Parity | [`specs/04-parity.md`](./specs/04-parity.md) |
 
 ## License
 
