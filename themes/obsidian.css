@@ -1,0 +1,135 @@
+/*
+ * Clash Verge Themes — Obsidian Glass
+ * Thesis: calm glass console — soft depth, ice-blue accent.
+ *
+ * Usage (Clash Verge → Theme Setting → CSS Injection):
+ * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/obsidian.css");
+ */
+
+/* ---- Light tokens ---- */
+html[data-theme='light'],
+:root:not([data-theme='dark']) {
+  --primary-main: #2563eb;
+  --background-color: #e8ecf2;
+  --background-color-alpha: rgba(37, 99, 235, 0.12);
+  --divider-color: rgba(15, 23, 42, 0.08);
+  --selection-color: #f8fafc;
+  --scroller-color: #90939980;
+  --window-border-color: rgba(15, 23, 42, 0.16);
+  --scrollbar-bg: #e8ecf2;
+  --scrollbar-thumb: #a0a6b0;
+  --text-primary: #0f172a;
+  --cv-surface-sidebar: rgba(255, 255, 255, 0.55);
+  --cv-surface-content: #eef1f7;
+  --cv-surface-card: rgba(255, 255, 255, 0.82);
+  --cv-surface-dialog: #ffffff;
+  --cv-text-secondary: #475569;
+  --cv-radius: 12px;
+  --cv-blur: 16px;
+  --cv-glow: none;
+}
+
+/* ---- Dark tokens ---- */
+html[data-theme='dark'] {
+  --primary-main: #60a5fa;
+  --background-color: #0b0f17;
+  --background-color-alpha: rgba(96, 165, 250, 0.16);
+  --divider-color: rgba(255, 255, 255, 0.08);
+  --selection-color: #e8eef9;
+  --scroller-color: #555555;
+  --window-border-color: rgba(255, 255, 255, 0.14);
+  --scrollbar-bg: #101623;
+  --scrollbar-thumb: #555555;
+  --text-primary: #e8eef9;
+  --cv-surface-sidebar: rgba(18, 24, 38, 0.72);
+  --cv-surface-content: #0e1420;
+  --cv-surface-card: rgba(22, 30, 48, 0.72);
+  --cv-surface-dialog: #161e30;
+  --cv-text-secondary: #9aa8c1;
+  --cv-radius: 12px;
+  --cv-blur: 18px;
+  --cv-glow: none;
+}
+
+body {
+  background-color: var(--background-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.layout {
+  background-color: var(--background-color) !important;
+  color: var(--text-primary);
+}
+
+.layout .layout-content__left {
+  background: var(--cv-surface-sidebar) !important;
+  border-right: 1px solid var(--divider-color) !important;
+  backdrop-filter: blur(var(--cv-blur));
+  -webkit-backdrop-filter: blur(var(--cv-blur));
+}
+
+.layout .layout-content__right {
+  background-color: var(--background-color) !important;
+}
+
+.base-page > header {
+  border-bottom-color: var(--divider-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.base-container,
+.base-container > section {
+  background-color: var(--cv-surface-content) !important;
+}
+
+.MuiPaper-root {
+  background-color: var(--cv-surface-card) !important;
+  border-color: var(--window-border-color) !important;
+  border-radius: var(--cv-radius) !important;
+}
+
+.MuiDialog-paper {
+  background-color: var(--cv-surface-dialog) !important;
+  border: 1px solid var(--divider-color) !important;
+  border-radius: var(--cv-radius) !important;
+  color: var(--text-primary) !important;
+}
+
+.MuiButton-containedPrimary,
+.MuiButtonGroup-groupedContainedPrimary {
+  background-color: var(--primary-main) !important;
+  box-shadow: none !important;
+}
+
+.MuiButton-outlinedPrimary {
+  border-color: var(--primary-main) !important;
+  color: var(--primary-main) !important;
+}
+
+.MuiSwitch-switchBase.Mui-checked {
+  color: var(--primary-main) !important;
+}
+
+.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: var(--primary-main) !important;
+}
+
+.MuiListItemButton-root.Mui-selected {
+  background-color: var(--background-color-alpha) !important;
+}
+
+::selection {
+  color: var(--selection-color);
+  background-color: var(--primary-main);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: var(--scrollbar-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--scrollbar-thumb);
+}

@@ -1,0 +1,143 @@
+/*
+ * Clash Verge Themes — Signal Instrument
+ * Thesis: flight-instrument panel — high contrast, sharp, data-first.
+ *
+ * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/signal.css");
+ */
+
+html[data-theme='light'],
+:root:not([data-theme='dark']) {
+  --primary-main: #0f766e;
+  --background-color: #dce1e8;
+  --background-color-alpha: rgba(16, 185, 129, 0.14);
+  --divider-color: rgba(11, 18, 32, 0.12);
+  --selection-color: #f8fafc;
+  --scroller-color: #8b95a5;
+  --window-border-color: rgba(11, 18, 32, 0.22);
+  --scrollbar-bg: #e8edf3;
+  --scrollbar-thumb: #8b95a5;
+  --text-primary: #0b1220;
+  --cv-surface-sidebar: #e8edf3;
+  --cv-surface-content: #e9eef4;
+  --cv-surface-card: #f7f9fc;
+  --cv-surface-dialog: #ffffff;
+  --cv-text-secondary: #3f4b5b;
+  --cv-radius: 6px;
+  --cv-blur: 0px;
+  --cv-glow: none;
+  --cv-secondary: #b45309;
+}
+
+html[data-theme='dark'] {
+  --primary-main: #2dd4bf;
+  --background-color: #0a0c0f;
+  --background-color-alpha: rgba(52, 211, 153, 0.14);
+  --divider-color: rgba(255, 255, 255, 0.1);
+  --selection-color: #f3f6fa;
+  --scroller-color: #555555;
+  --window-border-color: rgba(255, 255, 255, 0.18);
+  --scrollbar-bg: #12151a;
+  --scrollbar-thumb: #555555;
+  --text-primary: #f3f6fa;
+  --cv-surface-sidebar: #12151a;
+  --cv-surface-content: #14181f;
+  --cv-surface-card: #1a1f28;
+  --cv-surface-dialog: #1a1f28;
+  --cv-text-secondary: #a7b0bd;
+  --cv-radius: 6px;
+  --cv-blur: 0px;
+  --cv-glow: none;
+  --cv-secondary: #f59e0b;
+}
+
+body {
+  background-color: var(--background-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.layout {
+  background-color: var(--background-color) !important;
+}
+
+.layout .layout-content__left {
+  background: var(--cv-surface-sidebar) !important;
+  border-right: 1px solid var(--divider-color) !important;
+  backdrop-filter: none !important;
+}
+
+.layout .layout-content__right {
+  background-color: var(--background-color) !important;
+}
+
+.base-page > header {
+  border-bottom-color: var(--divider-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.base-container,
+.base-container > section {
+  background-color: var(--cv-surface-content) !important;
+}
+
+.MuiPaper-root {
+  background-color: var(--cv-surface-card) !important;
+  border-color: var(--window-border-color) !important;
+  border-radius: var(--cv-radius) !important;
+  box-shadow: none !important;
+}
+
+.MuiDialog-paper {
+  background-color: var(--cv-surface-dialog) !important;
+  border: 1px solid var(--divider-color) !important;
+  border-radius: var(--cv-radius) !important;
+  color: var(--text-primary) !important;
+}
+
+.MuiButton-containedPrimary,
+.MuiButtonGroup-groupedContainedPrimary {
+  background-color: var(--primary-main) !important;
+  box-shadow: none !important;
+  border-radius: var(--cv-radius) !important;
+}
+
+.MuiButton-outlinedPrimary {
+  border-color: var(--primary-main) !important;
+  color: var(--primary-main) !important;
+}
+
+.MuiSwitch-switchBase.Mui-checked {
+  color: var(--primary-main) !important;
+}
+
+.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: var(--primary-main) !important;
+}
+
+.MuiListItemButton-root.Mui-selected {
+  background-color: var(--background-color-alpha) !important;
+  border-left: 3px solid var(--primary-main);
+}
+
+/* data-first mono hint */
+.MuiTypography-root[class*='latency'],
+.traffic-text,
+[class*='delay'] {
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  color: var(--selection-color);
+  background-color: var(--primary-main);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: var(--scrollbar-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--scrollbar-thumb);
+}

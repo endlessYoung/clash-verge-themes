@@ -1,0 +1,136 @@
+/*
+ * Clash Verge Themes — Paper Atelier
+ * Thesis: editorial paper — warm white space, terracotta ink.
+ *
+ * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/paper.css");
+ */
+
+html[data-theme='light'],
+:root:not([data-theme='dark']) {
+  --primary-main: #c25c3a;
+  --background-color: #efe8de;
+  --background-color-alpha: rgba(194, 92, 58, 0.12);
+  --divider-color: rgba(31, 26, 22, 0.08);
+  --selection-color: #fffaf3;
+  --scroller-color: #9c9287;
+  --window-border-color: rgba(31, 26, 22, 0.14);
+  --scrollbar-bg: #f5f0e8;
+  --scrollbar-thumb: #9c9287;
+  --text-primary: #1f1a16;
+  --cv-surface-sidebar: #f5f0e8;
+  --cv-surface-content: #f3ece3;
+  --cv-surface-card: #fffaf3;
+  --cv-surface-dialog: #fffdf9;
+  --cv-text-secondary: #5c534a;
+  --cv-radius: 12px;
+  --cv-blur: 0px;
+  --cv-glow: 0 1px 2px rgba(31, 26, 22, 0.06);
+  --cv-secondary: #3f5b6c;
+}
+
+html[data-theme='dark'] {
+  --primary-main: #e89573;
+  --background-color: #1c1916;
+  --background-color-alpha: rgba(232, 149, 115, 0.14);
+  --divider-color: rgba(244, 236, 227, 0.08);
+  --selection-color: #f4ece3;
+  --scroller-color: #7a7066;
+  --window-border-color: rgba(244, 236, 227, 0.14);
+  --scrollbar-bg: #241f1b;
+  --scrollbar-thumb: #7a7066;
+  --text-primary: #f4ece3;
+  --cv-surface-sidebar: #241f1b;
+  --cv-surface-content: #221e1a;
+  --cv-surface-card: #2a241f;
+  --cv-surface-dialog: #2a241f;
+  --cv-text-secondary: #b5a89a;
+  --cv-radius: 12px;
+  --cv-blur: 0px;
+  --cv-glow: none;
+  --cv-secondary: #8fa9b8;
+}
+
+body {
+  background-color: var(--background-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.layout {
+  background-color: var(--background-color) !important;
+}
+
+.layout .layout-content__left {
+  background: var(--cv-surface-sidebar) !important;
+  border-right: 1px solid var(--divider-color) !important;
+  backdrop-filter: none !important;
+}
+
+.layout .layout-content__right {
+  background-color: var(--background-color) !important;
+}
+
+.base-page > header {
+  border-bottom-color: var(--divider-color) !important;
+  color: var(--text-primary) !important;
+  letter-spacing: 0.01em;
+}
+
+.base-container,
+.base-container > section {
+  background-color: var(--cv-surface-content) !important;
+}
+
+.MuiPaper-root {
+  background-color: var(--cv-surface-card) !important;
+  border-color: var(--window-border-color) !important;
+  border-radius: var(--cv-radius) !important;
+  box-shadow: var(--cv-glow) !important;
+}
+
+.MuiDialog-paper {
+  background-color: var(--cv-surface-dialog) !important;
+  border: 1px solid var(--divider-color) !important;
+  border-radius: var(--cv-radius) !important;
+  color: var(--text-primary) !important;
+  padding: 4px;
+}
+
+.MuiButton-containedPrimary,
+.MuiButtonGroup-groupedContainedPrimary {
+  background-color: var(--primary-main) !important;
+  box-shadow: none !important;
+  border-radius: var(--cv-radius) !important;
+}
+
+.MuiButton-outlinedPrimary {
+  border-color: var(--primary-main) !important;
+  color: var(--primary-main) !important;
+}
+
+.MuiSwitch-switchBase.Mui-checked {
+  color: var(--primary-main) !important;
+}
+
+.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: var(--primary-main) !important;
+}
+
+.MuiListItemButton-root.Mui-selected {
+  background-color: var(--background-color-alpha) !important;
+}
+
+::selection {
+  color: var(--selection-color);
+  background-color: var(--primary-main);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: var(--scrollbar-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: var(--scrollbar-thumb);
+}
