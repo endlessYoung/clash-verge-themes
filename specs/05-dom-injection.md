@@ -44,6 +44,19 @@ html[style=--legacy-vars]
 7. **Selected nav:** `.the-menu .MuiListItemButton-root.Mui-selected`.
 8. Glow must use **class** selectors (beats `* { box-shadow:none !important }` by specificity).
 
+## Hosting / MIME constraint (found 2026-07-22)
+
+`raw.githubusercontent.com` serves `.css` files as `Content-Type: text/plain`
+with `X-Content-Type-Options: nosniff`. Browsers/WebViews performing strict
+MIME-type checking on stylesheets (including nested `@import`) **refuse to
+apply** a resource whose MIME type isn't `text/css` when `nosniff` is set —
+the import fails silently, no console-visible breakage inside the app UI.
+
+**Fix:** use jsDelivr (`cdn.jsdelivr.net/gh/<user>/<repo>@<ref>/<path>`), which
+serves the correct `text/css` MIME type and mirrors the repo's directory
+structure so nested relative `@import`s (e.g. `../../core/tokens.css`)
+resolve correctly too. Never recommend raw GitHub URLs for CSS Injection.
+
 ## Token source
 
 Still from `clash-verge-rev` `packs.scss` mixins — but applied as paint values, not only as html-level CSS variables.

@@ -27,22 +27,26 @@ All three ship **full Light + Dark** via `prefers-color-scheme` (and
 4. Save
 
 ```css
-@import url("https://raw.githubusercontent.com/endlessYoung/clash-verge-themes/develop/themes/cyber-nexus/index.css");
-```
-
-```css
-@import url("https://raw.githubusercontent.com/endlessYoung/clash-verge-themes/develop/themes/ai-operator/index.css");
-```
-
-```css
-@import url("https://raw.githubusercontent.com/endlessYoung/clash-verge-themes/develop/themes/aurora-glass/index.css");
-```
-
-jsDelivr alternative (may cache a few minutes after a push):
-
-```css
 @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@develop/themes/cyber-nexus/index.css");
 ```
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@develop/themes/ai-operator/index.css");
+```
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@develop/themes/aurora-glass/index.css");
+```
+
+> ⚠️ **Do not use `raw.githubusercontent.com`.** It serves `.css` as
+> `Content-Type: text/plain` with `X-Content-Type-Options: nosniff`.
+> Browsers/WebViews refuse to apply a stylesheet with the wrong MIME type
+> under strict MIME checking — the `@import` silently does nothing. jsDelivr
+> serves the correct `text/css` MIME type and mirrors the repo's folder
+> structure, so the nested `@import`s inside each `index.css` resolve too.
+>
+> jsDelivr may take a few minutes to pick up a fresh push. To force a purge:
+> `https://purge.jsdelivr.net/gh/endlessYoung/clash-verge-themes@develop/themes/cyber-nexus/index.css`
 
 > Work lives on **`develop`**. `main` is intentionally a placeholder.
 
@@ -87,7 +91,7 @@ cp -r themes/cyber-nexus themes/my-theme
 ## Limits
 
 - Emotion hashed classes and rare inline `style=` colors may still leak on some list rows.
-- Needs network for `@import`; prefer raw GitHub URL over jsDelivr right after a push.
+- Needs network for `@import`. Use jsDelivr **only** — raw GitHub URLs are broken (wrong MIME type, see warning above).
 
 ## SDD
 
