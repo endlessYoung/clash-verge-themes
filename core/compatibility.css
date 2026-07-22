@@ -54,8 +54,6 @@ html body .layout .layout-content__left {
 html body .layout .layout-content__right,
 html body .the-content {
   background-color: var(--cv-bg-primary) !important;
-  background-image: var(--cv-ambient);
-  background-attachment: fixed;
 }
 
 html body .base-page > header {
@@ -64,27 +62,44 @@ html body .base-page > header {
   color: var(--cv-text-primary) !important;
 }
 
-/* Beats stock inline style="background-color: rgb(30,31,39)" on these two */
+/* Ambient MUST live on base-container — putting it only on .the-content
+   is invisible because this opaque layer paints on top of it. Keep the
+   solid fallback color, then layer ambient with background-image. */
 html body .base-page .base-container,
 html body .base-page .base-container > section,
 html body .base-container,
 html body .base-container > section {
   background-color: var(--cv-bg-primary) !important;
+  background-image: var(--cv-ambient) !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
 }
 
 html body .base-content {
   color: var(--cv-text-primary) !important;
 }
 
-/* Setting / proxy cards — stable Grid > Box structure, not Emotion hash */
+/* Setting / proxy cards — stable Grid > Box structure, not Emotion hash.
+   Use elevated/card surface (NOT the translucent --cv-surface wash) so
+   cards read as lifted panels against the ambient page background. */
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
-  background-color: var(--cv-surface) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
+  background-color: var(--cv-surface-card, var(--cv-surface-elevated)) !important;
+  border: 1px solid var(--cv-border-strong) !important;
   border-radius: var(--cv-radius-md) !important;
   color: var(--cv-text-primary) !important;
   box-shadow: var(--cv-effect-glow) !important;
   overflow: hidden;
+}
+
+/* Home EnhancedCard (Box, not Paper) — stock + Neo class hooks */
+html body .enhanced-card,
+html body .cv-card {
+  background-color: var(--cv-surface-card, var(--cv-surface-elevated)) !important;
+  border: 1px solid var(--cv-border-strong) !important;
+  border-radius: var(--cv-radius-md) !important;
+  box-shadow: var(--cv-effect-glow) !important;
+  color: var(--cv-text-primary) !important;
 }
 
 html body .MuiListSubheader-root {
@@ -149,16 +164,12 @@ html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
   background-color: var(--cv-primary) !important;
 }
 
-/* Nav selected — ONLY defend box-shadow here (needed to beat the app's
-   `* { box-shadow:none !important }`). Do NOT set background-color: this
-   file loads last, so declaring it here would silently stomp each theme's
-   own decorative background (e.g. Cyber Nexus's gradient) defined in its
-   components.css, even though both rules use !important at equal
-   specificity. Background is each theme's job; this file only guarantees
-   the glow ring survives. */
-html body .the-menu .MuiListItemButton-root.Mui-selected,
-html body .MuiListItemButton-root.Mui-selected {
-  box-shadow: var(--cv-effect-glow) !important;
+/* Nav selected — do NOT set background or box-shadow here.
+   Theme components.css owns decorative selected styles; a later rule
+   here would stomp them. Specificity of `html body .the-menu …` already
+   beats the app's `* { box-shadow:none !important }`. */
+html body .the-menu .MuiListItemButton-root.Mui-selected {
+  /* reserved: no paint */ 
 }
 
 html body .the-logo svg,

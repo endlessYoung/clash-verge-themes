@@ -1,10 +1,21 @@
 /**
  * Theme: Cyber Nexus — components.css
- * Visual treatment for nav / header / cards / buttons / chips.
- * Property policy: color/background/border/shadow/radius/font/spacing only.
+ * High-contrast HUD surfaces. Targets real home cards (.enhanced-card /
+ * .cv-card) not just settings Grid boxes.
  */
 
-/* Sidebar nav — floating glass, no heavy block active state */
+/* Sidebar: distinctly darker glass lane */
+html body .layout .layout-content__left {
+  background: linear-gradient(
+    180deg,
+    rgba(7, 11, 20, 0.94),
+    rgba(4, 6, 12, 0.98)
+  ) !important;
+  border-right: 1px solid rgba(0, 229, 255, 0.18) !important;
+  box-shadow: inset -1px 0 0 rgba(0, 229, 255, 0.08),
+    8px 0 32px rgba(0, 0, 0, 0.35) !important;
+}
+
 html body .the-menu {
   padding: var(--cv-space-2);
 }
@@ -19,9 +30,11 @@ html body .the-menu .MuiListItemButton-root.Mui-selected {
   border-left: 3px solid var(--cv-primary) !important;
   background: linear-gradient(
     90deg,
-    rgba(0, 229, 255, 0.22),
-    rgba(0, 229, 255, 0.03)
+    rgba(0, 229, 255, 0.28),
+    rgba(0, 229, 255, 0.04)
   ) !important;
+  box-shadow: inset 0 0 24px rgba(0, 229, 255, 0.12),
+    0 0 16px rgba(0, 229, 255, 0.15) !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
@@ -30,48 +43,102 @@ html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
-  background-color: var(--cv-surface);
+  background-color: rgba(0, 229, 255, 0.08);
 }
 
-/* Header — minimal */
+/* ---- HOME + SHARED CARDS (the real visual gap) ---- */
+html body .enhanced-card,
+html body .cv-card,
+html body .base-content .MuiPaper-root:not(.layout),
+html body .base-content > .MuiGrid-root .MuiPaper-root,
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  position: relative !important;
+  background-color: var(--cv-surface-card, var(--cv-surface-elevated)) !important;
+  background-image: linear-gradient(
+    165deg,
+    rgba(0, 229, 255, 0.07),
+    transparent 42%
+  ) !important;
+  border: 1px solid rgba(0, 229, 255, 0.28) !important;
+  border-radius: var(--cv-radius-md) !important;
+  box-shadow: var(--cv-effect-glow) !important;
+  overflow: hidden !important;
+  transition: transform var(--cv-motion-normal) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-normal) var(--cv-motion-ease),
+    border-color var(--cv-motion-normal) var(--cv-motion-ease);
+}
+
+/* Top cyan accent bar — unmistakable HUD cue */
+html body .enhanced-card::before,
+html body .cv-card::before,
+html body .base-content .MuiPaper-root:not(.layout)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cv-primary),
+    var(--cv-secondary),
+    transparent
+  );
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+}
+
+html body .enhanced-card:hover,
+html body .cv-card:hover,
+html body .base-content .MuiPaper-root:not(.layout):hover,
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 229, 255, 0.55) !important;
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.55),
+    0 0 36px rgba(0, 229, 255, 0.28), 0 22px 48px rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Mode / tun tiles inside cards */
+html body .base-content .MuiPaper-root.MuiPaper-elevation,
+html body .base-content [class*='MuiPaper'] {
+  border-radius: var(--cv-radius-sm) !important;
+}
+
 html body .base-page > header {
   padding-top: var(--cv-space-3);
   padding-bottom: var(--cv-space-3);
+  border-bottom-color: rgba(0, 229, 255, 0.14) !important;
 }
 
-/* Setting / proxy cards */
-html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
-html body .base-content .MuiGrid-root > .MuiBox-root {
-  box-shadow: var(--cv-effect-glow) !important;
-  transition: transform var(--cv-motion-normal) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-normal) var(--cv-motion-ease);
-}
-
-html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.35),
-    0 12px 28px rgba(0, 229, 255, 0.14) !important;
-}
-
-/* Buttons */
 html body .MuiButton-root {
   border-radius: var(--cv-radius-sm) !important;
   text-transform: none;
 }
 
-/* Chips (status pills) */
+html body .MuiButton-containedPrimary,
+html body .MuiButtonGroup-groupedContainedPrimary {
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.35) !important;
+}
+
 html body .MuiChip-root {
   border-radius: var(--cv-radius-sm) !important;
   font-family: var(--cv-font-mono);
 }
 
-/* Traffic / latency numerals feel instrument-grade */
 html body .the-traffic {
   font-family: var(--cv-font-mono);
   font-variant-numeric: tabular-nums;
 }
 
-/* Dialog polish */
 html body .MuiDialog-root .MuiDialog-paper {
   box-shadow: var(--cv-effect-glow) !important;
+  border: 1px solid rgba(0, 229, 255, 0.28) !important;
+}
+
+/* Switch ON = glowing cyan capsule */
+html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.55);
 }

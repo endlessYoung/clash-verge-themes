@@ -24,6 +24,7 @@ body {
   --cv-bg-secondary: #111827;
   --cv-surface: rgba(255, 255, 255, 0.06);
   --cv-surface-elevated: #161e30;
+  --cv-surface-card: var(--cv-surface-elevated);
   --cv-primary: #60a5fa;
   --cv-secondary: #8b5cf6;
   --cv-text-primary: #e8eef9;
