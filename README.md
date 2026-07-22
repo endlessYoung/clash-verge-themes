@@ -3,9 +3,10 @@
 Spec-driven theme CSS packs for [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev).  
 Hosted for one-line `@import` via CSS Injection — no fork required.
 
-> **Parity:** Theme tokens & surfaces are generated from the in-app implementation  
-> (`clash-verge-rev` → `src/assets/styles/themes/packs.scss` + `surfaces.scss`).  
-> See [`specs/04-parity.md`](./specs/04-parity.md).
+> **v2 (DOM-aware):** Stock Clash Verge has **no** `data-theme` on `<html>`, and sets  
+> legacy CSS vars as **inline styles** on `<html>`. Themes therefore **paint real DOM  
+> selectors** with `!important`, and switch Light/Dark via `prefers-color-scheme`.  
+> See [`specs/05-dom-injection.md`](./specs/05-dom-injection.md).
 
 ## Themes
 
@@ -16,7 +17,8 @@ Hosted for one-line `@import` via CSS Injection — no fork required.
 | **Paper Atelier** | `themes/paper.css` | Warm editorial paper |
 | **Neon Circuit** | `themes/neon.css` | Cyan / magenta energy |
 
-Each file includes the **full `--cv-*` token matrix** (colors, surfaces, radius, semantic, latency, fonts, motion) + Light/Dark + surface rules + pack flourishes.
+Tokens come from in-app `packs.scss`; application targets stock classes  
+(`.layout`, `.base-container`, `.the-menu`, `.MuiDialog-paper`, …).
 
 ## Usage
 
@@ -60,9 +62,10 @@ node scripts/build-from-packs.mjs
 
 ## Limits
 
-- Shell / MUI surfaces / full CSS variables: strong coverage (aligned with in-app packs).
-- Emotion/`sx` hardcoded colors in upstream builds may still win in some list items.
-- Needs network for `@import`. jsDelivr may cache a few minutes after push.
+- Beats most shell / settings-card / dialog / nav surfaces on stock v2.5.x.
+- Emotion hashed classes and some inline `style=` colors may still leak.
+- Theme mode in app should stay **系统** so OS light/dark matches the CSS media query.
+- Needs network for `@import`. jsDelivr may cache several minutes after push — prefer raw GitHub URL to verify.
 
 ## SDD
 
@@ -73,6 +76,7 @@ node scripts/build-from-packs.mjs
 | Design | [`specs/02-design.md`](./specs/02-design.md) |
 | Acceptance | [`specs/03-acceptance.md`](./specs/03-acceptance.md) |
 | Parity | [`specs/04-parity.md`](./specs/04-parity.md) |
+| DOM injection | [`specs/05-dom-injection.md`](./specs/05-dom-injection.md) |
 
 ## License
 

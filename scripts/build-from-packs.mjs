@@ -1,3 +1,8 @@
+/**
+ * Build injectable theme CSS for stock Clash Verge DOM.
+ * Source tokens: clash-verge-rev packs.scss
+ * Strategy: specs/05-dom-injection.md
+ */
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -11,247 +16,282 @@ function extractMixin(name) {
   const re = new RegExp(`@mixin ${name} \\{([\\s\\S]*?)\\n\\}`)
   const m = packs.match(re)
   if (!m) throw new Error('mixin missing: ' + name)
-  return m[1].replace(/\n\s*@include cv-legacy-aliases;\s*/g, '\n').trimEnd()
+  return m[1].replace(/\n\s*@include cv-legacy-aliases;\s*/g, '\n')
 }
 
-const legacyAliases = `
-  --background-color: var(--cv-surface-app);
-  --divider-color: var(--cv-border-subtle);
-  --primary-main: var(--cv-color-accent);
-  --text-primary: var(--cv-color-text-primary);
-  --selection-color: var(--cv-selection-fg);
-  --scroller-color: var(--cv-scrollbar-thumb);
-  --background-color-alpha: var(--cv-color-accent-muted);
-  --window-border-color: var(--cv-border-strong);
-  --scrollbar-bg: var(--cv-scrollbar-bg);
-  --scrollbar-thumb: var(--cv-scrollbar-thumb);
-  --border-radius: var(--cv-radius-md);`
-
-const sharedSurfaces = `
-body {
-  background-color: var(--cv-surface-app) !important;
-  color: var(--cv-color-text-primary) !important;
-  font-family: var(--cv-font-sans);
-  transition:
-    background-color var(--cv-motion-normal) var(--cv-motion-ease),
-    color var(--cv-motion-normal) var(--cv-motion-ease);
+/** Parse --token: value; including multiline values. */
+function parseTokens(mixinBody) {
+  const tokens = {}
+  const re = /--([a-z0-9-]+)\s*:\s*([^;]+);/g
+  let m
+  while ((m = re.exec(mixinBody))) {
+    tokens[m[1]] = m[2].replace(/\s+/g, ' ').trim()
+  }
+  return tokens
 }
 
-.layout {
-  background-color: var(--cv-surface-app) !important;
-  color: var(--cv-color-text-primary);
+/**
+ * @param {Record<string,string>} t
+ * @param {'media'|'dark'|'light'} mode
+ *   media  → selectors under @media, rooted at `html body`
+ *   dark   → `html[data-theme='dark'] body …`
+ *   light  → `html[data-theme='light'] body …`
+ */
+function paintBlock(t, mode) {
+  const root =
+    mode === 'media'
+      ? 'html body'
+      : mode === 'dark'
+        ? "html[data-theme='dark'] body"
+        : "html[data-theme='light'] body"
+  const bodySel = mode === 'media' ? 'body' : root
+
+  return `
+${bodySel} {
+  --cv-color-accent: ${t['cv-color-accent']};
+  --cv-color-accent-muted: ${t['cv-color-accent-muted']};
+  --cv-color-secondary: ${t['cv-color-secondary']};
+  --cv-color-text-primary: ${t['cv-color-text-primary']};
+  --cv-color-text-secondary: ${t['cv-color-text-secondary']};
+  --cv-color-text-disabled: ${t['cv-color-text-disabled']};
+  --cv-color-info: ${t['cv-color-info']};
+  --cv-color-success: ${t['cv-color-success']};
+  --cv-color-warning: ${t['cv-color-warning']};
+  --cv-color-error: ${t['cv-color-error']};
+  --cv-color-latency-fast: ${t['cv-color-latency-fast']};
+  --cv-color-latency-medium: ${t['cv-color-latency-medium']};
+  --cv-color-latency-slow: ${t['cv-color-latency-slow']};
+  --cv-color-latency-timeout: ${t['cv-color-latency-timeout']};
+  --cv-surface-app: ${t['cv-surface-app']};
+  --cv-surface-sidebar: ${t['cv-surface-sidebar']};
+  --cv-surface-page: ${t['cv-surface-page']};
+  --cv-surface-content: ${t['cv-surface-content']};
+  --cv-surface-card: ${t['cv-surface-card']};
+  --cv-surface-item: ${t['cv-surface-item']};
+  --cv-surface-nav-active: ${t['cv-surface-nav-active']};
+  --cv-surface-dialog: ${t['cv-surface-dialog']};
+  --cv-surface-overlay: ${t['cv-surface-overlay']};
+  --cv-border-subtle: ${t['cv-border-subtle']};
+  --cv-border-strong: ${t['cv-border-strong']};
+  --cv-border-focus: ${t['cv-border-focus']};
+  --cv-radius-xs: ${t['cv-radius-xs']};
+  --cv-radius-sm: ${t['cv-radius-sm']};
+  --cv-radius-md: ${t['cv-radius-md']};
+  --cv-radius-lg: ${t['cv-radius-lg']};
+  --cv-radius-pill: ${t['cv-radius-pill']};
+  --cv-font-sans: ${t['cv-font-sans']};
+  --cv-font-mono: ${t['cv-font-mono']};
+  --cv-effect-blur: ${t['cv-effect-blur']};
+  --cv-effect-glow: ${t['cv-effect-glow']};
+  --cv-selection-fg: ${t['cv-selection-fg']};
+  --cv-scrollbar-bg: ${t['cv-scrollbar-bg']};
+  --cv-scrollbar-thumb: ${t['cv-scrollbar-thumb']};
+  --cv-motion-fast: ${t['cv-motion-fast']};
+  --cv-motion-normal: ${t['cv-motion-normal']};
+  --cv-motion-ease: ${t['cv-motion-ease']};
+
+  --background-color: ${t['cv-surface-app']} !important;
+  --divider-color: ${t['cv-border-subtle']} !important;
+  --primary-main: ${t['cv-color-accent']} !important;
+  --text-primary: ${t['cv-color-text-primary']} !important;
+  --selection-color: ${t['cv-selection-fg']} !important;
+  --scroller-color: ${t['cv-scrollbar-thumb']} !important;
+  --background-color-alpha: ${t['cv-color-accent-muted']} !important;
+  --window-border-color: ${t['cv-border-strong']} !important;
+  --scrollbar-bg: ${t['cv-scrollbar-bg']} !important;
+  --scrollbar-thumb: ${t['cv-scrollbar-thumb']} !important;
+  --border-radius: ${t['cv-radius-md']} !important;
+
+  background-color: ${t['cv-surface-app']} !important;
+  color: ${t['cv-color-text-primary']} !important;
+  font-family: ${t['cv-font-sans']};
 }
 
-.layout .layout-content__left {
-  background-color: var(--cv-surface-sidebar) !important;
-  backdrop-filter: blur(var(--cv-effect-blur));
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
-  border-right: 1px solid var(--cv-border-subtle) !important;
+${root} .MuiPaper-root.layout,
+${root} .layout {
+  background-color: ${t['cv-surface-app']} !important;
+  color: ${t['cv-color-text-primary']} !important;
 }
 
-.layout .layout-content__right {
-  background-color: var(--cv-surface-page) !important;
+${root} .layout .layout-content__left {
+  background-color: ${t['cv-surface-sidebar']} !important;
+  border-right: 1px solid ${t['cv-border-subtle']} !important;
+  backdrop-filter: blur(${t['cv-effect-blur']});
+  -webkit-backdrop-filter: blur(${t['cv-effect-blur']});
 }
 
-.base-page > header {
-  border-bottom-color: var(--cv-border-subtle) !important;
-  color: var(--cv-color-text-primary) !important;
+${root} .layout .layout-content__right,
+${root} .the-content {
+  background-color: ${t['cv-surface-page']} !important;
 }
 
-.base-page .base-container,
-.base-page .base-container > section,
-.base-container,
-.base-container > section {
-  background-color: var(--cv-surface-content) !important;
+${root} .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid ${t['cv-border-subtle']} !important;
+  color: ${t['cv-color-text-primary']} !important;
 }
 
-.cv-card,
-.enhanced-card {
-  background-color: var(--cv-surface-card) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  border-radius: var(--cv-radius-md) !important;
-  box-shadow: var(--cv-effect-glow) !important;
-  backdrop-filter: blur(var(--cv-effect-blur));
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
-  color: var(--cv-color-text-primary) !important;
-  transition:
-    background-color var(--cv-motion-fast) var(--cv-motion-ease),
-    border-color var(--cv-motion-fast) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+${root} .base-page .base-container,
+${root} .base-page .base-container > section,
+${root} .base-container,
+${root} .base-container > section {
+  background-color: ${t['cv-surface-content']} !important;
 }
 
-.cv-item {
-  background-color: var(--cv-surface-item) !important;
-  border-radius: var(--cv-radius-sm);
-  border: 1px solid transparent;
-  transition:
-    background-color var(--cv-motion-fast) var(--cv-motion-ease),
-    border-color var(--cv-motion-fast) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+${root} .base-content {
+  color: ${t['cv-color-text-primary']} !important;
 }
 
-.cv-item:hover {
-  border-color: var(--cv-border-subtle);
+${root} .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+${root} .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: ${t['cv-surface-card']} !important;
+  border: 1px solid ${t['cv-border-subtle']} !important;
+  border-radius: ${t['cv-radius-md']} !important;
+  box-shadow: ${t['cv-effect-glow']} !important;
+  color: ${t['cv-color-text-primary']} !important;
+  overflow: hidden;
 }
 
-.cv-item.is-selected,
-.cv-item[data-selected='true'] {
-  background-color: var(--cv-surface-nav-active) !important;
-  border-color: var(--cv-border-focus);
-  box-shadow: var(--cv-effect-glow);
+${root} .MuiListSubheader-root {
+  color: ${t['cv-color-text-secondary']} !important;
+  background-color: transparent !important;
 }
 
-.MuiDialog-paper {
-  background-color: var(--cv-surface-dialog) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  border-radius: var(--cv-radius-md) !important;
-  color: var(--cv-color-text-primary) !important;
+${root} .MuiListItemText-primary,
+${root} .MuiTypography-root {
+  color: ${t['cv-color-text-primary']};
 }
 
-.MuiPaper-root {
-  background-color: var(--cv-surface-card) !important;
-  border-color: var(--cv-border-strong) !important;
-  color: var(--cv-color-text-primary);
+${root} .MuiListItemText-secondary,
+${root} .MuiTypography-colorTextSecondary {
+  color: ${t['cv-color-text-secondary']} !important;
 }
 
-.MuiButton-containedPrimary,
-.MuiButtonGroup-groupedContainedPrimary {
-  background-color: var(--cv-color-accent) !important;
+${root} .MuiDivider-root {
+  border-color: ${t['cv-border-subtle']} !important;
+}
+
+${root} .MuiDialog-root .MuiDialog-paper,
+${root} .MuiModal-root .MuiDialog-paper,
+${root} div.MuiDialog-paper {
+  background-color: ${t['cv-surface-dialog']} !important;
+  border: 1px solid ${t['cv-border-subtle']} !important;
+  border-radius: ${t['cv-radius-md']} !important;
+  color: ${t['cv-color-text-primary']} !important;
+}
+
+${root} .MuiBackdrop-root {
+  background-color: ${t['cv-surface-overlay']} !important;
+}
+
+${root} .MuiPaper-root:not(.layout) {
+  background-color: ${t['cv-surface-card']} !important;
+  border-color: ${t['cv-border-strong']} !important;
+  color: ${t['cv-color-text-primary']};
+}
+
+${root} .MuiButton-containedPrimary,
+${root} .MuiButtonGroup-groupedContainedPrimary {
+  background-color: ${t['cv-color-accent']} !important;
   box-shadow: none !important;
 }
 
-.MuiButton-outlinedPrimary {
-  border-color: var(--cv-color-accent) !important;
-  color: var(--cv-color-accent) !important;
+${root} .MuiButton-outlinedPrimary {
+  border-color: ${t['cv-color-accent']} !important;
+  color: ${t['cv-color-accent']} !important;
 }
 
-.MuiSwitch-switchBase.Mui-checked {
-  color: var(--cv-color-accent) !important;
+${root} .MuiSwitch-switchBase.Mui-checked {
+  color: ${t['cv-color-accent']} !important;
 }
 
-.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: var(--cv-color-accent) !important;
+${root} .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: ${t['cv-color-accent']} !important;
 }
 
-.MuiListItemButton-root.Mui-selected {
-  background-color: var(--cv-surface-nav-active) !important;
+${root} .the-menu .MuiListItemButton-root.Mui-selected,
+${root} .MuiListItemButton-root.Mui-selected {
+  background-color: ${t['cv-surface-nav-active']} !important;
+  box-shadow: ${t['cv-effect-glow']} !important;
 }
 
-.MuiListItemText-primary {
-  color: var(--cv-color-text-primary) !important;
+${root} .the-logo svg,
+${root} .the-logo .st1 {
+  fill: ${t['cv-color-text-primary']} !important;
 }
 
-.MuiListItemText-secondary {
-  color: var(--cv-color-text-secondary) !important;
+${root} ::selection {
+  color: ${t['cv-selection-fg']};
+  background-color: ${t['cv-color-accent']};
 }
 
-.MuiTypography-colorTextSecondary {
-  color: var(--cv-color-text-secondary) !important;
-}
-
-.MuiDivider-root {
-  border-color: var(--cv-border-subtle) !important;
-}
-
-.MuiBackdrop-root {
-  background-color: var(--cv-surface-overlay) !important;
-}
-
-::selection {
-  color: var(--cv-selection-fg);
-  background-color: var(--cv-color-accent);
-}
-
-*::-webkit-scrollbar {
+${root} *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: var(--cv-scrollbar-bg);
+  background: ${t['cv-scrollbar-bg']} !important;
 }
 
-*::-webkit-scrollbar-thumb {
+${root} *::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  background-color: var(--cv-scrollbar-thumb);
+  background-color: ${t['cv-scrollbar-thumb']} !important;
 }
-
-/* Stock Clash Verge hardcode beaters (upstream without our TSX patch) */
-.base-container[style],
-.base-container > section[style] {
-  background-color: var(--cv-surface-content) !important;
+`.trim()
 }
-`
 
 const flourishes = {
-  obsidian: `/* Pack flourish: Obsidian glass */
-.layout .layout-content__left {
-  border-right: 1px solid var(--cv-border-subtle);
-}`,
-  signal: `/* Pack flourish: Signal instrument */
-.layout .layout-content__left {
+  obsidian: (t, root) => `
+${root} .layout .layout-content__left {
+  backdrop-filter: blur(${t['cv-effect-blur']}) !important;
+  -webkit-backdrop-filter: blur(${t['cv-effect-blur']}) !important;
+}
+`,
+  signal: (t, root) => `
+${root} .layout .layout-content__left {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
-
-.cv-card,
-.enhanced-card,
-.MuiPaper-root {
+${root} .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+${root} .MuiPaper-root:not(.layout) {
   backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
   box-shadow: none !important;
-  border-radius: var(--cv-radius-md) !important;
+  border-radius: ${t['cv-radius-md']} !important;
 }
-
-.cv-mono,
-.latency,
-.traffic-text,
-[class*='delay'] {
-  font-family: var(--cv-font-mono) !important;
+${root} .the-menu .MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid ${t['cv-color-accent']} !important;
+}
+${root} .the-traffic {
+  font-family: ${t['cv-font-mono']} !important;
   font-variant-numeric: tabular-nums;
 }
-
-.MuiListItemButton-root.Mui-selected {
-  border-left: 3px solid var(--cv-color-accent);
-}`,
-  paper: `/* Pack flourish: Paper atelier */
-.layout .layout-content__left {
+`,
+  paper: (t, root) => `
+${root} .layout .layout-content__left {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
-
-.base-page > header {
-  letter-spacing: 0.01em;
+${root} .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
+  box-shadow: ${t['cv-effect-glow']} !important;
 }
-
-.cv-card,
-.enhanced-card,
-.MuiPaper-root {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}`,
-  neon: `/* Pack flourish: Neon circuit */
-.layout .layout-content__left {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-right: 1px solid var(--cv-border-subtle);
-}
-
-.cv-card,
-.enhanced-card {
+`,
+  neon: (t, root) => `
+${root} .layout .layout-content__left {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
-
-.cv-item.is-selected,
-.cv-item[data-selected='true'],
-.MuiListItemButton-root.Mui-selected,
-.the-menu .Mui-selected {
-  box-shadow: var(--cv-effect-glow) !important;
-  border: 1px solid var(--cv-border-focus) !important;
+${root} .the-menu .MuiListItemButton-root.Mui-selected {
+  border: 1px solid ${t['cv-border-focus']} !important;
+  box-shadow: ${t['cv-effect-glow']} !important;
 }
-
-html[data-theme='dark'] .MuiButton-containedPrimary,
-html[data-theme='dark'] .MuiButtonGroup-groupedContainedPrimary {
+${root} .MuiButton-containedPrimary {
   color: #041018 !important;
-}`,
+}
+`,
+}
+
+function rootFor(mode) {
+  if (mode === 'media') return 'html body'
+  if (mode === 'dark') return "html[data-theme='dark'] body"
+  return "html[data-theme='light'] body"
 }
 
 const meta = {
@@ -275,39 +315,47 @@ const meta = {
 }
 
 for (const id of ['obsidian', 'signal', 'paper', 'neon']) {
-  const light = extractMixin(`cv-${id}-light`)
-  const dark = extractMixin(`cv-${id}-dark`)
+  const lightT = parseTokens(extractMixin(`cv-${id}-light`))
+  const darkT = parseTokens(extractMixin(`cv-${id}-dark`))
   const m = meta[id]
+  const f = flourishes[id]
+
+  if (!lightT['cv-font-sans'] || lightT['cv-font-sans'] === 'undefined') {
+    throw new Error(`${id} light missing font-sans: ${lightT['cv-font-sans']}`)
+  }
+  if (!darkT['cv-font-sans']) {
+    throw new Error(`${id} dark missing font-sans`)
+  }
+
   const css = `/*
- * Clash Verge Themes — ${m.title}
+ * Clash Verge Themes — ${m.title} (DOM-aware v2)
  * Thesis: ${m.thesis}
  *
- * Ported from clash-verge-rev:
- *   src/assets/styles/themes/packs.scss  (cv-${id}-*)
- *   src/assets/styles/themes/surfaces.scss
+ * Stock Clash Verge CSS Injection:
+ * - Light/Dark via prefers-color-scheme (no data-theme required)
+ * - Direct paint + !important (beats html inline --vars & app post-import rules)
+ * - Stable class targets only (.layout, .base-container, .the-menu, …)
  *
- * Usage (Clash Verge → Theme Setting → CSS Injection):
  * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/${id}.css");
  */
 
-/* ========== Tokens: Light (full --cv-* matrix) ========== */
-html[data-theme='light'],
-:root:not([data-theme='dark']) {
-${light}
-${legacyAliases}
+@media (prefers-color-scheme: dark) {
+${paintBlock(darkT, 'media')}
+${f(darkT, rootFor('media'))}
 }
 
-/* ========== Tokens: Dark (full --cv-* matrix) ========== */
-html[data-theme='dark'] {
-${dark}
-${legacyAliases}
+${paintBlock(darkT, 'dark')}
+${f(darkT, rootFor('dark'))}
+
+@media (prefers-color-scheme: light) {
+${paintBlock(lightT, 'media')}
+${f(lightT, rootFor('media'))}
 }
 
-/* ========== Surfaces (from surfaces.scss) ========== */
-${sharedSurfaces}
-
-${flourishes[id]}
+${paintBlock(lightT, 'light')}
+${f(lightT, rootFor('light'))}
 `
+
   const out = path.join(outDir, `${id}.css`)
   fs.writeFileSync(out, css, 'utf8')
   console.log('wrote', id, fs.statSync(out).size, 'bytes')

@@ -1,88 +1,17 @@
 /*
- * Clash Verge Themes — Paper Atelier
+ * Clash Verge Themes — Paper Atelier (DOM-aware v2)
  * Thesis: editorial paper — warm white space, terracotta ink
  *
- * Ported from clash-verge-rev:
- *   src/assets/styles/themes/packs.scss  (cv-paper-*)
- *   src/assets/styles/themes/surfaces.scss
+ * Stock Clash Verge CSS Injection:
+ * - Light/Dark via prefers-color-scheme (no data-theme required)
+ * - Direct paint + !important (beats html inline --vars & app post-import rules)
+ * - Stable class targets only (.layout, .base-container, .the-menu, …)
  *
- * Usage (Clash Verge → Theme Setting → CSS Injection):
  * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/paper.css");
  */
 
-/* ========== Tokens: Light (full --cv-* matrix) ========== */
-html[data-theme='light'],
-:root:not([data-theme='dark']) {
-
-  --cv-color-accent: #c25c3a;
-  --cv-color-accent-muted: rgba(194, 92, 58, 0.12);
-  --cv-color-secondary: #3f5b6c;
-  --cv-color-text-primary: #1f1a16;
-  --cv-color-text-secondary: #5c534a;
-  --cv-color-text-disabled: #9c9287;
-  --cv-color-info: #3f5b6c;
-  --cv-color-success: #3f6b4e;
-  --cv-color-warning: #b7791f;
-  --cv-color-error: #a33b2a;
-  --cv-color-latency-fast: #3f6b4e;
-  --cv-color-latency-medium: #b7791f;
-  --cv-color-latency-slow: #c25c3a;
-  --cv-color-latency-timeout: #a33b2a;
-
-  --cv-surface-app: #efe8de;
-  --cv-surface-sidebar: #f5f0e8;
-  --cv-surface-page: #f7f1e8;
-  --cv-surface-content: #f3ece3;
-  --cv-surface-card: #fffaf3;
-  --cv-surface-item: #ffffff;
-  --cv-surface-nav-active: rgba(194, 92, 58, 0.12);
-  --cv-surface-dialog: #fffdf9;
-  --cv-surface-overlay: rgba(48, 36, 24, 0.28);
-
-  --cv-border-subtle: rgba(31, 26, 22, 0.08);
-  --cv-border-strong: rgba(31, 26, 22, 0.14);
-  --cv-border-focus: #c25c3a;
-
-  --cv-radius-xs: 6px;
-  --cv-radius-sm: 8px;
-  --cv-radius-md: 12px;
-  --cv-radius-lg: 14px;
-  --cv-radius-pill: 999px;
-
-  --cv-space-density: comfortable;
-  --cv-page-padding: 20px;
-  --cv-card-padding: 16px;
-  --cv-item-gap: 12px;
-
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
-    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
-
-  --cv-effect-blur: 0px;
-  --cv-effect-glow: 0 1px 2px rgba(31, 26, 22, 0.06);
-  --cv-selection-fg: #fffaf3;
-  --cv-scrollbar-bg: #f5f0e8;
-  --cv-scrollbar-thumb: #9c9287;
-  --cv-motion-fast: 140ms;
-  --cv-motion-normal: 220ms;
-  --cv-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
-
-  --background-color: var(--cv-surface-app);
-  --divider-color: var(--cv-border-subtle);
-  --primary-main: var(--cv-color-accent);
-  --text-primary: var(--cv-color-text-primary);
-  --selection-color: var(--cv-selection-fg);
-  --scroller-color: var(--cv-scrollbar-thumb);
-  --background-color-alpha: var(--cv-color-accent-muted);
-  --window-border-color: var(--cv-border-strong);
-  --scrollbar-bg: var(--cv-scrollbar-bg);
-  --scrollbar-thumb: var(--cv-scrollbar-thumb);
-  --border-radius: var(--cv-radius-md);
-}
-
-/* ========== Tokens: Dark (full --cv-* matrix) ========== */
-html[data-theme='dark'] {
-
+@media (prefers-color-scheme: dark) {
+body {
   --cv-color-accent: #e89573;
   --cv-color-accent-muted: rgba(232, 149, 115, 0.14);
   --cv-color-secondary: #8fa9b8;
@@ -97,7 +26,6 @@ html[data-theme='dark'] {
   --cv-color-latency-medium: #e6b35a;
   --cv-color-latency-slow: #e89573;
   --cv-color-latency-timeout: #e07a6a;
-
   --cv-surface-app: #1c1916;
   --cv-surface-sidebar: #241f1b;
   --cv-surface-page: #1a1714;
@@ -107,26 +35,16 @@ html[data-theme='dark'] {
   --cv-surface-nav-active: rgba(232, 149, 115, 0.14);
   --cv-surface-dialog: #2a241f;
   --cv-surface-overlay: rgba(0, 0, 0, 0.55);
-
   --cv-border-subtle: rgba(244, 236, 227, 0.08);
   --cv-border-strong: rgba(244, 236, 227, 0.14);
   --cv-border-focus: #e89573;
-
   --cv-radius-xs: 6px;
   --cv-radius-sm: 8px;
   --cv-radius-md: 12px;
   --cv-radius-lg: 14px;
   --cv-radius-pill: 999px;
-
-  --cv-space-density: comfortable;
-  --cv-page-padding: 20px;
-  --cv-card-padding: 16px;
-  --cv-item-gap: 12px;
-
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
-    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
-
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
   --cv-selection-fg: #f4ece3;
@@ -136,186 +54,754 @@ html[data-theme='dark'] {
   --cv-motion-normal: 220ms;
   --cv-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --background-color: var(--cv-surface-app);
-  --divider-color: var(--cv-border-subtle);
-  --primary-main: var(--cv-color-accent);
-  --text-primary: var(--cv-color-text-primary);
-  --selection-color: var(--cv-selection-fg);
-  --scroller-color: var(--cv-scrollbar-thumb);
-  --background-color-alpha: var(--cv-color-accent-muted);
-  --window-border-color: var(--cv-border-strong);
-  --scrollbar-bg: var(--cv-scrollbar-bg);
-  --scrollbar-thumb: var(--cv-scrollbar-thumb);
-  --border-radius: var(--cv-radius-md);
+  --background-color: #1c1916 !important;
+  --divider-color: rgba(244, 236, 227, 0.08) !important;
+  --primary-main: #e89573 !important;
+  --text-primary: #f4ece3 !important;
+  --selection-color: #f4ece3 !important;
+  --scroller-color: #7a7066 !important;
+  --background-color-alpha: rgba(232, 149, 115, 0.14) !important;
+  --window-border-color: rgba(244, 236, 227, 0.14) !important;
+  --scrollbar-bg: #241f1b !important;
+  --scrollbar-thumb: #7a7066 !important;
+  --border-radius: 12px !important;
+
+  background-color: #1c1916 !important;
+  color: #f4ece3 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* ========== Surfaces (from surfaces.scss) ========== */
-
-body {
-  background-color: var(--cv-surface-app) !important;
-  color: var(--cv-color-text-primary) !important;
-  font-family: var(--cv-font-sans);
-  transition:
-    background-color var(--cv-motion-normal) var(--cv-motion-ease),
-    color var(--cv-motion-normal) var(--cv-motion-ease);
+html body .MuiPaper-root.layout,
+html body .layout {
+  background-color: #1c1916 !important;
+  color: #f4ece3 !important;
 }
 
-.layout {
-  background-color: var(--cv-surface-app) !important;
-  color: var(--cv-color-text-primary);
+html body .layout .layout-content__left {
+  background-color: #241f1b !important;
+  border-right: 1px solid rgba(244, 236, 227, 0.08) !important;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
 }
 
-.layout .layout-content__left {
-  background-color: var(--cv-surface-sidebar) !important;
-  backdrop-filter: blur(var(--cv-effect-blur));
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
-  border-right: 1px solid var(--cv-border-subtle) !important;
+html body .layout .layout-content__right,
+html body .the-content {
+  background-color: #1a1714 !important;
 }
 
-.layout .layout-content__right {
-  background-color: var(--cv-surface-page) !important;
+html body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(244, 236, 227, 0.08) !important;
+  color: #f4ece3 !important;
 }
 
-.base-page > header {
-  border-bottom-color: var(--cv-border-subtle) !important;
-  color: var(--cv-color-text-primary) !important;
+html body .base-page .base-container,
+html body .base-page .base-container > section,
+html body .base-container,
+html body .base-container > section {
+  background-color: #221e1a !important;
 }
 
-.base-page .base-container,
-.base-page .base-container > section,
-.base-container,
-.base-container > section {
-  background-color: var(--cv-surface-content) !important;
+html body .base-content {
+  color: #f4ece3 !important;
 }
 
-.cv-card,
-.enhanced-card {
-  background-color: var(--cv-surface-card) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  border-radius: var(--cv-radius-md) !important;
-  box-shadow: var(--cv-effect-glow) !important;
-  backdrop-filter: blur(var(--cv-effect-blur));
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
-  color: var(--cv-color-text-primary) !important;
-  transition:
-    background-color var(--cv-motion-fast) var(--cv-motion-ease),
-    border-color var(--cv-motion-fast) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: #2a241f !important;
+  border: 1px solid rgba(244, 236, 227, 0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  color: #f4ece3 !important;
+  overflow: hidden;
 }
 
-.cv-item {
-  background-color: var(--cv-surface-item) !important;
-  border-radius: var(--cv-radius-sm);
-  border: 1px solid transparent;
-  transition:
-    background-color var(--cv-motion-fast) var(--cv-motion-ease),
-    border-color var(--cv-motion-fast) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+html body .MuiListSubheader-root {
+  color: #b5a89a !important;
+  background-color: transparent !important;
 }
 
-.cv-item:hover {
-  border-color: var(--cv-border-subtle);
+html body .MuiListItemText-primary,
+html body .MuiTypography-root {
+  color: #f4ece3;
 }
 
-.cv-item.is-selected,
-.cv-item[data-selected='true'] {
-  background-color: var(--cv-surface-nav-active) !important;
-  border-color: var(--cv-border-focus);
-  box-shadow: var(--cv-effect-glow);
+html body .MuiListItemText-secondary,
+html body .MuiTypography-colorTextSecondary {
+  color: #b5a89a !important;
 }
 
-.MuiDialog-paper {
-  background-color: var(--cv-surface-dialog) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  border-radius: var(--cv-radius-md) !important;
-  color: var(--cv-color-text-primary) !important;
+html body .MuiDivider-root {
+  border-color: rgba(244, 236, 227, 0.08) !important;
 }
 
-.MuiPaper-root {
-  background-color: var(--cv-surface-card) !important;
-  border-color: var(--cv-border-strong) !important;
-  color: var(--cv-color-text-primary);
+html body .MuiDialog-root .MuiDialog-paper,
+html body .MuiModal-root .MuiDialog-paper,
+html body div.MuiDialog-paper {
+  background-color: #2a241f !important;
+  border: 1px solid rgba(244, 236, 227, 0.08) !important;
+  border-radius: 12px !important;
+  color: #f4ece3 !important;
 }
 
-.MuiButton-containedPrimary,
-.MuiButtonGroup-groupedContainedPrimary {
-  background-color: var(--cv-color-accent) !important;
+html body .MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.55) !important;
+}
+
+html body .MuiPaper-root:not(.layout) {
+  background-color: #2a241f !important;
+  border-color: rgba(244, 236, 227, 0.14) !important;
+  color: #f4ece3;
+}
+
+html body .MuiButton-containedPrimary,
+html body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: #e89573 !important;
   box-shadow: none !important;
 }
 
-.MuiButton-outlinedPrimary {
-  border-color: var(--cv-color-accent) !important;
-  color: var(--cv-color-accent) !important;
+html body .MuiButton-outlinedPrimary {
+  border-color: #e89573 !important;
+  color: #e89573 !important;
 }
 
-.MuiSwitch-switchBase.Mui-checked {
-  color: var(--cv-color-accent) !important;
+html body .MuiSwitch-switchBase.Mui-checked {
+  color: #e89573 !important;
 }
 
-.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: var(--cv-color-accent) !important;
+html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #e89573 !important;
 }
 
-.MuiListItemButton-root.Mui-selected {
-  background-color: var(--cv-surface-nav-active) !important;
+html body .the-menu .MuiListItemButton-root.Mui-selected,
+html body .MuiListItemButton-root.Mui-selected {
+  background-color: rgba(232, 149, 115, 0.14) !important;
+  box-shadow: none !important;
 }
 
-.MuiListItemText-primary {
-  color: var(--cv-color-text-primary) !important;
+html body .the-logo svg,
+html body .the-logo .st1 {
+  fill: #f4ece3 !important;
 }
 
-.MuiListItemText-secondary {
-  color: var(--cv-color-text-secondary) !important;
+html body ::selection {
+  color: #f4ece3;
+  background-color: #e89573;
 }
 
-.MuiTypography-colorTextSecondary {
-  color: var(--cv-color-text-secondary) !important;
-}
-
-.MuiDivider-root {
-  border-color: var(--cv-border-subtle) !important;
-}
-
-.MuiBackdrop-root {
-  background-color: var(--cv-surface-overlay) !important;
-}
-
-::selection {
-  color: var(--cv-selection-fg);
-  background-color: var(--cv-color-accent);
-}
-
-*::-webkit-scrollbar {
+html body *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: var(--cv-scrollbar-bg);
+  background: #241f1b !important;
 }
 
-*::-webkit-scrollbar-thumb {
+html body *::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  background-color: var(--cv-scrollbar-thumb);
+  background-color: #7a7066 !important;
 }
 
-/* Stock Clash Verge hardcode beaters (upstream without our TSX patch) */
-.base-container[style],
-.base-container > section[style] {
-  background-color: var(--cv-surface-content) !important;
-}
-
-
-/* Pack flourish: Paper atelier */
-.layout .layout-content__left {
+html body .layout .layout-content__left {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
-
-.base-page > header {
-  letter-spacing: 0.01em;
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
+  box-shadow: none !important;
 }
 
-.cv-card,
-.enhanced-card,
-.MuiPaper-root {
+}
+
+html[data-theme='dark'] body {
+  --cv-color-accent: #e89573;
+  --cv-color-accent-muted: rgba(232, 149, 115, 0.14);
+  --cv-color-secondary: #8fa9b8;
+  --cv-color-text-primary: #f4ece3;
+  --cv-color-text-secondary: #b5a89a;
+  --cv-color-text-disabled: #7a7066;
+  --cv-color-info: #8fa9b8;
+  --cv-color-success: #86c49a;
+  --cv-color-warning: #e6b35a;
+  --cv-color-error: #e07a6a;
+  --cv-color-latency-fast: #86c49a;
+  --cv-color-latency-medium: #e6b35a;
+  --cv-color-latency-slow: #e89573;
+  --cv-color-latency-timeout: #e07a6a;
+  --cv-surface-app: #1c1916;
+  --cv-surface-sidebar: #241f1b;
+  --cv-surface-page: #1a1714;
+  --cv-surface-content: #221e1a;
+  --cv-surface-card: #2a241f;
+  --cv-surface-item: #302922;
+  --cv-surface-nav-active: rgba(232, 149, 115, 0.14);
+  --cv-surface-dialog: #2a241f;
+  --cv-surface-overlay: rgba(0, 0, 0, 0.55);
+  --cv-border-subtle: rgba(244, 236, 227, 0.08);
+  --cv-border-strong: rgba(244, 236, 227, 0.14);
+  --cv-border-focus: #e89573;
+  --cv-radius-xs: 6px;
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 12px;
+  --cv-radius-lg: 14px;
+  --cv-radius-pill: 999px;
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: none;
+  --cv-selection-fg: #f4ece3;
+  --cv-scrollbar-bg: #241f1b;
+  --cv-scrollbar-thumb: #7a7066;
+  --cv-motion-fast: 140ms;
+  --cv-motion-normal: 220ms;
+  --cv-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --background-color: #1c1916 !important;
+  --divider-color: rgba(244, 236, 227, 0.08) !important;
+  --primary-main: #e89573 !important;
+  --text-primary: #f4ece3 !important;
+  --selection-color: #f4ece3 !important;
+  --scroller-color: #7a7066 !important;
+  --background-color-alpha: rgba(232, 149, 115, 0.14) !important;
+  --window-border-color: rgba(244, 236, 227, 0.14) !important;
+  --scrollbar-bg: #241f1b !important;
+  --scrollbar-thumb: #7a7066 !important;
+  --border-radius: 12px !important;
+
+  background-color: #1c1916 !important;
+  color: #f4ece3 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html[data-theme='dark'] body .MuiPaper-root.layout,
+html[data-theme='dark'] body .layout {
+  background-color: #1c1916 !important;
+  color: #f4ece3 !important;
+}
+
+html[data-theme='dark'] body .layout .layout-content__left {
+  background-color: #241f1b !important;
+  border-right: 1px solid rgba(244, 236, 227, 0.08) !important;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+html[data-theme='dark'] body .layout .layout-content__right,
+html[data-theme='dark'] body .the-content {
+  background-color: #1a1714 !important;
+}
+
+html[data-theme='dark'] body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(244, 236, 227, 0.08) !important;
+  color: #f4ece3 !important;
+}
+
+html[data-theme='dark'] body .base-page .base-container,
+html[data-theme='dark'] body .base-page .base-container > section,
+html[data-theme='dark'] body .base-container,
+html[data-theme='dark'] body .base-container > section {
+  background-color: #221e1a !important;
+}
+
+html[data-theme='dark'] body .base-content {
+  color: #f4ece3 !important;
+}
+
+html[data-theme='dark'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html[data-theme='dark'] body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: #2a241f !important;
+  border: 1px solid rgba(244, 236, 227, 0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  color: #f4ece3 !important;
+  overflow: hidden;
+}
+
+html[data-theme='dark'] body .MuiListSubheader-root {
+  color: #b5a89a !important;
+  background-color: transparent !important;
+}
+
+html[data-theme='dark'] body .MuiListItemText-primary,
+html[data-theme='dark'] body .MuiTypography-root {
+  color: #f4ece3;
+}
+
+html[data-theme='dark'] body .MuiListItemText-secondary,
+html[data-theme='dark'] body .MuiTypography-colorTextSecondary {
+  color: #b5a89a !important;
+}
+
+html[data-theme='dark'] body .MuiDivider-root {
+  border-color: rgba(244, 236, 227, 0.08) !important;
+}
+
+html[data-theme='dark'] body .MuiDialog-root .MuiDialog-paper,
+html[data-theme='dark'] body .MuiModal-root .MuiDialog-paper,
+html[data-theme='dark'] body div.MuiDialog-paper {
+  background-color: #2a241f !important;
+  border: 1px solid rgba(244, 236, 227, 0.08) !important;
+  border-radius: 12px !important;
+  color: #f4ece3 !important;
+}
+
+html[data-theme='dark'] body .MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.55) !important;
+}
+
+html[data-theme='dark'] body .MuiPaper-root:not(.layout) {
+  background-color: #2a241f !important;
+  border-color: rgba(244, 236, 227, 0.14) !important;
+  color: #f4ece3;
+}
+
+html[data-theme='dark'] body .MuiButton-containedPrimary,
+html[data-theme='dark'] body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: #e89573 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='dark'] body .MuiButton-outlinedPrimary {
+  border-color: #e89573 !important;
+  color: #e89573 !important;
+}
+
+html[data-theme='dark'] body .MuiSwitch-switchBase.Mui-checked {
+  color: #e89573 !important;
+}
+
+html[data-theme='dark'] body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #e89573 !important;
+}
+
+html[data-theme='dark'] body .the-menu .MuiListItemButton-root.Mui-selected,
+html[data-theme='dark'] body .MuiListItemButton-root.Mui-selected {
+  background-color: rgba(232, 149, 115, 0.14) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='dark'] body .the-logo svg,
+html[data-theme='dark'] body .the-logo .st1 {
+  fill: #f4ece3 !important;
+}
+
+html[data-theme='dark'] body ::selection {
+  color: #f4ece3;
+  background-color: #e89573;
+}
+
+html[data-theme='dark'] body *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #241f1b !important;
+}
+
+html[data-theme='dark'] body *::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #7a7066 !important;
+}
+
+html[data-theme='dark'] body .layout .layout-content__left {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
+html[data-theme='dark'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
+  box-shadow: none !important;
+}
+
+
+@media (prefers-color-scheme: light) {
+body {
+  --cv-color-accent: #c25c3a;
+  --cv-color-accent-muted: rgba(194, 92, 58, 0.12);
+  --cv-color-secondary: #3f5b6c;
+  --cv-color-text-primary: #1f1a16;
+  --cv-color-text-secondary: #5c534a;
+  --cv-color-text-disabled: #9c9287;
+  --cv-color-info: #3f5b6c;
+  --cv-color-success: #3f6b4e;
+  --cv-color-warning: #b7791f;
+  --cv-color-error: #a33b2a;
+  --cv-color-latency-fast: #3f6b4e;
+  --cv-color-latency-medium: #b7791f;
+  --cv-color-latency-slow: #c25c3a;
+  --cv-color-latency-timeout: #a33b2a;
+  --cv-surface-app: #efe8de;
+  --cv-surface-sidebar: #f5f0e8;
+  --cv-surface-page: #f7f1e8;
+  --cv-surface-content: #f3ece3;
+  --cv-surface-card: #fffaf3;
+  --cv-surface-item: #ffffff;
+  --cv-surface-nav-active: rgba(194, 92, 58, 0.12);
+  --cv-surface-dialog: #fffdf9;
+  --cv-surface-overlay: rgba(48, 36, 24, 0.28);
+  --cv-border-subtle: rgba(31, 26, 22, 0.08);
+  --cv-border-strong: rgba(31, 26, 22, 0.14);
+  --cv-border-focus: #c25c3a;
+  --cv-radius-xs: 6px;
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 12px;
+  --cv-radius-lg: 14px;
+  --cv-radius-pill: 999px;
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: 0 1px 2px rgba(31, 26, 22, 0.06);
+  --cv-selection-fg: #fffaf3;
+  --cv-scrollbar-bg: #f5f0e8;
+  --cv-scrollbar-thumb: #9c9287;
+  --cv-motion-fast: 140ms;
+  --cv-motion-normal: 220ms;
+  --cv-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --background-color: #efe8de !important;
+  --divider-color: rgba(31, 26, 22, 0.08) !important;
+  --primary-main: #c25c3a !important;
+  --text-primary: #1f1a16 !important;
+  --selection-color: #fffaf3 !important;
+  --scroller-color: #9c9287 !important;
+  --background-color-alpha: rgba(194, 92, 58, 0.12) !important;
+  --window-border-color: rgba(31, 26, 22, 0.14) !important;
+  --scrollbar-bg: #f5f0e8 !important;
+  --scrollbar-thumb: #9c9287 !important;
+  --border-radius: 12px !important;
+
+  background-color: #efe8de !important;
+  color: #1f1a16 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html body .MuiPaper-root.layout,
+html body .layout {
+  background-color: #efe8de !important;
+  color: #1f1a16 !important;
+}
+
+html body .layout .layout-content__left {
+  background-color: #f5f0e8 !important;
+  border-right: 1px solid rgba(31, 26, 22, 0.08) !important;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+html body .layout .layout-content__right,
+html body .the-content {
+  background-color: #f7f1e8 !important;
+}
+
+html body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(31, 26, 22, 0.08) !important;
+  color: #1f1a16 !important;
+}
+
+html body .base-page .base-container,
+html body .base-page .base-container > section,
+html body .base-container,
+html body .base-container > section {
+  background-color: #f3ece3 !important;
+}
+
+html body .base-content {
+  color: #1f1a16 !important;
+}
+
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: #fffaf3 !important;
+  border: 1px solid rgba(31, 26, 22, 0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 2px rgba(31, 26, 22, 0.06) !important;
+  color: #1f1a16 !important;
+  overflow: hidden;
+}
+
+html body .MuiListSubheader-root {
+  color: #5c534a !important;
+  background-color: transparent !important;
+}
+
+html body .MuiListItemText-primary,
+html body .MuiTypography-root {
+  color: #1f1a16;
+}
+
+html body .MuiListItemText-secondary,
+html body .MuiTypography-colorTextSecondary {
+  color: #5c534a !important;
+}
+
+html body .MuiDivider-root {
+  border-color: rgba(31, 26, 22, 0.08) !important;
+}
+
+html body .MuiDialog-root .MuiDialog-paper,
+html body .MuiModal-root .MuiDialog-paper,
+html body div.MuiDialog-paper {
+  background-color: #fffdf9 !important;
+  border: 1px solid rgba(31, 26, 22, 0.08) !important;
+  border-radius: 12px !important;
+  color: #1f1a16 !important;
+}
+
+html body .MuiBackdrop-root {
+  background-color: rgba(48, 36, 24, 0.28) !important;
+}
+
+html body .MuiPaper-root:not(.layout) {
+  background-color: #fffaf3 !important;
+  border-color: rgba(31, 26, 22, 0.14) !important;
+  color: #1f1a16;
+}
+
+html body .MuiButton-containedPrimary,
+html body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: #c25c3a !important;
+  box-shadow: none !important;
+}
+
+html body .MuiButton-outlinedPrimary {
+  border-color: #c25c3a !important;
+  color: #c25c3a !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked {
+  color: #c25c3a !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #c25c3a !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected,
+html body .MuiListItemButton-root.Mui-selected {
+  background-color: rgba(194, 92, 58, 0.12) !important;
+  box-shadow: 0 1px 2px rgba(31, 26, 22, 0.06) !important;
+}
+
+html body .the-logo svg,
+html body .the-logo .st1 {
+  fill: #1f1a16 !important;
+}
+
+html body ::selection {
+  color: #fffaf3;
+  background-color: #c25c3a;
+}
+
+html body *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #f5f0e8 !important;
+}
+
+html body *::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #9c9287 !important;
+}
+
+html body .layout .layout-content__left {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
+  box-shadow: 0 1px 2px rgba(31, 26, 22, 0.06) !important;
+}
+
+}
+
+html[data-theme='light'] body {
+  --cv-color-accent: #c25c3a;
+  --cv-color-accent-muted: rgba(194, 92, 58, 0.12);
+  --cv-color-secondary: #3f5b6c;
+  --cv-color-text-primary: #1f1a16;
+  --cv-color-text-secondary: #5c534a;
+  --cv-color-text-disabled: #9c9287;
+  --cv-color-info: #3f5b6c;
+  --cv-color-success: #3f6b4e;
+  --cv-color-warning: #b7791f;
+  --cv-color-error: #a33b2a;
+  --cv-color-latency-fast: #3f6b4e;
+  --cv-color-latency-medium: #b7791f;
+  --cv-color-latency-slow: #c25c3a;
+  --cv-color-latency-timeout: #a33b2a;
+  --cv-surface-app: #efe8de;
+  --cv-surface-sidebar: #f5f0e8;
+  --cv-surface-page: #f7f1e8;
+  --cv-surface-content: #f3ece3;
+  --cv-surface-card: #fffaf3;
+  --cv-surface-item: #ffffff;
+  --cv-surface-nav-active: rgba(194, 92, 58, 0.12);
+  --cv-surface-dialog: #fffdf9;
+  --cv-surface-overlay: rgba(48, 36, 24, 0.28);
+  --cv-border-subtle: rgba(31, 26, 22, 0.08);
+  --cv-border-strong: rgba(31, 26, 22, 0.14);
+  --cv-border-focus: #c25c3a;
+  --cv-radius-xs: 6px;
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 12px;
+  --cv-radius-lg: 14px;
+  --cv-radius-pill: 999px;
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: 0 1px 2px rgba(31, 26, 22, 0.06);
+  --cv-selection-fg: #fffaf3;
+  --cv-scrollbar-bg: #f5f0e8;
+  --cv-scrollbar-thumb: #9c9287;
+  --cv-motion-fast: 140ms;
+  --cv-motion-normal: 220ms;
+  --cv-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --background-color: #efe8de !important;
+  --divider-color: rgba(31, 26, 22, 0.08) !important;
+  --primary-main: #c25c3a !important;
+  --text-primary: #1f1a16 !important;
+  --selection-color: #fffaf3 !important;
+  --scroller-color: #9c9287 !important;
+  --background-color-alpha: rgba(194, 92, 58, 0.12) !important;
+  --window-border-color: rgba(31, 26, 22, 0.14) !important;
+  --scrollbar-bg: #f5f0e8 !important;
+  --scrollbar-thumb: #9c9287 !important;
+  --border-radius: 12px !important;
+
+  background-color: #efe8de !important;
+  color: #1f1a16 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html[data-theme='light'] body .MuiPaper-root.layout,
+html[data-theme='light'] body .layout {
+  background-color: #efe8de !important;
+  color: #1f1a16 !important;
+}
+
+html[data-theme='light'] body .layout .layout-content__left {
+  background-color: #f5f0e8 !important;
+  border-right: 1px solid rgba(31, 26, 22, 0.08) !important;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+html[data-theme='light'] body .layout .layout-content__right,
+html[data-theme='light'] body .the-content {
+  background-color: #f7f1e8 !important;
+}
+
+html[data-theme='light'] body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(31, 26, 22, 0.08) !important;
+  color: #1f1a16 !important;
+}
+
+html[data-theme='light'] body .base-page .base-container,
+html[data-theme='light'] body .base-page .base-container > section,
+html[data-theme='light'] body .base-container,
+html[data-theme='light'] body .base-container > section {
+  background-color: #f3ece3 !important;
+}
+
+html[data-theme='light'] body .base-content {
+  color: #1f1a16 !important;
+}
+
+html[data-theme='light'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html[data-theme='light'] body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: #fffaf3 !important;
+  border: 1px solid rgba(31, 26, 22, 0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 2px rgba(31, 26, 22, 0.06) !important;
+  color: #1f1a16 !important;
+  overflow: hidden;
+}
+
+html[data-theme='light'] body .MuiListSubheader-root {
+  color: #5c534a !important;
+  background-color: transparent !important;
+}
+
+html[data-theme='light'] body .MuiListItemText-primary,
+html[data-theme='light'] body .MuiTypography-root {
+  color: #1f1a16;
+}
+
+html[data-theme='light'] body .MuiListItemText-secondary,
+html[data-theme='light'] body .MuiTypography-colorTextSecondary {
+  color: #5c534a !important;
+}
+
+html[data-theme='light'] body .MuiDivider-root {
+  border-color: rgba(31, 26, 22, 0.08) !important;
+}
+
+html[data-theme='light'] body .MuiDialog-root .MuiDialog-paper,
+html[data-theme='light'] body .MuiModal-root .MuiDialog-paper,
+html[data-theme='light'] body div.MuiDialog-paper {
+  background-color: #fffdf9 !important;
+  border: 1px solid rgba(31, 26, 22, 0.08) !important;
+  border-radius: 12px !important;
+  color: #1f1a16 !important;
+}
+
+html[data-theme='light'] body .MuiBackdrop-root {
+  background-color: rgba(48, 36, 24, 0.28) !important;
+}
+
+html[data-theme='light'] body .MuiPaper-root:not(.layout) {
+  background-color: #fffaf3 !important;
+  border-color: rgba(31, 26, 22, 0.14) !important;
+  color: #1f1a16;
+}
+
+html[data-theme='light'] body .MuiButton-containedPrimary,
+html[data-theme='light'] body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: #c25c3a !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='light'] body .MuiButton-outlinedPrimary {
+  border-color: #c25c3a !important;
+  color: #c25c3a !important;
+}
+
+html[data-theme='light'] body .MuiSwitch-switchBase.Mui-checked {
+  color: #c25c3a !important;
+}
+
+html[data-theme='light'] body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #c25c3a !important;
+}
+
+html[data-theme='light'] body .the-menu .MuiListItemButton-root.Mui-selected,
+html[data-theme='light'] body .MuiListItemButton-root.Mui-selected {
+  background-color: rgba(194, 92, 58, 0.12) !important;
+  box-shadow: 0 1px 2px rgba(31, 26, 22, 0.06) !important;
+}
+
+html[data-theme='light'] body .the-logo svg,
+html[data-theme='light'] body .the-logo .st1 {
+  fill: #1f1a16 !important;
+}
+
+html[data-theme='light'] body ::selection {
+  color: #fffaf3;
+  background-color: #c25c3a;
+}
+
+html[data-theme='light'] body *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #f5f0e8 !important;
+}
+
+html[data-theme='light'] body *::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #9c9287 !important;
+}
+
+html[data-theme='light'] body .layout .layout-content__left {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html[data-theme='light'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
+  box-shadow: 0 1px 2px rgba(31, 26, 22, 0.06) !important;
+}
+

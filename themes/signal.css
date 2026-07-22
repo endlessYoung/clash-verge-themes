@@ -1,88 +1,17 @@
 /*
- * Clash Verge Themes — Signal Instrument
+ * Clash Verge Themes — Signal Instrument (DOM-aware v2)
  * Thesis: flight-instrument panel — high contrast, sharp, data-first
  *
- * Ported from clash-verge-rev:
- *   src/assets/styles/themes/packs.scss  (cv-signal-*)
- *   src/assets/styles/themes/surfaces.scss
+ * Stock Clash Verge CSS Injection:
+ * - Light/Dark via prefers-color-scheme (no data-theme required)
+ * - Direct paint + !important (beats html inline --vars & app post-import rules)
+ * - Stable class targets only (.layout, .base-container, .the-menu, …)
  *
- * Usage (Clash Verge → Theme Setting → CSS Injection):
  * @import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@main/themes/signal.css");
  */
 
-/* ========== Tokens: Light (full --cv-* matrix) ========== */
-html[data-theme='light'],
-:root:not([data-theme='dark']) {
-
-  --cv-color-accent: #0f766e;
-  --cv-color-accent-muted: rgba(16, 185, 129, 0.14);
-  --cv-color-secondary: #b45309;
-  --cv-color-text-primary: #0b1220;
-  --cv-color-text-secondary: #3f4b5b;
-  --cv-color-text-disabled: #8b95a5;
-  --cv-color-info: #0369a1;
-  --cv-color-success: #047857;
-  --cv-color-warning: #b45309;
-  --cv-color-error: #b91c1c;
-  --cv-color-latency-fast: #047857;
-  --cv-color-latency-medium: #b45309;
-  --cv-color-latency-slow: #c2410c;
-  --cv-color-latency-timeout: #b91c1c;
-
-  --cv-surface-app: #dce1e8;
-  --cv-surface-sidebar: #e8edf3;
-  --cv-surface-page: #f1f4f8;
-  --cv-surface-content: #e9eef4;
-  --cv-surface-card: #f7f9fc;
-  --cv-surface-item: #ffffff;
-  --cv-surface-nav-active: rgba(16, 185, 129, 0.14);
-  --cv-surface-dialog: #ffffff;
-  --cv-surface-overlay: rgba(10, 12, 15, 0.4);
-
-  --cv-border-subtle: rgba(11, 18, 32, 0.12);
-  --cv-border-strong: rgba(11, 18, 32, 0.22);
-  --cv-border-focus: #0f766e;
-
-  --cv-radius-xs: 2px;
-  --cv-radius-sm: 4px;
-  --cv-radius-md: 6px;
-  --cv-radius-lg: 8px;
-  --cv-radius-pill: 999px;
-
-  --cv-space-density: compact;
-  --cv-page-padding: 16px;
-  --cv-card-padding: 12px;
-  --cv-item-gap: 6px;
-
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
-    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
-
-  --cv-effect-blur: 0px;
-  --cv-effect-glow: none;
-  --cv-selection-fg: #f8fafc;
-  --cv-scrollbar-bg: #e8edf3;
-  --cv-scrollbar-thumb: #8b95a5;
-  --cv-motion-fast: 90ms;
-  --cv-motion-normal: 160ms;
-  --cv-motion-ease: ease-out;
-
-  --background-color: var(--cv-surface-app);
-  --divider-color: var(--cv-border-subtle);
-  --primary-main: var(--cv-color-accent);
-  --text-primary: var(--cv-color-text-primary);
-  --selection-color: var(--cv-selection-fg);
-  --scroller-color: var(--cv-scrollbar-thumb);
-  --background-color-alpha: var(--cv-color-accent-muted);
-  --window-border-color: var(--cv-border-strong);
-  --scrollbar-bg: var(--cv-scrollbar-bg);
-  --scrollbar-thumb: var(--cv-scrollbar-thumb);
-  --border-radius: var(--cv-radius-md);
-}
-
-/* ========== Tokens: Dark (full --cv-* matrix) ========== */
-html[data-theme='dark'] {
-
+@media (prefers-color-scheme: dark) {
+body {
   --cv-color-accent: #2dd4bf;
   --cv-color-accent-muted: rgba(52, 211, 153, 0.14);
   --cv-color-secondary: #f59e0b;
@@ -97,7 +26,6 @@ html[data-theme='dark'] {
   --cv-color-latency-medium: #fbbf24;
   --cv-color-latency-slow: #fb923c;
   --cv-color-latency-timeout: #f87171;
-
   --cv-surface-app: #0a0c0f;
   --cv-surface-sidebar: #12151a;
   --cv-surface-page: #0e1116;
@@ -107,26 +35,16 @@ html[data-theme='dark'] {
   --cv-surface-nav-active: rgba(52, 211, 153, 0.14);
   --cv-surface-dialog: #1a1f28;
   --cv-surface-overlay: rgba(0, 0, 0, 0.65);
-
   --cv-border-subtle: rgba(255, 255, 255, 0.1);
   --cv-border-strong: rgba(255, 255, 255, 0.18);
   --cv-border-focus: #2dd4bf;
-
   --cv-radius-xs: 2px;
   --cv-radius-sm: 4px;
   --cv-radius-md: 6px;
   --cv-radius-lg: 8px;
   --cv-radius-pill: 999px;
-
-  --cv-space-density: compact;
-  --cv-page-padding: 16px;
-  --cv-card-padding: 12px;
-  --cv-item-gap: 6px;
-
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
-    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
-
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
   --cv-selection-fg: #f3f6fa;
@@ -136,196 +54,794 @@ html[data-theme='dark'] {
   --cv-motion-normal: 160ms;
   --cv-motion-ease: ease-out;
 
-  --background-color: var(--cv-surface-app);
-  --divider-color: var(--cv-border-subtle);
-  --primary-main: var(--cv-color-accent);
-  --text-primary: var(--cv-color-text-primary);
-  --selection-color: var(--cv-selection-fg);
-  --scroller-color: var(--cv-scrollbar-thumb);
-  --background-color-alpha: var(--cv-color-accent-muted);
-  --window-border-color: var(--cv-border-strong);
-  --scrollbar-bg: var(--cv-scrollbar-bg);
-  --scrollbar-thumb: var(--cv-scrollbar-thumb);
-  --border-radius: var(--cv-radius-md);
+  --background-color: #0a0c0f !important;
+  --divider-color: rgba(255, 255, 255, 0.1) !important;
+  --primary-main: #2dd4bf !important;
+  --text-primary: #f3f6fa !important;
+  --selection-color: #f3f6fa !important;
+  --scroller-color: #555555 !important;
+  --background-color-alpha: rgba(52, 211, 153, 0.14) !important;
+  --window-border-color: rgba(255, 255, 255, 0.18) !important;
+  --scrollbar-bg: #12151a !important;
+  --scrollbar-thumb: #555555 !important;
+  --border-radius: 6px !important;
+
+  background-color: #0a0c0f !important;
+  color: #f3f6fa !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* ========== Surfaces (from surfaces.scss) ========== */
-
-body {
-  background-color: var(--cv-surface-app) !important;
-  color: var(--cv-color-text-primary) !important;
-  font-family: var(--cv-font-sans);
-  transition:
-    background-color var(--cv-motion-normal) var(--cv-motion-ease),
-    color var(--cv-motion-normal) var(--cv-motion-ease);
+html body .MuiPaper-root.layout,
+html body .layout {
+  background-color: #0a0c0f !important;
+  color: #f3f6fa !important;
 }
 
-.layout {
-  background-color: var(--cv-surface-app) !important;
-  color: var(--cv-color-text-primary);
+html body .layout .layout-content__left {
+  background-color: #12151a !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
 }
 
-.layout .layout-content__left {
-  background-color: var(--cv-surface-sidebar) !important;
-  backdrop-filter: blur(var(--cv-effect-blur));
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
-  border-right: 1px solid var(--cv-border-subtle) !important;
+html body .layout .layout-content__right,
+html body .the-content {
+  background-color: #0e1116 !important;
 }
 
-.layout .layout-content__right {
-  background-color: var(--cv-surface-page) !important;
+html body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #f3f6fa !important;
 }
 
-.base-page > header {
-  border-bottom-color: var(--cv-border-subtle) !important;
-  color: var(--cv-color-text-primary) !important;
+html body .base-page .base-container,
+html body .base-page .base-container > section,
+html body .base-container,
+html body .base-container > section {
+  background-color: #14181f !important;
 }
 
-.base-page .base-container,
-.base-page .base-container > section,
-.base-container,
-.base-container > section {
-  background-color: var(--cv-surface-content) !important;
+html body .base-content {
+  color: #f3f6fa !important;
 }
 
-.cv-card,
-.enhanced-card {
-  background-color: var(--cv-surface-card) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  border-radius: var(--cv-radius-md) !important;
-  box-shadow: var(--cv-effect-glow) !important;
-  backdrop-filter: blur(var(--cv-effect-blur));
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
-  color: var(--cv-color-text-primary) !important;
-  transition:
-    background-color var(--cv-motion-fast) var(--cv-motion-ease),
-    border-color var(--cv-motion-fast) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: #1a1f28 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  color: #f3f6fa !important;
+  overflow: hidden;
 }
 
-.cv-item {
-  background-color: var(--cv-surface-item) !important;
-  border-radius: var(--cv-radius-sm);
-  border: 1px solid transparent;
-  transition:
-    background-color var(--cv-motion-fast) var(--cv-motion-ease),
-    border-color var(--cv-motion-fast) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-fast) var(--cv-motion-ease);
+html body .MuiListSubheader-root {
+  color: #a7b0bd !important;
+  background-color: transparent !important;
 }
 
-.cv-item:hover {
-  border-color: var(--cv-border-subtle);
+html body .MuiListItemText-primary,
+html body .MuiTypography-root {
+  color: #f3f6fa;
 }
 
-.cv-item.is-selected,
-.cv-item[data-selected='true'] {
-  background-color: var(--cv-surface-nav-active) !important;
-  border-color: var(--cv-border-focus);
-  box-shadow: var(--cv-effect-glow);
+html body .MuiListItemText-secondary,
+html body .MuiTypography-colorTextSecondary {
+  color: #a7b0bd !important;
 }
 
-.MuiDialog-paper {
-  background-color: var(--cv-surface-dialog) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  border-radius: var(--cv-radius-md) !important;
-  color: var(--cv-color-text-primary) !important;
+html body .MuiDivider-root {
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.MuiPaper-root {
-  background-color: var(--cv-surface-card) !important;
-  border-color: var(--cv-border-strong) !important;
-  color: var(--cv-color-text-primary);
+html body .MuiDialog-root .MuiDialog-paper,
+html body .MuiModal-root .MuiDialog-paper,
+html body div.MuiDialog-paper {
+  background-color: #1a1f28 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+  color: #f3f6fa !important;
 }
 
-.MuiButton-containedPrimary,
-.MuiButtonGroup-groupedContainedPrimary {
-  background-color: var(--cv-color-accent) !important;
+html body .MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.65) !important;
+}
+
+html body .MuiPaper-root:not(.layout) {
+  background-color: #1a1f28 !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #f3f6fa;
+}
+
+html body .MuiButton-containedPrimary,
+html body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: #2dd4bf !important;
   box-shadow: none !important;
 }
 
-.MuiButton-outlinedPrimary {
-  border-color: var(--cv-color-accent) !important;
-  color: var(--cv-color-accent) !important;
+html body .MuiButton-outlinedPrimary {
+  border-color: #2dd4bf !important;
+  color: #2dd4bf !important;
 }
 
-.MuiSwitch-switchBase.Mui-checked {
-  color: var(--cv-color-accent) !important;
+html body .MuiSwitch-switchBase.Mui-checked {
+  color: #2dd4bf !important;
 }
 
-.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: var(--cv-color-accent) !important;
+html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #2dd4bf !important;
 }
 
-.MuiListItemButton-root.Mui-selected {
-  background-color: var(--cv-surface-nav-active) !important;
+html body .the-menu .MuiListItemButton-root.Mui-selected,
+html body .MuiListItemButton-root.Mui-selected {
+  background-color: rgba(52, 211, 153, 0.14) !important;
+  box-shadow: none !important;
 }
 
-.MuiListItemText-primary {
-  color: var(--cv-color-text-primary) !important;
+html body .the-logo svg,
+html body .the-logo .st1 {
+  fill: #f3f6fa !important;
 }
 
-.MuiListItemText-secondary {
-  color: var(--cv-color-text-secondary) !important;
+html body ::selection {
+  color: #f3f6fa;
+  background-color: #2dd4bf;
 }
 
-.MuiTypography-colorTextSecondary {
-  color: var(--cv-color-text-secondary) !important;
-}
-
-.MuiDivider-root {
-  border-color: var(--cv-border-subtle) !important;
-}
-
-.MuiBackdrop-root {
-  background-color: var(--cv-surface-overlay) !important;
-}
-
-::selection {
-  color: var(--cv-selection-fg);
-  background-color: var(--cv-color-accent);
-}
-
-*::-webkit-scrollbar {
+html body *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: var(--cv-scrollbar-bg);
+  background: #12151a !important;
 }
 
-*::-webkit-scrollbar-thumb {
+html body *::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  background-color: var(--cv-scrollbar-thumb);
+  background-color: #555555 !important;
 }
 
-/* Stock Clash Verge hardcode beaters (upstream without our TSX patch) */
-.base-container[style],
-.base-container > section[style] {
-  background-color: var(--cv-surface-content) !important;
-}
-
-
-/* Pack flourish: Signal instrument */
-.layout .layout-content__left {
+html body .layout .layout-content__left {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
-
-.cv-card,
-.enhanced-card,
-.MuiPaper-root {
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .MuiPaper-root:not(.layout) {
   backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
   box-shadow: none !important;
-  border-radius: var(--cv-radius-md) !important;
+  border-radius: 6px !important;
 }
-
-.cv-mono,
-.latency,
-.traffic-text,
-[class*='delay'] {
-  font-family: var(--cv-font-mono) !important;
+html body .the-menu .MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid #2dd4bf !important;
+}
+html body .the-traffic {
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace !important;
   font-variant-numeric: tabular-nums;
 }
 
-.MuiListItemButton-root.Mui-selected {
-  border-left: 3px solid var(--cv-color-accent);
 }
+
+html[data-theme='dark'] body {
+  --cv-color-accent: #2dd4bf;
+  --cv-color-accent-muted: rgba(52, 211, 153, 0.14);
+  --cv-color-secondary: #f59e0b;
+  --cv-color-text-primary: #f3f6fa;
+  --cv-color-text-secondary: #a7b0bd;
+  --cv-color-text-disabled: #66707e;
+  --cv-color-info: #38bdf8;
+  --cv-color-success: #34d399;
+  --cv-color-warning: #fbbf24;
+  --cv-color-error: #f87171;
+  --cv-color-latency-fast: #34d399;
+  --cv-color-latency-medium: #fbbf24;
+  --cv-color-latency-slow: #fb923c;
+  --cv-color-latency-timeout: #f87171;
+  --cv-surface-app: #0a0c0f;
+  --cv-surface-sidebar: #12151a;
+  --cv-surface-page: #0e1116;
+  --cv-surface-content: #14181f;
+  --cv-surface-card: #1a1f28;
+  --cv-surface-item: #1e2430;
+  --cv-surface-nav-active: rgba(52, 211, 153, 0.14);
+  --cv-surface-dialog: #1a1f28;
+  --cv-surface-overlay: rgba(0, 0, 0, 0.65);
+  --cv-border-subtle: rgba(255, 255, 255, 0.1);
+  --cv-border-strong: rgba(255, 255, 255, 0.18);
+  --cv-border-focus: #2dd4bf;
+  --cv-radius-xs: 2px;
+  --cv-radius-sm: 4px;
+  --cv-radius-md: 6px;
+  --cv-radius-lg: 8px;
+  --cv-radius-pill: 999px;
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: none;
+  --cv-selection-fg: #f3f6fa;
+  --cv-scrollbar-bg: #12151a;
+  --cv-scrollbar-thumb: #555555;
+  --cv-motion-fast: 90ms;
+  --cv-motion-normal: 160ms;
+  --cv-motion-ease: ease-out;
+
+  --background-color: #0a0c0f !important;
+  --divider-color: rgba(255, 255, 255, 0.1) !important;
+  --primary-main: #2dd4bf !important;
+  --text-primary: #f3f6fa !important;
+  --selection-color: #f3f6fa !important;
+  --scroller-color: #555555 !important;
+  --background-color-alpha: rgba(52, 211, 153, 0.14) !important;
+  --window-border-color: rgba(255, 255, 255, 0.18) !important;
+  --scrollbar-bg: #12151a !important;
+  --scrollbar-thumb: #555555 !important;
+  --border-radius: 6px !important;
+
+  background-color: #0a0c0f !important;
+  color: #f3f6fa !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html[data-theme='dark'] body .MuiPaper-root.layout,
+html[data-theme='dark'] body .layout {
+  background-color: #0a0c0f !important;
+  color: #f3f6fa !important;
+}
+
+html[data-theme='dark'] body .layout .layout-content__left {
+  background-color: #12151a !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+html[data-theme='dark'] body .layout .layout-content__right,
+html[data-theme='dark'] body .the-content {
+  background-color: #0e1116 !important;
+}
+
+html[data-theme='dark'] body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #f3f6fa !important;
+}
+
+html[data-theme='dark'] body .base-page .base-container,
+html[data-theme='dark'] body .base-page .base-container > section,
+html[data-theme='dark'] body .base-container,
+html[data-theme='dark'] body .base-container > section {
+  background-color: #14181f !important;
+}
+
+html[data-theme='dark'] body .base-content {
+  color: #f3f6fa !important;
+}
+
+html[data-theme='dark'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html[data-theme='dark'] body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: #1a1f28 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  color: #f3f6fa !important;
+  overflow: hidden;
+}
+
+html[data-theme='dark'] body .MuiListSubheader-root {
+  color: #a7b0bd !important;
+  background-color: transparent !important;
+}
+
+html[data-theme='dark'] body .MuiListItemText-primary,
+html[data-theme='dark'] body .MuiTypography-root {
+  color: #f3f6fa;
+}
+
+html[data-theme='dark'] body .MuiListItemText-secondary,
+html[data-theme='dark'] body .MuiTypography-colorTextSecondary {
+  color: #a7b0bd !important;
+}
+
+html[data-theme='dark'] body .MuiDivider-root {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme='dark'] body .MuiDialog-root .MuiDialog-paper,
+html[data-theme='dark'] body .MuiModal-root .MuiDialog-paper,
+html[data-theme='dark'] body div.MuiDialog-paper {
+  background-color: #1a1f28 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+  color: #f3f6fa !important;
+}
+
+html[data-theme='dark'] body .MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.65) !important;
+}
+
+html[data-theme='dark'] body .MuiPaper-root:not(.layout) {
+  background-color: #1a1f28 !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #f3f6fa;
+}
+
+html[data-theme='dark'] body .MuiButton-containedPrimary,
+html[data-theme='dark'] body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: #2dd4bf !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='dark'] body .MuiButton-outlinedPrimary {
+  border-color: #2dd4bf !important;
+  color: #2dd4bf !important;
+}
+
+html[data-theme='dark'] body .MuiSwitch-switchBase.Mui-checked {
+  color: #2dd4bf !important;
+}
+
+html[data-theme='dark'] body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #2dd4bf !important;
+}
+
+html[data-theme='dark'] body .the-menu .MuiListItemButton-root.Mui-selected,
+html[data-theme='dark'] body .MuiListItemButton-root.Mui-selected {
+  background-color: rgba(52, 211, 153, 0.14) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='dark'] body .the-logo svg,
+html[data-theme='dark'] body .the-logo .st1 {
+  fill: #f3f6fa !important;
+}
+
+html[data-theme='dark'] body ::selection {
+  color: #f3f6fa;
+  background-color: #2dd4bf;
+}
+
+html[data-theme='dark'] body *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #12151a !important;
+}
+
+html[data-theme='dark'] body *::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #555555 !important;
+}
+
+html[data-theme='dark'] body .layout .layout-content__left {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html[data-theme='dark'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html[data-theme='dark'] body .MuiPaper-root:not(.layout) {
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-radius: 6px !important;
+}
+html[data-theme='dark'] body .the-menu .MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid #2dd4bf !important;
+}
+html[data-theme='dark'] body .the-traffic {
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+}
+
+
+@media (prefers-color-scheme: light) {
+body {
+  --cv-color-accent: #0f766e;
+  --cv-color-accent-muted: rgba(16, 185, 129, 0.14);
+  --cv-color-secondary: #b45309;
+  --cv-color-text-primary: #0b1220;
+  --cv-color-text-secondary: #3f4b5b;
+  --cv-color-text-disabled: #8b95a5;
+  --cv-color-info: #0369a1;
+  --cv-color-success: #047857;
+  --cv-color-warning: #b45309;
+  --cv-color-error: #b91c1c;
+  --cv-color-latency-fast: #047857;
+  --cv-color-latency-medium: #b45309;
+  --cv-color-latency-slow: #c2410c;
+  --cv-color-latency-timeout: #b91c1c;
+  --cv-surface-app: #dce1e8;
+  --cv-surface-sidebar: #e8edf3;
+  --cv-surface-page: #f1f4f8;
+  --cv-surface-content: #e9eef4;
+  --cv-surface-card: #f7f9fc;
+  --cv-surface-item: #ffffff;
+  --cv-surface-nav-active: rgba(16, 185, 129, 0.14);
+  --cv-surface-dialog: #ffffff;
+  --cv-surface-overlay: rgba(10, 12, 15, 0.4);
+  --cv-border-subtle: rgba(11, 18, 32, 0.12);
+  --cv-border-strong: rgba(11, 18, 32, 0.22);
+  --cv-border-focus: #0f766e;
+  --cv-radius-xs: 2px;
+  --cv-radius-sm: 4px;
+  --cv-radius-md: 6px;
+  --cv-radius-lg: 8px;
+  --cv-radius-pill: 999px;
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: none;
+  --cv-selection-fg: #f8fafc;
+  --cv-scrollbar-bg: #e8edf3;
+  --cv-scrollbar-thumb: #8b95a5;
+  --cv-motion-fast: 90ms;
+  --cv-motion-normal: 160ms;
+  --cv-motion-ease: ease-out;
+
+  --background-color: #dce1e8 !important;
+  --divider-color: rgba(11, 18, 32, 0.12) !important;
+  --primary-main: #0f766e !important;
+  --text-primary: #0b1220 !important;
+  --selection-color: #f8fafc !important;
+  --scroller-color: #8b95a5 !important;
+  --background-color-alpha: rgba(16, 185, 129, 0.14) !important;
+  --window-border-color: rgba(11, 18, 32, 0.22) !important;
+  --scrollbar-bg: #e8edf3 !important;
+  --scrollbar-thumb: #8b95a5 !important;
+  --border-radius: 6px !important;
+
+  background-color: #dce1e8 !important;
+  color: #0b1220 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html body .MuiPaper-root.layout,
+html body .layout {
+  background-color: #dce1e8 !important;
+  color: #0b1220 !important;
+}
+
+html body .layout .layout-content__left {
+  background-color: #e8edf3 !important;
+  border-right: 1px solid rgba(11, 18, 32, 0.12) !important;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+html body .layout .layout-content__right,
+html body .the-content {
+  background-color: #f1f4f8 !important;
+}
+
+html body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(11, 18, 32, 0.12) !important;
+  color: #0b1220 !important;
+}
+
+html body .base-page .base-container,
+html body .base-page .base-container > section,
+html body .base-container,
+html body .base-container > section {
+  background-color: #e9eef4 !important;
+}
+
+html body .base-content {
+  color: #0b1220 !important;
+}
+
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: #f7f9fc !important;
+  border: 1px solid rgba(11, 18, 32, 0.12) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  color: #0b1220 !important;
+  overflow: hidden;
+}
+
+html body .MuiListSubheader-root {
+  color: #3f4b5b !important;
+  background-color: transparent !important;
+}
+
+html body .MuiListItemText-primary,
+html body .MuiTypography-root {
+  color: #0b1220;
+}
+
+html body .MuiListItemText-secondary,
+html body .MuiTypography-colorTextSecondary {
+  color: #3f4b5b !important;
+}
+
+html body .MuiDivider-root {
+  border-color: rgba(11, 18, 32, 0.12) !important;
+}
+
+html body .MuiDialog-root .MuiDialog-paper,
+html body .MuiModal-root .MuiDialog-paper,
+html body div.MuiDialog-paper {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(11, 18, 32, 0.12) !important;
+  border-radius: 6px !important;
+  color: #0b1220 !important;
+}
+
+html body .MuiBackdrop-root {
+  background-color: rgba(10, 12, 15, 0.4) !important;
+}
+
+html body .MuiPaper-root:not(.layout) {
+  background-color: #f7f9fc !important;
+  border-color: rgba(11, 18, 32, 0.22) !important;
+  color: #0b1220;
+}
+
+html body .MuiButton-containedPrimary,
+html body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: #0f766e !important;
+  box-shadow: none !important;
+}
+
+html body .MuiButton-outlinedPrimary {
+  border-color: #0f766e !important;
+  color: #0f766e !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked {
+  color: #0f766e !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #0f766e !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected,
+html body .MuiListItemButton-root.Mui-selected {
+  background-color: rgba(16, 185, 129, 0.14) !important;
+  box-shadow: none !important;
+}
+
+html body .the-logo svg,
+html body .the-logo .st1 {
+  fill: #0b1220 !important;
+}
+
+html body ::selection {
+  color: #f8fafc;
+  background-color: #0f766e;
+}
+
+html body *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #e8edf3 !important;
+}
+
+html body *::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #8b95a5 !important;
+}
+
+html body .layout .layout-content__left {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .MuiPaper-root:not(.layout) {
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-radius: 6px !important;
+}
+html body .the-menu .MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid #0f766e !important;
+}
+html body .the-traffic {
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+}
+
+}
+
+html[data-theme='light'] body {
+  --cv-color-accent: #0f766e;
+  --cv-color-accent-muted: rgba(16, 185, 129, 0.14);
+  --cv-color-secondary: #b45309;
+  --cv-color-text-primary: #0b1220;
+  --cv-color-text-secondary: #3f4b5b;
+  --cv-color-text-disabled: #8b95a5;
+  --cv-color-info: #0369a1;
+  --cv-color-success: #047857;
+  --cv-color-warning: #b45309;
+  --cv-color-error: #b91c1c;
+  --cv-color-latency-fast: #047857;
+  --cv-color-latency-medium: #b45309;
+  --cv-color-latency-slow: #c2410c;
+  --cv-color-latency-timeout: #b91c1c;
+  --cv-surface-app: #dce1e8;
+  --cv-surface-sidebar: #e8edf3;
+  --cv-surface-page: #f1f4f8;
+  --cv-surface-content: #e9eef4;
+  --cv-surface-card: #f7f9fc;
+  --cv-surface-item: #ffffff;
+  --cv-surface-nav-active: rgba(16, 185, 129, 0.14);
+  --cv-surface-dialog: #ffffff;
+  --cv-surface-overlay: rgba(10, 12, 15, 0.4);
+  --cv-border-subtle: rgba(11, 18, 32, 0.12);
+  --cv-border-strong: rgba(11, 18, 32, 0.22);
+  --cv-border-focus: #0f766e;
+  --cv-radius-xs: 2px;
+  --cv-radius-sm: 4px;
+  --cv-radius-md: 6px;
+  --cv-radius-lg: 8px;
+  --cv-radius-pill: 999px;
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: none;
+  --cv-selection-fg: #f8fafc;
+  --cv-scrollbar-bg: #e8edf3;
+  --cv-scrollbar-thumb: #8b95a5;
+  --cv-motion-fast: 90ms;
+  --cv-motion-normal: 160ms;
+  --cv-motion-ease: ease-out;
+
+  --background-color: #dce1e8 !important;
+  --divider-color: rgba(11, 18, 32, 0.12) !important;
+  --primary-main: #0f766e !important;
+  --text-primary: #0b1220 !important;
+  --selection-color: #f8fafc !important;
+  --scroller-color: #8b95a5 !important;
+  --background-color-alpha: rgba(16, 185, 129, 0.14) !important;
+  --window-border-color: rgba(11, 18, 32, 0.22) !important;
+  --scrollbar-bg: #e8edf3 !important;
+  --scrollbar-thumb: #8b95a5 !important;
+  --border-radius: 6px !important;
+
+  background-color: #dce1e8 !important;
+  color: #0b1220 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html[data-theme='light'] body .MuiPaper-root.layout,
+html[data-theme='light'] body .layout {
+  background-color: #dce1e8 !important;
+  color: #0b1220 !important;
+}
+
+html[data-theme='light'] body .layout .layout-content__left {
+  background-color: #e8edf3 !important;
+  border-right: 1px solid rgba(11, 18, 32, 0.12) !important;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+html[data-theme='light'] body .layout .layout-content__right,
+html[data-theme='light'] body .the-content {
+  background-color: #f1f4f8 !important;
+}
+
+html[data-theme='light'] body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(11, 18, 32, 0.12) !important;
+  color: #0b1220 !important;
+}
+
+html[data-theme='light'] body .base-page .base-container,
+html[data-theme='light'] body .base-page .base-container > section,
+html[data-theme='light'] body .base-container,
+html[data-theme='light'] body .base-container > section {
+  background-color: #e9eef4 !important;
+}
+
+html[data-theme='light'] body .base-content {
+  color: #0b1220 !important;
+}
+
+html[data-theme='light'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html[data-theme='light'] body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: #f7f9fc !important;
+  border: 1px solid rgba(11, 18, 32, 0.12) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  color: #0b1220 !important;
+  overflow: hidden;
+}
+
+html[data-theme='light'] body .MuiListSubheader-root {
+  color: #3f4b5b !important;
+  background-color: transparent !important;
+}
+
+html[data-theme='light'] body .MuiListItemText-primary,
+html[data-theme='light'] body .MuiTypography-root {
+  color: #0b1220;
+}
+
+html[data-theme='light'] body .MuiListItemText-secondary,
+html[data-theme='light'] body .MuiTypography-colorTextSecondary {
+  color: #3f4b5b !important;
+}
+
+html[data-theme='light'] body .MuiDivider-root {
+  border-color: rgba(11, 18, 32, 0.12) !important;
+}
+
+html[data-theme='light'] body .MuiDialog-root .MuiDialog-paper,
+html[data-theme='light'] body .MuiModal-root .MuiDialog-paper,
+html[data-theme='light'] body div.MuiDialog-paper {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(11, 18, 32, 0.12) !important;
+  border-radius: 6px !important;
+  color: #0b1220 !important;
+}
+
+html[data-theme='light'] body .MuiBackdrop-root {
+  background-color: rgba(10, 12, 15, 0.4) !important;
+}
+
+html[data-theme='light'] body .MuiPaper-root:not(.layout) {
+  background-color: #f7f9fc !important;
+  border-color: rgba(11, 18, 32, 0.22) !important;
+  color: #0b1220;
+}
+
+html[data-theme='light'] body .MuiButton-containedPrimary,
+html[data-theme='light'] body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: #0f766e !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='light'] body .MuiButton-outlinedPrimary {
+  border-color: #0f766e !important;
+  color: #0f766e !important;
+}
+
+html[data-theme='light'] body .MuiSwitch-switchBase.Mui-checked {
+  color: #0f766e !important;
+}
+
+html[data-theme='light'] body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #0f766e !important;
+}
+
+html[data-theme='light'] body .the-menu .MuiListItemButton-root.Mui-selected,
+html[data-theme='light'] body .MuiListItemButton-root.Mui-selected {
+  background-color: rgba(16, 185, 129, 0.14) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme='light'] body .the-logo svg,
+html[data-theme='light'] body .the-logo .st1 {
+  fill: #0b1220 !important;
+}
+
+html[data-theme='light'] body ::selection {
+  color: #f8fafc;
+  background-color: #0f766e;
+}
+
+html[data-theme='light'] body *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #e8edf3 !important;
+}
+
+html[data-theme='light'] body *::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #8b95a5 !important;
+}
+
+html[data-theme='light'] body .layout .layout-content__left {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html[data-theme='light'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html[data-theme='light'] body .MuiPaper-root:not(.layout) {
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-radius: 6px !important;
+}
+html[data-theme='light'] body .the-menu .MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid #0f766e !important;
+}
+html[data-theme='light'] body .the-traffic {
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace !important;
+  font-variant-numeric: tabular-nums;
+}
+
