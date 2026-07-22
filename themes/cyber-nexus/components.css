@@ -1,0 +1,72 @@
+/**
+ * Theme: Cyber Nexus — components.css
+ * Visual treatment for nav / header / cards / buttons / chips.
+ * Property policy: color/background/border/shadow/radius/font/spacing only.
+ */
+
+/* Sidebar nav — floating glass, no heavy block active state */
+html body .the-menu {
+  padding: var(--cv-space-2);
+}
+
+html body .the-menu .MuiListItemButton-root {
+  border-radius: var(--cv-radius-sm);
+  margin-bottom: var(--cv-space-1);
+  border-left: 3px solid transparent;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid var(--cv-primary) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 229, 255, 0.14),
+    rgba(0, 229, 255, 0.02)
+  ) !important;
+}
+
+html body .the-menu .MuiListItemButton-root:hover {
+  background-color: var(--cv-surface);
+}
+
+/* Header — minimal */
+html body .base-page > header {
+  padding-top: var(--cv-space-3);
+  padding-bottom: var(--cv-space-3);
+}
+
+/* Setting / proxy cards */
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  box-shadow: var(--cv-effect-glow) !important;
+  transition: transform var(--cv-motion-normal) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-normal) var(--cv-motion-ease);
+}
+
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.35),
+    0 12px 28px rgba(0, 229, 255, 0.14) !important;
+}
+
+/* Buttons */
+html body .MuiButton-root {
+  border-radius: var(--cv-radius-sm) !important;
+  text-transform: none;
+}
+
+/* Chips (status pills) */
+html body .MuiChip-root {
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-mono);
+}
+
+/* Traffic / latency numerals feel instrument-grade */
+html body .the-traffic {
+  font-family: var(--cv-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Dialog polish */
+html body .MuiDialog-root .MuiDialog-paper {
+  box-shadow: var(--cv-effect-glow) !important;
+}

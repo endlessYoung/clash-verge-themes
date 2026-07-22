@@ -1,0 +1,23 @@
+/**
+ * Clash Verge Neo Design System — core/reset.css
+ *
+ * Intentionally minimal. Per spec §7.1, bare-element restyling
+ * (button/svg/img/div/span/body) is FORBIDDEN outside this file, and even
+ * here we only touch focus/selection ergonomics — never color, layout,
+ * or element geometry belonging to the app.
+ */
+
+/* Consistent focus ring instead of browser default outline flash */
+:focus-visible {
+  outline: 2px solid var(--cv-border-focus);
+  outline-offset: 2px;
+}
+
+/* Smooth, not instant, color/opacity transitions app-wide (safe: does not
+   touch layout properties, so it cannot break shell geometry). */
+* {
+  transition-property: background-color, border-color, color, box-shadow,
+    opacity;
+  transition-duration: var(--cv-motion-fast);
+  transition-timing-function: var(--cv-motion-ease);
+}

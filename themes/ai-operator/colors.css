@@ -1,0 +1,84 @@
+/**
+ * Theme: AI Operator — colors.css
+ * Positioning: AI agent console. Cursor / Claude Code energy, terminal-flavored.
+ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --cv-bg-primary: #0a0b0d;
+    --cv-bg-secondary: #121316;
+    --cv-surface: rgba(126, 231, 135, 0.05);
+    --cv-surface-elevated: #16181c;
+    --cv-primary: #7ee787;
+    --cv-secondary: #58a6ff;
+    --cv-text-primary: #e6edf3;
+    --cv-text-secondary: #8b949e;
+    --cv-border-subtle: rgba(230, 237, 243, 0.08);
+    --cv-border-strong: rgba(230, 237, 243, 0.16);
+    --cv-border-focus: var(--cv-primary);
+    --cv-effect-blur: 0px;
+    --cv-effect-glow: none;
+    --cv-scrollbar-bg: var(--cv-bg-primary);
+    --cv-scrollbar-thumb: rgba(230, 237, 243, 0.2);
+    --cv-selection-fg: #0a0b0d;
+  }
+}
+
+html[data-theme='dark'] body {
+  --cv-bg-primary: #0a0b0d;
+  --cv-bg-secondary: #121316;
+  --cv-surface: rgba(126, 231, 135, 0.05);
+  --cv-surface-elevated: #16181c;
+  --cv-primary: #7ee787;
+  --cv-secondary: #58a6ff;
+  --cv-text-primary: #e6edf3;
+  --cv-text-secondary: #8b949e;
+  --cv-border-subtle: rgba(230, 237, 243, 0.08);
+  --cv-border-strong: rgba(230, 237, 243, 0.16);
+  --cv-border-focus: var(--cv-primary);
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: none;
+  --cv-scrollbar-bg: var(--cv-bg-primary);
+  --cv-scrollbar-thumb: rgba(230, 237, 243, 0.2);
+  --cv-selection-fg: #0a0b0d;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --cv-bg-primary: #f6f8fa;
+    --cv-bg-secondary: #eef1f4;
+    --cv-surface: rgba(31, 136, 61, 0.06);
+    --cv-surface-elevated: #ffffff;
+    --cv-primary: #1a7f37;
+    --cv-secondary: #0969da;
+    --cv-text-primary: #1f2328;
+    --cv-text-secondary: #59636e;
+    --cv-border-subtle: rgba(31, 35, 40, 0.08);
+    --cv-border-strong: rgba(31, 35, 40, 0.16);
+    --cv-border-focus: var(--cv-primary);
+    --cv-effect-blur: 0px;
+    --cv-effect-glow: none;
+    --cv-scrollbar-bg: var(--cv-bg-primary);
+    --cv-scrollbar-thumb: rgba(31, 35, 40, 0.24);
+    --cv-selection-fg: #f6f8fa;
+  }
+}
+
+html[data-theme='light'] body {
+  --cv-bg-primary: #f6f8fa;
+  --cv-bg-secondary: #eef1f4;
+  --cv-surface: rgba(31, 136, 61, 0.06);
+  --cv-surface-elevated: #ffffff;
+  --cv-primary: #1a7f37;
+  --cv-secondary: #0969da;
+  --cv-text-primary: #1f2328;
+  --cv-text-secondary: #59636e;
+  --cv-border-subtle: rgba(31, 35, 40, 0.08);
+  --cv-border-strong: rgba(31, 35, 40, 0.16);
+  --cv-border-focus: var(--cv-primary);
+  --cv-effect-blur: 0px;
+  --cv-effect-glow: none;
+  --cv-scrollbar-bg: var(--cv-bg-primary);
+  --cv-scrollbar-thumb: rgba(31, 35, 40, 0.24);
+  --cv-selection-fg: #f6f8fa;
+}

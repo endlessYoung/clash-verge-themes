@@ -1,0 +1,56 @@
+/**
+ * Theme: Aurora Glass — components.css
+ * Generous radius, soft translucency, large breathing room.
+ */
+
+html body .the-menu .MuiListItemButton-root {
+  border-radius: var(--cv-radius-lg);
+  margin: var(--cv-space-1) var(--cv-space-2);
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected {
+  background-color: var(--cv-surface) !important;
+  box-shadow: var(--cv-effect-glow) !important;
+}
+
+html body .the-menu .MuiListItemButton-root:hover {
+  background-color: var(--cv-surface);
+}
+
+html body .layout .layout-content__left {
+  backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.4) !important;
+}
+
+html body .base-page > header {
+  padding-top: var(--cv-space-4);
+  padding-bottom: var(--cv-space-4);
+}
+
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  border-radius: var(--cv-radius-lg) !important;
+  box-shadow: var(--cv-effect-glow) !important;
+  padding: var(--cv-space-2);
+  transition: transform var(--cv-motion-normal) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-normal) var(--cv-motion-ease);
+}
+
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+html body .MuiButton-root {
+  border-radius: var(--cv-radius-pill, 999px) !important;
+  text-transform: none;
+}
+
+html body .MuiChip-root {
+  border-radius: var(--cv-radius-pill, 999px) !important;
+}
+
+html body .MuiDialog-root .MuiDialog-paper {
+  border-radius: var(--cv-radius-float) !important;
+  box-shadow: var(--cv-effect-glow) !important;
+}

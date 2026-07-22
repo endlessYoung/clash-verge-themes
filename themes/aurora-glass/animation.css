@@ -1,0 +1,22 @@
+/**
+ * Theme: Aurora Glass — animation.css
+ * Gentle breathing pulse; premium easing on hover lifts (handled in
+ * components.css transitions).
+ */
+
+@keyframes cv-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.96);
+  }
+}
+
+html body .MuiCircularProgress-root,
+html body [class*='loading'] {
+  animation: cv-pulse 1.6s var(--cv-motion-ease) infinite;
+}

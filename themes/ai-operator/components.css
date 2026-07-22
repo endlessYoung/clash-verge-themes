@@ -1,0 +1,62 @@
+/**
+ * Theme: AI Operator — components.css
+ * Terminal-flavored surfaces; monospace for data-heavy areas.
+ */
+
+html body {
+  font-family: var(--cv-font-sans);
+}
+
+html body .the-menu .MuiListItemButton-root {
+  border-radius: var(--cv-radius-sm);
+  margin-bottom: var(--cv-space-1);
+  border-left: 3px solid transparent;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid var(--cv-primary) !important;
+  background-color: var(--cv-surface) !important;
+}
+
+html body .the-menu .MuiListItemButton-root:hover {
+  background-color: var(--cv-surface);
+}
+
+html body .base-page > header {
+  padding-top: var(--cv-space-3);
+  padding-bottom: var(--cv-space-3);
+  font-family: var(--cv-font-mono);
+}
+
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  box-shadow: none !important;
+  border-radius: var(--cv-radius-sm) !important;
+  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease);
+}
+
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
+  border-color: var(--cv-primary) !important;
+}
+
+html body .MuiButton-root {
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-mono);
+  text-transform: none;
+}
+
+html body .MuiChip-root {
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-mono);
+}
+
+/* Data-heavy readouts — terminal numerals */
+html body .the-traffic,
+html body .MuiListItemText-secondary {
+  font-family: var(--cv-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+html body .MuiDialog-root .MuiDialog-paper {
+  border-radius: var(--cv-radius-sm) !important;
+}

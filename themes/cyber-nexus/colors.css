@@ -1,0 +1,87 @@
+/**
+ * Theme: Cyber Nexus — colors.css
+ * Positioning: network control center. Calm HUD, not disco.
+ * Ref: Linear / Raycast / restrained cyber-security dashboard.
+ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --cv-bg-primary: #080b12;
+    --cv-bg-secondary: #0d1220;
+    --cv-surface: rgba(0, 229, 255, 0.06);
+    --cv-surface-elevated: #10141f;
+    --cv-primary: #00e5ff;
+    --cv-secondary: #8b5cf6;
+    --cv-text-primary: #e7f6ff;
+    --cv-text-secondary: #7f92ac;
+    --cv-border-subtle: rgba(0, 229, 255, 0.1);
+    --cv-border-strong: rgba(0, 229, 255, 0.2);
+    --cv-border-focus: var(--cv-primary);
+    --cv-effect-blur: 18px;
+    --cv-effect-glow: 0 0 0 1px rgba(0, 229, 255, 0.25),
+      0 0 24px rgba(0, 229, 255, 0.12);
+    --cv-scrollbar-bg: var(--cv-bg-primary);
+    --cv-scrollbar-thumb: rgba(0, 229, 255, 0.3);
+    --cv-selection-fg: #041018;
+  }
+}
+
+html[data-theme='dark'] body {
+  --cv-bg-primary: #080b12;
+  --cv-bg-secondary: #0d1220;
+  --cv-surface: rgba(0, 229, 255, 0.06);
+  --cv-surface-elevated: #10141f;
+  --cv-primary: #00e5ff;
+  --cv-secondary: #8b5cf6;
+  --cv-text-primary: #e7f6ff;
+  --cv-text-secondary: #7f92ac;
+  --cv-border-subtle: rgba(0, 229, 255, 0.1);
+  --cv-border-strong: rgba(0, 229, 255, 0.2);
+  --cv-border-focus: var(--cv-primary);
+  --cv-effect-blur: 18px;
+  --cv-effect-glow: 0 0 0 1px rgba(0, 229, 255, 0.25),
+    0 0 24px rgba(0, 229, 255, 0.12);
+  --cv-scrollbar-bg: var(--cv-bg-primary);
+  --cv-scrollbar-thumb: rgba(0, 229, 255, 0.3);
+  --cv-selection-fg: #041018;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --cv-bg-primary: #eef3f7;
+    --cv-bg-secondary: #e3ebf1;
+    --cv-surface: rgba(0, 145, 179, 0.06);
+    --cv-surface-elevated: #ffffff;
+    --cv-primary: #0091b3;
+    --cv-secondary: #6d28d9;
+    --cv-text-primary: #0b1620;
+    --cv-text-secondary: #4c5b6b;
+    --cv-border-subtle: rgba(11, 22, 32, 0.08);
+    --cv-border-strong: rgba(11, 22, 32, 0.16);
+    --cv-border-focus: var(--cv-primary);
+    --cv-effect-blur: 14px;
+    --cv-effect-glow: none;
+    --cv-scrollbar-bg: var(--cv-bg-primary);
+    --cv-scrollbar-thumb: rgba(11, 22, 32, 0.24);
+    --cv-selection-fg: #f5fbff;
+  }
+}
+
+html[data-theme='light'] body {
+  --cv-bg-primary: #eef3f7;
+  --cv-bg-secondary: #e3ebf1;
+  --cv-surface: rgba(0, 145, 179, 0.06);
+  --cv-surface-elevated: #ffffff;
+  --cv-primary: #0091b3;
+  --cv-secondary: #6d28d9;
+  --cv-text-primary: #0b1620;
+  --cv-text-secondary: #4c5b6b;
+  --cv-border-subtle: rgba(11, 22, 32, 0.08);
+  --cv-border-strong: rgba(11, 22, 32, 0.16);
+  --cv-border-focus: var(--cv-primary);
+  --cv-effect-blur: 14px;
+  --cv-effect-glow: none;
+  --cv-scrollbar-bg: var(--cv-bg-primary);
+  --cv-scrollbar-thumb: rgba(11, 22, 32, 0.24);
+  --cv-selection-fg: #f5fbff;
+}

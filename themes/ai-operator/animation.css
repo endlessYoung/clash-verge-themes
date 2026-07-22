@@ -1,0 +1,19 @@
+/**
+ * Theme: AI Operator — animation.css
+ * Cursor-blink style pulse for loading, no fast spin.
+ */
+
+@keyframes cv-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+html body .MuiCircularProgress-root,
+html body [class*='loading'] {
+  animation: cv-pulse 1s steps(2, jump-none) infinite;
+}

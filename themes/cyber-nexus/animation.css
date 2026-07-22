@@ -1,0 +1,24 @@
+/**
+ * Theme: Cyber Nexus — animation.css
+ * Motion tokens only; no rotation-heavy spinners (spec §10 "禁止旋转过快").
+ */
+
+@keyframes cv-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+html body .MuiCircularProgress-root,
+html body [class*='loading'] {
+  animation: cv-pulse 1.4s var(--cv-motion-ease) infinite;
+}
+
+html body .MuiListItemButton-root.Mui-selected {
+  transition: background var(--cv-motion-normal) var(--cv-motion-ease),
+    border-color var(--cv-motion-normal) var(--cv-motion-ease);
+}

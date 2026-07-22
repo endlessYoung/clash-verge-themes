@@ -1,0 +1,82 @@
+/**
+ * Clash Verge Neo Design System — core/tokens.css
+ *
+ * Token NAMES + neutral fallback values + LOCKED semantic status colors.
+ * Themes (themes/*/colors.css) define the real palette values on `body`
+ * per prefers-color-scheme. This file guarantees every token exists even
+ * before a theme's colors.css loads, and hard-locks status semantics so
+ * no theme can recolor success/warning/error.
+ *
+ * Import order (see each theme's index.css):
+ *   1. core/tokens.css        <- this file
+ *   2. core/reset.css
+ *   3. theme colors.css
+ *   4. theme components.css
+ *   5. theme states.css
+ *   6. theme animation.css
+ *   7. core/compatibility.css (last — wins for stock DOM quirks)
+ */
+
+:root,
+body {
+  /* ---- Design System color roles (spec §5.1) ---- */
+  --cv-bg-primary: #0b0f17;
+  --cv-bg-secondary: #111827;
+  --cv-surface: rgba(255, 255, 255, 0.06);
+  --cv-surface-elevated: #161e30;
+  --cv-primary: #60a5fa;
+  --cv-secondary: #8b5cf6;
+  --cv-text-primary: #e8eef9;
+  --cv-text-secondary: #9aa8c1;
+
+  /* ---- LOCKED status colors — themes MUST NOT override these three ---- */
+  --cv-success: #22c55e;
+  --cv-warning: #facc15;
+  --cv-error: #ef4444;
+
+  /* Latency bands align to status semantics */
+  --cv-latency-fast: var(--cv-success);
+  --cv-latency-medium: var(--cv-warning);
+  --cv-latency-slow: #fb923c;
+  --cv-latency-timeout: var(--cv-error);
+
+  /* ---- Spacing (8px grid — spec §5.3). Use these steps only. ---- */
+  --cv-space-1: 4px;
+  --cv-space-2: 8px;
+  --cv-space-3: 12px;
+  --cv-space-4: 16px;
+  --cv-space-6: 24px;
+  --cv-space-8: 32px;
+  --cv-space-12: 48px;
+  --cv-space-16: 64px;
+
+  /* ---- Radius (spec §5.4) ---- */
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 12px;
+  --cv-radius-lg: 16px;
+  --cv-radius-float: 24px;
+
+  /* ---- Motion (spec §5.5 / §10) ---- */
+  --cv-motion-fast: 120ms;
+  --cv-motion-normal: 200ms;
+  --cv-motion-premium: 400ms;
+  --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* ---- Borders / effects (theme-tunable) ---- */
+  --cv-border-subtle: rgba(255, 255, 255, 0.08);
+  --cv-border-strong: rgba(255, 255, 255, 0.16);
+  --cv-border-focus: var(--cv-primary);
+  --cv-effect-glow: none;
+  --cv-effect-blur: 16px;
+
+  /* ---- Typography ---- */
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
+    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
+    monospace;
+
+  /* ---- Stock app legacy var bridge (mapped again per-theme in colors.css) ---- */
+  --cv-scrollbar-bg: var(--cv-bg-primary);
+  --cv-scrollbar-thumb: var(--cv-border-strong);
+  --cv-selection-fg: var(--cv-text-primary);
+}

@@ -1,0 +1,172 @@
+/**
+ * Clash Verge Neo Design System — core/compatibility.css
+ *
+ * ONLY file allowed to use concentrated `!important` (spec §7.3) and to
+ * target stock-DOM structural classes directly. Every color value here
+ * comes from `var(--cv-*)` set by the active theme's colors.css — this
+ * file never hardcodes a hex value.
+ *
+ * Why this file exists (see specs/05-dom-injection.md):
+ *  - Stock <html> carries inline style="" custom properties which beat
+ *    plain stylesheet var reassignment on :root/html.
+ *  - The app appends rules AFTER the injected @import (e.g. a
+ *    `.MuiDialog-paper { background:#2E303D !important }` and a
+ *    `* { box-shadow:none !important }`), so we must win on specificity
+ *    and, where unavoidable, !important.
+ *  - Emotion class hashes are unstable — never targeted here.
+ *
+ * Import this LAST in every theme's index.css.
+ */
+
+/* Re-declare the legacy vars the app itself reads, scoped to body so
+   descendants resolve OUR values instead of the html inline ones. */
+body {
+  --background-color: var(--cv-bg-primary) !important;
+  --divider-color: var(--cv-border-subtle) !important;
+  --primary-main: var(--cv-primary) !important;
+  --text-primary: var(--cv-text-primary) !important;
+  --selection-color: var(--cv-selection-fg) !important;
+  --scroller-color: var(--cv-scrollbar-thumb) !important;
+  --background-color-alpha: var(--cv-surface) !important;
+  --window-border-color: var(--cv-border-strong) !important;
+  --scrollbar-bg: var(--cv-scrollbar-bg) !important;
+  --scrollbar-thumb: var(--cv-scrollbar-thumb) !important;
+  --border-radius: var(--cv-radius-md) !important;
+
+  background-color: var(--cv-bg-primary) !important;
+  color: var(--cv-text-primary) !important;
+  font-family: var(--cv-font-sans);
+}
+
+html body .MuiPaper-root.layout,
+html body .layout {
+  background-color: var(--cv-bg-primary) !important;
+  color: var(--cv-text-primary) !important;
+}
+
+html body .layout .layout-content__left {
+  background-color: var(--cv-bg-secondary) !important;
+  border-right: 1px solid var(--cv-border-subtle) !important;
+  backdrop-filter: blur(var(--cv-effect-blur));
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
+}
+
+html body .layout .layout-content__right,
+html body .the-content {
+  background-color: var(--cv-bg-primary) !important;
+}
+
+html body .base-page > header {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--cv-border-subtle) !important;
+  color: var(--cv-text-primary) !important;
+}
+
+/* Beats stock inline style="background-color: rgb(30,31,39)" on these two */
+html body .base-page .base-container,
+html body .base-page .base-container > section,
+html body .base-container,
+html body .base-container > section {
+  background-color: var(--cv-bg-primary) !important;
+}
+
+html body .base-content {
+  color: var(--cv-text-primary) !important;
+}
+
+/* Setting / proxy cards — stable Grid > Box structure, not Emotion hash */
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: var(--cv-surface) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
+  color: var(--cv-text-primary) !important;
+  overflow: hidden;
+}
+
+html body .MuiListSubheader-root {
+  color: var(--cv-text-secondary) !important;
+  background-color: transparent !important;
+}
+
+html body .MuiTypography-root {
+  color: var(--cv-text-primary);
+}
+
+html body .MuiListItemText-secondary,
+html body .MuiTypography-colorTextSecondary {
+  color: var(--cv-text-secondary) !important;
+}
+
+html body .MuiDivider-root {
+  border-color: var(--cv-border-subtle) !important;
+}
+
+/* Beats app's post-import .MuiDialog-paper { !important } via specificity */
+html body .MuiDialog-root .MuiDialog-paper,
+html body .MuiModal-root .MuiDialog-paper,
+html body div.MuiDialog-paper {
+  background-color: var(--cv-surface-elevated) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
+  color: var(--cv-text-primary) !important;
+}
+
+html body .MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.55) !important;
+}
+
+html body .MuiPaper-root:not(.layout) {
+  background-color: var(--cv-surface-elevated) !important;
+  border-color: var(--cv-border-strong) !important;
+  color: var(--cv-text-primary);
+}
+
+html body .MuiButton-containedPrimary,
+html body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: var(--cv-primary) !important;
+  box-shadow: none !important;
+}
+
+html body .MuiButton-outlinedPrimary {
+  border-color: var(--cv-primary) !important;
+  color: var(--cv-primary) !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked {
+  color: var(--cv-primary) !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: var(--cv-primary) !important;
+}
+
+/* Nav selected — class selector beats app's `* { box-shadow:none !important }` */
+html body .the-menu .MuiListItemButton-root.Mui-selected,
+html body .MuiListItemButton-root.Mui-selected {
+  background-color: var(--cv-surface) !important;
+  box-shadow: var(--cv-effect-glow) !important;
+}
+
+html body .the-logo svg,
+html body .the-logo .st1 {
+  fill: var(--cv-text-primary) !important;
+}
+
+/* Icons/flags stay untouched by design (spec §7.4) — no svg/img rule here. */
+
+html body ::selection {
+  color: var(--cv-bg-primary);
+  background-color: var(--cv-primary);
+}
+
+html body *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: var(--cv-scrollbar-bg) !important;
+}
+
+html body *::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: var(--cv-scrollbar-thumb) !important;
+}
