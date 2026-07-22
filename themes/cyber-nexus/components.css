@@ -19,9 +19,14 @@ html body .the-menu .MuiListItemButton-root.Mui-selected {
   border-left: 3px solid var(--cv-primary) !important;
   background: linear-gradient(
     90deg,
-    rgba(0, 229, 255, 0.14),
-    rgba(0, 229, 255, 0.02)
+    rgba(0, 229, 255, 0.22),
+    rgba(0, 229, 255, 0.03)
   ) !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
+  color: var(--cv-primary) !important;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {

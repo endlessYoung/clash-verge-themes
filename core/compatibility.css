@@ -54,6 +54,8 @@ html body .layout .layout-content__left {
 html body .layout .layout-content__right,
 html body .the-content {
   background-color: var(--cv-bg-primary) !important;
+  background-image: var(--cv-ambient);
+  background-attachment: fixed;
 }
 
 html body .base-page > header {
@@ -81,6 +83,7 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
   border: 1px solid var(--cv-border-subtle) !important;
   border-radius: var(--cv-radius-md) !important;
   color: var(--cv-text-primary) !important;
+  box-shadow: var(--cv-effect-glow) !important;
   overflow: hidden;
 }
 
@@ -116,10 +119,15 @@ html body .MuiBackdrop-root {
   background-color: rgba(0, 0, 0, 0.55) !important;
 }
 
+/* Baseline elevation for EVERY card/popover/menu surface across every page
+   (home, settings, dialogs) — not just the settings Grid. This is the
+   single source of "depth" so a theme only needs to tune --cv-effect-glow
+   once and every Paper on every page picks it up. */
 html body .MuiPaper-root:not(.layout) {
   background-color: var(--cv-surface-elevated) !important;
   border-color: var(--cv-border-strong) !important;
   color: var(--cv-text-primary);
+  box-shadow: var(--cv-effect-glow) !important;
 }
 
 html body .MuiButton-containedPrimary,
@@ -141,10 +149,15 @@ html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
   background-color: var(--cv-primary) !important;
 }
 
-/* Nav selected — class selector beats app's `* { box-shadow:none !important }` */
+/* Nav selected — ONLY defend box-shadow here (needed to beat the app's
+   `* { box-shadow:none !important }`). Do NOT set background-color: this
+   file loads last, so declaring it here would silently stomp each theme's
+   own decorative background (e.g. Cyber Nexus's gradient) defined in its
+   components.css, even though both rules use !important at equal
+   specificity. Background is each theme's job; this file only guarantees
+   the glow ring survives. */
 html body .the-menu .MuiListItemButton-root.Mui-selected,
 html body .MuiListItemButton-root.Mui-selected {
-  background-color: var(--cv-surface) !important;
   box-shadow: var(--cv-effect-glow) !important;
 }
 

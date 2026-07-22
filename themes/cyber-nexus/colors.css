@@ -18,8 +18,18 @@
     --cv-border-strong: rgba(0, 229, 255, 0.2);
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 18px;
-    --cv-effect-glow: 0 0 0 1px rgba(0, 229, 255, 0.25),
-      0 0 24px rgba(0, 229, 255, 0.12);
+    --cv-effect-glow: 0 0 0 1px rgba(0, 229, 255, 0.32),
+      0 14px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --cv-ambient: radial-gradient(
+        1100px circle at 8% -10%,
+        rgba(0, 229, 255, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px circle at 100% 0%,
+        rgba(139, 92, 246, 0.08),
+        transparent 55%
+      );
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(0, 229, 255, 0.3);
     --cv-selection-fg: #041018;
@@ -39,8 +49,18 @@ html[data-theme='dark'] body {
   --cv-border-strong: rgba(0, 229, 255, 0.2);
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 18px;
-  --cv-effect-glow: 0 0 0 1px rgba(0, 229, 255, 0.25),
-    0 0 24px rgba(0, 229, 255, 0.12);
+  --cv-effect-glow: 0 0 0 1px rgba(0, 229, 255, 0.32),
+    0 14px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --cv-ambient: radial-gradient(
+      1100px circle at 8% -10%,
+      rgba(0, 229, 255, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px circle at 100% 0%,
+      rgba(139, 92, 246, 0.08),
+      transparent 55%
+    );
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(0, 229, 255, 0.3);
   --cv-selection-fg: #041018;
@@ -60,7 +80,13 @@ html[data-theme='dark'] body {
     --cv-border-strong: rgba(11, 22, 32, 0.16);
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 14px;
-    --cv-effect-glow: none;
+    --cv-effect-glow: 0 0 0 1px rgba(11, 22, 32, 0.06),
+      0 10px 24px rgba(11, 22, 32, 0.08);
+    --cv-ambient: radial-gradient(
+      1100px circle at 8% -10%,
+      rgba(0, 145, 179, 0.06),
+      transparent 60%
+    );
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(11, 22, 32, 0.24);
     --cv-selection-fg: #f5fbff;
@@ -80,7 +106,13 @@ html[data-theme='light'] body {
   --cv-border-strong: rgba(11, 22, 32, 0.16);
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 14px;
-  --cv-effect-glow: none;
+  --cv-effect-glow: 0 0 0 1px rgba(11, 22, 32, 0.06),
+    0 10px 24px rgba(11, 22, 32, 0.08);
+  --cv-ambient: radial-gradient(
+    1100px circle at 8% -10%,
+    rgba(0, 145, 179, 0.06),
+    transparent 60%
+  );
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(11, 22, 32, 0.24);
   --cv-selection-fg: #f5fbff;

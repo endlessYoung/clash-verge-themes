@@ -68,6 +68,9 @@ body {
   --cv-border-focus: var(--cv-primary);
   --cv-effect-glow: none;
   --cv-effect-blur: 16px;
+  /* Ambient background wash behind page content. `none` = flat (e.g. AI
+     Operator terminal). Themes opt in via colors.css. */
+  --cv-ambient: none;
 
   /* ---- Typography ---- */
   --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
