@@ -27,26 +27,28 @@ All three ship **full Light + Dark** via `prefers-color-scheme` (and
 4. Save
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@develop/themes/cyber-nexus/index.css");
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@567d7fa/themes/cyber-nexus/index.css");
 ```
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@develop/themes/ai-operator/index.css");
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@567d7fa/themes/ai-operator/index.css");
 ```
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@develop/themes/aurora-glass/index.css");
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@567d7fa/themes/aurora-glass/index.css");
 ```
 
 > ⚠️ **Do not use `raw.githubusercontent.com`.** It serves `.css` as
 > `Content-Type: text/plain` with `X-Content-Type-Options: nosniff`.
 > Browsers/WebViews refuse to apply a stylesheet with the wrong MIME type
-> under strict MIME checking — the `@import` silently does nothing. jsDelivr
-> serves the correct `text/css` MIME type and mirrors the repo's folder
-> structure, so the nested `@import`s inside each `index.css` resolve too.
+> under strict MIME checking — the `@import` silently does nothing.
 >
-> jsDelivr may take a few minutes to pick up a fresh push. To force a purge:
-> `https://purge.jsdelivr.net/gh/endlessYoung/clash-verge-themes@develop/themes/cyber-nexus/index.css`
+> ⚠️ **Pin a commit hash, not `@develop`.** jsDelivr's branch alias
+> (`@develop`) is aggressively cached; even after `purge.jsdelivr.net`
+> it can keep serving yesterday's CSS for hours. Pinning the commit
+> (e.g. `@567d7fa`) makes nested `@import`s resolve to the same revision
+> and guarantees you see the latest theme. Update the hash after each
+> push you care about.
 
 > Work lives on **`develop`**. `main` is intentionally a placeholder.
 
