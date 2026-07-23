@@ -1,6 +1,6 @@
 /**
  * Theme: Cyber Nexus — animation.css
- * Spec 08: no scan sweep. Keep load pulse; respect reduced motion.
+ * Spec 09: restrained motion — load pulse + optional soft ion breathe on selected.
  */
 
 @keyframes cv-pulse {
@@ -9,31 +9,40 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.45;
+    opacity: 0.4;
+  }
+}
+
+@keyframes cv-ion-breathe {
+  0%,
+  100% {
+    box-shadow: inset 3px 0 0 var(--cv-primary),
+      inset 6px 0 0 rgba(139, 92, 255, 0.45), 12px 0 40px rgba(0, 0, 0, 0.55);
+  }
+  50% {
+    box-shadow: inset 3px 0 0 var(--cv-primary),
+      inset 6px 0 0 rgba(139, 92, 255, 0.7), 12px 0 48px rgba(61, 240, 255, 0.08);
   }
 }
 
 html body .MuiCircularProgress-root,
 html body [class*='loading'] {
-  animation: cv-pulse 1.4s var(--cv-motion-ease) infinite;
+  animation: cv-pulse 1.2s var(--cv-motion-ease) infinite;
 }
 
-html body .MuiListItemButton-root.Mui-selected,
-html body .enhanced-card,
-html body .cv-card {
-  transition: background var(--cv-motion-normal) var(--cv-motion-ease),
-    border-color var(--cv-motion-normal) var(--cv-motion-ease);
+html body .layout .layout-content__left {
+  animation: cv-ion-breathe 4.5s ease-in-out infinite;
+}
+
+html body .the-traffic {
+  animation: cv-pulse 3.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html body .MuiCircularProgress-root,
-  html body [class*='loading'] {
-    animation: none;
-  }
-
-  html body .enhanced-card,
-  html body .cv-card,
-  html body .MuiListItemButton-root.Mui-selected {
-    transition: none;
+  html body [class*='loading'],
+  html body .layout .layout-content__left,
+  html body .the-traffic {
+    animation: none !important;
   }
 }

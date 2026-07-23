@@ -12,7 +12,7 @@ nav and switches.
 
 | Theme | Dist (preferred) | Atmosphere |
 |-------|------------------|------------|
-| **Cyber Nexus** | `dist/cyber-nexus.css` | Aviation HUD — micro-grid, corner brackets, tactical rail (Spec 08) |
+| **Cyber Nexus** | `dist/cyber-nexus.css` | **ION COCKPIT** — chamfer panels, ion spine, phosphor lock (Spec 09) |
 | **AI Operator** | `dist/ai-operator.css` | Terminal console; green/amber data tones; zero glow |
 | **Aurora Glass** | `dist/aurora-glass.css` | Quiet spatial glass; soft blue; restrained blur |
 
