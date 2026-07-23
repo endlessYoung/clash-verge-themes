@@ -21,6 +21,7 @@
 /* Re-declare the legacy vars the app itself reads, scoped to body so
    descendants resolve OUR values instead of the html inline ones. */
 body {
+  /* Stock Clash Verge legacy vars */
   --background-color: var(--cv-bg-primary) !important;
   --divider-color: var(--cv-border-subtle) !important;
   --primary-main: var(--cv-primary) !important;
@@ -32,6 +33,30 @@ body {
   --scrollbar-bg: var(--cv-scrollbar-bg) !important;
   --scrollbar-thumb: var(--cv-scrollbar-thumb) !important;
   --border-radius: var(--cv-radius-md) !important;
+
+  /* Bridge to in-app pack token names (local forks / packs.scss consumers).
+     Without these, shell SCSS keeps painting --cv-surface-app etc. and the
+     injected theme looks like a no-op. */
+  --cv-surface-app: var(--cv-bg-primary) !important;
+  --cv-surface-page: var(--cv-bg-primary) !important;
+  --cv-surface-content: var(--cv-bg-primary) !important;
+  --cv-surface-sidebar: var(--cv-bg-secondary) !important;
+  --cv-surface-dialog: var(--cv-surface-elevated) !important;
+  --cv-surface-item: var(--cv-surface) !important;
+  --cv-surface-nav-active: color-mix(
+    in srgb,
+    var(--cv-primary) 14%,
+    transparent
+  ) !important;
+  --cv-color-accent: var(--cv-primary) !important;
+  --cv-color-accent-muted: var(--cv-surface) !important;
+  --cv-color-secondary: var(--cv-secondary) !important;
+  --cv-color-text-primary: var(--cv-text-primary) !important;
+  --cv-color-text-secondary: var(--cv-text-secondary) !important;
+  --cv-color-info: var(--cv-primary) !important;
+  --cv-color-success: var(--cv-success) !important;
+  --cv-color-warning: var(--cv-warning) !important;
+  --cv-color-error: var(--cv-error) !important;
 
   background-color: var(--cv-bg-primary) !important;
   color: var(--cv-text-primary) !important;

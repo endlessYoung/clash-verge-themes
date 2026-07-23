@@ -2,7 +2,7 @@
  * Clash Verge Neo Design System — core/tokens.css
  *
  * Token NAMES + neutral fallback values + LOCKED semantic status colors.
- * Themes (themes/*/colors.css) define the real palette values on `body`
+ * Themes (themes/<name>/colors.css) define the real palette values on `body`
  * per prefers-color-scheme. This file guarantees every token exists even
  * before a theme's colors.css loads, and hard-locks status semantics so
  * no theme can recolor success/warning/error.

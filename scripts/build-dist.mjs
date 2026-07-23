@@ -67,6 +67,14 @@ const banner = (name) =>
 for (const name of themes) {
   const entry = path.join(root, 'themes', name, 'index.css');
   const css = banner(name) + flatten(entry) + '\n';
+  // Guard against CSS comment early-close (e.g. "themes/*/foo" → "*/")
+  // which leaves orphan text and can break stylesheet parse.
+  if (/^[^{]*colors\.css\)/m.test(css) || /\n[a-zA-Z0-9_.-]+\.css\)/.test(css)) {
+    throw new Error(
+      `dist/${name}.css looks corrupted by an early "*/" in a comment. ` +
+        `Search source comments for "*/" sequences (often from "themes/*/...").`,
+    );
+  }
   const out = path.join(distDir, `${name}.css`);
   fs.writeFileSync(out, css, 'utf8');
   const kb = (Buffer.byteLength(css) / 1024).toFixed(1);

@@ -3,21 +3,6 @@
  * Build: node scripts/build-dist.mjs
  */
 
-colors.css) define the real palette values on `body`
- * per prefers-color-scheme. This file guarantees every token exists even
- * before a theme's colors.css loads, and hard-locks status semantics so
- * no theme can recolor success/warning/error.
- *
- * Import order (see each theme's index.css):
- *   1. core/tokens.css        <- this file
- *   2. core/reset.css
- *   3. theme colors.css
- *   4. theme components.css
- *   5. theme states.css
- *   6. theme animation.css
- *   7. core/compatibility.css (last — wins for stock DOM quirks)
- */
-
 :root,
 body {
   
@@ -344,6 +329,7 @@ html body .MuiListItemButton-root.Mui-selected {
 }
 
 body {
+  
   --background-color: var(--cv-bg-primary) !important;
   --divider-color: var(--cv-border-subtle) !important;
   --primary-main: var(--cv-primary) !important;
@@ -355,6 +341,28 @@ body {
   --scrollbar-bg: var(--cv-scrollbar-bg) !important;
   --scrollbar-thumb: var(--cv-scrollbar-thumb) !important;
   --border-radius: var(--cv-radius-md) !important;
+
+  
+  --cv-surface-app: var(--cv-bg-primary) !important;
+  --cv-surface-page: var(--cv-bg-primary) !important;
+  --cv-surface-content: var(--cv-bg-primary) !important;
+  --cv-surface-sidebar: var(--cv-bg-secondary) !important;
+  --cv-surface-dialog: var(--cv-surface-elevated) !important;
+  --cv-surface-item: var(--cv-surface) !important;
+  --cv-surface-nav-active: color-mix(
+    in srgb,
+    var(--cv-primary) 14%,
+    transparent
+  ) !important;
+  --cv-color-accent: var(--cv-primary) !important;
+  --cv-color-accent-muted: var(--cv-surface) !important;
+  --cv-color-secondary: var(--cv-secondary) !important;
+  --cv-color-text-primary: var(--cv-text-primary) !important;
+  --cv-color-text-secondary: var(--cv-text-secondary) !important;
+  --cv-color-info: var(--cv-primary) !important;
+  --cv-color-success: var(--cv-success) !important;
+  --cv-color-warning: var(--cv-warning) !important;
+  --cv-color-error: var(--cv-error) !important;
 
   background-color: var(--cv-bg-primary) !important;
   color: var(--cv-text-primary) !important;
