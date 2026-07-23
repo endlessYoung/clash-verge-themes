@@ -375,18 +375,16 @@ html body .layout .layout-content__right::before {
 
 html body .layout .layout-content__left {
   background:
-    linear-gradient(180deg, rgba(0, 255, 136, 0.12), transparent 24%),
-    linear-gradient(0deg, rgba(255, 0, 255, 0.08), transparent 20%),
+    linear-gradient(180deg, rgba(0, 255, 136, 0.05), transparent 28%),
     repeating-linear-gradient(
       180deg,
       transparent 0 26px,
-      rgba(0, 212, 255, 0.05) 26px 27px
+      rgba(0, 212, 255, 0.03) 26px 27px
     ),
     var(--cv-bg-secondary) !important;
-  border-right: 1px solid rgba(0, 255, 136, 0.3) !important;
-  box-shadow: inset 3px 0 0 #00ff88, inset 6px 0 0 #ff00ff,
-    inset 9px 0 0 #00d4ff, 14px 0 36px rgba(0, 255, 136, 0.08) !important;
-  animation: cv-spine-breathe 5s ease-in-out infinite;
+  border-right: 1px solid rgba(0, 255, 136, 0.18) !important;
+  box-shadow: inset 2px 0 0 rgba(0, 255, 136, 0.35) !important;
+  animation: none;
 }
 
 html body .the-menu {
@@ -839,18 +837,6 @@ html body [class*='latency-error'] {
   }
   50% {
     opacity: 0.4;
-  }
-}
-
-@keyframes cv-spine-breathe {
-  0%,
-  100% {
-    box-shadow: inset 3px 0 0 #00ff88, inset 6px 0 0 #ff00ff,
-      inset 9px 0 0 #00d4ff, 14px 0 36px rgba(0, 255, 136, 0.08);
-  }
-  50% {
-    box-shadow: inset 3px 0 0 #00ff88, inset 6px 0 0 #ff00ff,
-      inset 9px 0 0 #00d4ff, 14px 0 48px rgba(0, 255, 136, 0.18);
   }
 }
 

@@ -13,18 +13,6 @@
   }
 }
 
-@keyframes cv-spine-breathe {
-  0%,
-  100% {
-    box-shadow: inset 3px 0 0 #00ff88, inset 6px 0 0 #ff00ff,
-      inset 9px 0 0 #00d4ff, 14px 0 36px rgba(0, 255, 136, 0.08);
-  }
-  50% {
-    box-shadow: inset 3px 0 0 #00ff88, inset 6px 0 0 #ff00ff,
-      inset 9px 0 0 #00d4ff, 14px 0 48px rgba(0, 255, 136, 0.18);
-  }
-}
-
 @keyframes cv-phosphor-breathe {
   0%,
   100% {
