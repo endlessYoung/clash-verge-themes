@@ -62,10 +62,11 @@ body {
   --cv-hud-grid: transparent;
 
   
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
-    'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
-    monospace;
+  --cv-font-sans: 'twemoji mozilla', -apple-system, BlinkMacSystemFont,
+    'Microsoft YaHei UI', 'Microsoft YaHei', Roboto, 'Helvetica Neue', Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --cv-font-mono: 'twemoji mozilla', 'JetBrains Mono', ui-monospace,
+    'Cascadia Mono', Consolas, monospace, 'Apple Color Emoji', 'Segoe UI Emoji';
 
   
   --cv-scrollbar-bg: var(--cv-bg-primary);
