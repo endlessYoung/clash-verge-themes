@@ -1,70 +1,118 @@
 /**
  * Theme: Cyber Nexus — colors.css
- * Quiet data instrument. Depth from luminance, not neon glow.
- * Cyan accent is interaction-only (selected nav / switch) — not card bloom.
+ * Spec 08: Structural aviation HUD. Cyan on chrome only (brackets, rail, selected).
+ * Avoid "*/" sequences inside block comments (breaks CSS parse).
  */
 
 @media (prefers-color-scheme: dark) {
   body {
-    --cv-bg-primary: #05070b;
-    --cv-bg-secondary: #0a0e16;
-    --cv-surface: rgba(18, 26, 40, 0.72);
-    --cv-surface-elevated: #141c2a;
-    --cv-surface-card: #161f30;
-    --cv-primary: #00c8e0;
-    --cv-secondary: #7c8db0;
-    --cv-text-primary: #e8eef8;
-    --cv-text-secondary: #8b9bb3;
-    --cv-border-subtle: rgba(255, 255, 255, 0.07);
-    --cv-border-strong: rgba(255, 255, 255, 0.12);
+    --cv-bg-primary: #03050a;
+    --cv-bg-secondary: #070b12;
+    --cv-surface: rgba(12, 20, 34, 0.78);
+    --cv-surface-elevated: #101826;
+    --cv-surface-card: #121c2c;
+    --cv-primary: #00d4ef;
+    --cv-secondary: #6b7c96;
+    --cv-text-primary: #e6eef8;
+    --cv-text-secondary: #8494ab;
+    --cv-border-subtle: rgba(255, 255, 255, 0.06);
+    --cv-border-strong: rgba(140, 170, 200, 0.16);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 12px;
+    --cv-effect-blur: 10px;
     --cv-effect-glow: none;
-    --cv-ambient: none;
+    --cv-hud-bracket: rgba(0, 212, 239, 0.62);
+    --cv-hud-bracket-strong: rgba(0, 212, 239, 0.88);
+    --cv-hud-grid: rgba(0, 212, 239, 0.055);
+    --cv-ambient: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 23px,
+        var(--cv-hud-grid) 23px,
+        var(--cv-hud-grid) 24px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 23px,
+        var(--cv-hud-grid) 23px,
+        var(--cv-hud-grid) 24px
+      );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
-    --cv-selection-fg: #041018;
+    --cv-scrollbar-thumb: rgba(0, 212, 239, 0.28);
+    --cv-selection-fg: #031018;
   }
 }
 
 html[data-theme='dark'] body {
-  --cv-bg-primary: #05070b;
-  --cv-bg-secondary: #0a0e16;
-  --cv-surface: rgba(18, 26, 40, 0.72);
-  --cv-surface-elevated: #141c2a;
-  --cv-surface-card: #161f30;
-  --cv-primary: #00c8e0;
-  --cv-secondary: #7c8db0;
-  --cv-text-primary: #e8eef8;
-  --cv-text-secondary: #8b9bb3;
-  --cv-border-subtle: rgba(255, 255, 255, 0.07);
-  --cv-border-strong: rgba(255, 255, 255, 0.12);
+  --cv-bg-primary: #03050a;
+  --cv-bg-secondary: #070b12;
+  --cv-surface: rgba(12, 20, 34, 0.78);
+  --cv-surface-elevated: #101826;
+  --cv-surface-card: #121c2c;
+  --cv-primary: #00d4ef;
+  --cv-secondary: #6b7c96;
+  --cv-text-primary: #e6eef8;
+  --cv-text-secondary: #8494ab;
+  --cv-border-subtle: rgba(255, 255, 255, 0.06);
+  --cv-border-strong: rgba(140, 170, 200, 0.16);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 12px;
+  --cv-effect-blur: 10px;
   --cv-effect-glow: none;
-  --cv-ambient: none;
+  --cv-hud-bracket: rgba(0, 212, 239, 0.62);
+  --cv-hud-bracket-strong: rgba(0, 212, 239, 0.88);
+  --cv-hud-grid: rgba(0, 212, 239, 0.055);
+  --cv-ambient: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      var(--cv-hud-grid) 23px,
+      var(--cv-hud-grid) 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 23px,
+      var(--cv-hud-grid) 23px,
+      var(--cv-hud-grid) 24px
+    );
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
-  --cv-selection-fg: #041018;
+  --cv-scrollbar-thumb: rgba(0, 212, 239, 0.28);
+  --cv-selection-fg: #031018;
 }
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #e8eef4;
-    --cv-bg-secondary: #dce4ec;
-    --cv-surface: rgba(255, 255, 255, 0.72);
+    --cv-bg-primary: #e4ebf2;
+    --cv-bg-secondary: #d5dee8;
+    --cv-surface: rgba(255, 255, 255, 0.78);
     --cv-surface-elevated: #ffffff;
     --cv-surface-card: #ffffff;
-    --cv-primary: #0088a3;
+    --cv-primary: #007a92;
     --cv-secondary: #5a6b7d;
     --cv-text-primary: #0b1620;
     --cv-text-secondary: #4c5b6b;
     --cv-border-subtle: rgba(11, 22, 32, 0.08);
     --cv-border-strong: rgba(11, 22, 32, 0.14);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 12px;
+    --cv-effect-blur: 10px;
     --cv-effect-glow: none;
-    --cv-ambient: none;
+    --cv-hud-bracket: rgba(0, 122, 146, 0.55);
+    --cv-hud-bracket-strong: rgba(0, 122, 146, 0.85);
+    --cv-hud-grid: rgba(0, 122, 146, 0.07);
+    --cv-ambient: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 23px,
+        var(--cv-hud-grid) 23px,
+        var(--cv-hud-grid) 24px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 23px,
+        var(--cv-hud-grid) 23px,
+        var(--cv-hud-grid) 24px
+      );
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(11, 22, 32, 0.22);
     --cv-selection-fg: #f5fbff;
@@ -72,21 +120,37 @@ html[data-theme='dark'] body {
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #e8eef4;
-  --cv-bg-secondary: #dce4ec;
-  --cv-surface: rgba(255, 255, 255, 0.72);
+  --cv-bg-primary: #e4ebf2;
+  --cv-bg-secondary: #d5dee8;
+  --cv-surface: rgba(255, 255, 255, 0.78);
   --cv-surface-elevated: #ffffff;
   --cv-surface-card: #ffffff;
-  --cv-primary: #0088a3;
+  --cv-primary: #007a92;
   --cv-secondary: #5a6b7d;
   --cv-text-primary: #0b1620;
   --cv-text-secondary: #4c5b6b;
   --cv-border-subtle: rgba(11, 22, 32, 0.08);
   --cv-border-strong: rgba(11, 22, 32, 0.14);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 12px;
+  --cv-effect-blur: 10px;
   --cv-effect-glow: none;
-  --cv-ambient: none;
+  --cv-hud-bracket: rgba(0, 122, 146, 0.55);
+  --cv-hud-bracket-strong: rgba(0, 122, 146, 0.85);
+  --cv-hud-grid: rgba(0, 122, 146, 0.07);
+  --cv-ambient: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      var(--cv-hud-grid) 23px,
+      var(--cv-hud-grid) 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 23px,
+      var(--cv-hud-grid) 23px,
+      var(--cv-hud-grid) 24px
+    );
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(11, 22, 32, 0.22);
   --cv-selection-fg: #f5fbff;

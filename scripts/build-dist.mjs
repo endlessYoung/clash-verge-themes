@@ -61,7 +61,7 @@ fs.mkdirSync(distDir, { recursive: true });
 
 const banner = (name) =>
   `/* Clash Verge Neo — ${name} (built single-file; do not edit)\n` +
-  ` * Source: themes/${name}/  |  Spec: 07-data-instrument-revision\n` +
+  ` * Source: themes/${name}/  |  Spec: 08-cyber-aviation-hud (Cyber) / 07\n` +
   ` * Build: node scripts/build-dist.mjs\n */\n\n`;
 
 for (const name of themes) {

@@ -1,5 +1,5 @@
 /* Clash Verge Neo — ai-operator (built single-file; do not edit)
- * Source: themes/ai-operator/  |  Spec: 07-data-instrument-revision
+ * Source: themes/ai-operator/  |  Spec: 08-cyber-aviation-hud (Cyber) / 07
  * Build: node scripts/build-dist.mjs
  */
 
@@ -57,6 +57,9 @@ body {
   --cv-effect-blur: 16px;
   
   --cv-ambient: none;
+  --cv-hud-bracket: transparent;
+  --cv-hud-bracket-strong: transparent;
+  --cv-hud-grid: transparent;
 
   
   --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei UI',
@@ -378,7 +381,8 @@ html body .base-container > section {
   background-color: var(--cv-bg-primary) !important;
   background-image: var(--cv-ambient) !important;
   background-attachment: fixed !important;
-  background-repeat: no-repeat !important;
+  
+  background-repeat: repeat !important;
 }
 
 html body .base-content {

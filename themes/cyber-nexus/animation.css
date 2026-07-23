@@ -1,6 +1,6 @@
 /**
  * Theme: Cyber Nexus — animation.css
- * Motion tokens only; no rotation-heavy spinners (spec §10 "禁止旋转过快").
+ * Spec 08: no scan sweep. Keep load pulse; respect reduced motion.
  */
 
 @keyframes cv-pulse {
@@ -18,7 +18,22 @@ html body [class*='loading'] {
   animation: cv-pulse 1.4s var(--cv-motion-ease) infinite;
 }
 
-html body .MuiListItemButton-root.Mui-selected {
+html body .MuiListItemButton-root.Mui-selected,
+html body .enhanced-card,
+html body .cv-card {
   transition: background var(--cv-motion-normal) var(--cv-motion-ease),
     border-color var(--cv-motion-normal) var(--cv-motion-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body .MuiCircularProgress-root,
+  html body [class*='loading'] {
+    animation: none;
+  }
+
+  html body .enhanced-card,
+  html body .cv-card,
+  html body .MuiListItemButton-root.Mui-selected {
+    transition: none;
+  }
 }

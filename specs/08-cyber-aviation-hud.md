@@ -1,7 +1,7 @@
 # Spec 08 — Cyber Nexus · Structural Aviation HUD
 
 Version: 1.0  
-Status: **Awaiting user review**  
+Status: **Approved — implemented**  
 Date: 2026-07-23  
 Repo: clash-verge-themes · branch `develop`  
 Scope: **Cyber Nexus only** (Aurora / AI Operator unchanged)
@@ -125,18 +125,16 @@ Keep `.the-delay` mono + tabular-nums (Spec 07 · D).
 
 ## 6. Acceptance
 
-- [ ] At a glance: micro-grid + corner brackets + tactical rail visible  
-- [ ] Traffic cluster reads as locked HUD readout  
-- [ ] No full-card cyan glow / ambient neon orbs  
-- [ ] Status green/yellow/red unchanged  
-- [ ] Chinese labels remain sans; only traffic/delay mono  
+- [x] At a glance: micro-grid + corner brackets + tactical rail visible  
+- [x] Traffic cluster reads as locked HUD readout  
+- [x] No full-card cyan glow / ambient neon orbs  
+- [x] Status green/yellow/red unchanged  
+- [x] Chinese labels remain sans; only traffic/delay mono  
 - [ ] Subjective: “有航电终端感”，不是“只换了颜色”
 
 ---
 
 ## 7. Approval
 
-- [ ] User approved this spec  
-- [ ] Proceed to implement on `develop`
-
-**Reply 「批准」 to implement, or list change requests.**
+- [x] User approved this spec (2026-07-23)
+- [x] Implemented on `develop`

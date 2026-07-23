@@ -97,7 +97,9 @@ html body .base-container > section {
   background-color: var(--cv-bg-primary) !important;
   background-image: var(--cv-ambient) !important;
   background-attachment: fixed !important;
-  background-repeat: no-repeat !important;
+  /* `repeat` so theme grids (repeating-linear-gradient stacks) tile;
+     flat `none` ambient is unaffected. */
+  background-repeat: repeat !important;
 }
 
 html body .base-content {
