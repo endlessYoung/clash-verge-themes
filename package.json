@@ -1,0 +1,9 @@
+{
+  "name": "clash-verge-themes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-dist.mjs",
+    "build:dist": "node scripts/build-dist.mjs"
+  }
+}

@@ -1,7 +1,7 @@
 # Spec 07 — Data Instrument Revision
 
 Version: 1.0  
-Status: **Awaiting user review**  
+Status: **Approved — implemented**  
 Date: 2026-07-23  
 Repo: clash-verge-themes · branch `develop`  
 Skills applied: `grill-me` · `frontend-design` · `ui-ux-pro-max`
@@ -122,18 +122,16 @@ Build concatenates in Spec 06 order: tokens → reset → colors → components 
 
 ## 6. Acceptance
 
-- [ ] Home cards read as **lifted panels** without glow  
-- [ ] Traffic/latency numbers clearly mono; Chinese UI unchanged  
-- [ ] Cyan appears on **selected nav / switch**, not every card border bloom  
-- [ ] Status red/yellow/green unchanged  
-- [ ] One-line `@import` of `dist/*.css` works (jsDelivr + commit pin)  
+- [x] Home cards read as **lifted panels** without glow  
+- [x] Traffic/latency numbers clearly mono; Chinese UI unchanged  
+- [x] Cyan appears on **selected nav / switch**, not every card border bloom  
+- [x] Status red/yellow/green unchanged  
+- [x] One-line `@import` of `dist/*.css` works (jsDelivr + commit pin)  
 - [ ] User subjectively: “feels like an instrument, not a neon theme”
 
 ---
 
 ## 7. Approval
 
-- [ ] User approved this spec  
-- [ ] Proceed to implement on `develop`
-
-**Reply 「批准」 to start implementation, or list change requests.**
+- [x] User approved this spec (2026-07-23)
+- [x] Implemented on `develop` (quiet tokens, shared data-instrument components, `dist/` builds)

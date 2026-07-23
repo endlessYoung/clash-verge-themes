@@ -1,129 +1,92 @@
 /**
  * Theme: Aurora Glass — colors.css
- * Positioning: Apple / VisionOS calm. Large breathing room, soft shadows,
- * translucency. Light-first, full dark support.
+ * Quiet spatial glass. Soft blue accent; restrained blur; no neon wash.
  */
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #f5f5f7;
-    --cv-bg-secondary: #ececef;
-    --cv-surface: rgba(255, 255, 255, 0.6);
+    --cv-bg-primary: #f2f4f8;
+    --cv-bg-secondary: #e8ebf0;
+    --cv-surface: rgba(255, 255, 255, 0.55);
     --cv-surface-elevated: #ffffff;
+    --cv-surface-card: #ffffff;
     --cv-primary: #0a84ff;
-    --cv-secondary: #8e8e93;
+    --cv-secondary: #6e6e73;
     --cv-text-primary: #1d1d1f;
     --cv-text-secondary: #6e6e73;
     --cv-border-subtle: rgba(0, 0, 0, 0.06);
-    --cv-border-strong: rgba(0, 0, 0, 0.12);
+    --cv-border-strong: rgba(0, 0, 0, 0.1);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 24px;
-    --cv-effect-glow: 0 1px 0 rgba(255, 255, 255, 0.6) inset,
-      0 8px 24px rgba(0, 0, 0, 0.08);
-    --cv-ambient: radial-gradient(
-        900px circle at 0% 0%,
-        rgba(255, 138, 217, 0.08),
-        transparent 55%
-      ),
-      radial-gradient(
-        900px circle at 100% 0%,
-        rgba(10, 132, 255, 0.07),
-        transparent 55%
-      );
+    --cv-effect-blur: 18px;
+    --cv-effect-glow: none;
+    --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.2);
+    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #f5f5f7;
-  --cv-bg-secondary: #ececef;
-  --cv-surface: rgba(255, 255, 255, 0.6);
+  --cv-bg-primary: #f2f4f8;
+  --cv-bg-secondary: #e8ebf0;
+  --cv-surface: rgba(255, 255, 255, 0.55);
   --cv-surface-elevated: #ffffff;
+  --cv-surface-card: #ffffff;
   --cv-primary: #0a84ff;
-  --cv-secondary: #8e8e93;
+  --cv-secondary: #6e6e73;
   --cv-text-primary: #1d1d1f;
   --cv-text-secondary: #6e6e73;
   --cv-border-subtle: rgba(0, 0, 0, 0.06);
-  --cv-border-strong: rgba(0, 0, 0, 0.12);
+  --cv-border-strong: rgba(0, 0, 0, 0.1);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 24px;
-  --cv-effect-glow: 0 1px 0 rgba(255, 255, 255, 0.6) inset,
-    0 8px 24px rgba(0, 0, 0, 0.08);
-  --cv-ambient: radial-gradient(
-      900px circle at 0% 0%,
-      rgba(255, 138, 217, 0.08),
-      transparent 55%
-    ),
-    radial-gradient(
-      900px circle at 100% 0%,
-      rgba(10, 132, 255, 0.07),
-      transparent 55%
-    );
+  --cv-effect-blur: 18px;
+  --cv-effect-glow: none;
+  --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
   --cv-selection-fg: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    --cv-bg-primary: #1d1d1f;
-    --cv-bg-secondary: #242426;
+    --cv-bg-primary: #161618;
+    --cv-bg-secondary: #1c1c1e;
     --cv-surface: rgba(255, 255, 255, 0.06);
-    --cv-surface-elevated: #2c2c2e;
+    --cv-surface-elevated: #2a2a2c;
+    --cv-surface-card: #2c2c2e;
     --cv-primary: #0a84ff;
     --cv-secondary: #98989d;
     --cv-text-primary: #f5f5f7;
     --cv-text-secondary: #98989d;
-    --cv-border-subtle: rgba(255, 255, 255, 0.08);
-    --cv-border-strong: rgba(255, 255, 255, 0.14);
+    --cv-border-subtle: rgba(255, 255, 255, 0.07);
+    --cv-border-strong: rgba(255, 255, 255, 0.12);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 24px;
-    --cv-effect-glow: 0 1px 0 rgba(255, 255, 255, 0.06) inset,
-      0 8px 24px rgba(0, 0, 0, 0.35);
-    --cv-ambient: radial-gradient(
-        900px circle at 0% 0%,
-        rgba(191, 90, 242, 0.08),
-        transparent 55%
-      ),
-      radial-gradient(
-        900px circle at 100% 0%,
-        rgba(10, 132, 255, 0.08),
-        transparent 55%
-      );
+    --cv-effect-blur: 18px;
+    --cv-effect-glow: none;
+    --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.2);
+    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
     --cv-selection-fg: #1d1d1f;
   }
 }
 
 html[data-theme='dark'] body {
-  --cv-bg-primary: #1d1d1f;
-  --cv-bg-secondary: #242426;
+  --cv-bg-primary: #161618;
+  --cv-bg-secondary: #1c1c1e;
   --cv-surface: rgba(255, 255, 255, 0.06);
-  --cv-surface-elevated: #2c2c2e;
+  --cv-surface-elevated: #2a2a2c;
+  --cv-surface-card: #2c2c2e;
   --cv-primary: #0a84ff;
   --cv-secondary: #98989d;
   --cv-text-primary: #f5f5f7;
   --cv-text-secondary: #98989d;
-  --cv-border-subtle: rgba(255, 255, 255, 0.08);
-  --cv-border-strong: rgba(255, 255, 255, 0.14);
+  --cv-border-subtle: rgba(255, 255, 255, 0.07);
+  --cv-border-strong: rgba(255, 255, 255, 0.12);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 24px;
-  --cv-effect-glow: 0 1px 0 rgba(255, 255, 255, 0.06) inset,
-    0 8px 24px rgba(0, 0, 0, 0.35);
-  --cv-ambient: radial-gradient(
-      900px circle at 0% 0%,
-      rgba(191, 90, 242, 0.08),
-      transparent 55%
-    ),
-    radial-gradient(
-      900px circle at 100% 0%,
-      rgba(10, 132, 255, 0.08),
-      transparent 55%
-    );
+  --cv-effect-blur: 18px;
+  --cv-effect-glow: none;
+  --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
   --cv-selection-fg: #1d1d1f;
 }

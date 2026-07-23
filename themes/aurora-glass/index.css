@@ -1,7 +1,6 @@
 /**
  * Clash Verge Neo Design System — theme entry: Aurora Glass
- *
- * @import url("https://raw.githubusercontent.com/endlessYoung/clash-verge-themes/develop/themes/aurora-glass/index.css");
+ * Prefer dist/aurora-glass.css for injection (single file).
  */
 @import url('../../core/tokens.css');
 @import url('../../core/reset.css');

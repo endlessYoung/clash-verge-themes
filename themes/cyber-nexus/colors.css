@@ -1,134 +1,93 @@
 /**
  * Theme: Cyber Nexus — colors.css
- * Network control center. High contrast layers so depth is unmistakable.
+ * Quiet data instrument. Depth from luminance, not neon glow.
+ * Cyan accent is interaction-only (selected nav / switch) — not card bloom.
  */
 
 @media (prefers-color-scheme: dark) {
   body {
-    --cv-bg-primary: #04060c;
-    --cv-bg-secondary: #070b14;
-    --cv-surface: rgba(14, 22, 40, 0.92);
-    --cv-surface-elevated: #121a2c;
-    --cv-surface-card: #121a2c;
-    --cv-primary: #00e5ff;
-    --cv-secondary: #a78bfa;
-    --cv-text-primary: #f0f7ff;
-    --cv-text-secondary: #8fa3bf;
-    --cv-border-subtle: rgba(0, 229, 255, 0.14);
-    --cv-border-strong: rgba(0, 229, 255, 0.38);
+    --cv-bg-primary: #05070b;
+    --cv-bg-secondary: #0a0e16;
+    --cv-surface: rgba(18, 26, 40, 0.72);
+    --cv-surface-elevated: #141c2a;
+    --cv-surface-card: #161f30;
+    --cv-primary: #00c8e0;
+    --cv-secondary: #7c8db0;
+    --cv-text-primary: #e8eef8;
+    --cv-text-secondary: #8b9bb3;
+    --cv-border-subtle: rgba(255, 255, 255, 0.07);
+    --cv-border-strong: rgba(255, 255, 255, 0.12);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 22px;
-    --cv-effect-glow: 0 0 0 1px rgba(0, 229, 255, 0.45),
-      0 0 28px rgba(0, 229, 255, 0.18), 0 18px 40px rgba(0, 0, 0, 0.65),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    --cv-ambient: radial-gradient(
-        900px circle at 12% -5%,
-        rgba(0, 229, 255, 0.22),
-        transparent 55%
-      ),
-      radial-gradient(
-        800px circle at 95% 5%,
-        rgba(167, 139, 250, 0.16),
-        transparent 50%
-      ),
-      radial-gradient(
-        700px circle at 50% 100%,
-        rgba(0, 229, 255, 0.08),
-        transparent 45%
-      );
+    --cv-effect-blur: 12px;
+    --cv-effect-glow: none;
+    --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 229, 255, 0.35);
+    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
     --cv-selection-fg: #041018;
   }
 }
 
 html[data-theme='dark'] body {
-  --cv-bg-primary: #04060c;
-  --cv-bg-secondary: #070b14;
-  --cv-surface: rgba(14, 22, 40, 0.92);
-  --cv-surface-elevated: #121a2c;
-  --cv-surface-card: #121a2c;
-  --cv-primary: #00e5ff;
-  --cv-secondary: #a78bfa;
-  --cv-text-primary: #f0f7ff;
-  --cv-text-secondary: #8fa3bf;
-  --cv-border-subtle: rgba(0, 229, 255, 0.14);
-  --cv-border-strong: rgba(0, 229, 255, 0.38);
+  --cv-bg-primary: #05070b;
+  --cv-bg-secondary: #0a0e16;
+  --cv-surface: rgba(18, 26, 40, 0.72);
+  --cv-surface-elevated: #141c2a;
+  --cv-surface-card: #161f30;
+  --cv-primary: #00c8e0;
+  --cv-secondary: #7c8db0;
+  --cv-text-primary: #e8eef8;
+  --cv-text-secondary: #8b9bb3;
+  --cv-border-subtle: rgba(255, 255, 255, 0.07);
+  --cv-border-strong: rgba(255, 255, 255, 0.12);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 22px;
-  --cv-effect-glow: 0 0 0 1px rgba(0, 229, 255, 0.45),
-    0 0 28px rgba(0, 229, 255, 0.18), 0 18px 40px rgba(0, 0, 0, 0.65),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  --cv-ambient: radial-gradient(
-      900px circle at 12% -5%,
-      rgba(0, 229, 255, 0.22),
-      transparent 55%
-    ),
-    radial-gradient(
-      800px circle at 95% 5%,
-      rgba(167, 139, 250, 0.16),
-      transparent 50%
-    ),
-    radial-gradient(
-      700px circle at 50% 100%,
-      rgba(0, 229, 255, 0.08),
-      transparent 45%
-    );
+  --cv-effect-blur: 12px;
+  --cv-effect-glow: none;
+  --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 229, 255, 0.35);
+  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
   --cv-selection-fg: #041018;
 }
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #e6eef5;
-    --cv-bg-secondary: #d7e3ed;
-    --cv-surface: rgba(255, 255, 255, 0.78);
+    --cv-bg-primary: #e8eef4;
+    --cv-bg-secondary: #dce4ec;
+    --cv-surface: rgba(255, 255, 255, 0.72);
     --cv-surface-elevated: #ffffff;
     --cv-surface-card: #ffffff;
-    --cv-primary: #0091b3;
-    --cv-secondary: #6d28d9;
+    --cv-primary: #0088a3;
+    --cv-secondary: #5a6b7d;
     --cv-text-primary: #0b1620;
     --cv-text-secondary: #4c5b6b;
-    --cv-border-subtle: rgba(11, 22, 32, 0.1);
-    --cv-border-strong: rgba(0, 145, 179, 0.35);
+    --cv-border-subtle: rgba(11, 22, 32, 0.08);
+    --cv-border-strong: rgba(11, 22, 32, 0.14);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 16px;
-    --cv-effect-glow: 0 0 0 1px rgba(0, 145, 179, 0.25),
-      0 14px 32px rgba(11, 22, 32, 0.12);
-    --cv-ambient: radial-gradient(
-      900px circle at 10% -5%,
-      rgba(0, 145, 179, 0.14),
-      transparent 55%
-    );
+    --cv-effect-blur: 12px;
+    --cv-effect-glow: none;
+    --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(11, 22, 32, 0.24);
+    --cv-scrollbar-thumb: rgba(11, 22, 32, 0.22);
     --cv-selection-fg: #f5fbff;
   }
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #e6eef5;
-  --cv-bg-secondary: #d7e3ed;
-  --cv-surface: rgba(255, 255, 255, 0.78);
+  --cv-bg-primary: #e8eef4;
+  --cv-bg-secondary: #dce4ec;
+  --cv-surface: rgba(255, 255, 255, 0.72);
   --cv-surface-elevated: #ffffff;
   --cv-surface-card: #ffffff;
-  --cv-primary: #0091b3;
-  --cv-secondary: #6d28d9;
+  --cv-primary: #0088a3;
+  --cv-secondary: #5a6b7d;
   --cv-text-primary: #0b1620;
   --cv-text-secondary: #4c5b6b;
-  --cv-border-subtle: rgba(11, 22, 32, 0.1);
-  --cv-border-strong: rgba(0, 145, 179, 0.35);
+  --cv-border-subtle: rgba(11, 22, 32, 0.08);
+  --cv-border-strong: rgba(11, 22, 32, 0.14);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 16px;
-  --cv-effect-glow: 0 0 0 1px rgba(0, 145, 179, 0.25),
-    0 14px 32px rgba(11, 22, 32, 0.12);
-  --cv-ambient: radial-gradient(
-    900px circle at 10% -5%,
-    rgba(0, 145, 179, 0.14),
-    transparent 55%
-  );
+  --cv-effect-blur: 12px;
+  --cv-effect-glow: none;
+  --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(11, 22, 32, 0.24);
+  --cv-scrollbar-thumb: rgba(11, 22, 32, 0.22);
   --cv-selection-fg: #f5fbff;
 }

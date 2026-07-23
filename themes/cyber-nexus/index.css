@@ -1,8 +1,6 @@
 /**
  * Clash Verge Neo Design System — theme entry: Cyber Nexus
- *
- * @import url("https://raw.githubusercontent.com/endlessYoung/clash-verge-themes/develop/themes/cyber-nexus/index.css");
- *
+ * Prefer dist/cyber-nexus.css for injection (single file).
  * Import order is mandatory (specs/06 §4).
  */
 @import url('../../core/tokens.css');

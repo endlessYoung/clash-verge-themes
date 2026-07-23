@@ -1,16 +1,23 @@
 /**
  * Theme: Aurora Glass — components.css
- * Generous radius, soft translucency, large breathing room.
+ * Soft glass instrument. Blur on chrome only; no neon / no card glow.
  */
 
 html body .the-menu .MuiListItemButton-root {
   border-radius: var(--cv-radius-lg);
   margin: var(--cv-space-1) var(--cv-space-2);
+  border-left: 3px solid transparent;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
-  background-color: var(--cv-surface) !important;
-  box-shadow: var(--cv-effect-glow) !important;
+  border-left: 3px solid var(--cv-primary) !important;
+  background-color: color-mix(in srgb, var(--cv-primary) 12%, transparent) !important;
+  box-shadow: none !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
+  color: var(--cv-primary) !important;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
@@ -18,8 +25,11 @@ html body .the-menu .MuiListItemButton-root:hover {
 }
 
 html body .layout .layout-content__left {
-  backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.4) !important;
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.4) !important;
+  background: color-mix(in srgb, var(--cv-bg-secondary) 88%, transparent) !important;
+  border-right: 1px solid var(--cv-border-subtle) !important;
+  backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.2) !important;
+  box-shadow: none !important;
 }
 
 html body .base-page > header {
@@ -27,30 +37,49 @@ html body .base-page > header {
   padding-bottom: var(--cv-space-4);
 }
 
+html body .enhanced-card,
+html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
+  background-color: var(--cv-surface-card, var(--cv-surface-elevated)) !important;
+  background-image: none !important;
+  border: 1px solid var(--cv-border-strong) !important;
   border-radius: var(--cv-radius-lg) !important;
-  box-shadow: var(--cv-effect-glow) !important;
-  padding: var(--cv-space-2);
-  transition: transform var(--cv-motion-normal) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-normal) var(--cv-motion-ease);
+  box-shadow: none !important;
+  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease);
 }
 
+html body .enhanced-card:hover,
+html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1) !important;
+  transform: none;
+  border-color: color-mix(in srgb, var(--cv-primary) 28%, var(--cv-border-strong)) !important;
+  box-shadow: none !important;
 }
 
 html body .MuiButton-root {
-  border-radius: var(--cv-radius-pill, 999px) !important;
+  border-radius: var(--cv-radius-md) !important;
   text-transform: none;
 }
 
 html body .MuiChip-root {
-  border-radius: var(--cv-radius-pill, 999px) !important;
+  border-radius: var(--cv-radius-md) !important;
+}
+
+/* Instrument readouts — mono only on data (Spec 07 · D) */
+html body .the-traffic,
+html body .the-traffic *,
+html body .the-delay {
+  font-family: var(--cv-font-mono) !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
   border-radius: var(--cv-radius-float) !important;
-  box-shadow: var(--cv-effect-glow) !important;
+  box-shadow: none !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  box-shadow: none;
 }

@@ -1,16 +1,17 @@
 /**
  * Theme: AI Operator — colors.css
- * Positioning: AI agent console. Cursor / Claude Code energy, terminal-flavored.
+ * Terminal console instrument. Zero glow; sharp luminance steps.
  */
 
 @media (prefers-color-scheme: dark) {
   body {
-    --cv-bg-primary: #0a0b0d;
-    --cv-bg-secondary: #121316;
-    --cv-surface: rgba(126, 231, 135, 0.05);
-    --cv-surface-elevated: #16181c;
+    --cv-bg-primary: #08090b;
+    --cv-bg-secondary: #101214;
+    --cv-surface: rgba(126, 231, 135, 0.06);
+    --cv-surface-elevated: #15181c;
+    --cv-surface-card: #181b20;
     --cv-primary: #7ee787;
-    --cv-secondary: #58a6ff;
+    --cv-secondary: #d2a657;
     --cv-text-primary: #e6edf3;
     --cv-text-secondary: #8b949e;
     --cv-border-subtle: rgba(230, 237, 243, 0.08);
@@ -18,6 +19,7 @@
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
+    --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(230, 237, 243, 0.2);
     --cv-selection-fg: #0a0b0d;
@@ -25,12 +27,13 @@
 }
 
 html[data-theme='dark'] body {
-  --cv-bg-primary: #0a0b0d;
-  --cv-bg-secondary: #121316;
-  --cv-surface: rgba(126, 231, 135, 0.05);
-  --cv-surface-elevated: #16181c;
+  --cv-bg-primary: #08090b;
+  --cv-bg-secondary: #101214;
+  --cv-surface: rgba(126, 231, 135, 0.06);
+  --cv-surface-elevated: #15181c;
+  --cv-surface-card: #181b20;
   --cv-primary: #7ee787;
-  --cv-secondary: #58a6ff;
+  --cv-secondary: #d2a657;
   --cv-text-primary: #e6edf3;
   --cv-text-secondary: #8b949e;
   --cv-border-subtle: rgba(230, 237, 243, 0.08);
@@ -38,6 +41,7 @@ html[data-theme='dark'] body {
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
+  --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(230, 237, 243, 0.2);
   --cv-selection-fg: #0a0b0d;
@@ -45,12 +49,13 @@ html[data-theme='dark'] body {
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #f6f8fa;
-    --cv-bg-secondary: #eef1f4;
+    --cv-bg-primary: #f0f2f4;
+    --cv-bg-secondary: #e6e9ed;
     --cv-surface: rgba(31, 136, 61, 0.06);
     --cv-surface-elevated: #ffffff;
+    --cv-surface-card: #ffffff;
     --cv-primary: #1a7f37;
-    --cv-secondary: #0969da;
+    --cv-secondary: #9a6700;
     --cv-text-primary: #1f2328;
     --cv-text-secondary: #59636e;
     --cv-border-subtle: rgba(31, 35, 40, 0.08);
@@ -58,6 +63,7 @@ html[data-theme='dark'] body {
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
+    --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(31, 35, 40, 0.24);
     --cv-selection-fg: #f6f8fa;
@@ -65,12 +71,13 @@ html[data-theme='dark'] body {
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #f6f8fa;
-  --cv-bg-secondary: #eef1f4;
+  --cv-bg-primary: #f0f2f4;
+  --cv-bg-secondary: #e6e9ed;
   --cv-surface: rgba(31, 136, 61, 0.06);
   --cv-surface-elevated: #ffffff;
+  --cv-surface-card: #ffffff;
   --cv-primary: #1a7f37;
-  --cv-secondary: #0969da;
+  --cv-secondary: #9a6700;
   --cv-text-primary: #1f2328;
   --cv-text-secondary: #59636e;
   --cv-border-subtle: rgba(31, 35, 40, 0.08);
@@ -78,6 +85,7 @@ html[data-theme='light'] body {
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
+  --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(31, 35, 40, 0.24);
   --cv-selection-fg: #f6f8fa;

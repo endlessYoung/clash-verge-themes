@@ -1,7 +1,6 @@
 /**
  * Clash Verge Neo Design System — theme entry: AI Operator
- *
- * @import url("https://raw.githubusercontent.com/endlessYoung/clash-verge-themes/develop/themes/ai-operator/index.css");
+ * Prefer dist/ai-operator.css for injection (single file).
  */
 @import url('../../core/tokens.css');
 @import url('../../core/reset.css');
