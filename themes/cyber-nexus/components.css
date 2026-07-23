@@ -444,13 +444,20 @@ html body .MuiDialog-root .MuiDialog-paper {
   background: var(--cv-surface-elevated) !important;
 }
 
+/* Switch ON: white thumb on matrix track — no glow bloom */
 html body .MuiSwitch-switchBase.Mui-checked {
-  color: #b8ffe0 !important;
+  color: #ffffff !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: #00ff88 !important;
-  box-shadow: 0 0 14px rgba(0, 255, 136, 0.65);
+  background-color: #00c974 !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
 }
 
 html body .MuiOutlinedInput-root,

@@ -183,12 +183,27 @@ html body .MuiButton-outlinedPrimary {
   color: var(--cv-primary) !important;
 }
 
+/* Switch ON: thumb must contrast the track. Using primary for BOTH
+   thumb+track (previous) made neon green melt into one blob. */
 html body .MuiSwitch-switchBase.Mui-checked {
-  color: var(--cv-primary) !important;
+  color: #ffffff !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
+  background-color: #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.2) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
   background-color: var(--cv-primary) !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+html body .MuiSwitch-track {
+  opacity: 0.45;
+  background-color: var(--cv-text-secondary) !important;
 }
 
 /* Nav selected — do NOT set background or box-shadow here.
