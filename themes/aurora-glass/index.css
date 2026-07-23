@@ -2,6 +2,7 @@
  * Clash Verge Neo Design System — theme entry: Aurora Glass
  * Prefer dist/aurora-glass.css for injection (single file).
  */
+@import url('../../core/emoji.css');
 @import url('../../core/tokens.css');
 @import url('../../core/reset.css');
 @import url('./colors.css');

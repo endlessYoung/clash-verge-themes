@@ -4,6 +4,7 @@
  * Prefer dist/cyber-nexus.css for injection.
  */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;700;900&display=swap');
+@import url('../../core/emoji.css');
 @import url('../../core/tokens.css');
 @import url('../../core/reset.css');
 @import url('./colors.css');

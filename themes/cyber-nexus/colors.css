@@ -26,10 +26,9 @@
     --cv-phosphor: #d4ffe8;
     --cv-plasma: #ff00ff;
     --cv-cyan: #00d4ff;
-    --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-    /* twemoji mozilla: Windows flag/emoji glyphs (Clash Verge stock stack) */
-    --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
+    --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-radius-sm: 0px;
     --cv-radius-md: 0px;
     --cv-radius-lg: 0px;
@@ -80,9 +79,9 @@ html[data-theme='dark'] body {
   --cv-phosphor: #d4ffe8;
   --cv-plasma: #ff00ff;
   --cv-cyan: #00d4ff;
-  --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
+  --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-radius-sm: 0px;
   --cv-radius-md: 0px;
   --cv-radius-lg: 0px;
@@ -133,10 +132,9 @@ html[data-theme='dark'] body {
     --cv-phosphor: #043d28;
     --cv-plasma: #b000b0;
     --cv-cyan: #0078b4;
-    --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-    /* twemoji mozilla: Windows flag/emoji glyphs (Clash Verge stock stack) */
-    --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
+    --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-radius-sm: 0px;
     --cv-radius-md: 0px;
     --cv-radius-lg: 0px;
@@ -177,9 +175,9 @@ html[data-theme='light'] body {
   --cv-phosphor: #043d28;
   --cv-plasma: #b000b0;
   --cv-cyan: #0078b4;
-  --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
+  --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-radius-sm: 0px;
   --cv-radius-md: 0px;
   --cv-radius-lg: 0px;

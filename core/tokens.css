@@ -75,9 +75,17 @@ body {
   --cv-hud-bracket-strong: transparent;
   --cv-hud-grid: transparent;
 
-  /* ---- Typography ---- */
-  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
-  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'twemoji mozilla';
+  /* Text fonts first (digits). Emoji/flags last via unicode-ranged cv-emoji
+     + stock twemoji mozilla. Never put Segoe UI Emoji before Twemoji — it
+     claims flag codepoints with blank/letter glyphs on Windows. */
+  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+    'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue',
+    Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
+    'Apple Color Emoji';
+  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
+    monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji',
+    'twemoji mozilla', 'Apple Color Emoji';
 
   /* ---- Stock app legacy var bridge (mapped again per-theme in colors.css) ---- */
   --cv-scrollbar-bg: var(--cv-bg-primary);

@@ -2,6 +2,7 @@
  * Clash Verge Neo Design System — theme entry: AI Operator
  * Prefer dist/ai-operator.css for injection (single file).
  */
+@import url('../../core/emoji.css');
 @import url('../../core/tokens.css');
 @import url('../../core/reset.css');
 @import url('./colors.css');
