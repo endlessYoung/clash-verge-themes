@@ -1,83 +1,177 @@
 /**
  * Theme: Aurora Glass — components.css
- * Soft glass instrument. Blur on chrome only; no neon / no card glow.
+ * Spec 11 polish: calm spatial glass with real hierarchy —
+ * soft default panels, clearer selected/hover, denser empty surfaces.
  */
+
+html body .MuiPaper-root.layout,
+html body .layout {
+  border: 1px solid rgba(10, 132, 255, 0.08) !important;
+}
+
+html body .the-menu {
+  padding: var(--cv-space-2);
+}
 
 html body .the-menu .MuiListItemButton-root {
   border-radius: var(--cv-radius-lg);
   margin: var(--cv-space-1) var(--cv-space-2);
   border-left: 3px solid transparent;
-}
-
-html body .the-menu .MuiListItemButton-root.Mui-selected {
-  border-left: 3px solid var(--cv-primary) !important;
-  background-color: color-mix(in srgb, var(--cv-primary) 12%, transparent) !important;
-  box-shadow: none !important;
-}
-
-html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
-html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
-  color: var(--cv-primary) !important;
+  transition: background 180ms ease, box-shadow 180ms ease;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
   background-color: var(--cv-surface);
 }
 
+html body .the-menu .MuiListItemButton-root.Mui-selected {
+  border-left: 3px solid var(--cv-primary) !important;
+  background-color: color-mix(in srgb, var(--cv-primary) 14%, transparent) !important;
+  box-shadow: 0 8px 24px rgba(10, 132, 255, 0.08) !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
+  color: var(--cv-primary) !important;
+  font-weight: 600;
+}
+
 html body .layout .layout-content__left {
-  background: color-mix(in srgb, var(--cv-bg-secondary) 88%, transparent) !important;
+  background: color-mix(in srgb, var(--cv-bg-secondary) 82%, transparent) !important;
   border-right: 1px solid var(--cv-border-subtle) !important;
-  backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.2) !important;
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.2) !important;
-  box-shadow: none !important;
+  backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.25) !important;
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.25) !important;
+  box-shadow: 8px 0 28px rgba(0, 0, 0, 0.06) !important;
 }
 
 html body .base-page > header {
   padding-top: var(--cv-space-4);
   padding-bottom: var(--cv-space-4);
+  border-bottom: 1px solid var(--cv-border-subtle) !important;
+  background: color-mix(in srgb, var(--cv-surface) 55%, transparent) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
+html body .base-page > header .MuiTypography-root {
+  font-weight: 650 !important;
+  letter-spacing: 0.02em;
+}
+
+/* Default: soft / quiet. Hover/focus: lifted glass */
 html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
-  background-color: var(--cv-surface-card, var(--cv-surface-elevated)) !important;
-  background-image: none !important;
-  border: 1px solid var(--cv-border-strong) !important;
+  position: relative !important;
+  background-color: color-mix(
+    in srgb,
+    var(--cv-surface-card) 88%,
+    transparent
+  ) !important;
+  background-image: radial-gradient(
+    120% 80% at 0% 0%,
+    rgba(10, 132, 255, 0.05),
+    transparent 55%
+  ) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
   border-radius: var(--cv-radius-lg) !important;
   box-shadow: none !important;
-  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-normal) var(--cv-motion-ease),
+    transform var(--cv-motion-normal) var(--cv-motion-ease);
+}
+
+@media (prefers-color-scheme: dark) {
+  html body .enhanced-card,
+  html body .cv-card,
+  html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+}
+
+html[data-theme='dark'] body .enhanced-card,
+html[data-theme='dark'] body .cv-card,
+html[data-theme='dark'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 html body .enhanced-card:hover,
 html body .cv-card:hover,
-html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
-  transform: none;
-  border-color: color-mix(in srgb, var(--cv-primary) 28%, var(--cv-border-strong)) !important;
-  box-shadow: none !important;
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
+html body .enhanced-card:focus-within,
+html body .cv-card:focus-within {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--cv-primary) 35%, transparent) !important;
+  box-shadow: 0 12px 32px rgba(10, 132, 255, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.06) !important;
+}
+
+html body .base-content .MuiTypography-root {
+  font-family: var(--cv-font-sans);
+  text-shadow: none !important;
+  color: var(--cv-text-primary) !important;
+}
+
+html body .base-content .MuiTypography-colorTextSecondary,
+html body .base-content .MuiTypography-body2 {
+  color: var(--cv-text-secondary) !important;
 }
 
 html body .MuiButton-root {
-  border-radius: var(--cv-radius-md) !important;
+  border-radius: 999px !important;
   text-transform: none;
 }
 
 html body .MuiChip-root {
-  border-radius: var(--cv-radius-md) !important;
+  border-radius: 999px !important;
 }
 
-/* Instrument readouts — mono only on data (Spec 07 · D) */
-html body .the-traffic,
+html body .the-traffic {
+  display: block;
+  margin: 10px 10px 14px;
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--cv-primary) 22%, transparent);
+  border-radius: var(--cv-radius-lg);
+  background: color-mix(in srgb, var(--cv-surface) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--cv-font-mono) !important;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--cv-text-primary) !important;
+  box-shadow: 0 8px 20px rgba(10, 132, 255, 0.08);
+}
+
+html body .the-traffic::before {
+  content: 'Throughput';
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--cv-font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--cv-primary);
+  opacity: 0.85;
+}
+
 html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
+}
+
+html body .MuiLinearProgress-bar {
+  background: linear-gradient(90deg, var(--cv-primary), #64d2ff) !important;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
   border-radius: var(--cv-radius-float) !important;
-  box-shadow: none !important;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12) !important;
+  backdrop-filter: blur(20px);
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {

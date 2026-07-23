@@ -19,7 +19,17 @@
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 18px;
     --cv-effect-glow: none;
-    --cv-ambient: none;
+/* Soft ambient wash — denser than flat, still quiet */
+    --cv-ambient: radial-gradient(
+        900px circle at 0% 0%,
+        rgba(10, 132, 255, 0.07),
+        transparent 55%
+      ),
+      radial-gradient(
+        800px circle at 100% 10%,
+        rgba(94, 92, 230, 0.05),
+        transparent 50%
+      );
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
     --cv-selection-fg: #ffffff;
@@ -41,7 +51,16 @@ html[data-theme='light'] body {
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 18px;
   --cv-effect-glow: none;
-  --cv-ambient: none;
+  --cv-ambient: radial-gradient(
+      900px circle at 0% 0%,
+      rgba(10, 132, 255, 0.07),
+      transparent 55%
+    ),
+    radial-gradient(
+      800px circle at 100% 10%,
+      rgba(94, 92, 230, 0.05),
+      transparent 50%
+    );
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
   --cv-selection-fg: #ffffff;
@@ -63,7 +82,17 @@ html[data-theme='light'] body {
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 18px;
     --cv-effect-glow: none;
-    --cv-ambient: none;
+/* Soft ambient wash — denser than flat, still quiet */
+    --cv-ambient: radial-gradient(
+        900px circle at 0% 0%,
+        rgba(10, 132, 255, 0.07),
+        transparent 55%
+      ),
+      radial-gradient(
+        800px circle at 100% 10%,
+        rgba(94, 92, 230, 0.05),
+        transparent 50%
+      );
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
     --cv-selection-fg: #1d1d1f;
@@ -85,7 +114,16 @@ html[data-theme='dark'] body {
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 18px;
   --cv-effect-glow: none;
-  --cv-ambient: none;
+  --cv-ambient: radial-gradient(
+      900px circle at 0% 0%,
+      rgba(10, 132, 255, 0.07),
+      transparent 55%
+    ),
+    radial-gradient(
+      800px circle at 100% 10%,
+      rgba(94, 92, 230, 0.05),
+      transparent 50%
+    );
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
   --cv-selection-fg: #1d1d1f;

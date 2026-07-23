@@ -1,82 +1,187 @@
 /**
  * Theme: AI Operator — components.css
- * Sharp terminal instrument. Mono only on traffic / delay numerals.
+ * Spec 11 polish: terminal console with hierarchy (quiet cards, hot hover),
+ * traffic lock, selected channel — still zero neon bloom.
  */
 
 html body {
   font-family: var(--cv-font-sans);
 }
 
+html body .MuiPaper-root.layout,
+html body .layout {
+  border: 1px solid rgba(126, 231, 135, 0.14) !important;
+  box-shadow: inset 0 0 0 1px rgba(210, 166, 87, 0.06) !important;
+}
+
 html body .layout .layout-content__left {
-  background: var(--cv-bg-secondary) !important;
-  border-right: 1px solid var(--cv-border-strong) !important;
-  box-shadow: none !important;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 22px,
+      rgba(126, 231, 135, 0.04) 22px 23px
+    ),
+    var(--cv-bg-secondary) !important;
+  border-right: 1px solid rgba(126, 231, 135, 0.2) !important;
+  box-shadow: inset 2px 0 0 var(--cv-primary) !important;
+}
+
+html body .the-menu {
+  padding: var(--cv-space-2);
 }
 
 html body .the-menu .MuiListItemButton-root {
-  border-radius: var(--cv-radius-sm);
+  border-radius: 2px;
   margin-bottom: var(--cv-space-1);
+  border: 1px solid transparent;
   border-left: 3px solid transparent;
+}
+
+html body .the-menu .MuiListItemButton-root:hover {
+  background-color: var(--cv-surface);
+  border-color: rgba(126, 231, 135, 0.12);
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
   border-left: 3px solid var(--cv-primary) !important;
-  background-color: var(--cv-surface) !important;
+  border-color: rgba(126, 231, 135, 0.28) !important;
+  background: color-mix(in srgb, var(--cv-primary) 12%, transparent) !important;
   box-shadow: none !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   color: var(--cv-primary) !important;
-}
-
-html body .the-menu .MuiListItemButton-root:hover {
-  background-color: var(--cv-surface);
+  font-weight: 600;
 }
 
 html body .base-page > header {
   padding-top: var(--cv-space-3);
   padding-bottom: var(--cv-space-3);
+  border-bottom: 1px solid rgba(126, 231, 135, 0.18) !important;
+  box-shadow: inset 0 1px 0 rgba(126, 231, 135, 0.35);
 }
 
+html body .base-page > header .MuiTypography-root {
+  font-family: var(--cv-font-mono) !important;
+  letter-spacing: 0.06em;
+  font-weight: 600 !important;
+}
+
+/* Quiet cards; lift on hover/focus only */
 html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
+  position: relative !important;
   background-color: var(--cv-surface-card, var(--cv-surface-elevated)) !important;
-  background-image: none !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  border-radius: var(--cv-radius-sm) !important;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0 13px,
+    rgba(126, 231, 135, 0.03) 13px 14px
+  ) !important;
+  border: 1px solid rgba(230, 237, 243, 0.1) !important;
+  border-radius: 2px !important;
   box-shadow: none !important;
-  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease);
+  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease),
+    background-color var(--cv-motion-normal) var(--cv-motion-ease);
 }
 
 html body .enhanced-card:hover,
 html body .cv-card:hover,
-html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
-  border-color: color-mix(in srgb, var(--cv-primary) 40%, var(--cv-border-strong)) !important;
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
+html body .enhanced-card:focus-within,
+html body .cv-card:focus-within {
+  border-color: color-mix(in srgb, var(--cv-primary) 45%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--cv-surface-card) 92%,
+    var(--cv-primary)
+  ) !important;
+}
+
+html body .enhanced-card::before,
+html body .cv-card::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 2px;
+  height: calc(100% - 16px);
+  background: transparent;
+  transition: background 160ms ease;
+}
+
+html body .enhanced-card:hover::before,
+html body .cv-card:hover::before,
+html body .enhanced-card:focus-within::before,
+html body .cv-card:focus-within::before {
+  background: var(--cv-primary);
+}
+
+html body .base-content .MuiTypography-root {
+  font-family: var(--cv-font-sans);
+  text-shadow: none !important;
+  color: var(--cv-text-primary) !important;
+}
+
+html body .base-content .MuiTypography-colorTextSecondary,
+html body .base-content .MuiTypography-body2 {
+  color: var(--cv-text-secondary) !important;
 }
 
 html body .MuiButton-root {
-  border-radius: var(--cv-radius-sm) !important;
+  border-radius: 2px !important;
   text-transform: none;
+  font-family: var(--cv-font-sans) !important;
+}
+
+html body .MuiButton-containedPrimary {
+  box-shadow: none !important;
 }
 
 html body .MuiChip-root {
-  border-radius: var(--cv-radius-sm) !important;
+  border-radius: 2px !important;
+  font-family: var(--cv-font-mono) !important;
 }
 
-/* Instrument readouts — mono only on data (Spec 07 · D) */
-html body .the-traffic,
+html body .the-traffic {
+  display: block;
+  margin: 10px 8px 14px;
+  padding: 10px 12px;
+  border: 1px solid rgba(126, 231, 135, 0.35);
+  border-radius: 2px;
+  background: #0c0e10;
+  font-family: var(--cv-font-mono) !important;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--cv-primary) !important;
+}
+
+html body .the-traffic::before {
+  content: '$ thruput';
+  display: block;
+  margin-bottom: 6px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--cv-secondary);
+  opacity: 0.85;
+}
+
 html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
+}
+
+html body .MuiLinearProgress-bar {
+  background-color: var(--cv-primary) !important;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
-  border-radius: var(--cv-radius-sm) !important;
+  border-radius: 2px !important;
+  border: 1px solid rgba(126, 231, 135, 0.25) !important;
   box-shadow: none !important;
 }
 

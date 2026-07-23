@@ -357,19 +357,19 @@ html body .layout .layout-content__right::before {
   position: absolute;
   top: 0;
   left: -30%;
-  width: 28%;
+  width: 22%;
   height: 100%;
   pointer-events: none;
   z-index: 3;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 255, 136, 0.05),
-    rgba(0, 212, 255, 0.09),
-    rgba(255, 0, 255, 0.05),
+    rgba(0, 255, 136, 0.03),
+    rgba(0, 212, 255, 0.05),
     transparent
   );
-  animation: cv-content-sweep 7s ease-in-out infinite;
+  animation: cv-content-sweep 9s ease-in-out infinite;
+  opacity: 0.7;
 }
 
 
@@ -447,11 +447,23 @@ html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
   --cv-cut: 12px;
-  --cv-hud-arm: 16px;
-  --cv-hud-stroke: 2px;
+  --cv-hud-arm: 14px;
+  --cv-hud-stroke: 1px;
+  --cv-hud-bracket: rgba(0, 212, 255, 0.28);
   position: relative !important;
   background-color: var(--cv-surface-card) !important;
-  background-image: linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
+  
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0 11px,
+      rgba(0, 255, 136, 0.028) 11px 12px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      rgba(0, 212, 255, 0.022) 11px 12px
+    ),
+    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
@@ -459,18 +471,18 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)) !important;
-  background-size: var(--cv-hud-arm) var(--cv-hud-stroke),
+  background-size: auto, auto, var(--cv-hud-arm) var(--cv-hud-stroke),
     var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
     var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
     var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
     var(--cv-hud-stroke) var(--cv-hud-arm) !important;
-  background-position: left top, left top, right top, right top, left bottom,
-    left bottom, right bottom, right bottom !important;
-  background-repeat: no-repeat !important;
-  border: 1px solid rgba(0, 212, 255, 0.35) !important;
+  background-position: 0 0, 0 0, left top, left top, right top, right top,
+    left bottom, left bottom, right bottom, right bottom !important;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat, no-repeat, no-repeat, no-repeat !important;
+  border: 1px solid rgba(0, 212, 255, 0.14) !important;
   border-radius: 0 !important;
-  box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.08),
-    0 0 18px rgba(0, 255, 136, 0.1), 0 14px 32px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: none !important;
   clip-path: polygon(
     0 var(--cv-cut),
     var(--cv-cut) 0,
@@ -487,13 +499,16 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
 
 html body .enhanced-card:hover,
 html body .cv-card:hover,
-html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
+html body .enhanced-card:focus-within,
+html body .cv-card:focus-within,
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:focus-within {
   --cv-hud-bracket: var(--cv-hud-bracket-strong);
-  transform: translateY(-2px);
-  border-color: rgba(0, 255, 136, 0.65) !important;
-  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.25),
-    0 0 28px rgba(0, 255, 136, 0.22), 0 0 40px rgba(255, 0, 255, 0.1),
-    0 18px 40px rgba(0, 0, 0, 0.5) !important;
+  --cv-hud-stroke: 2px;
+  transform: translateY(-1px);
+  border-color: rgba(0, 255, 136, 0.55) !important;
+  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.18),
+    0 0 22px rgba(0, 255, 136, 0.14), 0 14px 28px rgba(0, 0, 0, 0.45) !important;
 }
 
 
@@ -502,8 +517,8 @@ html body .cv-card::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 10%;
-  right: 10%;
+  left: 12%;
+  right: 12%;
   height: 2px;
   background: linear-gradient(
     90deg,
@@ -511,12 +526,20 @@ html body .cv-card::after {
     #00ff88,
     #00d4ff,
     #ff00ff,
-    #00ff88,
     transparent
   );
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
+  opacity: 0;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
   pointer-events: none;
   z-index: 2;
+  transition: opacity 160ms ease;
+}
+
+html body .enhanced-card:hover::after,
+html body .cv-card:hover::after,
+html body .enhanced-card:focus-within::after,
+html body .cv-card:focus-within::after {
+  opacity: 0.9;
 }
 
 
@@ -541,9 +564,23 @@ html body .base-content .MuiTypography-body2 {
 
 html body .base-content .MuiPaper-root:not(.layout) {
   background-color: var(--cv-surface-elevated) !important;
-  border: 1px solid rgba(0, 212, 255, 0.28) !important;
+  border: 1px solid rgba(0, 212, 255, 0.16) !important;
   border-radius: 0 !important;
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+
+html body .enhanced-card > .MuiBox-root:first-child,
+html body .cv-card > .MuiBox-root:first-child,
+html body .base-content .enhanced-card .MuiTypography-h6,
+html body .base-content .enhanced-card .MuiTypography-subtitle1 {
+  letter-spacing: 0.04em;
+}
+
+html body .enhanced-card .MuiTypography-h6,
+html body .cv-card .MuiTypography-h6,
+html body .enhanced-card .MuiTypography-subtitle1 {
+  font-weight: 700 !important;
 }
 
 
@@ -564,29 +601,13 @@ html body .base-page > header {
   position: relative;
   padding-top: 14px !important;
   padding-bottom: 14px !important;
-  border-bottom: 1px solid rgba(0, 255, 136, 0.28) !important;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 255, 136, 0.08),
-    rgba(255, 0, 255, 0.04) 50%,
-    rgba(0, 212, 255, 0.07)
-  ) !important;
-  box-shadow: inset 0 2px 0 #00ff88, 0 10px 28px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 255, 136, 0.22) !important;
+  background: rgba(0, 255, 136, 0.04) !important;
+  box-shadow: inset 0 2px 0 rgba(0, 255, 136, 0.55);
 }
 
 html body .base-page > header::before {
-  content: 'DECKER // ONLINE';
-  position: absolute;
-  top: 5px;
-  right: 14px;
-  font-family: var(--cv-font-display);
-  font-weight: 700;
-  font-size: 8px;
-  letter-spacing: 0.22em;
-  color: #00d4ff;
-  opacity: 0.65;
-  text-shadow: 0 0 8px rgba(0, 212, 255, 0.55);
-  pointer-events: none;
+  content: none;
 }
 
 html body .base-page > header::after {
@@ -596,8 +617,14 @@ html body .base-page > header::after {
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(90deg, #00ff88, #00d4ff, #ff00ff, transparent 85%);
-  animation: cv-scan-sweep 5s linear infinite;
+  background: linear-gradient(
+    90deg,
+    #00ff88,
+    rgba(0, 212, 255, 0.7),
+    transparent 70%
+  );
+  opacity: 0.7;
+  animation: none;
 }
 
 html body .base-page > header .MuiTypography-root {

@@ -19,7 +19,11 @@
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
-    --cv-ambient: none;
+    --cv-ambient: repeating-linear-gradient(
+        0deg,
+        transparent 0 24px,
+        rgba(126, 231, 135, 0.035) 24px 25px
+      );
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(230, 237, 243, 0.2);
     --cv-selection-fg: #0a0b0d;
@@ -41,7 +45,11 @@ html[data-theme='dark'] body {
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
-  --cv-ambient: none;
+  --cv-ambient: repeating-linear-gradient(
+      0deg,
+      transparent 0 24px,
+      rgba(126, 231, 135, 0.035) 24px 25px
+    );
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(230, 237, 243, 0.2);
   --cv-selection-fg: #0a0b0d;
@@ -63,7 +71,11 @@ html[data-theme='dark'] body {
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
-    --cv-ambient: none;
+    --cv-ambient: repeating-linear-gradient(
+        0deg,
+        transparent 0 24px,
+        rgba(126, 231, 135, 0.035) 24px 25px
+      );
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(31, 35, 40, 0.24);
     --cv-selection-fg: #f6f8fa;
@@ -85,7 +97,11 @@ html[data-theme='light'] body {
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
-  --cv-ambient: none;
+  --cv-ambient: repeating-linear-gradient(
+      0deg,
+      transparent 0 24px,
+      rgba(126, 231, 135, 0.035) 24px 25px
+    );
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(31, 35, 40, 0.24);
   --cv-selection-fg: #f6f8fa;

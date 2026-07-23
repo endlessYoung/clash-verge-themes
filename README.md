@@ -12,9 +12,9 @@ nav and switches.
 
 | Theme | Dist (preferred) | Atmosphere |
 |-------|------------------|------------|
-| **Cyber Nexus** | `dist/cyber-nexus.css` | **DECKER HUD** — Orbitron + triad neon + CRT scanlines (Spec 10) |
-| **AI Operator** | `dist/ai-operator.css` | Terminal console; green/amber data tones; zero glow |
-| **Aurora Glass** | `dist/aurora-glass.css` | Quiet spatial glass; soft blue; restrained blur |
+| **Cyber Nexus** | `dist/cyber-nexus.css` | DECKER HUD — hierarchy polish (Spec 11) |
+| **AI Operator** | `dist/ai-operator.css` | Terminal console — quiet cards, `$ thruput` lock |
+| **Aurora Glass** | `dist/aurora-glass.css` | Spatial glass — soft lift hierarchy |
 
 All three ship **full Light + Dark** via `prefers-color-scheme` (and
 `html[data-theme]` when the host sets it).
