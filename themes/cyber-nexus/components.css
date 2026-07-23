@@ -1,10 +1,10 @@
 /**
  * Theme: Cyber Nexus — components.css
- * Spec 10 DECKER HUD (ui-ux-pro-max Cyberpunk Mobile HUD).
- * Orbitron headings, JetBrains data, chamfer, triad neon, scanline CRT.
+ * Spec 10.1 readability pass: data + CTA glow; body text plain & bright;
+ * Chinese sans; Orbitron only on English chrome labels.
  */
 
-/* ---- Full-window CRT scanline overlay ---- */
+/* ---- Static scanlines (no CRT flicker) ---- */
 html body .MuiPaper-root.layout::before {
   content: '';
   position: absolute;
@@ -13,126 +13,111 @@ html body .MuiPaper-root.layout::before {
   z-index: 40;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.14) 0 1px,
-    transparent 1px 3px
+    rgba(0, 0, 0, 0.1) 0 1px,
+    transparent 1px 4px
   );
   mix-blend-mode: multiply;
-  opacity: 0.45;
-  animation: cv-crt-flicker 3.8s steps(2, end) infinite;
+  opacity: 0.22;
 }
 
 html body .MuiPaper-root.layout {
   position: relative !important;
   overflow: hidden !important;
-  background:
-    linear-gradient(115deg, rgba(255, 0, 255, 0.08), transparent 40%),
-    linear-gradient(295deg, rgba(0, 212, 255, 0.08), transparent 42%),
-    var(--cv-bg-primary) !important;
-  border: 1px solid rgba(0, 255, 136, 0.28) !important;
-  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(255, 0, 255, 0.12) !important;
+  background: var(--cv-bg-primary) !important;
+  border: 1px solid rgba(0, 255, 136, 0.2) !important;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4) !important;
   font-family: var(--cv-font-sans);
 }
 
-/* Magenta/cyan edge ticks */
 html body .MuiPaper-root.layout::after {
   content: '';
   position: absolute;
   inset: 6px;
   pointer-events: none;
   z-index: 41;
-  border: 1px solid rgba(0, 212, 255, 0.18);
-  box-shadow: inset 0 0 0 1px rgba(255, 0, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.12);
   clip-path: polygon(
-    0 16px,
-    16px 0,
-    calc(100% - 16px) 0,
-    100% 16px,
-    100% calc(100% - 16px),
-    calc(100% - 16px) 100%,
-    16px 100%,
-    0 calc(100% - 16px)
+    0 14px,
+    14px 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    14px 100%,
+    0 calc(100% - 14px)
   );
 }
 
-/* ---- Decker sidebar ---- */
+/* ---- Sidebar spine (kept as signature) ---- */
 html body .layout .layout-content__left {
   background:
-    linear-gradient(180deg, rgba(0, 255, 136, 0.14), transparent 22%),
-    linear-gradient(0deg, rgba(255, 0, 255, 0.1), transparent 18%),
-    repeating-linear-gradient(
-      180deg,
-      transparent 0 22px,
-      rgba(0, 212, 255, 0.06) 22px 23px
-    ),
+    linear-gradient(180deg, rgba(0, 255, 136, 0.08), transparent 20%),
     var(--cv-bg-secondary) !important;
-  border-right: 1px solid rgba(0, 255, 136, 0.35) !important;
-  box-shadow: inset 4px 0 0 #00ff88, inset 8px 0 0 #ff00ff,
-    inset 12px 0 0 #00d4ff, 16px 0 48px rgba(0, 0, 0, 0.65) !important;
+  border-right: 1px solid rgba(0, 255, 136, 0.22) !important;
+  box-shadow: inset 3px 0 0 #00ff88, inset 6px 0 0 rgba(255, 0, 255, 0.7),
+    inset 9px 0 0 rgba(0, 212, 255, 0.7) !important;
 }
 
 html body .the-menu {
-  padding: 12px 8px;
+  padding: 10px 8px;
 }
 
 html body .the-menu .MuiListItemButton-root {
   border-radius: 0 !important;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   border: 1px solid transparent;
   border-left: 3px solid transparent;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  font-family: var(--cv-font-display);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  font-family: var(--cv-font-sans);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 0.875rem;
+}
+
+html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
+  font-family: var(--cv-font-sans) !important;
+  text-shadow: none !important;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
-  background: rgba(0, 212, 255, 0.08) !important;
-  border-color: rgba(0, 212, 255, 0.25);
+  background: rgba(0, 212, 255, 0.07) !important;
+  border-color: rgba(0, 212, 255, 0.18);
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
   border-left-color: #00ff88 !important;
-  border-color: rgba(0, 255, 136, 0.45) !important;
+  border-color: rgba(0, 255, 136, 0.4) !important;
   background: linear-gradient(
     90deg,
-    rgba(0, 255, 136, 0.28),
-    rgba(255, 0, 255, 0.08) 55%,
+    rgba(0, 255, 136, 0.2),
+    rgba(0, 255, 136, 0.04) 60%,
     transparent
   ) !important;
-  box-shadow: 0 0 24px rgba(0, 255, 136, 0.2),
-    inset 0 0 20px rgba(0, 255, 136, 0.08) !important;
-  animation: cv-glitch-nudge 2.8s steps(1, end) infinite;
+  box-shadow: none !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   color: #00ff88 !important;
-  text-shadow: 0 0 8px rgba(0, 255, 136, 0.85), 0 0 16px rgba(0, 212, 255, 0.45);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.45);
+  font-weight: 600;
 }
 
 html body .the-logo {
-  filter: drop-shadow(0 0 6px #00ff88) drop-shadow(0 0 14px rgba(255, 0, 255, 0.45));
+  filter: drop-shadow(0 0 5px rgba(0, 255, 136, 0.35));
 }
 
-/* ---- Chamfer bento panels ---- */
+/* ---- Cards: matte panels + quiet brackets (no wash, no outer bloom) ---- */
 html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
-  --cv-cut: 14px;
-  --cv-hud-arm: 18px;
-  --cv-hud-stroke: 2px;
+  --cv-cut: 12px;
+  --cv-hud-arm: 14px;
+  --cv-hud-stroke: 1px;
   position: relative !important;
   background-color: var(--cv-surface-card) !important;
-  background-image: linear-gradient(
-      145deg,
-      rgba(0, 255, 136, 0.12) 0,
-      transparent 32%
-    ),
-    linear-gradient(320deg, rgba(255, 0, 255, 0.08), transparent 40%),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
+  background-image: linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
@@ -140,18 +125,17 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)) !important;
-  background-size: auto, auto,
-    var(--cv-hud-arm) var(--cv-hud-stroke), var(--cv-hud-stroke) var(--cv-hud-arm),
-    var(--cv-hud-arm) var(--cv-hud-stroke), var(--cv-hud-stroke) var(--cv-hud-arm),
-    var(--cv-hud-arm) var(--cv-hud-stroke), var(--cv-hud-stroke) var(--cv-hud-arm),
-    var(--cv-hud-arm) var(--cv-hud-stroke), var(--cv-hud-stroke) var(--cv-hud-arm) !important;
-  background-position: 0 0, 0 0, left top, left top, right top, right top,
-    left bottom, left bottom, right bottom, right bottom !important;
+  background-size: var(--cv-hud-arm) var(--cv-hud-stroke),
+    var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
+    var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
+    var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
+    var(--cv-hud-stroke) var(--cv-hud-arm) !important;
+  background-position: left top, left top, right top, right top, left bottom,
+    left bottom, right bottom, right bottom !important;
   background-repeat: no-repeat !important;
-  border: 1px solid rgba(0, 255, 136, 0.4) !important;
+  border: 1px solid rgba(0, 255, 136, 0.2) !important;
   border-radius: 0 !important;
-  box-shadow: inset 0 0 0 1px rgba(255, 0, 255, 0.14),
-    0 0 28px rgba(0, 255, 136, 0.12), 0 20px 48px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: none !important;
   clip-path: polygon(
     0 var(--cv-cut),
     var(--cv-cut) 0,
@@ -163,116 +147,93 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
     0 calc(100% - var(--cv-cut))
   );
   overflow: hidden !important;
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease,
-    filter 180ms ease;
+  transition: border-color 160ms ease, background-color 160ms ease;
 }
 
 html body .enhanced-card:hover,
 html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover {
   --cv-hud-bracket: var(--cv-hud-bracket-strong);
-  transform: scale(1.015);
-  border-color: #00d4ff !important;
-  box-shadow: inset 0 0 0 1px rgba(0, 212, 255, 0.35),
-    0 0 36px rgba(0, 255, 136, 0.22), 0 0 48px rgba(255, 0, 255, 0.12),
-    0 24px 56px rgba(0, 0, 0, 0.6) !important;
-  filter: brightness(1.06) saturate(1.08);
+  transform: none;
+  border-color: rgba(0, 212, 255, 0.45) !important;
+  box-shadow: none !important;
+  filter: none;
 }
 
-html body .enhanced-card::after,
-html body .cv-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 12%;
-  right: 12%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #00ff88,
-    #00d4ff,
-    #ff00ff,
-    #00ff88,
-    transparent
-  );
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.8);
-  pointer-events: none;
-  z-index: 2;
+/* Card body copy: high contrast, no neon wash on glyphs */
+html body .base-content .MuiTypography-root,
+html body .enhanced-card .MuiTypography-root,
+html body .cv-card .MuiTypography-root,
+html body .base-content .MuiBox-root {
+  font-family: var(--cv-font-sans);
+  text-shadow: none !important;
+}
+
+html body .base-content .MuiTypography-root {
+  color: var(--cv-text-primary) !important;
+}
+
+html body .base-content .MuiTypography-colorTextSecondary,
+html body .base-content .MuiListItemText-secondary,
+html body .base-content .MuiTypography-body2 {
+  color: var(--cv-text-secondary) !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
 }
 
 html body .base-content .MuiPaper-root:not(.layout) {
   background-color: var(--cv-surface-elevated) !important;
-  border: 1px solid rgba(0, 212, 255, 0.28) !important;
+  border: 1px solid rgba(0, 212, 255, 0.18) !important;
   border-radius: 0 !important;
-  box-shadow: inset 0 0 0 1px rgba(255, 0, 255, 0.1),
-    0 0 20px rgba(0, 255, 136, 0.08) !important;
+  box-shadow: none !important;
 }
 
-/* ---- Header: Orbitron strip ---- */
+/* ---- Header: Chinese title readable; DECKER whisper ---- */
 html body .base-page > header {
   position: relative;
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
-  border-bottom: 1px solid rgba(0, 255, 136, 0.35) !important;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 255, 136, 0.1),
-    rgba(255, 0, 255, 0.06) 50%,
-    rgba(0, 212, 255, 0.08)
-  ) !important;
-  box-shadow: inset 0 3px 0 #00ff88, inset 0 -1px 0 rgba(255, 0, 255, 0.45),
-    0 12px 32px rgba(0, 0, 0, 0.35);
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.22) !important;
+  background: rgba(0, 255, 136, 0.04) !important;
+  box-shadow: inset 0 2px 0 rgba(0, 255, 136, 0.55);
 }
 
 html body .base-page > header::before {
-  content: 'DECKER // NETRUN // ONLINE';
+  content: 'DECKER // ONLINE';
   position: absolute;
-  top: 5px;
+  top: 6px;
   right: 14px;
   font-family: var(--cv-font-display);
-  font-weight: 700;
-  font-size: 9px;
-  letter-spacing: 0.24em;
-  color: #00d4ff;
-  text-shadow: 0 0 8px rgba(0, 212, 255, 0.8), 0 0 16px rgba(255, 0, 255, 0.35);
+  font-weight: 600;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--cv-cyan);
+  opacity: 0.4;
+  text-shadow: none;
   pointer-events: none;
 }
 
-html body .base-page > header::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, #00ff88, #00d4ff, #ff00ff, transparent);
-  animation: cv-scan-sweep 4.5s linear infinite;
-}
-
 html body .base-page > header .MuiTypography-root {
-  font-family: var(--cv-font-display) !important;
+  font-family: var(--cv-font-sans) !important;
   font-weight: 700 !important;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-shadow: 0 0 12px rgba(0, 255, 136, 0.45);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  text-shadow: none !important;
+  color: var(--cv-text-primary) !important;
 }
 
-/* ---- Traffic: hero phosphor deck ---- */
+/* ---- Traffic: the one loud instrument ---- */
 html body .the-traffic {
-  --cv-cut: 10px;
+  --cv-cut: 8px;
   position: relative;
   display: block;
   margin: 12px 8px 16px;
-  padding: 14px 14px 16px;
-  border: 1px solid rgba(0, 255, 136, 0.55);
+  padding: 12px 12px 14px;
+  border: 1px solid rgba(0, 255, 136, 0.5);
   border-radius: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 255, 136, 0.16), rgba(255, 0, 255, 0.06)),
-    #07070c;
-  box-shadow: inset 0 0 30px rgba(0, 255, 136, 0.12),
-    0 0 28px rgba(0, 255, 136, 0.25), 0 0 40px rgba(255, 0, 255, 0.12),
-    inset 0 0 0 1px rgba(0, 212, 255, 0.25);
+  background: #07070c;
+  box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.08),
+    0 0 20px rgba(0, 255, 136, 0.18);
   clip-path: polygon(
     0 var(--cv-cut),
     var(--cv-cut) 0,
@@ -284,59 +245,57 @@ html body .the-traffic {
     0 calc(100% - var(--cv-cut))
   );
   font-family: var(--cv-font-mono) !important;
+  font-size: 0.95rem;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   color: var(--cv-phosphor) !important;
-  text-shadow: 0 0 6px #00ff88, 0 0 14px rgba(0, 255, 136, 0.75),
-    0 0 24px rgba(0, 212, 255, 0.4);
-  animation: cv-phosphor-breathe 2.6s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.55);
 }
 
 html body .the-traffic::before {
-  content: '> THRUPUT_STREAM';
+  content: '> THRUPUT';
   display: block;
   margin-bottom: 8px;
   font-family: var(--cv-font-display);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
-  letter-spacing: 0.28em;
-  color: #ff00ff;
-  text-shadow: 0 0 10px rgba(255, 0, 255, 0.85);
+  letter-spacing: 0.22em;
+  color: #ff66ff;
+  opacity: 0.75;
+  text-shadow: none;
 }
 
-html body .the-traffic::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  top: 0;
-  background: #00ff88;
-  box-shadow: 0 0 12px #00ff88;
-  animation: cv-lock-scan 2.2s linear infinite;
+html body .the-traffic * {
+  font-family: var(--cv-font-mono) !important;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.4);
+  color: var(--cv-phosphor) !important;
 }
 
-html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.06em;
-  text-shadow: inherit;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.35);
 }
 
 /* ---- Controls ---- */
 html body .MuiButton-root {
   border-radius: 0 !important;
-  font-family: var(--cv-font-display) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-family: var(--cv-font-sans) !important;
+  text-transform: none;
+  letter-spacing: 0.02em;
   clip-path: polygon(
     0 0,
-    calc(100% - 8px) 0,
-    100% 8px,
+    calc(100% - 6px) 0,
+    100% 6px,
     100% 100%,
-    8px 100%,
-    0 calc(100% - 8px)
+    6px 100%,
+    0 calc(100% - 6px)
   );
 }
 
@@ -344,43 +303,35 @@ html body .MuiButton-containedPrimary,
 html body .MuiButtonGroup-groupedContainedPrimary {
   background: linear-gradient(90deg, #00ff88, #00d4ff) !important;
   color: #04140c !important;
-  box-shadow: 0 0 22px rgba(0, 255, 136, 0.45), 0 0 36px rgba(0, 212, 255, 0.2) !important;
-  text-shadow: none;
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.35) !important;
   font-weight: 700;
 }
 
-html body .MuiButton-containedPrimary:hover,
-html body .MuiButtonGroup-groupedContainedPrimary:hover {
-  filter: brightness(1.08);
-  box-shadow: 0 0 30px rgba(0, 255, 136, 0.6), 0 0 40px rgba(255, 0, 255, 0.2) !important;
+html body .MuiButton-outlinedPrimary,
+html body .MuiButton-outlined {
+  border-color: rgba(0, 212, 255, 0.45) !important;
+  color: var(--cv-text-primary) !important;
+  background: rgba(0, 212, 255, 0.06) !important;
+}
+
+html body .MuiButton-outlinedPrimary:hover,
+html body .MuiButton-outlined:hover {
+  border-color: #00d4ff !important;
+  background: rgba(0, 212, 255, 0.12) !important;
 }
 
 html body .MuiChip-root {
   border-radius: 0 !important;
-  border: 1px solid rgba(0, 212, 255, 0.35) !important;
+  border: 1px solid rgba(0, 212, 255, 0.28) !important;
   font-family: var(--cv-font-mono) !important;
-  letter-spacing: 0.05em;
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.12);
+  box-shadow: none;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
   border-radius: 0 !important;
-  border: 1px solid rgba(0, 255, 136, 0.45) !important;
-  box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.25),
-    0 0 40px rgba(0, 255, 136, 0.2), 0 28px 72px rgba(0, 0, 0, 0.8) !important;
-  background:
-    linear-gradient(180deg, rgba(0, 255, 136, 0.08), transparent 45%),
-    var(--cv-surface-elevated) !important;
-  clip-path: polygon(
-    0 12px,
-    12px 0,
-    calc(100% - 12px) 0,
-    100% 12px,
-    100% calc(100% - 12px),
-    calc(100% - 12px) 100%,
-    12px 100%,
-    0 calc(100% - 12px)
-  );
+  border: 1px solid rgba(0, 255, 136, 0.35) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75) !important;
+  background: var(--cv-surface-elevated) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked {
@@ -389,16 +340,23 @@ html body .MuiSwitch-switchBase.Mui-checked {
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
   background-color: #00ff88 !important;
-  box-shadow: 0 0 16px rgba(0, 255, 136, 0.7), 0 0 8px rgba(255, 0, 255, 0.35);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.55);
 }
 
 html body .MuiOutlinedInput-root,
 html body .MuiInputBase-root {
   border-radius: 0 !important;
-  font-family: var(--cv-font-mono);
+  font-family: var(--cv-font-sans);
+  color: var(--cv-text-primary) !important;
 }
 
 html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: #00ff88 !important;
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.35);
+  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.25);
+}
+
+html body .MuiOutlinedInput-input::placeholder,
+html body .MuiInputBase-input::placeholder {
+  color: var(--cv-text-secondary) !important;
+  opacity: 0.85;
 }

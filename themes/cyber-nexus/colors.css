@@ -1,70 +1,60 @@
 /**
  * Theme: Cyber Nexus — colors.css
- * Spec 10 DECKER HUD — ui-ux-pro-max Cyberpunk Mobile HUD tokens.
- * Accents: matrix #00FF88 / magenta #FF00FF / cyan #00D4FF on void #0A0A0F.
+ * Spec 10.1 — DECKER HUD readability pass (ui-ux-pro-max contrast / hierarchy).
+ * Orbitron only for English chrome; Chinese UI uses system sans.
  */
 
 @media (prefers-color-scheme: dark) {
   body {
     --cv-bg-primary: #0a0a0f;
     --cv-bg-secondary: #0e0e16;
-    --cv-surface: rgba(0, 255, 136, 0.07);
-    --cv-surface-elevated: #12121a;
-    --cv-surface-card: #14141e;
+    --cv-surface: rgba(0, 255, 136, 0.05);
+    --cv-surface-elevated: #15151f;
+    --cv-surface-card: #171722;
     --cv-primary: #00ff88;
     --cv-secondary: #ff00ff;
-    --cv-text-primary: #e8fff4;
-    --cv-text-secondary: #8a9aab;
-    --cv-border-subtle: rgba(0, 212, 255, 0.14);
-    --cv-border-strong: rgba(0, 255, 136, 0.35);
+    --cv-text-primary: #f2fff8;
+    --cv-text-secondary: #b4c4d4;
+    --cv-border-subtle: rgba(0, 212, 255, 0.12);
+    --cv-border-strong: rgba(0, 255, 136, 0.22);
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 0px;
-    --cv-effect-glow: 0 0 18px rgba(0, 255, 136, 0.28);
-    --cv-hud-bracket: rgba(0, 212, 255, 0.9);
-    --cv-hud-bracket-strong: #00d4ff;
-    --cv-hud-grid: rgba(0, 255, 136, 0.08);
-    --cv-phosphor: #b8ffe0;
+    --cv-effect-glow: none;
+    --cv-hud-bracket: rgba(0, 212, 255, 0.45);
+    --cv-hud-bracket-strong: rgba(0, 212, 255, 0.85);
+    --cv-hud-grid: rgba(0, 255, 136, 0.045);
+    --cv-phosphor: #d4ffe8;
     --cv-plasma: #ff00ff;
     --cv-cyan: #00d4ff;
     --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
     --cv-font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
-    --cv-font-sans: var(--cv-font-display), 'Microsoft YaHei UI',
-      'Microsoft YaHei', sans-serif;
+    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+      'Noto Sans SC', system-ui, sans-serif;
     --cv-radius-sm: 0px;
     --cv-radius-md: 0px;
     --cv-radius-lg: 0px;
     --cv-ambient: repeating-linear-gradient(
         0deg,
         transparent 0 2px,
-        rgba(0, 255, 136, 0.035) 2px 3px
+        rgba(0, 255, 136, 0.02) 2px 3px
       ),
       repeating-linear-gradient(
         90deg,
-        transparent 0 14px,
-        var(--cv-hud-grid) 14px 15px
+        transparent 0 16px,
+        var(--cv-hud-grid) 16px 17px
       ),
       repeating-linear-gradient(
         0deg,
-        transparent 0 14px,
-        rgba(0, 212, 255, 0.05) 14px 15px
-      ),
-      radial-gradient(
-        100% 60% at 0% 0%,
-        rgba(255, 0, 255, 0.12),
-        transparent 50%
-      ),
-      radial-gradient(
-        90% 70% at 100% 100%,
-        rgba(0, 212, 255, 0.1),
-        transparent 55%
+        transparent 0 16px,
+        rgba(0, 212, 255, 0.03) 16px 17px
       ),
       radial-gradient(
         80% 50% at 50% 0%,
-        rgba(0, 255, 136, 0.08),
-        transparent 60%
+        rgba(0, 255, 136, 0.05),
+        transparent 55%
       );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 255, 136, 0.4);
+    --cv-scrollbar-thumb: rgba(0, 255, 136, 0.35);
     --cv-selection-fg: #04140c;
   }
 }
@@ -72,63 +62,53 @@
 html[data-theme='dark'] body {
   --cv-bg-primary: #0a0a0f;
   --cv-bg-secondary: #0e0e16;
-  --cv-surface: rgba(0, 255, 136, 0.07);
-  --cv-surface-elevated: #12121a;
-  --cv-surface-card: #14141e;
+  --cv-surface: rgba(0, 255, 136, 0.05);
+  --cv-surface-elevated: #15151f;
+  --cv-surface-card: #171722;
   --cv-primary: #00ff88;
   --cv-secondary: #ff00ff;
-  --cv-text-primary: #e8fff4;
-  --cv-text-secondary: #8a9aab;
-  --cv-border-subtle: rgba(0, 212, 255, 0.14);
-  --cv-border-strong: rgba(0, 255, 136, 0.35);
+  --cv-text-primary: #f2fff8;
+  --cv-text-secondary: #b4c4d4;
+  --cv-border-subtle: rgba(0, 212, 255, 0.12);
+  --cv-border-strong: rgba(0, 255, 136, 0.22);
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 0px;
-  --cv-effect-glow: 0 0 18px rgba(0, 255, 136, 0.28);
-  --cv-hud-bracket: rgba(0, 212, 255, 0.9);
-  --cv-hud-bracket-strong: #00d4ff;
-  --cv-hud-grid: rgba(0, 255, 136, 0.08);
-  --cv-phosphor: #b8ffe0;
+  --cv-effect-glow: none;
+  --cv-hud-bracket: rgba(0, 212, 255, 0.45);
+  --cv-hud-bracket-strong: rgba(0, 212, 255, 0.85);
+  --cv-hud-grid: rgba(0, 255, 136, 0.045);
+  --cv-phosphor: #d4ffe8;
   --cv-plasma: #ff00ff;
   --cv-cyan: #00d4ff;
   --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
   --cv-font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
-  --cv-font-sans: var(--cv-font-display), 'Microsoft YaHei UI',
-    'Microsoft YaHei', sans-serif;
+  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+    'Noto Sans SC', system-ui, sans-serif;
   --cv-radius-sm: 0px;
   --cv-radius-md: 0px;
   --cv-radius-lg: 0px;
   --cv-ambient: repeating-linear-gradient(
       0deg,
       transparent 0 2px,
-      rgba(0, 255, 136, 0.035) 2px 3px
+      rgba(0, 255, 136, 0.02) 2px 3px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent 0 14px,
-      var(--cv-hud-grid) 14px 15px
+      transparent 0 16px,
+      var(--cv-hud-grid) 16px 17px
     ),
     repeating-linear-gradient(
       0deg,
-      transparent 0 14px,
-      rgba(0, 212, 255, 0.05) 14px 15px
-    ),
-    radial-gradient(
-      100% 60% at 0% 0%,
-      rgba(255, 0, 255, 0.12),
-      transparent 50%
-    ),
-    radial-gradient(
-      90% 70% at 100% 100%,
-      rgba(0, 212, 255, 0.1),
-      transparent 55%
+      transparent 0 16px,
+      rgba(0, 212, 255, 0.03) 16px 17px
     ),
     radial-gradient(
       80% 50% at 50% 0%,
-      rgba(0, 255, 136, 0.08),
-      transparent 60%
+      rgba(0, 255, 136, 0.05),
+      transparent 55%
     );
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 255, 136, 0.4);
+  --cv-scrollbar-thumb: rgba(0, 255, 136, 0.35);
   --cv-selection-fg: #04140c;
 }
 
@@ -144,32 +124,32 @@ html[data-theme='dark'] body {
     --cv-text-primary: #0a1218;
     --cv-text-secondary: #3d5160;
     --cv-border-subtle: rgba(10, 18, 24, 0.1);
-    --cv-border-strong: rgba(0, 143, 90, 0.35);
+    --cv-border-strong: rgba(0, 143, 90, 0.28);
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
-    --cv-hud-bracket: rgba(0, 120, 180, 0.75);
+    --cv-hud-bracket: rgba(0, 120, 180, 0.55);
     --cv-hud-bracket-strong: #0078b4;
-    --cv-hud-grid: rgba(0, 143, 90, 0.08);
+    --cv-hud-grid: rgba(0, 143, 90, 0.06);
     --cv-phosphor: #043d28;
     --cv-plasma: #b000b0;
     --cv-cyan: #0078b4;
     --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
     --cv-font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
-    --cv-font-sans: var(--cv-font-display), 'Microsoft YaHei UI',
-      'Microsoft YaHei', sans-serif;
+    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+      'Noto Sans SC', system-ui, sans-serif;
     --cv-radius-sm: 0px;
     --cv-radius-md: 0px;
     --cv-radius-lg: 0px;
     --cv-ambient: repeating-linear-gradient(
         0deg,
         transparent 0 2px,
-        rgba(0, 143, 90, 0.04) 2px 3px
+        rgba(0, 143, 90, 0.03) 2px 3px
       ),
       repeating-linear-gradient(
         90deg,
-        transparent 0 14px,
-        var(--cv-hud-grid) 14px 15px
+        transparent 0 16px,
+        var(--cv-hud-grid) 16px 17px
       );
     --cv-scrollbar-bg: var(--cv-bg-primary);
     --cv-scrollbar-thumb: rgba(10, 18, 24, 0.25);
@@ -188,32 +168,32 @@ html[data-theme='light'] body {
   --cv-text-primary: #0a1218;
   --cv-text-secondary: #3d5160;
   --cv-border-subtle: rgba(10, 18, 24, 0.1);
-  --cv-border-strong: rgba(0, 143, 90, 0.35);
+  --cv-border-strong: rgba(0, 143, 90, 0.28);
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
-  --cv-hud-bracket: rgba(0, 120, 180, 0.75);
+  --cv-hud-bracket: rgba(0, 120, 180, 0.55);
   --cv-hud-bracket-strong: #0078b4;
-  --cv-hud-grid: rgba(0, 143, 90, 0.08);
+  --cv-hud-grid: rgba(0, 143, 90, 0.06);
   --cv-phosphor: #043d28;
   --cv-plasma: #b000b0;
   --cv-cyan: #0078b4;
   --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
   --cv-font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
-  --cv-font-sans: var(--cv-font-display), 'Microsoft YaHei UI',
-    'Microsoft YaHei', sans-serif;
+  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+    'Noto Sans SC', system-ui, sans-serif;
   --cv-radius-sm: 0px;
   --cv-radius-md: 0px;
   --cv-radius-lg: 0px;
   --cv-ambient: repeating-linear-gradient(
       0deg,
       transparent 0 2px,
-      rgba(0, 143, 90, 0.04) 2px 3px
+      rgba(0, 143, 90, 0.03) 2px 3px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent 0 14px,
-      var(--cv-hud-grid) 14px 15px
+      transparent 0 16px,
+      var(--cv-hud-grid) 16px 17px
     );
   --cv-scrollbar-bg: var(--cv-bg-primary);
   --cv-scrollbar-thumb: rgba(10, 18, 24, 0.25);
