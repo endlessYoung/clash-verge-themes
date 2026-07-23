@@ -1,0 +1,46 @@
+/**
+ * Theme: Apple Liquid Glass — animation.css
+ * Spec 12 Apple Liquid — card float + control press only; optional ambient drift.
+ */
+
+@keyframes cv-ambient-drift {
+  0%,
+  100% {
+    background-position: 0% 0%, 100% 0%;
+  }
+  50% {
+    background-position: 2% 1%, 98% 2%;
+  }
+}
+
+html body .base-page .base-container,
+html body .base-container {
+  animation: cv-ambient-drift 56s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body .base-page .base-container,
+  html body .base-container {
+    animation: none !important;
+  }
+
+  html body .MuiCircularProgress-root,
+  html body [class*='loading'] {
+    animation: none !important;
+  }
+
+  html body .enhanced-card:hover,
+  html body .cv-card:hover,
+  html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
+  html body .base-content .MuiGrid-root > .MuiBox-root:hover,
+  html body .enhanced-card:focus-within,
+  html body .cv-card:focus-within {
+    transform: none !important;
+  }
+
+  html body .MuiButton-contained:active,
+  html body .MuiButton-containedPrimary:active,
+  html body .MuiIconButton-root:active {
+    transform: none !important;
+  }
+}

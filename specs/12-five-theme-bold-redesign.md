@@ -1,7 +1,7 @@
 # Spec 12 — Five-Theme Bold Redesign (Two-Family System)
 
 Version: 1.0  
-Status: **Design approved in chat; awaiting user review of this file before implementation plan**  
+Status: **Implemented on develop (pending user visual QA)**  
 Date: 2026-07-23  
 Repo: `endlessYoung/clash-verge-themes` (`develop`)  
 Skills applied: brainstorming · frontend-skill (app-surface restraint + motion budget)

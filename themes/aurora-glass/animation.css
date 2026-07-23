@@ -1,22 +1,25 @@
 /**
  * Theme: Aurora Glass — animation.css
- * Gentle breathing pulse; premium easing on hover lifts (handled in
- * components.css transitions).
+ * Spec 12 Calm: ambient drift + card lift (lift is CSS transition).
  */
 
-@keyframes cv-pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
+@keyframes cv-aurora-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
   }
-  50% {
-    opacity: 0.5;
-    transform: scale(0.96);
+  100% {
+    transform: translate3d(3%, 2%, 0) scale(1.04);
   }
 }
 
-html body .MuiCircularProgress-root,
-html body [class*='loading'] {
-  animation: cv-pulse 1.6s var(--cv-motion-ease) infinite;
+@media (prefers-reduced-motion: reduce) {
+  html body .MuiPaper-root.layout::before {
+    animation: none !important;
+  }
+
+  html body .enhanced-card:hover,
+  html body .cv-card:hover,
+  html body .the-menu .MuiListItemButton-root.Mui-selected {
+    transform: none !important;
+  }
 }

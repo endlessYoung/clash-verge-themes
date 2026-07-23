@@ -1,0 +1,39 @@
+/**
+ * Theme: Apple Liquid Glass — states.css
+ * Spec 12 Apple Liquid — soft pill-shaped semantic chips, locked core status colors.
+ */
+
+html body .MuiChip-colorSuccess,
+html body [class*='status-success'] {
+  background-color: color-mix(in srgb, var(--cv-success) 16%, transparent) !important;
+  color: var(--cv-success) !important;
+  border: none !important;
+}
+
+html body .MuiChip-colorWarning,
+html body [class*='status-warning'] {
+  background-color: color-mix(in srgb, var(--cv-warning) 16%, transparent) !important;
+  color: var(--cv-warning) !important;
+  border: none !important;
+}
+
+html body .MuiChip-colorError,
+html body [class*='status-error'] {
+  background-color: color-mix(in srgb, var(--cv-error) 16%, transparent) !important;
+  color: var(--cv-error) !important;
+  border: none !important;
+}
+
+html body [class*='latency-fast'] {
+  color: var(--cv-latency-fast) !important;
+}
+html body [class*='latency-medium'] {
+  color: var(--cv-latency-medium) !important;
+}
+html body [class*='latency-slow'] {
+  color: var(--cv-latency-slow) !important;
+}
+html body [class*='latency-timeout'],
+html body [class*='latency-error'] {
+  color: var(--cv-latency-timeout) !important;
+}

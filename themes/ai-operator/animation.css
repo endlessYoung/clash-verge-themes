@@ -1,19 +1,44 @@
 /**
  * Theme: AI Operator — animation.css
- * Cursor-blink style pulse for loading, no fast spin.
+ * Spec 12: caret pulse, channel bar, hover row — no neon bloom.
  */
 
-@keyframes cv-pulse {
+@keyframes cv-ai-caret {
   0%,
-  100% {
+  49% {
     opacity: 1;
   }
-  50% {
-    opacity: 0.35;
+  50%,
+  100% {
+    opacity: 0.15;
   }
 }
 
-html body .MuiCircularProgress-root,
-html body [class*='loading'] {
-  animation: cv-pulse 1s steps(2, jump-none) infinite;
+@keyframes cv-ai-channel {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes cv-ai-bar {
+  0%,
+  100% {
+    opacity: 0.55;
+    box-shadow: none;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body .the-menu .MuiListItemButton-root.Mui-selected::before,
+  html body .enhanced-card:hover::before,
+  html body .cv-card:hover::before,
+  html body .the-traffic::after {
+    animation: none !important;
+  }
 }

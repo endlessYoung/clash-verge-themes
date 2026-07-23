@@ -1,101 +1,120 @@
 /**
  * Theme: Aurora Glass — components.css
- * Spec 11 polish: calm spatial glass with real hierarchy —
- * soft default panels, clearer selected/hover, denser empty surfaces.
+ * Spec 12 Calm — lift hierarchy, soft glass, no neon strokes.
  */
 
 html body .MuiPaper-root.layout,
 html body .layout {
-  border: 1px solid rgba(10, 132, 255, 0.08) !important;
+  border: 1px solid rgba(10, 132, 255, 0.12) !important;
+  box-shadow: 0 24px 64px rgba(10, 20, 50, 0.18) !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+html body .MuiPaper-root.layout::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+      40% 30% at 20% 10%,
+      rgba(10, 132, 255, 0.12),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 28% at 85% 20%,
+      rgba(94, 92, 230, 0.1),
+      transparent 70%
+    );
+  animation: cv-aurora-drift 28s ease-in-out infinite alternate;
+  opacity: 0.9;
 }
 
 html body .the-menu {
-  padding: var(--cv-space-2);
+  padding: 10px 8px;
+  position: relative;
+  z-index: 1;
 }
 
 html body .the-menu .MuiListItemButton-root {
-  border-radius: var(--cv-radius-lg);
-  margin: var(--cv-space-1) var(--cv-space-2);
-  border-left: 3px solid transparent;
-  transition: background 180ms ease, box-shadow 180ms ease;
+  border-radius: 999px !important;
+  margin: 4px 8px;
+  border: none !important;
+  border-left: none !important;
+  transition: background 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
-  background-color: var(--cv-surface);
+  background-color: color-mix(in srgb, var(--cv-primary) 10%, transparent) !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
-  border-left: 3px solid var(--cv-primary) !important;
-  background-color: color-mix(in srgb, var(--cv-primary) 14%, transparent) !important;
-  box-shadow: 0 8px 24px rgba(10, 132, 255, 0.08) !important;
+  background: color-mix(in srgb, var(--cv-primary) 18%, transparent) !important;
+  box-shadow: 0 10px 28px rgba(10, 132, 255, 0.18) !important;
+  transform: translateY(-1px);
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   color: var(--cv-primary) !important;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 html body .layout .layout-content__left {
-  background: color-mix(in srgb, var(--cv-bg-secondary) 82%, transparent) !important;
+  background: color-mix(in srgb, var(--cv-bg-secondary) 78%, transparent) !important;
   border-right: 1px solid var(--cv-border-subtle) !important;
-  backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.25) !important;
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.25) !important;
-  box-shadow: 8px 0 28px rgba(0, 0, 0, 0.06) !important;
+  backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.35) !important;
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.35) !important;
+  box-shadow: 12px 0 40px rgba(10, 20, 50, 0.1) !important;
 }
 
 html body .base-page > header {
-  padding-top: var(--cv-space-4);
-  padding-bottom: var(--cv-space-4);
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
   border-bottom: 1px solid var(--cv-border-subtle) !important;
-  background: color-mix(in srgb, var(--cv-surface) 55%, transparent) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--cv-surface) 45%, transparent) !important;
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
 }
 
 html body .base-page > header .MuiTypography-root {
-  font-weight: 650 !important;
-  letter-spacing: 0.02em;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  font-size: 1.15rem !important;
 }
 
-/* Default: soft / quiet. Hover/focus: lifted glass */
 html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
   position: relative !important;
-  background-color: color-mix(
-    in srgb,
-    var(--cv-surface-card) 88%,
-    transparent
-  ) !important;
+  background-color: var(--cv-surface-card) !important;
   background-image: radial-gradient(
-    120% 80% at 0% 0%,
-    rgba(10, 132, 255, 0.05),
+    120% 90% at 0% 0%,
+    rgba(10, 132, 255, 0.08),
     transparent 55%
   ) !important;
-  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: var(--cv-radius-lg) !important;
-  box-shadow: none !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease),
-    box-shadow var(--cv-motion-normal) var(--cv-motion-ease),
-    transform var(--cv-motion-normal) var(--cv-motion-ease);
+  box-shadow: 0 4px 16px rgba(10, 20, 50, 0.06) !important;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   html body .enhanced-card,
   html body .cv-card,
   html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
-    border-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(15, 23, 42, 0.06) !important;
   }
 }
 
-html[data-theme='dark'] body .enhanced-card,
-html[data-theme='dark'] body .cv-card,
-html[data-theme='dark'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
-  border-color: rgba(255, 255, 255, 0.08) !important;
+html[data-theme='light'] body .enhanced-card,
+html[data-theme='light'] body .cv-card,
+html[data-theme='light'] body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root {
+  border-color: rgba(15, 23, 42, 0.06) !important;
 }
 
 html body .enhanced-card:hover,
@@ -103,10 +122,17 @@ html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
 html body .enhanced-card:focus-within,
 html body .cv-card:focus-within {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--cv-primary) 35%, transparent) !important;
-  box-shadow: 0 12px 32px rgba(10, 132, 255, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.06) !important;
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--cv-primary) 40%, transparent) !important;
+  box-shadow: 0 18px 40px rgba(10, 132, 255, 0.16),
+    0 6px 16px rgba(10, 20, 50, 0.08) !important;
+}
+
+html body .enhanced-card .MuiTypography-h6,
+html body .cv-card .MuiTypography-h6 {
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  font-size: 1rem !important;
 }
 
 html body .base-content .MuiTypography-root {
@@ -123,6 +149,11 @@ html body .base-content .MuiTypography-body2 {
 html body .MuiButton-root {
   border-radius: 999px !important;
   text-transform: none;
+  font-weight: 600;
+}
+
+html body .MuiButton-containedPrimary {
+  box-shadow: 0 8px 24px rgba(10, 132, 255, 0.28) !important;
 }
 
 html body .MuiChip-root {
@@ -131,49 +162,58 @@ html body .MuiChip-root {
 
 html body .the-traffic {
   display: block;
-  margin: 10px 10px 14px;
-  padding: 10px 14px;
-  border: 1px solid color-mix(in srgb, var(--cv-primary) 22%, transparent);
+  margin: 12px 12px 16px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--cv-primary) 28%, transparent);
   border-radius: var(--cv-radius-lg);
-  background: color-mix(in srgb, var(--cv-surface) 70%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--cv-surface) 65%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.05rem;
   letter-spacing: 0.02em;
   color: var(--cv-text-primary) !important;
-  box-shadow: 0 8px 20px rgba(10, 132, 255, 0.08);
+  box-shadow: 0 12px 28px rgba(10, 132, 255, 0.12);
 }
 
 html body .the-traffic::before {
   content: 'Throughput';
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   font-family: var(--cv-font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
   color: var(--cv-primary);
-  opacity: 0.85;
 }
 
 html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
+  font-weight: 700;
 }
 
 html body .MuiLinearProgress-bar {
-  background: linear-gradient(90deg, var(--cv-primary), #64d2ff) !important;
+  background: linear-gradient(90deg, var(--cv-primary), #64d2ff, var(--cv-secondary)) !important;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
   border-radius: var(--cv-radius-float) !important;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12) !important;
-  backdrop-filter: blur(20px);
+  box-shadow: 0 32px 64px rgba(10, 20, 50, 0.28) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  box-shadow: none;
+  background-color: var(--cv-primary) !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+html body .MuiOutlinedInput-root {
+  border-radius: var(--cv-radius-md) !important;
 }

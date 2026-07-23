@@ -1,0 +1,216 @@
+/**
+ * Theme: Apple Classic — components.css
+ * Spec 12 Calm family — native Settings grouped lists, system blue accent,
+ * hairline borders, near-zero spectacle.
+ */
+
+html body {
+  font-family: var(--cv-font-sans);
+}
+
+html body .MuiPaper-root.layout,
+html body .layout {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+html body .layout .layout-content__left {
+  background: var(--cv-bg-secondary) !important;
+  border-right: 1px solid var(--cv-border-subtle) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body .the-menu {
+  padding: var(--cv-space-2);
+}
+
+html body .the-menu .MuiListItemButton-root {
+  border-radius: var(--cv-radius-sm);
+  margin: var(--cv-space-1) var(--cv-space-2);
+  border-left: none !important;
+  transition: background-color var(--cv-motion-fast) ease;
+}
+
+html body .the-menu .MuiListItemButton-root:hover {
+  background-color: var(--cv-surface) !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected {
+  background-color: var(--cv-surface) !important;
+  box-shadow: none !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
+  color: var(--cv-primary) !important;
+  font-weight: 600;
+}
+
+html body .base-page > header {
+  padding-top: var(--cv-space-4);
+  padding-bottom: var(--cv-space-4);
+  border-bottom: 1px solid var(--cv-border-subtle) !important;
+  background: var(--cv-bg-primary) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body .base-page > header .MuiTypography-root {
+  font-family: var(--cv-font-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  text-transform: none !important;
+}
+
+html body .enhanced-card,
+html body .cv-card,
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
+html body .base-content .MuiGrid-root > .MuiBox-root {
+  position: relative !important;
+  background-color: var(--cv-surface-card) !important;
+  background-image: none !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-lg) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: background-color var(--cv-motion-fast) ease,
+    border-color var(--cv-motion-fast) ease;
+}
+
+html body .enhanced-card:hover,
+html body .cv-card:hover,
+html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
+html body .base-content .MuiGrid-root > .MuiBox-root:hover,
+html body .enhanced-card:focus-within,
+html body .cv-card:focus-within {
+  transform: none !important;
+  background-color: var(--cv-surface-elevated) !important;
+  border-color: var(--cv-border-strong) !important;
+  box-shadow: none !important;
+}
+
+html body .base-content .MuiTypography-root {
+  font-family: var(--cv-font-sans);
+  text-shadow: none !important;
+  color: var(--cv-text-primary) !important;
+}
+
+html body .base-content .MuiTypography-colorTextSecondary,
+html body .base-content .MuiTypography-body2 {
+  color: var(--cv-text-secondary) !important;
+}
+
+html body .MuiButton-root {
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-sans) !important;
+  text-transform: none;
+  box-shadow: none !important;
+}
+
+html body .MuiButton-containedPrimary,
+html body .MuiButtonGroup-groupedContainedPrimary {
+  background-color: var(--cv-primary) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  font-weight: 600;
+}
+
+html body .MuiButton-containedPrimary:hover,
+html body .MuiButtonGroup-groupedContainedPrimary:hover {
+  filter: brightness(1.06);
+  box-shadow: none !important;
+}
+
+html body .MuiButton-outlinedPrimary,
+html body .MuiButton-outlined {
+  border-color: var(--cv-border-strong) !important;
+  color: var(--cv-primary) !important;
+  background: transparent !important;
+}
+
+html body .MuiChip-root {
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-sans) !important;
+}
+
+html body .the-traffic {
+  display: block;
+  margin: var(--cv-space-2) var(--cv-space-2) var(--cv-space-3);
+  padding: var(--cv-space-3) var(--cv-space-4);
+  border: 1px solid var(--cv-border-subtle);
+  border-radius: var(--cv-radius-lg);
+  background: var(--cv-surface-card);
+  font-family: var(--cv-font-mono) !important;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--cv-text-primary) !important;
+  box-shadow: none;
+}
+
+html body .the-traffic::before {
+  content: 'Throughput';
+  display: block;
+  margin-bottom: var(--cv-space-1);
+  font-family: var(--cv-font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--cv-text-secondary);
+  opacity: 1;
+}
+
+html body .the-traffic::after {
+  display: none !important;
+}
+
+html body .the-traffic *,
+html body .the-delay {
+  font-family: var(--cv-font-mono) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+html body .MuiLinearProgress-bar {
+  background-color: var(--cv-primary) !important;
+}
+
+html body .MuiDialog-root .MuiDialog-paper {
+  border-radius: var(--cv-radius-float) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16) !important;
+  background: var(--cv-surface-elevated) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked {
+  color: #ffffff !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+}
+
+html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: var(--cv-primary) !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+html body .MuiOutlinedInput-root,
+html body .MuiInputBase-root {
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-sans);
+  color: var(--cv-text-primary) !important;
+}
+
+html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--cv-primary) !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+}

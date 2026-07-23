@@ -12,7 +12,13 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
-const themes = ['cyber-nexus', 'ai-operator', 'aurora-glass'];
+const themes = [
+  'cyber-nexus',
+  'ai-operator',
+  'aurora-glass',
+  'apple-classic',
+  'apple-liquid',
+];
 
 const importRe = /@import\s+url\(['"]([^'"]+)['"]\);?/g;
 
@@ -65,8 +71,7 @@ fs.mkdirSync(distDir, { recursive: true });
 
 const banner = (name) =>
   `/* Clash Verge Neo — ${name} (built single-file; do not edit)\n` +
-  ` * Source: themes/${name}/  |  Spec: 10-cyberpunk-decker-hud\n` +
-  ` * Build: node scripts/build-dist.mjs\n */\n\n`;
+  ` * Spec 12 five-theme bold redesign. Build: node scripts/build-dist.mjs\n */\n\n`;
 
 for (const name of themes) {
   const entry = path.join(root, 'themes', name, 'index.css');

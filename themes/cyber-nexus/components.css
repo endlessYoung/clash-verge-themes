@@ -1,61 +1,59 @@
 /**
  * Theme: Cyber Nexus — components.css
- * Spec 10.2 spectacle pass: cooler neon chrome WITHOUT washing card text.
- * Glow on edges / instruments / CTA; body copy stays matte & bright.
+ * Spec 12 Spectacle — night-deck HUD. Green primary; magenta/cyan focus-only.
+ * No triad sidebar spine.
  */
 
-/* ---- Atmosphere: soft vignette + static scanlines ---- */
 html body .MuiPaper-root.layout::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 40;
-  background: repeating-linear-gradient(
+  background:
+    repeating-linear-gradient(
       0deg,
-      rgba(0, 0, 0, 0.12) 0 1px,
-      transparent 1px 4px
+      rgba(0, 0, 0, 0.1) 0 1px,
+      transparent 1px 5px
     ),
-    radial-gradient(90% 70% at 0% 100%, rgba(255, 0, 255, 0.07), transparent 50%),
-    radial-gradient(80% 60% at 100% 0%, rgba(0, 212, 255, 0.08), transparent 50%);
+    radial-gradient(70% 50% at 100% 0%, rgba(0, 212, 255, 0.07), transparent 55%),
+    radial-gradient(60% 45% at 0% 100%, rgba(255, 0, 255, 0.05), transparent 50%);
   mix-blend-mode: screen;
-  opacity: 0.55;
+  opacity: 0.45;
 }
 
 html body .MuiPaper-root.layout {
   position: relative !important;
   overflow: hidden !important;
   background:
-    linear-gradient(160deg, rgba(0, 255, 136, 0.04), transparent 35%),
+    linear-gradient(155deg, rgba(0, 255, 136, 0.06), transparent 40%),
     var(--cv-bg-primary) !important;
-  border: 1px solid rgba(0, 255, 136, 0.28) !important;
-  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 0, 255, 0.1), 0 0 40px rgba(0, 255, 136, 0.06) !important;
+  border: 1px solid rgba(0, 255, 136, 0.32) !important;
+  box-shadow:
+    inset 0 0 100px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 212, 255, 0.12) !important;
   font-family: var(--cv-font-sans);
 }
 
-/* Outer HUD frame + crawling edge light */
 html body .MuiPaper-root.layout::after {
   content: '';
   position: absolute;
-  inset: 5px;
+  inset: 6px;
   pointer-events: none;
   z-index: 41;
-  border: 1px solid rgba(0, 212, 255, 0.22);
-  box-shadow: inset 0 0 0 1px rgba(255, 0, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.28);
   clip-path: polygon(
-    0 14px,
-    14px 0,
-    calc(100% - 14px) 0,
-    100% 14px,
-    100% calc(100% - 14px),
-    calc(100% - 14px) 100%,
-    14px 100%,
-    0 calc(100% - 14px)
+    0 16px,
+    16px 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    16px 100%,
+    0 calc(100% - 16px)
   );
 }
 
-/* Sweeping beam across main content (cool, not on text glyphs) */
 html body .layout .layout-content__right {
   position: relative !important;
 }
@@ -65,34 +63,32 @@ html body .layout .layout-content__right::before {
   position: absolute;
   top: 0;
   left: -30%;
-  width: 22%;
+  width: 24%;
   height: 100%;
   pointer-events: none;
   z-index: 3;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 255, 136, 0.03),
-    rgba(0, 212, 255, 0.05),
+    rgba(0, 255, 136, 0.04),
+    rgba(0, 212, 255, 0.06),
     transparent
   );
-  animation: cv-content-sweep 9s ease-in-out infinite;
-  opacity: 0.7;
+  animation: cv-content-sweep 8s ease-in-out infinite;
 }
 
-/* ---- Sidebar: no triad spine — single quiet rail; triad lives on selection ---- */
+/* Single quiet green rail — triad only on selection */
 html body .layout .layout-content__left {
   background:
-    linear-gradient(180deg, rgba(0, 255, 136, 0.05), transparent 28%),
+    linear-gradient(180deg, rgba(0, 255, 136, 0.07), transparent 30%),
     repeating-linear-gradient(
       180deg,
-      transparent 0 26px,
-      rgba(0, 212, 255, 0.03) 26px 27px
+      transparent 0 28px,
+      rgba(0, 212, 255, 0.035) 28px 29px
     ),
     var(--cv-bg-secondary) !important;
-  border-right: 1px solid rgba(0, 255, 136, 0.18) !important;
-  box-shadow: inset 2px 0 0 rgba(0, 255, 136, 0.35) !important;
-  animation: none;
+  border-right: 1px solid rgba(0, 255, 136, 0.2) !important;
+  box-shadow: inset 2px 0 0 rgba(0, 255, 136, 0.4) !important;
 }
 
 html body .the-menu {
@@ -101,14 +97,13 @@ html body .the-menu {
 
 html body .the-menu .MuiListItemButton-root {
   border-radius: 0 !important;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   border: 1px solid transparent;
   border-left: 3px solid transparent;
-  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
   font-family: var(--cv-font-sans);
-  letter-spacing: 0.02em;
-  text-transform: none;
   font-size: 0.875rem;
+  letter-spacing: 0.02em;
   transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
@@ -118,56 +113,57 @@ html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
-  background: rgba(0, 212, 255, 0.09) !important;
-  border-color: rgba(0, 212, 255, 0.28);
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.1);
+  background: rgba(0, 212, 255, 0.1) !important;
+  border-color: rgba(0, 212, 255, 0.35);
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.12);
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
   border-left-color: #00ff88 !important;
-  border-color: rgba(0, 255, 136, 0.5) !important;
+  border-color: rgba(0, 255, 136, 0.55) !important;
   background: linear-gradient(
     90deg,
-    rgba(0, 255, 136, 0.26),
-    rgba(0, 212, 255, 0.06) 55%,
+    rgba(0, 255, 136, 0.3),
+    rgba(0, 212, 255, 0.08) 50%,
     transparent
   ) !important;
-  box-shadow: 0 0 22px rgba(0, 255, 136, 0.22),
-    inset 0 0 18px rgba(0, 255, 136, 0.06) !important;
+  box-shadow:
+    0 0 26px rgba(0, 255, 136, 0.28),
+    inset 0 0 20px rgba(0, 255, 136, 0.08) !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   color: #00ff88 !important;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.55);
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
   font-weight: 700;
 }
 
 html body .the-logo {
-  filter: drop-shadow(0 0 6px #00ff88) drop-shadow(0 0 14px rgba(255, 0, 255, 0.35));
+  filter: drop-shadow(0 0 8px #00ff88);
 }
 
-/* ---- Cards: quiet by default; bright only on hover / focus-within ---- */
+/* Cards: matte default; filament + glow on hover/focus only */
 html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
-  --cv-cut: 12px;
-  --cv-hud-arm: 14px;
+  --cv-cut: 14px;
+  --cv-hud-arm: 16px;
   --cv-hud-stroke: 1px;
-  --cv-hud-bracket: rgba(0, 212, 255, 0.28);
+  --cv-hud-bracket: rgba(0, 212, 255, 0.32);
   position: relative !important;
   background-color: var(--cv-surface-card) !important;
-  /* Micro-grid under content = denser empty bays without washing glyphs */
-  background-image: repeating-linear-gradient(
+  background-image:
+    repeating-linear-gradient(
       0deg,
-      transparent 0 11px,
-      rgba(0, 255, 136, 0.028) 11px 12px
+      transparent 0 10px,
+      rgba(0, 255, 136, 0.035) 10px 11px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent 0 11px,
-      rgba(0, 212, 255, 0.022) 11px 12px
+      transparent 0 10px,
+      rgba(0, 212, 255, 0.028) 10px 11px
     ),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
@@ -177,16 +173,23 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
     linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)) !important;
-  background-size: auto, auto, var(--cv-hud-arm) var(--cv-hud-stroke),
-    var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
-    var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
-    var(--cv-hud-stroke) var(--cv-hud-arm), var(--cv-hud-arm) var(--cv-hud-stroke),
+  background-size:
+    auto, auto,
+    var(--cv-hud-arm) var(--cv-hud-stroke),
+    var(--cv-hud-stroke) var(--cv-hud-arm),
+    var(--cv-hud-arm) var(--cv-hud-stroke),
+    var(--cv-hud-stroke) var(--cv-hud-arm),
+    var(--cv-hud-arm) var(--cv-hud-stroke),
+    var(--cv-hud-stroke) var(--cv-hud-arm),
+    var(--cv-hud-arm) var(--cv-hud-stroke),
     var(--cv-hud-stroke) var(--cv-hud-arm) !important;
-  background-position: 0 0, 0 0, left top, left top, right top, right top,
+  background-position:
+    0 0, 0 0,
+    left top, left top, right top, right top,
     left bottom, left bottom, right bottom, right bottom !important;
   background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat,
     no-repeat, no-repeat, no-repeat, no-repeat !important;
-  border: 1px solid rgba(0, 212, 255, 0.14) !important;
+  border: 1px solid rgba(0, 212, 255, 0.16) !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   clip-path: polygon(
@@ -211,20 +214,22 @@ html body .cv-card:focus-within,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:focus-within {
   --cv-hud-bracket: var(--cv-hud-bracket-strong);
   --cv-hud-stroke: 2px;
-  transform: translateY(-1px);
-  border-color: rgba(0, 255, 136, 0.55) !important;
-  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.18),
-    0 0 22px rgba(0, 255, 136, 0.14), 0 14px 28px rgba(0, 0, 0, 0.45) !important;
+  transform: translateY(-2px);
+  border-color: rgba(0, 255, 136, 0.6) !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 136, 0.22),
+    0 0 28px rgba(0, 255, 136, 0.18),
+    0 0 40px rgba(255, 0, 255, 0.08),
+    0 16px 32px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Filament only when card is active — default cards stay quiet */
 html body .enhanced-card::after,
 html body .cv-card::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 12%;
-  right: 12%;
+  left: 10%;
+  right: 10%;
   height: 2px;
   background: linear-gradient(
     90deg,
@@ -235,7 +240,6 @@ html body .cv-card::after {
     transparent
   );
   opacity: 0;
-  box-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
   pointer-events: none;
   z-index: 2;
   transition: opacity 160ms ease;
@@ -245,10 +249,9 @@ html body .enhanced-card:hover::after,
 html body .cv-card:hover::after,
 html body .enhanced-card:focus-within::after,
 html body .cv-card:focus-within::after {
-  opacity: 0.9;
+  opacity: 1;
 }
 
-/* Readable card copy */
 html body .base-content .MuiTypography-root,
 html body .enhanced-card .MuiTypography-root,
 html body .cv-card .MuiTypography-root {
@@ -264,52 +267,42 @@ html body .base-content .MuiTypography-colorTextSecondary,
 html body .base-content .MuiListItemText-secondary,
 html body .base-content .MuiTypography-body2 {
   color: var(--cv-text-secondary) !important;
-  text-shadow: none !important;
   opacity: 1 !important;
 }
 
 html body .base-content .MuiPaper-root:not(.layout) {
   background-color: var(--cv-surface-elevated) !important;
-  border: 1px solid rgba(0, 212, 255, 0.16) !important;
+  border: 1px solid rgba(0, 212, 255, 0.18) !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-}
-
-/* Card titles = denser module labels */
-html body .enhanced-card > .MuiBox-root:first-child,
-html body .cv-card > .MuiBox-root:first-child,
-html body .base-content .enhanced-card .MuiTypography-h6,
-html body .base-content .enhanced-card .MuiTypography-subtitle1 {
-  letter-spacing: 0.04em;
 }
 
 html body .enhanced-card .MuiTypography-h6,
 html body .cv-card .MuiTypography-h6,
 html body .enhanced-card .MuiTypography-subtitle1 {
-  font-weight: 700 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
 }
 
-/* Neon progress bars */
 html body .MuiLinearProgress-root {
   background-color: rgba(0, 212, 255, 0.12) !important;
   border-radius: 0 !important;
-  overflow: hidden;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.35);
 }
 
 html body .MuiLinearProgress-bar {
   background: linear-gradient(90deg, #00ff88, #00d4ff, #ff00ff) !important;
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.65);
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.7);
 }
 
-/* ---- Header: no fake DECKER slogan — keep thin utility rail only ---- */
 html body .base-page > header {
   position: relative;
-  padding-top: 14px !important;
-  padding-bottom: 14px !important;
-  border-bottom: 1px solid rgba(0, 255, 136, 0.22) !important;
-  background: rgba(0, 255, 136, 0.04) !important;
-  box-shadow: inset 0 2px 0 rgba(0, 255, 136, 0.55);
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.25) !important;
+  background: rgba(0, 255, 136, 0.05) !important;
+  box-shadow: inset 0 2px 0 #00ff88;
 }
 
 html body .base-page > header::before {
@@ -323,39 +316,35 @@ html body .base-page > header::after {
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    #00ff88,
-    rgba(0, 212, 255, 0.7),
-    transparent 70%
-  );
-  opacity: 0.7;
-  animation: none;
+  background: linear-gradient(90deg, #00ff88, #00d4ff, transparent 75%);
+  opacity: 0.85;
 }
 
 html body .base-page > header .MuiTypography-root {
   font-family: var(--cv-font-sans) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  text-shadow: none !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.95rem !important;
   color: var(--cv-text-primary) !important;
+  text-shadow: none !important;
 }
 
-/* ---- Traffic instrument (hero glow) ---- */
 html body .the-traffic {
-  --cv-cut: 8px;
+  --cv-cut: 10px;
   position: relative;
   display: block;
   margin: 12px 8px 16px;
-  padding: 12px 12px 14px;
-  border: 1px solid rgba(0, 255, 136, 0.55);
+  padding: 14px 14px 16px;
+  border: 1px solid rgba(0, 255, 136, 0.6);
   border-radius: 0;
   background:
-    linear-gradient(180deg, rgba(0, 255, 136, 0.12), rgba(255, 0, 255, 0.04)),
-    #07070c;
-  box-shadow: inset 0 0 24px rgba(0, 255, 136, 0.1),
-    0 0 24px rgba(0, 255, 136, 0.28), 0 0 36px rgba(255, 0, 255, 0.1);
+    linear-gradient(180deg, rgba(0, 255, 136, 0.14), rgba(255, 0, 255, 0.05)),
+    #06060b;
+  box-shadow:
+    inset 0 0 28px rgba(0, 255, 136, 0.12),
+    0 0 28px rgba(0, 255, 136, 0.32),
+    0 0 40px rgba(255, 0, 255, 0.12);
   clip-path: polygon(
     0 var(--cv-cut),
     var(--cv-cut) 0,
@@ -367,25 +356,25 @@ html body .the-traffic {
     0 calc(100% - var(--cv-cut))
   );
   font-family: var(--cv-font-mono) !important;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--cv-phosphor) !important;
-  text-shadow: 0 0 8px rgba(0, 255, 136, 0.55);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
   animation: cv-phosphor-breathe 3s ease-in-out infinite;
 }
 
 html body .the-traffic::before {
-  content: '> THRUPUT';
+  content: 'THRUPUT';
   display: block;
   margin-bottom: 8px;
   font-family: var(--cv-font-display);
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.28em;
   color: #ff66ff;
-  text-shadow: 0 0 8px rgba(255, 0, 255, 0.65);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
 }
 
 html body .the-traffic::after {
@@ -396,39 +385,30 @@ html body .the-traffic::after {
   height: 2px;
   top: 0;
   background: linear-gradient(90deg, #00ff88, #00d4ff);
-  box-shadow: 0 0 10px #00ff88;
-  animation: cv-lock-scan 2.4s linear infinite;
+  box-shadow: 0 0 12px #00ff88;
+  animation: cv-lock-scan 2.2s linear infinite;
 }
 
-html body .the-traffic * {
-  font-family: var(--cv-font-mono) !important;
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-shadow: 0 0 6px rgba(0, 255, 136, 0.45);
-  color: var(--cv-phosphor) !important;
-}
-
+html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  text-shadow: 0 0 6px rgba(0, 255, 136, 0.4);
+  font-weight: 700;
+  color: var(--cv-phosphor) !important;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
 }
 
-/* ---- Controls ---- */
 html body .MuiButton-root {
   border-radius: 0 !important;
   font-family: var(--cv-font-sans) !important;
   text-transform: none;
-  letter-spacing: 0.02em;
   clip-path: polygon(
     0 0,
-    calc(100% - 6px) 0,
-    100% 6px,
+    calc(100% - 7px) 0,
+    100% 7px,
     100% 100%,
-    6px 100%,
-    0 calc(100% - 6px)
+    7px 100%,
+    0 calc(100% - 7px)
   );
 }
 
@@ -436,40 +416,41 @@ html body .MuiButton-containedPrimary,
 html body .MuiButtonGroup-groupedContainedPrimary {
   background: linear-gradient(90deg, #00ff88, #00d4ff) !important;
   color: #04140c !important;
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.4), 0 0 32px rgba(0, 212, 255, 0.2) !important;
-  font-weight: 700;
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.45) !important;
+  font-weight: 800;
 }
 
 html body .MuiButton-containedPrimary:hover,
 html body .MuiButtonGroup-groupedContainedPrimary:hover {
-  filter: brightness(1.08);
-  box-shadow: 0 0 28px rgba(0, 255, 136, 0.55), 0 0 36px rgba(255, 0, 255, 0.18) !important;
+  filter: brightness(1.1);
+  box-shadow:
+    0 0 32px rgba(0, 255, 136, 0.6),
+    0 0 40px rgba(255, 0, 255, 0.2) !important;
 }
 
 html body .MuiButton-outlinedPrimary,
 html body .MuiButton-outlined {
-  border-color: rgba(0, 212, 255, 0.5) !important;
+  border-color: rgba(0, 212, 255, 0.55) !important;
   color: var(--cv-text-primary) !important;
   background: rgba(0, 212, 255, 0.08) !important;
-  box-shadow: 0 0 12px rgba(0, 212, 255, 0.12);
 }
 
 html body .MuiChip-root {
   border-radius: 0 !important;
-  border: 1px solid rgba(0, 212, 255, 0.32) !important;
+  border: 1px solid rgba(0, 212, 255, 0.35) !important;
   font-family: var(--cv-font-mono) !important;
-  box-shadow: 0 0 8px rgba(0, 255, 136, 0.1);
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
   border-radius: 0 !important;
-  border: 1px solid rgba(0, 255, 136, 0.4) !important;
-  box-shadow: 0 0 0 1px rgba(255, 0, 255, 0.15),
-    0 0 36px rgba(0, 255, 136, 0.15), 0 28px 72px rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(0, 255, 136, 0.45) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 0, 255, 0.12),
+    0 0 40px rgba(0, 255, 136, 0.18),
+    0 28px 72px rgba(0, 0, 0, 0.85) !important;
   background: var(--cv-surface-elevated) !important;
 }
 
-/* Switch ON: white thumb on matrix track — no glow bloom */
 html body .MuiSwitch-switchBase.Mui-checked {
   color: #ffffff !important;
 }
@@ -494,11 +475,5 @@ html body .MuiInputBase-root {
 
 html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: #00ff88 !important;
-  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.3), 0 0 14px rgba(0, 255, 136, 0.2);
-}
-
-html body .MuiOutlinedInput-input::placeholder,
-html body .MuiInputBase-input::placeholder {
-  color: var(--cv-text-secondary) !important;
-  opacity: 0.85;
+  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.35), 0 0 16px rgba(0, 255, 136, 0.25);
 }

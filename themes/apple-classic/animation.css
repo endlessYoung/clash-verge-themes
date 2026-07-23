@@ -1,0 +1,22 @@
+/**
+ * Theme: Apple Classic — animation.css
+ * Spec 12 Calm family — near-zero motion. Standard hover color only.
+ * No keyframe spectacles; prefers-reduced-motion safety only.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  html body *,
+  html body *::before,
+  html body *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html body .enhanced-card:hover,
+  html body .cv-card:hover,
+  html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
+  html body .base-content .MuiGrid-root > .MuiBox-root:hover {
+    transform: none !important;
+  }
+}

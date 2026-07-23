@@ -1,130 +1,166 @@
 /**
  * Theme: Aurora Glass — colors.css
- * Quiet spatial glass. Soft blue accent; restrained blur; no neon wash.
+ * Spec 12 Calm — spatial glass; blue primary; violet wash only as ambient.
  */
-
-@media (prefers-color-scheme: light) {
-  body {
-    --cv-bg-primary: #f2f4f8;
-    --cv-bg-secondary: #e8ebf0;
-    --cv-surface: rgba(255, 255, 255, 0.55);
-    --cv-surface-elevated: #ffffff;
-    --cv-surface-card: #ffffff;
-    --cv-primary: #0a84ff;
-    --cv-secondary: #6e6e73;
-    --cv-text-primary: #1d1d1f;
-    --cv-text-secondary: #6e6e73;
-    --cv-border-subtle: rgba(0, 0, 0, 0.06);
-    --cv-border-strong: rgba(0, 0, 0, 0.1);
-    --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 18px;
-    --cv-effect-glow: none;
-/* Soft ambient wash — denser than flat, still quiet */
-    --cv-ambient: radial-gradient(
-        900px circle at 0% 0%,
-        rgba(10, 132, 255, 0.07),
-        transparent 55%
-      ),
-      radial-gradient(
-        800px circle at 100% 10%,
-        rgba(94, 92, 230, 0.05),
-        transparent 50%
-      );
-    --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
-    --cv-selection-fg: #ffffff;
-  }
-}
-
-html[data-theme='light'] body {
-  --cv-bg-primary: #f2f4f8;
-  --cv-bg-secondary: #e8ebf0;
-  --cv-surface: rgba(255, 255, 255, 0.55);
-  --cv-surface-elevated: #ffffff;
-  --cv-surface-card: #ffffff;
-  --cv-primary: #0a84ff;
-  --cv-secondary: #6e6e73;
-  --cv-text-primary: #1d1d1f;
-  --cv-text-secondary: #6e6e73;
-  --cv-border-subtle: rgba(0, 0, 0, 0.06);
-  --cv-border-strong: rgba(0, 0, 0, 0.1);
-  --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 18px;
-  --cv-effect-glow: none;
-  --cv-ambient: radial-gradient(
-      900px circle at 0% 0%,
-      rgba(10, 132, 255, 0.07),
-      transparent 55%
-    ),
-    radial-gradient(
-      800px circle at 100% 10%,
-      rgba(94, 92, 230, 0.05),
-      transparent 50%
-    );
-  --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
-  --cv-selection-fg: #ffffff;
-}
 
 @media (prefers-color-scheme: dark) {
   body {
-    --cv-bg-primary: #161618;
-    --cv-bg-secondary: #1c1c1e;
-    --cv-surface: rgba(255, 255, 255, 0.06);
-    --cv-surface-elevated: #2a2a2c;
-    --cv-surface-card: #2c2c2e;
+    --cv-bg-primary: #0b1020;
+    --cv-bg-secondary: #12182c;
+    --cv-surface: rgba(10, 132, 255, 0.1);
+    --cv-surface-elevated: #1a2238;
+    --cv-surface-card: rgba(28, 36, 58, 0.88);
     --cv-primary: #0a84ff;
-    --cv-secondary: #98989d;
-    --cv-text-primary: #f5f5f7;
-    --cv-text-secondary: #98989d;
-    --cv-border-subtle: rgba(255, 255, 255, 0.07);
-    --cv-border-strong: rgba(255, 255, 255, 0.12);
+    --cv-secondary: #5e5ce6;
+    --cv-text-primary: #f0f4ff;
+    --cv-text-secondary: #9aa8c7;
+    --cv-border-subtle: rgba(255, 255, 255, 0.08);
+    --cv-border-strong: rgba(10, 132, 255, 0.28);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 18px;
+    --cv-effect-blur: 20px;
     --cv-effect-glow: none;
-/* Soft ambient wash — denser than flat, still quiet */
+    --cv-radius-sm: 14px;
+    --cv-radius-md: 18px;
+    --cv-radius-lg: 22px;
+    --cv-radius-float: 28px;
+    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
     --cv-ambient: radial-gradient(
-        900px circle at 0% 0%,
-        rgba(10, 132, 255, 0.07),
+        900px circle at 8% 0%,
+        rgba(10, 132, 255, 0.14),
         transparent 55%
       ),
       radial-gradient(
-        800px circle at 100% 10%,
-        rgba(94, 92, 230, 0.05),
+        700px circle at 95% 15%,
+        rgba(94, 92, 230, 0.12),
         transparent 50%
+      ),
+      radial-gradient(
+        600px circle at 50% 100%,
+        rgba(100, 210, 255, 0.06),
+        transparent 45%
       );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
-    --cv-selection-fg: #1d1d1f;
+    --cv-scrollbar-thumb: rgba(10, 132, 255, 0.35);
+    --cv-selection-fg: #061018;
   }
 }
 
 html[data-theme='dark'] body {
-  --cv-bg-primary: #161618;
-  --cv-bg-secondary: #1c1c1e;
-  --cv-surface: rgba(255, 255, 255, 0.06);
-  --cv-surface-elevated: #2a2a2c;
-  --cv-surface-card: #2c2c2e;
+  --cv-bg-primary: #0b1020;
+  --cv-bg-secondary: #12182c;
+  --cv-surface: rgba(10, 132, 255, 0.1);
+  --cv-surface-elevated: #1a2238;
+  --cv-surface-card: rgba(28, 36, 58, 0.88);
   --cv-primary: #0a84ff;
-  --cv-secondary: #98989d;
-  --cv-text-primary: #f5f5f7;
-  --cv-text-secondary: #98989d;
-  --cv-border-subtle: rgba(255, 255, 255, 0.07);
-  --cv-border-strong: rgba(255, 255, 255, 0.12);
+  --cv-secondary: #5e5ce6;
+  --cv-text-primary: #f0f4ff;
+  --cv-text-secondary: #9aa8c7;
+  --cv-border-subtle: rgba(255, 255, 255, 0.08);
+  --cv-border-strong: rgba(10, 132, 255, 0.28);
+  --cv-border-focus: var(--cv-primary);
+  --cv-effect-blur: 20px;
+  --cv-effect-glow: none;
+  --cv-radius-sm: 14px;
+  --cv-radius-md: 18px;
+  --cv-radius-lg: 22px;
+  --cv-radius-float: 28px;
+  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
+  --cv-ambient: radial-gradient(
+      900px circle at 8% 0%,
+      rgba(10, 132, 255, 0.14),
+      transparent 55%
+    ),
+    radial-gradient(
+      700px circle at 95% 15%,
+      rgba(94, 92, 230, 0.12),
+      transparent 50%
+    ),
+    radial-gradient(
+      600px circle at 50% 100%,
+      rgba(100, 210, 255, 0.06),
+      transparent 45%
+    );
+  --cv-scrollbar-bg: var(--cv-bg-primary);
+  --cv-scrollbar-thumb: rgba(10, 132, 255, 0.35);
+  --cv-selection-fg: #061018;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --cv-bg-primary: #e8eef8;
+    --cv-bg-secondary: #f4f7fc;
+    --cv-surface: rgba(10, 132, 255, 0.08);
+    --cv-surface-elevated: #ffffff;
+    --cv-surface-card: rgba(255, 255, 255, 0.82);
+    --cv-primary: #0a84ff;
+    --cv-secondary: #5e5ce6;
+    --cv-text-primary: #0f172a;
+    --cv-text-secondary: #5b6b86;
+    --cv-border-subtle: rgba(15, 23, 42, 0.08);
+    --cv-border-strong: rgba(10, 132, 255, 0.22);
+    --cv-border-focus: var(--cv-primary);
+    --cv-effect-blur: 18px;
+    --cv-effect-glow: none;
+    --cv-radius-sm: 14px;
+    --cv-radius-md: 18px;
+    --cv-radius-lg: 22px;
+    --cv-radius-float: 28px;
+    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
+    --cv-ambient: radial-gradient(
+        900px circle at 0% 0%,
+        rgba(10, 132, 255, 0.12),
+        transparent 55%
+      ),
+      radial-gradient(
+        800px circle at 100% 10%,
+        rgba(94, 92, 230, 0.1),
+        transparent 50%
+      );
+    --cv-scrollbar-bg: var(--cv-bg-primary);
+    --cv-scrollbar-thumb: rgba(15, 23, 42, 0.22);
+    --cv-selection-fg: #f8fbff;
+  }
+}
+
+html[data-theme='light'] body {
+  --cv-bg-primary: #e8eef8;
+  --cv-bg-secondary: #f4f7fc;
+  --cv-surface: rgba(10, 132, 255, 0.08);
+  --cv-surface-elevated: #ffffff;
+  --cv-surface-card: rgba(255, 255, 255, 0.82);
+  --cv-primary: #0a84ff;
+  --cv-secondary: #5e5ce6;
+  --cv-text-primary: #0f172a;
+  --cv-text-secondary: #5b6b86;
+  --cv-border-subtle: rgba(15, 23, 42, 0.08);
+  --cv-border-strong: rgba(10, 132, 255, 0.22);
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 18px;
   --cv-effect-glow: none;
+  --cv-radius-sm: 14px;
+  --cv-radius-md: 18px;
+  --cv-radius-lg: 22px;
+  --cv-radius-float: 28px;
+  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
   --cv-ambient: radial-gradient(
       900px circle at 0% 0%,
-      rgba(10, 132, 255, 0.07),
+      rgba(10, 132, 255, 0.12),
       transparent 55%
     ),
     radial-gradient(
       800px circle at 100% 10%,
-      rgba(94, 92, 230, 0.05),
+      rgba(94, 92, 230, 0.1),
       transparent 50%
     );
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
-  --cv-selection-fg: #1d1d1f;
+  --cv-scrollbar-thumb: rgba(15, 23, 42, 0.22);
+  --cv-selection-fg: #f8fbff;
 }

@@ -1,0 +1,40 @@
+/**
+ * Theme: Apple Classic — states.css
+ * Semantic status rendering. Colors come from core/tokens.css LOCKED values
+ * (--cv-success / --cv-warning / --cv-error) — never redefined here.
+ */
+
+html body .MuiChip-colorSuccess,
+html body [class*='status-success'] {
+  background-color: color-mix(in srgb, var(--cv-success) 18%, transparent) !important;
+  color: var(--cv-success) !important;
+  border: 1px solid color-mix(in srgb, var(--cv-success) 45%, transparent) !important;
+}
+
+html body .MuiChip-colorWarning,
+html body [class*='status-warning'] {
+  background-color: color-mix(in srgb, var(--cv-warning) 18%, transparent) !important;
+  color: var(--cv-warning) !important;
+  border: 1px solid color-mix(in srgb, var(--cv-warning) 45%, transparent) !important;
+}
+
+html body .MuiChip-colorError,
+html body [class*='status-error'] {
+  background-color: color-mix(in srgb, var(--cv-error) 18%, transparent) !important;
+  color: var(--cv-error) !important;
+  border: 1px solid color-mix(in srgb, var(--cv-error) 45%, transparent) !important;
+}
+
+html body [class*='latency-fast'] {
+  color: var(--cv-latency-fast) !important;
+}
+html body [class*='latency-medium'] {
+  color: var(--cv-latency-medium) !important;
+}
+html body [class*='latency-slow'] {
+  color: var(--cv-latency-slow) !important;
+}
+html body [class*='latency-timeout'],
+html body [class*='latency-error'] {
+  color: var(--cv-latency-timeout) !important;
+}

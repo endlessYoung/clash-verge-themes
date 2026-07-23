@@ -1,8 +1,8 @@
 /**
- * Clash Verge Neo — AI Operator (Spec 12 Spectacle)
- * Prefer dist/ai-operator.css for injection.
+ * Clash Verge Neo Design System — theme entry: Apple Liquid Glass
+ * Spec 12 Calm — contemporary translucent liquid glass.
+ * Prefer dist/apple-liquid.css for injection (single file).
  */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 @import url('../../core/emoji.css');
 @import url('../../core/tokens.css');
 @import url('../../core/reset.css');
