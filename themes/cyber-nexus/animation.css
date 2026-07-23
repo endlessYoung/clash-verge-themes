@@ -1,6 +1,7 @@
 /**
  * Theme: Cyber Nexus — animation.css
- * Spec 09: restrained motion — load pulse + optional soft ion breathe on selected.
+ * Spec 10: CRT flicker, glitch nudge, phosphor breathe, lock scan.
+ * All disabled under prefers-reduced-motion.
  */
 
 @keyframes cv-pulse {
@@ -9,40 +10,100 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.35;
   }
 }
 
-@keyframes cv-ion-breathe {
+@keyframes cv-crt-flicker {
+  0%,
+  92%,
+  100% {
+    opacity: 0.45;
+  }
+  93% {
+    opacity: 0.28;
+  }
+  94% {
+    opacity: 0.5;
+  }
+  96% {
+    opacity: 0.32;
+  }
+}
+
+@keyframes cv-glitch-nudge {
+  0%,
+  86%,
+  100% {
+    transform: translateX(0);
+  }
+  87% {
+    transform: translateX(-2px) skewX(-2deg);
+  }
+  88% {
+    transform: translateX(2px) skewX(1deg);
+  }
+  89% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes cv-phosphor-breathe {
   0%,
   100% {
-    box-shadow: inset 3px 0 0 var(--cv-primary),
-      inset 6px 0 0 rgba(139, 92, 255, 0.45), 12px 0 40px rgba(0, 0, 0, 0.55);
+    text-shadow: 0 0 6px #00ff88, 0 0 14px rgba(0, 255, 136, 0.75),
+      0 0 24px rgba(0, 212, 255, 0.4);
   }
   50% {
-    box-shadow: inset 3px 0 0 var(--cv-primary),
-      inset 6px 0 0 rgba(139, 92, 255, 0.7), 12px 0 48px rgba(61, 240, 255, 0.08);
+    text-shadow: 0 0 10px #00ff88, 0 0 22px rgba(0, 255, 136, 0.95),
+      0 0 36px rgba(255, 0, 255, 0.35);
+  }
+}
+
+@keyframes cv-lock-scan {
+  0% {
+    top: 0;
+    opacity: 0.9;
+  }
+  100% {
+    top: calc(100% - 2px);
+    opacity: 0.25;
+  }
+}
+
+@keyframes cv-scan-sweep {
+  0% {
+    transform: translateX(-30%);
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(30%);
+    opacity: 0.2;
   }
 }
 
 html body .MuiCircularProgress-root,
 html body [class*='loading'] {
-  animation: cv-pulse 1.2s var(--cv-motion-ease) infinite;
-}
-
-html body .layout .layout-content__left {
-  animation: cv-ion-breathe 4.5s ease-in-out infinite;
-}
-
-html body .the-traffic {
-  animation: cv-pulse 3.2s ease-in-out infinite;
+  animation: cv-pulse 1.1s var(--cv-motion-ease) infinite;
+  color: #00ff88 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html body .MuiPaper-root.layout::before,
+  html body .the-menu .MuiListItemButton-root.Mui-selected,
+  html body .the-traffic,
+  html body .the-traffic::after,
+  html body .base-page > header::after,
   html body .MuiCircularProgress-root,
-  html body [class*='loading'],
-  html body .layout .layout-content__left,
-  html body .the-traffic {
+  html body [class*='loading'] {
     animation: none !important;
+  }
+
+  html body .enhanced-card:hover,
+  html body .cv-card:hover {
+    transform: none;
   }
 }

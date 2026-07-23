@@ -2,6 +2,9 @@
 /**
  * Flatten theme index.css @import graphs into dist/<theme>.css
  * Usage: node scripts/build-dist.mjs
+ *
+ * Relative @imports are inlined. Remote http(s) @imports (e.g. Google Fonts)
+ * are hoisted to the top of the output (required by CSS).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,7 +24,7 @@ function stripComments(css) {
   return css.replace(/\/\*[\s\S]*?\*\//g, '');
 }
 
-function flatten(entryFile, seen = new Set()) {
+function flatten(entryFile, seen = new Set(), remoteImports = []) {
   const abs = path.normalize(entryFile);
   if (seen.has(abs)) {
     throw new Error(`Circular @import: ${abs}`);
@@ -32,7 +35,6 @@ function flatten(entryFile, seen = new Set()) {
     throw new Error(`Missing file: ${abs}`);
   }
 
-  // Strip comments so doc examples with remote @import urls are ignored.
   let source = stripComments(fs.readFileSync(abs, 'utf8'));
   const parts = [];
   let lastIndex = 0;
@@ -41,13 +43,15 @@ function flatten(entryFile, seen = new Set()) {
   const re = new RegExp(importRe.source, 'g');
   while ((match = re.exec(source)) !== null) {
     const href = match[1];
-    if (/^https?:\/\//i.test(href)) {
-      throw new Error(`Remote @import not allowed in source: ${href} (${abs})`);
-    }
     const before = source.slice(lastIndex, match.index).trim();
     if (before) parts.push(before);
-    const child = resolveImport(abs, href);
-    parts.push(flatten(child, new Set(seen)));
+    if (/^https?:\/\//i.test(href)) {
+      const stmt = `@import url("${href}");`;
+      if (!remoteImports.includes(stmt)) remoteImports.push(stmt);
+    } else {
+      const child = resolveImport(abs, href);
+      parts.push(flatten(child, new Set(seen), remoteImports));
+    }
     lastIndex = match.index + match[0].length;
   }
 
@@ -61,18 +65,22 @@ fs.mkdirSync(distDir, { recursive: true });
 
 const banner = (name) =>
   `/* Clash Verge Neo — ${name} (built single-file; do not edit)\n` +
-  ` * Source: themes/${name}/  |  Spec: 08-cyber-aviation-hud (Cyber) / 07\n` +
+  ` * Source: themes/${name}/  |  Spec: 10-cyberpunk-decker-hud\n` +
   ` * Build: node scripts/build-dist.mjs\n */\n\n`;
 
 for (const name of themes) {
   const entry = path.join(root, 'themes', name, 'index.css');
-  const css = banner(name) + flatten(entry) + '\n';
-  // Guard against CSS comment early-close (e.g. "themes/*/foo" → "*/")
-  // which leaves orphan text and can break stylesheet parse.
+  const remotes = [];
+  const body = flatten(entry, new Set(), remotes);
+  const css =
+    banner(name) +
+    (remotes.length ? remotes.join('\n') + '\n\n' : '') +
+    body +
+    '\n';
   if (/^[^{]*colors\.css\)/m.test(css) || /\n[a-zA-Z0-9_.-]+\.css\)/.test(css)) {
     throw new Error(
       `dist/${name}.css looks corrupted by an early "*/" in a comment. ` +
-        `Search source comments for "*/" sequences (often from "themes/*/...").`,
+        `Search source comments for "*/" sequences (often from "themes/<name>/...").`,
     );
   }
   const out = path.join(distDir, `${name}.css`);
