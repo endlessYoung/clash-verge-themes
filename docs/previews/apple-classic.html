@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Preview — apple-classic</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { font-family: system-ui, sans-serif; }
+    .layout { display: grid; grid-template-columns: 220px 1fr; height: 100vh; overflow: hidden; }
+    .layout-content__left { overflow: auto; }
+    .layout-content__right { overflow: auto; display: flex; flex-direction: column; }
+    .the-menu { list-style: none; margin: 0; padding: 8px; }
+    .MuiListItemButton-root { display: flex; align-items: center; gap: 10px; padding: 10px 12px; cursor: pointer; border: none; width: 100%; background: transparent; color: inherit; text-align: left; }
+    .MuiSvgIcon-root { width: 18px; height: 18px; opacity: 0.9; }
+    .MuiListItemText-primary { font-size: 14px; }
+    .base-page { display: flex; flex-direction: column; min-height: 100%; }
+    .base-page > header { display: flex; align-items: center; justify-content: space-between; }
+    .base-container { flex: 1; padding: 16px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .enhanced-card, .cv-card { padding: 14px 16px 16px; min-height: 140px; }
+    .card-title { margin: 0 0 10px; }
+    .MuiTypography-root { margin: 0; }
+    .MuiTypography-body2 { margin-top: 6px; opacity: 0.85; font-size: 13px; }
+    .the-traffic { margin: 12px; }
+    .row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .MuiButton-root { border: none; padding: 8px 14px; cursor: pointer; color: inherit; }
+    .MuiChip-root { display: inline-flex; align-items: center; padding: 2px 10px; font-size: 12px; }
+    .MuiLinearProgress-root { height: 6px; width: 100%; margin-top: 12px; position: relative; overflow: hidden; }
+    .MuiLinearProgress-bar { position: absolute; inset: 0 auto 0 0; width: 62%; height: 100%; }
+    .logo { padding: 16px 14px 8px; font-weight: 700; font-size: 13px; letter-spacing: 0.04em; opacity: 0.9; }
+    .toolbar { display: flex; gap: 8px; align-items: center; }
+  </style>
+  <link rel="stylesheet" href="../../dist/apple-classic.css" />
+</head>
+<body>
+  <div class="MuiPaper-root layout">
+    <aside class="layout-content__left">
+      <div class="logo the-logo">CLASH VERGE</div>
+      <div class="the-traffic">↑ 12.4 MB/s &nbsp; ↓ 48.1 MB/s</div>
+      <nav class="the-menu">
+        <button class="MuiListItemButton-root Mui-selected" type="button"><span class="MuiSvgIcon-root">◆</span><span class="MuiListItemText-primary">首页</span></button>
+        <button class="MuiListItemButton-root" type="button"><span class="MuiSvgIcon-root">◇</span><span class="MuiListItemText-primary">代理</span></button>
+        <button class="MuiListItemButton-root" type="button"><span class="MuiSvgIcon-root">◇</span><span class="MuiListItemText-primary">配置</span></button>
+        <button class="MuiListItemButton-root" type="button"><span class="MuiSvgIcon-root">◇</span><span class="MuiListItemText-primary">设置</span></button>
+      </nav>
+    </aside>
+    <main class="layout-content__right the-content">
+      <section class="base-page">
+        <header>
+          <div class="MuiTypography-root">首页</div>
+          <div class="toolbar">
+            <span class="MuiChip-root">Connected</span>
+            <button class="MuiButton-root MuiButton-outlined" type="button">刷新</button>
+            <button class="MuiButton-root MuiButton-containedPrimary" type="button">应用</button>
+          </div>
+        </header>
+        <div class="base-container">
+          <div class="grid">
+            <article class="enhanced-card"><h3 class="MuiTypography-root MuiTypography-h6 card-title">当前节点</h3><p class="MuiTypography-root">Tokyo-Premium-01</p><p class="MuiTypography-root MuiTypography-body2 the-delay">延迟 42 ms</p><div class="MuiLinearProgress-root"><div class="MuiLinearProgress-bar"></div></div></article>
+            <article class="enhanced-card"><h3 class="MuiTypography-root MuiTypography-h6 card-title">系统代理</h3><p class="MuiTypography-root">系统代理已开启</p><p class="MuiTypography-root MuiTypography-body2">TUN 模式待命 · DNS 跟随规则</p><div class="row"><button class="MuiButton-root MuiButton-containedPrimary" type="button">一键连接</button><button class="MuiButton-root MuiButton-outlined" type="button">详情</button></div></article>
+            <article class="enhanced-card"><h3 class="MuiTypography-root MuiTypography-h6 card-title">流量统计</h3><p class="MuiTypography-root">今日 1.28 GB</p><p class="MuiTypography-root MuiTypography-body2">上传 312 MB · 下载 996 MB</p></article>
+            <article class="enhanced-card"><h3 class="MuiTypography-root MuiTypography-h6 card-title">规则模式</h3><p class="MuiTypography-root">Rule</p><p class="MuiTypography-root MuiTypography-body2">智能分流 · 广告过滤开启</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

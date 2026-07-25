@@ -1,86 +1,123 @@
-# Clash Verge Themes — Neo Design System
+# Clash Verge Themes
 
-Injectable CSS themes for
+**Version `1.0.0`** · Injectable CSS themes for
 [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev)
-(stock CSS Injection — no fork required).
+（官方 **CSS Injection**，无需改源码 / fork）
 
-**Spec 12** — five themes under a **two-family** system:
+[![release](https://img.shields.io/badge/release-v1.0.0-blue)](https://github.com/endlessYoung/clash-verge-themes/releases/tag/v1.0.0)
+[![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
-| Family | Themes | Ceiling |
-|--------|--------|---------|
-| **Spectacle** | Cyber Nexus, AI Operator | Bold material + type; glow/scan/locks OK |
-| **Calm** | Aurora Glass, Apple Classic, Apple Liquid | Material/hierarchy; no neon/CRT |
+## 预览
 
-## Themes
+| Cyber Nexus | AI Operator |
+|-------------|-------------|
+| ![Cyber Nexus](docs/screenshots/cyber-nexus.png) | ![AI Operator](docs/screenshots/ai-operator.png) |
 
-| Theme | Dist | Atmosphere |
-|-------|------|------------|
-| **Cyber Nexus** | `dist/cyber-nexus.css` | Neural OS — cyan signal, purple secondary, glass layers (skill) |
-| **AI Operator** | `dist/ai-operator.css` | Agent desk — Linear/Cursor blue, zinc surfaces (skill) |
-| **Aurora Glass** | `dist/aurora-glass.css` | Spatial glass — aurora wash, pill lift |
-| **Apple Classic** | `dist/apple-classic.css` | iOS Settings HIG — list groups, green toggles, frosted header |
-| **Apple Liquid Glass** | `dist/apple-liquid.css` | Same HIG tokens + frosted liquid materials, float/press |
+| Aurora Glass | Apple Classic |
+|--------------|---------------|
+| ![Aurora Glass](docs/screenshots/aurora-glass.png) | ![Apple Classic](docs/screenshots/apple-classic.png) |
 
-All five ship **Light + Dark** via `prefers-color-scheme` (and `html[data-theme]`).
+| Apple Liquid Glass |
+|--------------------|
+| ![Apple Liquid](docs/screenshots/apple-liquid.png) |
 
-## Usage
+> 截图来自仓库内壳层预览页（`docs/previews/shell.html`），用于展示主题气质；实际 Clash Verge 窗口细节可能略有差异。
 
-1. Clash Verge → **Settings → Theme Setting → Edit CSS**
-2. Paste **one** `@import` (use **`dist/`**)
-3. Theme mode **系统** so light/dark follows OS
-4. Save
+## 主题一览
 
-Replace `<commit>` with the short hash from the push you care about:
+| 主题 | 文件 | 气质 |
+|------|------|------|
+| **Cyber Nexus** | `dist/cyber-nexus.css` | Neural OS — 青/紫玻璃信号层 |
+| **AI Operator** | `dist/ai-operator.css` | Agent desk — Linear / Cursor 蓝锌 |
+| **Aurora Glass** | `dist/aurora-glass.css` | 极光空间玻璃 |
+| **Apple Classic** | `dist/apple-classic.css` | iOS Settings HIG |
+| **Apple Liquid Glass** | `dist/apple-liquid.css` | 液态毛玻璃 |
 
-```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@<commit>/dist/cyber-nexus.css");
-```
+五套均支持 **浅色 / 深色**（跟随系统 `prefers-color-scheme`，或 `html[data-theme]`）。
 
-```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@<commit>/dist/ai-operator.css");
-```
+## 30 秒上手
 
-```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@<commit>/dist/aurora-glass.css");
-```
+1. 打开 Clash Verge → **设置 → 外观设置 → 编辑 CSS**（Theme Setting → Edit CSS）
+2. 粘贴下面 **一行** `@import`（只用 `dist/` 单文件）
+3. 主题模式建议选 **系统**
+4. 保存
 
-```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@<commit>/dist/apple-classic.css");
-```
+推荐钉 **版本标签** `v1.0.0`（或 commit hash），**不要**用 `@develop` / `@main` 分支别名（jsDelivr 缓存很凶）。
+
+### Cyber Nexus
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@<commit>/dist/apple-liquid.css");
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/cyber-nexus.css");
 ```
 
-> ⚠️ **Do not use `raw.githubusercontent.com`.** Wrong MIME → stylesheet ignored.
->
-> ⚠️ **Pin a commit hash, not `@develop`.** jsDelivr branch aliases cache hard.
->
-> Work lives on **`develop`**.
+### AI Operator
 
-## Build (maintainers)
+```css
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/ai-operator.css");
+```
+
+### Aurora Glass
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/aurora-glass.css");
+```
+
+### Apple Classic
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/apple-classic.css");
+```
+
+### Apple Liquid Glass
+
+```css
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/apple-liquid.css");
+```
+
+更完整的说明（切换主题、故障排查、本地预览）见 **[docs/USAGE.md](docs/USAGE.md)**。
+
+## 版本与分支
+
+| 项 | 约定 |
+|----|------|
+| SemVer | `MAJOR.MINOR.PATCH`（见 `package.json` + `CHANGELOG.md`） |
+| 当前正式版 | **`v1.0.0`** |
+| `main` | 稳定发布线（用户应钉 tag / release） |
+| `develop` | 开发线 |
+| 变更日志 | [CHANGELOG.md](./CHANGELOG.md) |
+
+升级：把 `@v1.0.0` 换成新 tag，或换成具体 commit short hash。
+
+## 开发（维护者）
 
 ```bash
 npm run build
-# → dist/cyber-nexus.css, ai-operator.css, aurora-glass.css,
-#    apple-classic.css, apple-liquid.css
+# → dist/cyber-nexus.css …
 ```
 
-## Architecture
-
 ```
-core/                  # tokens, reset, compatibility, emoji
+core/                  # tokens / reset / compatibility / emoji
 themes/<name>/         # colors → components → states → animation
-dist/<name>.css        # flattened single-file for injection
-scripts/build-dist.mjs
-specs/12-*.md          # Spec 12 design + plan
+dist/<name>.css        # 注入用单文件
+docs/previews/         # 壳层预览
+docs/screenshots/      # README 截图
+specs/                 # 设计 Spec
 ```
 
-## Engineering rules
+本地预览：
 
-- No bare `*`, `div`, `span`, `button`, `img`, `svg` restyles outside reset
-- No shell layout geometry changes
-- Status colors locked in `core/tokens.css`
-- Mono / tabular-nums only on `.the-traffic` and `.the-delay` (plus theme chrome labels)
-- Never Emotion hashes
-- Never triad default sidebar spines (Spec 12 glare rule)
+```bash
+npx serve . -p 4173
+# http://localhost:4173/docs/previews/cyber-nexus.html
+```
+
+## 工程约束
+
+- 不改壳层布局几何
+- 状态色锁定于 `core/tokens.css`
+- 禁止 `raw.githubusercontent.com`（MIME 错误会导致样式静默失败）
+- 禁止在 CSS 注释里写会提前闭合的 `*/` 路径片段
+
+## License
+
+MIT
