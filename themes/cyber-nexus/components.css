@@ -1,6 +1,7 @@
 /**
  * Theme: Cyber Nexus — components.css
- * Spec 15 Neural OS — glass surfaces, cyan signal, no gaming HUD chrome.
+ * Spec 15.1 depth — neural mesh, signal filament, telemetry beacon.
+ * Skill bans still hold: no chamfer / magenta / CRT / Orbitron.
  */
 
 html body {
@@ -10,102 +11,189 @@ html body {
 
 html body .MuiPaper-root.layout,
 html body .layout {
+  position: relative !important;
   border: 1px solid var(--cv-border-subtle) !important;
-  box-shadow: none !important;
-  background: var(--cv-bg-primary) !important;
-  border-radius: var(--cv-radius-md) !important;
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.08),
+    0 24px 64px rgba(0, 0, 0, 0.45) !important;
+  background:
+    linear-gradient(145deg, rgba(0, 229, 255, 0.04), transparent 42%),
+    var(--cv-bg-primary) !important;
+  border-radius: var(--cv-radius-lg) !important;
   overflow: hidden !important;
 }
 
-html body .MuiPaper-root.layout::before,
+/* Soft neural wash inside shell (not CRT scan) */
+html body .MuiPaper-root.layout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+  background:
+    radial-gradient(
+      50% 35% at 80% 0%,
+      rgba(139, 92, 246, 0.08),
+      transparent 70%
+    ),
+    radial-gradient(
+      40% 30% at 0% 100%,
+      rgba(0, 229, 255, 0.06),
+      transparent 70%
+    );
+  opacity: 0.9;
+  animation: cv-neural-drift 22s ease-in-out infinite alternate;
+}
+
 html body .MuiPaper-root.layout::after {
   content: none !important;
 }
 
+html body .layout .layout-content__right {
+  position: relative !important;
+  z-index: 1;
+}
+
 html body .layout .layout-content__right::before {
-  content: none !important;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 18%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 229, 255, 0.035),
+    transparent
+  );
+  animation: cv-data-stream 11s ease-in-out infinite;
 }
 
 html body .layout .layout-content__left {
-  background: color-mix(in srgb, var(--cv-bg-secondary) 92%, transparent) !important;
+  position: relative;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(0, 229, 255, 0.06), transparent 30%),
+    color-mix(in srgb, var(--cv-bg-secondary) 90%, transparent) !important;
   border-right: 1px solid var(--cv-border-subtle) !important;
-  backdrop-filter: blur(var(--cv-effect-blur));
-  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
-  box-shadow: none !important;
+  backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.2);
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur)) saturate(1.2);
+  box-shadow: 10px 0 32px rgba(0, 0, 0, 0.18) !important;
 }
 
 html body .the-menu {
-  padding: 8px;
+  padding: 10px 8px;
 }
 
 html body .the-menu .MuiListItemButton-root {
+  position: relative;
   border-radius: var(--cv-radius-sm) !important;
-  margin: 2px 6px;
+  margin: 3px 6px;
   border: 1px solid transparent;
   border-left: none !important;
   clip-path: none !important;
+  min-height: 40px;
   font-family: var(--cv-font-sans);
   font-size: 0.875rem;
   letter-spacing: -0.01em;
   text-transform: none;
-  transition: background 200ms var(--cv-motion-ease),
-    border-color 200ms var(--cv-motion-ease),
-    box-shadow 200ms var(--cv-motion-ease);
+  transition: background var(--cv-motion-normal) var(--cv-motion-ease),
+    border-color var(--cv-motion-normal) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-normal) var(--cv-motion-ease),
+    transform var(--cv-motion-fast) var(--cv-motion-ease);
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
   background: var(--cv-surface) !important;
   border-color: var(--cv-border-subtle);
-  box-shadow: none;
+  transform: translateX(2px);
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
-  background: color-mix(in srgb, var(--cv-primary) 12%, transparent) !important;
-  border-color: rgba(0, 229, 255, 0.28) !important;
-  box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.18),
-    0 0 16px rgba(0, 229, 255, 0.12) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 229, 255, 0.16),
+    rgba(139, 92, 246, 0.06) 55%,
+    transparent
+  ) !important;
+  border-color: rgba(0, 229, 255, 0.35) !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.2),
+    0 0 20px rgba(0, 229, 255, 0.12) !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: var(--cv-primary);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+  animation: cv-cyan-pulse 2s var(--cv-motion-ease) infinite;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   color: var(--cv-primary) !important;
-  font-weight: 600;
+  font-weight: 650;
   text-shadow: none !important;
 }
 
 html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
   font-family: var(--cv-font-sans) !important;
+  font-weight: 500;
 }
 
 html body .the-logo {
-  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.35));
+  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.45));
 }
 
 html body .base-page > header {
-  padding: 14px 16px !important;
+  position: relative;
+  padding: 16px 18px !important;
   border-bottom: 1px solid var(--cv-border-subtle) !important;
-  background: color-mix(in srgb, var(--cv-bg-secondary) 80%, transparent) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--cv-bg-secondary) 78%, transparent) !important;
+  backdrop-filter: blur(14px) saturate(1.25);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
   box-shadow: none !important;
 }
 
-html body .base-page > header::before,
+html body .base-page > header::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--cv-primary),
+    var(--cv-secondary),
+    transparent 70%
+  );
+  opacity: 0.75;
+}
+
 html body .base-page > header::after {
   content: none !important;
 }
 
 html body .base-page > header .MuiTypography-root {
   font-family: var(--cv-font-sans) !important;
-  font-weight: 600 !important;
-  font-size: 1.05rem !important;
-  letter-spacing: -0.02em;
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+  letter-spacing: -0.03em;
   text-transform: none !important;
   color: var(--cv-text-primary) !important;
   text-shadow: none !important;
 }
 
-/* Glass cards — thin border, subtle glow on focus only */
+/* Glass agent modules */
 html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
@@ -113,20 +201,46 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
   position: relative !important;
   background-color: color-mix(
     in srgb,
-    var(--cv-surface-card) 88%,
+    var(--cv-surface-card) 92%,
     transparent
   ) !important;
-  background-image: none !important;
+  background-image: linear-gradient(
+    160deg,
+    rgba(0, 229, 255, 0.06),
+    transparent 42%
+  ) !important;
   border: 1px solid var(--cv-border-subtle) !important;
   border-radius: var(--cv-radius-md) !important;
-  box-shadow: none !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
   clip-path: none !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px) saturate(1.15);
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
   overflow: hidden !important;
-  transition: border-color 220ms var(--cv-motion-ease),
-    box-shadow 220ms var(--cv-motion-ease),
-    transform 220ms var(--cv-motion-ease);
+  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-normal) var(--cv-motion-ease),
+    transform var(--cv-motion-normal) var(--cv-motion-ease);
+}
+
+html body .enhanced-card::before,
+html body .cv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cv-primary),
+    var(--cv-secondary),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--cv-motion-normal) var(--cv-motion-ease);
+  pointer-events: none;
+  z-index: 2;
 }
 
 html body .enhanced-card:hover,
@@ -134,15 +248,20 @@ html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
 html body .enhanced-card:focus-within,
 html body .cv-card:focus-within {
-  transform: translateY(-1px);
-  border-color: rgba(0, 229, 255, 0.35) !important;
-  box-shadow: var(--cv-effect-glow) !important;
+  transform: translateY(-3px);
+  border-color: rgba(0, 229, 255, 0.42) !important;
+  box-shadow: var(--cv-effect-glow), 0 16px 36px rgba(0, 0, 0, 0.28) !important;
+}
+
+html body .enhanced-card:hover::before,
+html body .cv-card:hover::before,
+html body .enhanced-card:focus-within::before,
+html body .cv-card:focus-within::before {
+  opacity: 1;
 }
 
 html body .enhanced-card::after,
-html body .cv-card::after,
-html body .enhanced-card::before,
-html body .cv-card::before {
+html body .cv-card::after {
   content: none !important;
 }
 
@@ -150,11 +269,11 @@ html body .enhanced-card .MuiTypography-h6,
 html body .cv-card .MuiTypography-h6,
 html body .enhanced-card .MuiTypography-subtitle1 {
   font-family: var(--cv-font-sans) !important;
-  font-weight: 600 !important;
-  font-size: 0.875rem !important;
-  letter-spacing: -0.01em;
-  text-transform: none !important;
-  color: var(--cv-text-primary) !important;
+  font-weight: 650 !important;
+  font-size: 0.8125rem !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase !important;
+  color: var(--cv-text-secondary) !important;
 }
 
 html body .base-content .MuiTypography-root {
@@ -172,7 +291,7 @@ html body .base-content .MuiPaper-root:not(.layout) {
   background: var(--cv-surface-elevated) !important;
   border: 1px solid var(--cv-border-subtle) !important;
   border-radius: var(--cv-radius-md) !important;
-  box-shadow: none !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16) !important;
 }
 
 html body .MuiButton-root {
@@ -181,19 +300,25 @@ html body .MuiButton-root {
   text-transform: none;
   font-weight: 600;
   clip-path: none !important;
-  transition: background 200ms var(--cv-motion-ease),
-    box-shadow 200ms var(--cv-motion-ease);
+  letter-spacing: -0.01em;
+  transition: background var(--cv-motion-fast) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-fast) var(--cv-motion-ease),
+    transform var(--cv-motion-fast) var(--cv-motion-ease);
+}
+
+html body .MuiButton-root:active {
+  transform: scale(0.98);
 }
 
 html body .MuiButton-containedPrimary,
 html body .MuiButtonGroup-groupedContainedPrimary {
-  background: var(--cv-primary) !important;
+  background: linear-gradient(120deg, var(--cv-primary), #67e8f9 55%, var(--cv-secondary)) !important;
   color: #041018 !important;
-  box-shadow: 0 0 16px rgba(0, 229, 255, 0.25) !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.28) !important;
 }
 
 html body .MuiButton-containedPrimary:hover {
-  box-shadow: 0 0 24px rgba(0, 229, 255, 0.35) !important;
+  box-shadow: 0 0 28px rgba(0, 229, 255, 0.4) !important;
   filter: brightness(1.05);
 }
 
@@ -201,59 +326,74 @@ html body .MuiButton-outlinedPrimary,
 html body .MuiButton-outlined {
   border-color: var(--cv-border-strong) !important;
   color: var(--cv-primary) !important;
-  background: transparent !important;
+  background: rgba(0, 229, 255, 0.06) !important;
 }
 
 html body .MuiChip-root {
-  border-radius: var(--cv-radius-sm) !important;
+  border-radius: 999px !important;
   font-family: var(--cv-font-sans) !important;
+  font-size: 0.75rem !important;
   border: 1px solid var(--cv-border-subtle) !important;
+  background: rgba(0, 229, 255, 0.06) !important;
 }
 
+/* Telemetry instrument — signature */
 html body .the-traffic {
+  position: relative;
   display: block;
-  margin: 10px 10px 14px;
-  padding: 12px 14px;
-  border: 1px solid var(--cv-border-strong);
+  margin: 12px 10px 16px;
+  padding: 14px 14px 14px 16px;
+  border: 1px solid rgba(0, 229, 255, 0.35);
   border-radius: var(--cv-radius-md);
-  background: color-mix(in srgb, var(--cv-surface-elevated) 90%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: none;
+  background:
+    linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(139, 92, 246, 0.06)),
+    var(--cv-surface-elevated);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.12),
+    inset 0 1px 0 rgba(0, 229, 255, 0.2);
   clip-path: none !important;
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-weight: 650;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
   color: var(--cv-primary) !important;
   text-shadow: none !important;
   animation: none !important;
 }
 
 html body .the-traffic::before {
-  content: 'Throughput';
+  content: 'Live throughput';
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  padding-left: 14px;
   font-family: var(--cv-font-sans);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--cv-text-secondary);
-  text-shadow: none;
 }
 
 html body .the-traffic::after {
-  content: none !important;
-  display: none !important;
-  animation: none !important;
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 18px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cv-primary);
+  box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.55);
+  animation: cv-beacon 1.8s var(--cv-motion-ease) infinite;
 }
 
 html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
+  font-weight: 650;
   text-shadow: none !important;
   color: var(--cv-primary) !important;
 }
@@ -261,20 +401,23 @@ html body .the-delay {
 html body .MuiLinearProgress-root {
   border-radius: 999px !important;
   background: rgba(0, 229, 255, 0.12) !important;
+  height: 6px !important;
   overflow: hidden;
 }
 
 html body .MuiLinearProgress-bar {
   background: linear-gradient(90deg, var(--cv-primary), var(--cv-secondary)) !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.45) !important;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
-  border-radius: var(--cv-radius-lg) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  background: var(--cv-surface-elevated) !important;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45) !important;
-  backdrop-filter: blur(16px);
+  border-radius: var(--cv-radius-float) !important;
+  border: 1px solid var(--cv-border-strong) !important;
+  background: color-mix(in srgb, var(--cv-surface-elevated) 92%, transparent) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(0, 229, 255, 0.12) !important;
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
 }
 
 html body .MuiSwitch-switchBase.Mui-checked {
@@ -283,21 +426,22 @@ html body .MuiSwitch-switchBase.Mui-checked {
 
 html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
   background-color: #ffffff !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
   background-color: var(--cv-primary) !important;
   opacity: 1 !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.35) !important;
 }
 
 html body .MuiOutlinedInput-root {
   border-radius: var(--cv-radius-sm) !important;
   font-family: var(--cv-font-sans);
+  background: rgba(0, 229, 255, 0.04) !important;
 }
 
 html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: var(--cv-primary) !important;
-  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.18);
 }

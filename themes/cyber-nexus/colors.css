@@ -1,28 +1,31 @@
 /**
  * Theme: Cyber Nexus — colors.css
- * Skill cyber-nexus-ui-designer + Spec 15 Neural OS tokens.
+ * Spec 15.1 Neural OS depth — richer layers, same skill tokens.
  */
 
 @media (prefers-color-scheme: dark) {
   body {
     --cv-bg-primary: #05070d;
     --cv-bg-secondary: #0b1120;
-    --cv-surface: rgba(0, 229, 255, 0.06);
+    --cv-surface: rgba(0, 229, 255, 0.07);
     --cv-surface-elevated: #111827;
-    --cv-surface-card: #111827;
+    --cv-surface-card: #0f1629;
     --cv-primary: #00e5ff;
     --cv-secondary: #8b5cf6;
-    --cv-text-primary: #e8eef9;
+    --cv-text-primary: #f1f5ff;
     --cv-text-secondary: #94a3b8;
-    --cv-border-subtle: rgba(0, 229, 255, 0.12);
-    --cv-border-strong: rgba(0, 229, 255, 0.22);
+    --cv-border-subtle: rgba(0, 229, 255, 0.14);
+    --cv-border-strong: rgba(0, 229, 255, 0.32);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 16px;
-    --cv-effect-glow: 0 0 20px rgba(0, 229, 255, 0.18);
+    --cv-effect-blur: 18px;
+    --cv-effect-glow: 0 0 28px rgba(0, 229, 255, 0.22);
     --cv-radius-sm: 6px;
     --cv-radius-md: 10px;
     --cv-radius-lg: 16px;
-    --cv-radius-float: 16px;
+    --cv-radius-float: 18px;
+    --cv-motion-fast: 150ms;
+    --cv-motion-normal: 240ms;
+    --cv-motion-premium: 380ms;
     --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
     --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
       'Noto Sans SC', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
@@ -31,17 +34,32 @@
       monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-display: var(--cv-font-sans);
     --cv-ambient: radial-gradient(
-        70% 45% at 10% 0%,
-        rgba(0, 229, 255, 0.07),
-        transparent 55%
+        900px 480px at 12% -8%,
+        rgba(0, 229, 255, 0.11),
+        transparent 58%
       ),
       radial-gradient(
-        55% 40% at 90% 10%,
-        rgba(139, 92, 246, 0.06),
-        transparent 50%
+        720px 420px at 92% 8%,
+        rgba(139, 92, 246, 0.1),
+        transparent 52%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(0, 229, 255, 0.03),
+        transparent 28%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 31px,
+        rgba(0, 229, 255, 0.035) 31px 32px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 31px,
+        rgba(139, 92, 246, 0.03) 31px 32px
       );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 229, 255, 0.28);
+    --cv-scrollbar-thumb: rgba(0, 229, 255, 0.32);
     --cv-selection-fg: #041018;
   }
 }
@@ -49,22 +67,25 @@
 html[data-theme='dark'] body {
   --cv-bg-primary: #05070d;
   --cv-bg-secondary: #0b1120;
-  --cv-surface: rgba(0, 229, 255, 0.06);
+  --cv-surface: rgba(0, 229, 255, 0.07);
   --cv-surface-elevated: #111827;
-  --cv-surface-card: #111827;
+  --cv-surface-card: #0f1629;
   --cv-primary: #00e5ff;
   --cv-secondary: #8b5cf6;
-  --cv-text-primary: #e8eef9;
+  --cv-text-primary: #f1f5ff;
   --cv-text-secondary: #94a3b8;
-  --cv-border-subtle: rgba(0, 229, 255, 0.12);
-  --cv-border-strong: rgba(0, 229, 255, 0.22);
+  --cv-border-subtle: rgba(0, 229, 255, 0.14);
+  --cv-border-strong: rgba(0, 229, 255, 0.32);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 16px;
-  --cv-effect-glow: 0 0 20px rgba(0, 229, 255, 0.18);
+  --cv-effect-blur: 18px;
+  --cv-effect-glow: 0 0 28px rgba(0, 229, 255, 0.22);
   --cv-radius-sm: 6px;
   --cv-radius-md: 10px;
   --cv-radius-lg: 16px;
-  --cv-radius-float: 16px;
+  --cv-radius-float: 18px;
+  --cv-motion-fast: 150ms;
+  --cv-motion-normal: 240ms;
+  --cv-motion-premium: 380ms;
   --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
     'Noto Sans SC', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
@@ -73,40 +94,54 @@ html[data-theme='dark'] body {
     monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-display: var(--cv-font-sans);
   --cv-ambient: radial-gradient(
-      70% 45% at 10% 0%,
-      rgba(0, 229, 255, 0.07),
-      transparent 55%
+      900px 480px at 12% -8%,
+      rgba(0, 229, 255, 0.11),
+      transparent 58%
     ),
     radial-gradient(
-      55% 40% at 90% 10%,
-      rgba(139, 92, 246, 0.06),
-      transparent 50%
+      720px 420px at 92% 8%,
+      rgba(139, 92, 246, 0.1),
+      transparent 52%
+    ),
+    linear-gradient(180deg, rgba(0, 229, 255, 0.03), transparent 28%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 31px,
+      rgba(0, 229, 255, 0.035) 31px 32px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 31px,
+      rgba(139, 92, 246, 0.03) 31px 32px
     );
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 229, 255, 0.28);
+  --cv-scrollbar-thumb: rgba(0, 229, 255, 0.32);
   --cv-selection-fg: #041018;
 }
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #f1f5f9;
+    --cv-bg-primary: #eef4f8;
     --cv-bg-secondary: #ffffff;
-    --cv-surface: rgba(14, 165, 233, 0.06);
+    --cv-surface: rgba(8, 145, 178, 0.07);
     --cv-surface-elevated: #ffffff;
     --cv-surface-card: #ffffff;
     --cv-primary: #0891b2;
     --cv-secondary: #7c3aed;
     --cv-text-primary: #0f172a;
     --cv-text-secondary: #64748b;
-    --cv-border-subtle: rgba(8, 145, 178, 0.14);
-    --cv-border-strong: rgba(8, 145, 178, 0.28);
+    --cv-border-subtle: rgba(8, 145, 178, 0.16);
+    --cv-border-strong: rgba(8, 145, 178, 0.32);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 12px;
-    --cv-effect-glow: 0 0 16px rgba(8, 145, 178, 0.12);
+    --cv-effect-blur: 14px;
+    --cv-effect-glow: 0 8px 28px rgba(8, 145, 178, 0.14);
     --cv-radius-sm: 6px;
     --cv-radius-md: 10px;
     --cv-radius-lg: 16px;
-    --cv-radius-float: 16px;
+    --cv-radius-float: 18px;
+    --cv-motion-fast: 150ms;
+    --cv-motion-normal: 240ms;
+    --cv-motion-premium: 380ms;
     --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
     --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
       'Noto Sans SC', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
@@ -115,35 +150,43 @@ html[data-theme='dark'] body {
       monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-display: var(--cv-font-sans);
     --cv-ambient: radial-gradient(
-      70% 40% at 0% 0%,
-      rgba(8, 145, 178, 0.08),
-      transparent 55%
-    );
+        80% 50% at 0% 0%,
+        rgba(8, 145, 178, 0.1),
+        transparent 55%
+      ),
+      radial-gradient(
+        60% 40% at 100% 0%,
+        rgba(124, 58, 237, 0.07),
+        transparent 50%
+      );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(15, 23, 42, 0.2);
+    --cv-scrollbar-thumb: rgba(15, 23, 42, 0.22);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #f1f5f9;
+  --cv-bg-primary: #eef4f8;
   --cv-bg-secondary: #ffffff;
-  --cv-surface: rgba(14, 165, 233, 0.06);
+  --cv-surface: rgba(8, 145, 178, 0.07);
   --cv-surface-elevated: #ffffff;
   --cv-surface-card: #ffffff;
   --cv-primary: #0891b2;
   --cv-secondary: #7c3aed;
   --cv-text-primary: #0f172a;
   --cv-text-secondary: #64748b;
-  --cv-border-subtle: rgba(8, 145, 178, 0.14);
-  --cv-border-strong: rgba(8, 145, 178, 0.28);
+  --cv-border-subtle: rgba(8, 145, 178, 0.16);
+  --cv-border-strong: rgba(8, 145, 178, 0.32);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 12px;
-  --cv-effect-glow: 0 0 16px rgba(8, 145, 178, 0.12);
+  --cv-effect-blur: 14px;
+  --cv-effect-glow: 0 8px 28px rgba(8, 145, 178, 0.14);
   --cv-radius-sm: 6px;
   --cv-radius-md: 10px;
   --cv-radius-lg: 16px;
-  --cv-radius-float: 16px;
+  --cv-radius-float: 18px;
+  --cv-motion-fast: 150ms;
+  --cv-motion-normal: 240ms;
+  --cv-motion-premium: 380ms;
   --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
     'Noto Sans SC', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
@@ -152,11 +195,16 @@ html[data-theme='light'] body {
     monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-display: var(--cv-font-sans);
   --cv-ambient: radial-gradient(
-    70% 40% at 0% 0%,
-    rgba(8, 145, 178, 0.08),
-    transparent 55%
-  );
+      80% 50% at 0% 0%,
+      rgba(8, 145, 178, 0.1),
+      transparent 55%
+    ),
+    radial-gradient(
+      60% 40% at 100% 0%,
+      rgba(124, 58, 237, 0.07),
+      transparent 50%
+    );
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(15, 23, 42, 0.2);
+  --cv-scrollbar-thumb: rgba(15, 23, 42, 0.22);
   --cv-selection-fg: #ffffff;
 }

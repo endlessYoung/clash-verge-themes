@@ -1,28 +1,34 @@
 /**
  * Theme: AI Operator — colors.css
- * Skill ai-operator-ui-designer + Spec 15 Agent desk (Linear / Cursor vernacular).
+ * Spec 15.1 Agent desk depth — Linear elevation tokens.
  */
 
 @media (prefers-color-scheme: dark) {
   body {
     --cv-bg-primary: #09090b;
-    --cv-bg-secondary: #18181b;
-    --cv-surface: rgba(255, 255, 255, 0.04);
-    --cv-surface-elevated: #27272a;
-    --cv-surface-card: #18181b;
+    --cv-bg-secondary: #0c0c0e;
+    --cv-surface: rgba(255, 255, 255, 0.045);
+    --cv-surface-elevated: #18181b;
+    --cv-surface-card: #121214;
     --cv-primary: #3b82f6;
-    --cv-secondary: #71717a;
+    --cv-secondary: #a1a1aa;
     --cv-text-primary: #fafafa;
     --cv-text-secondary: #a1a1aa;
-    --cv-border-subtle: rgba(255, 255, 255, 0.08);
-    --cv-border-strong: rgba(255, 255, 255, 0.14);
+    --cv-border-subtle: rgba(255, 255, 255, 0.09);
+    --cv-border-strong: rgba(255, 255, 255, 0.16);
     --cv-border-focus: #2563eb;
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
+    --cv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --cv-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --cv-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
     --cv-radius-sm: 8px;
     --cv-radius-md: 10px;
     --cv-radius-lg: 12px;
-    --cv-radius-float: 12px;
+    --cv-radius-float: 14px;
+    --cv-motion-fast: 150ms;
+    --cv-motion-normal: 220ms;
+    --cv-motion-premium: 300ms;
     --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
     --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
       'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
@@ -30,32 +36,42 @@
     --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
       monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-display: var(--cv-font-sans);
-    --cv-ambient: none;
+    --cv-ambient: radial-gradient(
+      90% 50% at 50% -20%,
+      rgba(37, 99, 235, 0.08),
+      transparent 55%
+    );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
+    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.16);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='dark'] body {
   --cv-bg-primary: #09090b;
-  --cv-bg-secondary: #18181b;
-  --cv-surface: rgba(255, 255, 255, 0.04);
-  --cv-surface-elevated: #27272a;
-  --cv-surface-card: #18181b;
+  --cv-bg-secondary: #0c0c0e;
+  --cv-surface: rgba(255, 255, 255, 0.045);
+  --cv-surface-elevated: #18181b;
+  --cv-surface-card: #121214;
   --cv-primary: #3b82f6;
-  --cv-secondary: #71717a;
+  --cv-secondary: #a1a1aa;
   --cv-text-primary: #fafafa;
   --cv-text-secondary: #a1a1aa;
-  --cv-border-subtle: rgba(255, 255, 255, 0.08);
-  --cv-border-strong: rgba(255, 255, 255, 0.14);
+  --cv-border-subtle: rgba(255, 255, 255, 0.09);
+  --cv-border-strong: rgba(255, 255, 255, 0.16);
   --cv-border-focus: #2563eb;
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
+  --cv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --cv-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --cv-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
   --cv-radius-sm: 8px;
   --cv-radius-md: 10px;
   --cv-radius-lg: 12px;
-  --cv-radius-float: 12px;
+  --cv-radius-float: 14px;
+  --cv-motion-fast: 150ms;
+  --cv-motion-normal: 220ms;
+  --cv-motion-premium: 300ms;
   --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
     'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
@@ -63,15 +79,19 @@ html[data-theme='dark'] body {
   --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
     monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-display: var(--cv-font-sans);
-  --cv-ambient: none;
+  --cv-ambient: radial-gradient(
+    90% 50% at 50% -20%,
+    rgba(37, 99, 235, 0.08),
+    transparent 55%
+  );
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.16);
   --cv-selection-fg: #ffffff;
 }
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #fafafa;
+    --cv-bg-primary: #f4f4f5;
     --cv-bg-secondary: #ffffff;
     --cv-surface: rgba(0, 0, 0, 0.03);
     --cv-surface-elevated: #ffffff;
@@ -85,10 +105,16 @@ html[data-theme='dark'] body {
     --cv-border-focus: #2563eb;
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
+    --cv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --cv-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    --cv-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.1);
     --cv-radius-sm: 8px;
     --cv-radius-md: 10px;
     --cv-radius-lg: 12px;
-    --cv-radius-float: 12px;
+    --cv-radius-float: 14px;
+    --cv-motion-fast: 150ms;
+    --cv-motion-normal: 220ms;
+    --cv-motion-premium: 300ms;
     --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
     --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
       'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
@@ -98,13 +124,13 @@ html[data-theme='dark'] body {
     --cv-font-display: var(--cv-font-sans);
     --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.16);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #fafafa;
+  --cv-bg-primary: #f4f4f5;
   --cv-bg-secondary: #ffffff;
   --cv-surface: rgba(0, 0, 0, 0.03);
   --cv-surface-elevated: #ffffff;
@@ -118,10 +144,16 @@ html[data-theme='light'] body {
   --cv-border-focus: #2563eb;
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
+  --cv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --cv-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --cv-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.1);
   --cv-radius-sm: 8px;
   --cv-radius-md: 10px;
   --cv-radius-lg: 12px;
-  --cv-radius-float: 12px;
+  --cv-radius-float: 14px;
+  --cv-motion-fast: 150ms;
+  --cv-motion-normal: 220ms;
+  --cv-motion-premium: 300ms;
   --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
     'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
@@ -131,6 +163,6 @@ html[data-theme='light'] body {
   --cv-font-display: var(--cv-font-sans);
   --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.16);
   --cv-selection-fg: #ffffff;
 }

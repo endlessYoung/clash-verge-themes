@@ -1,6 +1,6 @@
 /**
  * Theme: AI Operator — animation.css
- * Skill: fade / progress 150–300ms. No caret / channel spectacles.
+ * Spec 15.1: restrained fade / lift; no terminal spectacles.
  */
 
 html body .MuiCircularProgress-root,
@@ -9,6 +9,14 @@ html body [class*='loading'] {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html body .enhanced-card:hover,
+  html body .cv-card:hover,
+  html body .enhanced-card:focus-within,
+  html body .cv-card:focus-within,
+  html body .MuiButton-root:active {
+    transform: none !important;
+  }
+
   html body .enhanced-card,
   html body .cv-card,
   html body .MuiButton-root,

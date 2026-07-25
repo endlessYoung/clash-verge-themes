@@ -1,6 +1,6 @@
 /**
  * Theme: Cyber Nexus — animation.css
- * Skill motion: pulse / stream 150–400ms. No CRT sweep / lock-scan.
+ * Spec 15.1: neural drift, data stream, cyan pulse, telemetry beacon.
  */
 
 @keyframes cv-cyan-pulse {
@@ -9,29 +9,69 @@
     opacity: 1;
   }
   50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes cv-beacon {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 229, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+  }
+}
+
+@keyframes cv-neural-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(2%, 1.5%, 0) scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes cv-data-stream {
+  0% {
+    left: -25%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  55% {
     opacity: 0.55;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
   }
 }
 
 html body .MuiCircularProgress-root,
 html body [class*='loading'] {
-  animation: cv-cyan-pulse 1.4s var(--cv-motion-ease) infinite;
+  animation: cv-cyan-pulse 1.35s var(--cv-motion-ease) infinite;
   color: var(--cv-primary) !important;
 }
 
-html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
-  animation: cv-cyan-pulse 2.2s var(--cv-motion-ease) infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
+  html body .MuiPaper-root.layout::before,
+  html body .layout .layout-content__right::before,
+  html body .the-menu .MuiListItemButton-root.Mui-selected::after,
+  html body .the-traffic::after,
   html body .MuiCircularProgress-root,
-  html body [class*='loading'],
-  html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
+  html body [class*='loading'] {
     animation: none !important;
   }
 
   html body .enhanced-card:hover,
-  html body .cv-card:hover {
+  html body .cv-card:hover,
+  html body .the-menu .MuiListItemButton-root:hover {
     transform: none !important;
   }
 }

@@ -107,23 +107,29 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     --cv-bg-primary: #09090b;
-    --cv-bg-secondary: #18181b;
-    --cv-surface: rgba(255, 255, 255, 0.04);
-    --cv-surface-elevated: #27272a;
-    --cv-surface-card: #18181b;
+    --cv-bg-secondary: #0c0c0e;
+    --cv-surface: rgba(255, 255, 255, 0.045);
+    --cv-surface-elevated: #18181b;
+    --cv-surface-card: #121214;
     --cv-primary: #3b82f6;
-    --cv-secondary: #71717a;
+    --cv-secondary: #a1a1aa;
     --cv-text-primary: #fafafa;
     --cv-text-secondary: #a1a1aa;
-    --cv-border-subtle: rgba(255, 255, 255, 0.08);
-    --cv-border-strong: rgba(255, 255, 255, 0.14);
+    --cv-border-subtle: rgba(255, 255, 255, 0.09);
+    --cv-border-strong: rgba(255, 255, 255, 0.16);
     --cv-border-focus: #2563eb;
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
+    --cv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --cv-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --cv-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
     --cv-radius-sm: 8px;
     --cv-radius-md: 10px;
     --cv-radius-lg: 12px;
-    --cv-radius-float: 12px;
+    --cv-radius-float: 14px;
+    --cv-motion-fast: 150ms;
+    --cv-motion-normal: 220ms;
+    --cv-motion-premium: 300ms;
     --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
     --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
       'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
@@ -131,32 +137,42 @@ body {
     --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
       monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-display: var(--cv-font-sans);
-    --cv-ambient: none;
+    --cv-ambient: radial-gradient(
+      90% 50% at 50% -20%,
+      rgba(37, 99, 235, 0.08),
+      transparent 55%
+    );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
+    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.16);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='dark'] body {
   --cv-bg-primary: #09090b;
-  --cv-bg-secondary: #18181b;
-  --cv-surface: rgba(255, 255, 255, 0.04);
-  --cv-surface-elevated: #27272a;
-  --cv-surface-card: #18181b;
+  --cv-bg-secondary: #0c0c0e;
+  --cv-surface: rgba(255, 255, 255, 0.045);
+  --cv-surface-elevated: #18181b;
+  --cv-surface-card: #121214;
   --cv-primary: #3b82f6;
-  --cv-secondary: #71717a;
+  --cv-secondary: #a1a1aa;
   --cv-text-primary: #fafafa;
   --cv-text-secondary: #a1a1aa;
-  --cv-border-subtle: rgba(255, 255, 255, 0.08);
-  --cv-border-strong: rgba(255, 255, 255, 0.14);
+  --cv-border-subtle: rgba(255, 255, 255, 0.09);
+  --cv-border-strong: rgba(255, 255, 255, 0.16);
   --cv-border-focus: #2563eb;
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
+  --cv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --cv-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --cv-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
   --cv-radius-sm: 8px;
   --cv-radius-md: 10px;
   --cv-radius-lg: 12px;
-  --cv-radius-float: 12px;
+  --cv-radius-float: 14px;
+  --cv-motion-fast: 150ms;
+  --cv-motion-normal: 220ms;
+  --cv-motion-premium: 300ms;
   --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
     'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
@@ -164,15 +180,19 @@ html[data-theme='dark'] body {
   --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
     monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-display: var(--cv-font-sans);
-  --cv-ambient: none;
+  --cv-ambient: radial-gradient(
+    90% 50% at 50% -20%,
+    rgba(37, 99, 235, 0.08),
+    transparent 55%
+  );
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.16);
   --cv-selection-fg: #ffffff;
 }
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #fafafa;
+    --cv-bg-primary: #f4f4f5;
     --cv-bg-secondary: #ffffff;
     --cv-surface: rgba(0, 0, 0, 0.03);
     --cv-surface-elevated: #ffffff;
@@ -186,10 +206,16 @@ html[data-theme='dark'] body {
     --cv-border-focus: #2563eb;
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
+    --cv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --cv-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    --cv-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.1);
     --cv-radius-sm: 8px;
     --cv-radius-md: 10px;
     --cv-radius-lg: 12px;
-    --cv-radius-float: 12px;
+    --cv-radius-float: 14px;
+    --cv-motion-fast: 150ms;
+    --cv-motion-normal: 220ms;
+    --cv-motion-premium: 300ms;
     --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
     --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
       'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
@@ -199,13 +225,13 @@ html[data-theme='dark'] body {
     --cv-font-display: var(--cv-font-sans);
     --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.16);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #fafafa;
+  --cv-bg-primary: #f4f4f5;
   --cv-bg-secondary: #ffffff;
   --cv-surface: rgba(0, 0, 0, 0.03);
   --cv-surface-elevated: #ffffff;
@@ -219,10 +245,16 @@ html[data-theme='light'] body {
   --cv-border-focus: #2563eb;
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
+  --cv-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --cv-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --cv-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.1);
   --cv-radius-sm: 8px;
   --cv-radius-md: 10px;
   --cv-radius-lg: 12px;
-  --cv-radius-float: 12px;
+  --cv-radius-float: 14px;
+  --cv-motion-fast: 150ms;
+  --cv-motion-normal: 220ms;
+  --cv-motion-premium: 300ms;
   --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
     'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
@@ -232,7 +264,7 @@ html[data-theme='light'] body {
   --cv-font-display: var(--cv-font-sans);
   --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.16);
   --cv-selection-fg: #ffffff;
 }
 
@@ -244,20 +276,21 @@ html body {
 html body .MuiPaper-root.layout,
 html body .layout {
   border: 1px solid var(--cv-border-subtle) !important;
-  box-shadow: none !important;
+  box-shadow: var(--cv-shadow-lg) !important;
   background: var(--cv-bg-primary) !important;
-  border-radius: var(--cv-radius-md) !important;
+  border-radius: var(--cv-radius-lg) !important;
+  overflow: hidden !important;
 }
 
 html body .layout .layout-content__left {
   background: var(--cv-bg-secondary) !important;
   border-right: 1px solid var(--cv-border-subtle) !important;
-  box-shadow: none !important;
+  box-shadow: inset -1px 0 0 transparent, 4px 0 24px rgba(0, 0, 0, 0.04) !important;
   backdrop-filter: none !important;
 }
 
 html body .the-menu {
-  padding: 8px;
+  padding: 10px 8px;
 }
 
 html body .the-menu .MuiListItemButton-root {
@@ -265,19 +298,28 @@ html body .the-menu .MuiListItemButton-root {
   border-radius: var(--cv-radius-sm) !important;
   margin: 2px 6px;
   border: none !important;
-  border-left: 3px solid transparent !important;
-  padding-left: 12px !important;
-  min-height: 36px;
+  border-left: 0 !important;
+  padding: 8px 12px 8px 14px !important;
+  min-height: 40px;
   font-family: var(--cv-font-sans) !important;
   font-size: 0.875rem !important;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   text-transform: none !important;
-  transition: background 180ms var(--cv-motion-ease),
-    border-color 180ms var(--cv-motion-ease);
+  transition: background var(--cv-motion-normal) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-normal) var(--cv-motion-ease),
+    color var(--cv-motion-fast) ease;
 }
 
 html body .the-menu .MuiListItemButton-root::before {
-  content: none !important;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: transparent;
+  transition: background var(--cv-motion-fast) ease;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
@@ -285,15 +327,18 @@ html body .the-menu .MuiListItemButton-root:hover {
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
-  border-left-color: var(--cv-primary) !important;
-  background: color-mix(in srgb, var(--cv-primary) 10%, transparent) !important;
-  box-shadow: none !important;
+  background: color-mix(in srgb, var(--cv-primary) 12%, transparent) !important;
+  box-shadow: var(--cv-shadow-sm) !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected::before {
+  background: var(--cv-primary);
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   color: var(--cv-primary) !important;
-  font-weight: 600;
+  font-weight: 650;
   text-shadow: none !important;
   animation: none !important;
 }
@@ -301,6 +346,7 @@ html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
 html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
   font-family: var(--cv-font-sans) !important;
   font-size: 0.875rem !important;
+  font-weight: 500;
 }
 
 html body .the-logo {
@@ -309,17 +355,17 @@ html body .the-logo {
 }
 
 html body .base-page > header {
-  padding: 14px 16px !important;
+  padding: 16px 20px !important;
   border-bottom: 1px solid var(--cv-border-subtle) !important;
-  background: var(--cv-bg-primary) !important;
+  background: color-mix(in srgb, var(--cv-bg-primary) 88%, var(--cv-bg-secondary)) !important;
   box-shadow: none !important;
 }
 
 html body .base-page > header .MuiTypography-root {
   font-family: var(--cv-font-sans) !important;
-  font-size: 1.05rem !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.02em;
+  font-size: 1.2rem !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.035em;
   text-transform: none !important;
 }
 
@@ -337,11 +383,27 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
   background-image: none !important;
   border: 1px solid var(--cv-border-subtle) !important;
   border-radius: var(--cv-radius-md) !important;
-  box-shadow: none !important;
+  box-shadow: var(--cv-shadow-sm) !important;
   clip-path: none !important;
   overflow: hidden !important;
-  transition: border-color 180ms var(--cv-motion-ease),
-    background-color 180ms var(--cv-motion-ease);
+  transition: border-color var(--cv-motion-normal) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-normal) var(--cv-motion-ease),
+    transform var(--cv-motion-normal) var(--cv-motion-ease),
+    background-color var(--cv-motion-normal) var(--cv-motion-ease);
+}
+
+html body .enhanced-card::before,
+html body .cv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background var(--cv-motion-normal) var(--cv-motion-ease);
+  pointer-events: none;
+  z-index: 2;
 }
 
 html body .enhanced-card:hover,
@@ -349,28 +411,36 @@ html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
 html body .enhanced-card:focus-within,
 html body .cv-card:focus-within {
-  transform: none !important;
-  border-color: var(--cv-border-strong) !important;
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--cv-primary) 28%, var(--cv-border-subtle)) !important;
   background-color: var(--cv-surface-elevated) !important;
-  box-shadow: none !important;
+  box-shadow: var(--cv-shadow-md) !important;
 }
 
-html body .enhanced-card::before,
-html body .cv-card::before,
+html body .enhanced-card:hover::before,
+html body .cv-card:hover::before,
+html body .enhanced-card:focus-within::before,
+html body .cv-card:focus-within::before {
+  background: linear-gradient(
+    90deg,
+    var(--cv-primary),
+    color-mix(in srgb, var(--cv-primary) 30%, transparent)
+  );
+}
+
 html body .enhanced-card::after,
 html body .cv-card::after {
   content: none !important;
-  animation: none !important;
 }
 
 html body .enhanced-card .MuiTypography-h6,
 html body .cv-card .MuiTypography-h6,
 html body .enhanced-card .MuiTypography-subtitle1 {
   font-family: var(--cv-font-sans) !important;
-  font-size: 0.8125rem !important;
+  font-size: 0.75rem !important;
   font-weight: 600 !important;
-  letter-spacing: -0.01em;
-  text-transform: none !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase !important;
   color: var(--cv-text-secondary) !important;
 }
 
@@ -383,13 +453,14 @@ html body .base-content .MuiTypography-root {
 html body .base-content .MuiTypography-colorTextSecondary,
 html body .base-content .MuiTypography-body2 {
   color: var(--cv-text-secondary) !important;
+  line-height: 1.55;
 }
 
 html body .base-content .MuiPaper-root:not(.layout) {
   background: var(--cv-surface-elevated) !important;
   border: 1px solid var(--cv-border-subtle) !important;
   border-radius: var(--cv-radius-md) !important;
-  box-shadow: none !important;
+  box-shadow: var(--cv-shadow-sm) !important;
 }
 
 html body .base-content .MuiDivider-root {
@@ -401,53 +472,69 @@ html body .MuiButton-root {
   border-radius: var(--cv-radius-sm) !important;
   text-transform: none !important;
   font-family: var(--cv-font-sans) !important;
-  font-weight: 550 !important;
+  font-weight: 600 !important;
   font-size: 0.875rem !important;
   letter-spacing: -0.01em;
+  min-height: 36px;
   box-shadow: none !important;
-  transition: background 180ms var(--cv-motion-ease), opacity 180ms ease;
+  transition: background var(--cv-motion-fast) var(--cv-motion-ease),
+    box-shadow var(--cv-motion-fast) var(--cv-motion-ease),
+    transform var(--cv-motion-fast) var(--cv-motion-ease);
+}
+
+html body .MuiButton-root:active {
+  transform: scale(0.98);
 }
 
 html body .MuiButton-containedPrimary {
   background: var(--cv-primary) !important;
   color: #ffffff !important;
-  box-shadow: none !important;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.25),
+    0 4px 12px rgba(37, 99, 235, 0.2) !important;
 }
 
 html body .MuiButton-containedPrimary:hover {
-  filter: brightness(1.06);
-  box-shadow: none !important;
+  filter: brightness(1.05);
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.28),
+    0 8px 18px rgba(37, 99, 235, 0.22) !important;
 }
 
 html body .MuiButton-outlinedPrimary,
 html body .MuiButton-outlined {
   border: 1px solid var(--cv-border-strong) !important;
   color: var(--cv-text-primary) !important;
-  background: transparent !important;
+  background: var(--cv-surface) !important;
+}
+
+html body .MuiButton-textPrimary,
+html body .MuiButton-text {
+  color: var(--cv-primary) !important;
 }
 
 html body .MuiChip-root {
   border-radius: 999px !important;
   font-family: var(--cv-font-sans) !important;
+  font-weight: 500 !important;
   border: 1px solid var(--cv-border-subtle) !important;
   background: var(--cv-surface) !important;
 }
 
+
 html body .the-traffic {
   position: relative;
   display: block;
-  margin: 10px 10px 14px;
-  padding: 12px 14px;
+  margin: 12px 10px 16px;
+  padding: 14px 16px 14px 16px;
   border: 1px solid var(--cv-border-subtle);
   border-radius: var(--cv-radius-md);
-  background: var(--cv-surface-card);
+  background: var(--cv-surface-elevated);
+  box-shadow: var(--cv-shadow-sm);
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  letter-spacing: 0;
+  font-weight: 650;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
   color: var(--cv-text-primary) !important;
-  box-shadow: none;
   text-shadow: none !important;
   clip-path: none !important;
   animation: none !important;
@@ -456,26 +543,31 @@ html body .the-traffic {
 html body .the-traffic::before {
   content: 'Throughput';
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   font-family: var(--cv-font-sans);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--cv-text-secondary);
-  text-transform: none;
 }
 
 html body .the-traffic::after {
-  content: none !important;
-  display: none !important;
-  animation: none !important;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--cv-primary);
 }
 
 html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
+  font-weight: 650;
   text-shadow: none !important;
   color: var(--cv-text-primary) !important;
 }
@@ -484,6 +576,7 @@ html body .MuiLinearProgress-root {
   border-radius: 999px !important;
   background: var(--cv-surface) !important;
   height: 6px !important;
+  overflow: hidden;
 }
 
 html body .MuiLinearProgress-bar {
@@ -493,9 +586,9 @@ html body .MuiLinearProgress-bar {
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
-  border-radius: var(--cv-radius-lg) !important;
+  border-radius: var(--cv-radius-float) !important;
   border: 1px solid var(--cv-border-subtle) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18) !important;
+  box-shadow: var(--cv-shadow-lg) !important;
   background: var(--cv-surface-elevated) !important;
 }
 
@@ -505,7 +598,7 @@ html body .MuiSwitch-switchBase.Mui-checked {
 
 html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
   background-color: #ffffff !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
@@ -520,9 +613,13 @@ html body .MuiOutlinedInput-root {
   background: var(--cv-surface) !important;
 }
 
+html body .MuiOutlinedInput-root.Mui-focused {
+  background: var(--cv-surface-elevated) !important;
+}
+
 html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: var(--cv-primary) !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cv-primary) 22%, transparent) !important;
 }
 
 html body .MuiOutlinedInput-input::placeholder {
@@ -574,6 +671,14 @@ html body [class*='loading'] {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html body .enhanced-card:hover,
+  html body .cv-card:hover,
+  html body .enhanced-card:focus-within,
+  html body .cv-card:focus-within,
+  html body .MuiButton-root:active {
+    transform: none !important;
+  }
+
   html body .enhanced-card,
   html body .cv-card,
   html body .MuiButton-root,
