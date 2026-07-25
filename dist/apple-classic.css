@@ -104,6 +104,24 @@ body {
 
 @media (prefers-color-scheme: light) {
   body {
+    --cv-apple-blue: #007aff;
+    --cv-apple-green: #34c759;
+    --cv-apple-red: #ff3b30;
+    --cv-apple-orange: #ff9500;
+    --cv-apple-gray-1: #8e8e93;
+    --cv-apple-gray-3: #c7c7cc;
+    --cv-apple-gray-4: #d1d1d6;
+    --cv-apple-gray-5: #e5e5ea;
+    --cv-apple-gray-6: #f2f2f7;
+    --cv-apple-separator: rgba(60, 60, 67, 0.29);
+    --cv-apple-label-secondary: rgba(60, 60, 67, 0.6);
+    --cv-apple-label-tertiary: rgba(60, 60, 67, 0.3);
+    --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-apple-nav-bg: rgba(255, 255, 255, 0.72);
+
     --cv-bg-primary: #f2f2f7;
     --cv-bg-secondary: #ffffff;
     --cv-surface: rgba(0, 0, 0, 0.04);
@@ -111,33 +129,50 @@ body {
     --cv-surface-card: #ffffff;
     --cv-primary: #007aff;
     --cv-secondary: #8e8e93;
-    --cv-text-primary: #1c1c1e;
-    --cv-text-secondary: #8e8e93;
-    --cv-border-subtle: rgba(0, 0, 0, 0.06);
-    --cv-border-strong: rgba(0, 0, 0, 0.12);
+    --cv-text-primary: #000000;
+    --cv-text-secondary: rgba(60, 60, 67, 0.6);
+    --cv-border-subtle: rgba(60, 60, 67, 0.18);
+    --cv-border-strong: rgba(60, 60, 67, 0.29);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 0px;
+    --cv-effect-blur: 20px;
     --cv-effect-glow: none;
     --cv-ambient: none;
     --cv-radius-sm: 8px;
-    --cv-radius-md: 10px;
-    --cv-radius-lg: 12px;
-    --cv-radius-float: 14px;
-    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-radius-md: 14px;
+    --cv-radius-lg: 20px;
+    --cv-radius-float: 20px;
+    --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+      'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+      'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+      sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
       'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+    --cv-scrollbar-thumb: rgba(60, 60, 67, 0.28);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
+  --cv-apple-blue: #007aff;
+  --cv-apple-green: #34c759;
+  --cv-apple-red: #ff3b30;
+  --cv-apple-orange: #ff9500;
+  --cv-apple-gray-1: #8e8e93;
+  --cv-apple-gray-3: #c7c7cc;
+  --cv-apple-gray-4: #d1d1d6;
+  --cv-apple-gray-5: #e5e5ea;
+  --cv-apple-gray-6: #f2f2f7;
+  --cv-apple-separator: rgba(60, 60, 67, 0.29);
+  --cv-apple-label-secondary: rgba(60, 60, 67, 0.6);
+  --cv-apple-label-tertiary: rgba(60, 60, 67, 0.3);
+  --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-apple-nav-bg: rgba(255, 255, 255, 0.72);
   --cv-bg-primary: #f2f2f7;
   --cv-bg-secondary: #ffffff;
   --cv-surface: rgba(0, 0, 0, 0.04);
@@ -145,135 +180,176 @@ html[data-theme='light'] body {
   --cv-surface-card: #ffffff;
   --cv-primary: #007aff;
   --cv-secondary: #8e8e93;
-  --cv-text-primary: #1c1c1e;
-  --cv-text-secondary: #8e8e93;
-  --cv-border-subtle: rgba(0, 0, 0, 0.06);
-  --cv-border-strong: rgba(0, 0, 0, 0.12);
+  --cv-text-primary: #000000;
+  --cv-text-secondary: rgba(60, 60, 67, 0.6);
+  --cv-border-subtle: rgba(60, 60, 67, 0.18);
+  --cv-border-strong: rgba(60, 60, 67, 0.29);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 0px;
+  --cv-effect-blur: 20px;
   --cv-effect-glow: none;
   --cv-ambient: none;
   --cv-radius-sm: 8px;
-  --cv-radius-md: 10px;
-  --cv-radius-lg: 12px;
-  --cv-radius-float: 14px;
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-radius-md: 14px;
+  --cv-radius-lg: 20px;
+  --cv-radius-float: 20px;
+  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+    'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+    sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
     'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+  --cv-scrollbar-thumb: rgba(60, 60, 67, 0.28);
   --cv-selection-fg: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
+    --cv-apple-blue: #0a84ff;
+    --cv-apple-green: #30d158;
+    --cv-apple-red: #ff453a;
+    --cv-apple-orange: #ff9f0a;
+    --cv-apple-gray-1: #8e8e93;
+    --cv-apple-gray-3: #48484a;
+    --cv-apple-gray-4: #3a3a3c;
+    --cv-apple-gray-5: #2c2c2e;
+    --cv-apple-gray-6: #1c1c1e;
+    --cv-apple-separator: rgba(84, 84, 88, 0.6);
+    --cv-apple-label-secondary: rgba(235, 235, 245, 0.6);
+    --cv-apple-label-tertiary: rgba(235, 235, 245, 0.3);
+    --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+    --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-apple-nav-bg: rgba(0, 0, 0, 0.72);
+
     --cv-bg-primary: #000000;
     --cv-bg-secondary: #1c1c1e;
     --cv-surface: rgba(255, 255, 255, 0.06);
-    --cv-surface-elevated: #2c2c2e;
+    --cv-surface-elevated: #1c1c1e;
     --cv-surface-card: #1c1c1e;
     --cv-primary: #0a84ff;
     --cv-secondary: #8e8e93;
-    --cv-text-primary: #f5f5f7;
-    --cv-text-secondary: #98989d;
-    --cv-border-subtle: rgba(255, 255, 255, 0.08);
-    --cv-border-strong: rgba(255, 255, 255, 0.14);
+    --cv-text-primary: #ffffff;
+    --cv-text-secondary: rgba(235, 235, 245, 0.6);
+    --cv-border-subtle: rgba(84, 84, 88, 0.45);
+    --cv-border-strong: rgba(84, 84, 88, 0.65);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 0px;
+    --cv-effect-blur: 20px;
     --cv-effect-glow: none;
     --cv-ambient: none;
     --cv-radius-sm: 8px;
-    --cv-radius-md: 10px;
-    --cv-radius-lg: 12px;
-    --cv-radius-float: 14px;
-    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-radius-md: 14px;
+    --cv-radius-lg: 20px;
+    --cv-radius-float: 20px;
+    --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+      'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+      'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+      sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
       'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.2);
+    --cv-scrollbar-thumb: rgba(235, 235, 245, 0.28);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='dark'] body {
+  --cv-apple-blue: #0a84ff;
+  --cv-apple-green: #30d158;
+  --cv-apple-red: #ff453a;
+  --cv-apple-orange: #ff9f0a;
+  --cv-apple-gray-1: #8e8e93;
+  --cv-apple-gray-3: #48484a;
+  --cv-apple-gray-4: #3a3a3c;
+  --cv-apple-gray-5: #2c2c2e;
+  --cv-apple-gray-6: #1c1c1e;
+  --cv-apple-separator: rgba(84, 84, 88, 0.6);
+  --cv-apple-label-secondary: rgba(235, 235, 245, 0.6);
+  --cv-apple-label-tertiary: rgba(235, 235, 245, 0.3);
+  --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-apple-nav-bg: rgba(0, 0, 0, 0.72);
   --cv-bg-primary: #000000;
   --cv-bg-secondary: #1c1c1e;
   --cv-surface: rgba(255, 255, 255, 0.06);
-  --cv-surface-elevated: #2c2c2e;
+  --cv-surface-elevated: #1c1c1e;
   --cv-surface-card: #1c1c1e;
   --cv-primary: #0a84ff;
   --cv-secondary: #8e8e93;
-  --cv-text-primary: #f5f5f7;
-  --cv-text-secondary: #98989d;
-  --cv-border-subtle: rgba(255, 255, 255, 0.08);
-  --cv-border-strong: rgba(255, 255, 255, 0.14);
+  --cv-text-primary: #ffffff;
+  --cv-text-secondary: rgba(235, 235, 245, 0.6);
+  --cv-border-subtle: rgba(84, 84, 88, 0.45);
+  --cv-border-strong: rgba(84, 84, 88, 0.65);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 0px;
+  --cv-effect-blur: 20px;
   --cv-effect-glow: none;
   --cv-ambient: none;
   --cv-radius-sm: 8px;
-  --cv-radius-md: 10px;
-  --cv-radius-lg: 12px;
-  --cv-radius-float: 14px;
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-radius-md: 14px;
+  --cv-radius-lg: 20px;
+  --cv-radius-float: 20px;
+  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+    'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+    sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
     'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --cv-scrollbar-thumb: rgba(235, 235, 245, 0.28);
   --cv-selection-fg: #ffffff;
 }
 
 html body {
   font-family: var(--cv-font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 html body .MuiPaper-root.layout,
 html body .layout {
   border: none !important;
   box-shadow: none !important;
+  background: var(--cv-bg-primary) !important;
 }
+
 
 html body .layout .layout-content__left {
   background: var(--cv-bg-secondary) !important;
-  border-right: 1px solid var(--cv-border-subtle) !important;
+  border-right: 1px solid var(--cv-apple-separator) !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
 
 html body .the-menu {
-  padding: var(--cv-space-2);
+  padding: 8px;
 }
 
 html body .the-menu .MuiListItemButton-root {
-  border-radius: var(--cv-radius-sm);
-  margin: var(--cv-space-1) var(--cv-space-2);
+  min-height: 44px;
+  border-radius: var(--cv-radius-sm) !important;
+  margin: 2px 8px;
+  border: none !important;
   border-left: none !important;
-  transition: background-color var(--cv-motion-fast) ease;
+  font-size: 17px;
+  transition: background-color 200ms var(--cv-apple-ease-smooth);
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
-  background-color: var(--cv-surface) !important;
+  background-color: var(--cv-apple-gray-5) !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
-  background-color: var(--cv-surface) !important;
-  box-shadow: none !important;
+  background-color: var(--cv-apple-gray-5) !important;
+  box-shadow: var(--cv-apple-shadow-sm) !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
@@ -282,22 +358,30 @@ html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   font-weight: 600;
 }
 
+html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
+  font-size: 17px !important;
+  font-weight: 400;
+}
+
+
 html body .base-page > header {
-  padding-top: var(--cv-space-4);
-  padding-bottom: var(--cv-space-4);
-  border-bottom: 1px solid var(--cv-border-subtle) !important;
-  background: var(--cv-bg-primary) !important;
+  padding: 10px 16px !important;
+  border-bottom: 1px solid transparent !important;
+  background: var(--cv-apple-nav-bg) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
 
 html body .base-page > header .MuiTypography-root {
   font-family: var(--cv-font-sans) !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.01em;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  letter-spacing: -0.02em;
   text-transform: none !important;
+  color: var(--cv-text-primary) !important;
 }
+
 
 html body .enhanced-card,
 html body .cv-card,
@@ -306,25 +390,33 @@ html body .base-content .MuiGrid-root > .MuiBox-root {
   position: relative !important;
   background-color: var(--cv-surface-card) !important;
   background-image: none !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  border-radius: var(--cv-radius-lg) !important;
-  box-shadow: none !important;
+  border: none !important;
+  border-radius: var(--cv-radius-md) !important;
+  box-shadow: var(--cv-apple-shadow-sm) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  transition: background-color var(--cv-motion-fast) ease,
-    border-color var(--cv-motion-fast) ease;
+  overflow: hidden !important;
+  transition: background-color 200ms var(--cv-apple-ease-smooth);
 }
 
 html body .enhanced-card:hover,
 html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
-html body .base-content .MuiGrid-root > .MuiBox-root:hover,
 html body .enhanced-card:focus-within,
 html body .cv-card:focus-within {
   transform: none !important;
   background-color: var(--cv-surface-elevated) !important;
-  border-color: var(--cv-border-strong) !important;
-  box-shadow: none !important;
+  box-shadow: var(--cv-apple-shadow-sm) !important;
+}
+
+html body .enhanced-card .MuiTypography-h6,
+html body .cv-card .MuiTypography-h6,
+html body .enhanced-card .MuiTypography-subtitle1 {
+  font-weight: 600 !important;
+  font-size: 0.8125rem !important;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--cv-text-secondary) !important;
 }
 
 html body .base-content .MuiTypography-root {
@@ -334,34 +426,60 @@ html body .base-content .MuiTypography-root {
 }
 
 html body .base-content .MuiTypography-colorTextSecondary,
-html body .base-content .MuiTypography-body2 {
+html body .base-content .MuiTypography-body2,
+html body .base-content .MuiListItemText-secondary {
   color: var(--cv-text-secondary) !important;
 }
 
+html body .base-content .MuiPaper-root:not(.layout) {
+  background: var(--cv-surface-elevated) !important;
+  border: none !important;
+  border-radius: var(--cv-radius-md) !important;
+  box-shadow: var(--cv-apple-shadow-sm) !important;
+}
+
+html body .base-content .MuiDivider-root {
+  border-color: var(--cv-apple-separator) !important;
+}
+
+
 html body .MuiButton-root {
+  min-height: 44px;
   border-radius: var(--cv-radius-sm) !important;
   font-family: var(--cv-font-sans) !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
   text-transform: none;
   box-shadow: none !important;
+  transition: transform 150ms var(--cv-apple-ease-spring),
+    background-color 200ms var(--cv-apple-ease-smooth) !important;
+}
+
+html body .MuiButton-root:active {
+  transform: scale(0.96);
 }
 
 html body .MuiButton-containedPrimary,
 html body .MuiButtonGroup-groupedContainedPrimary {
   background-color: var(--cv-primary) !important;
   color: #ffffff !important;
-  box-shadow: none !important;
-  font-weight: 600;
 }
 
 html body .MuiButton-containedPrimary:hover,
 html body .MuiButtonGroup-groupedContainedPrimary:hover {
-  filter: brightness(1.06);
+  filter: brightness(1.05);
   box-shadow: none !important;
 }
 
 html body .MuiButton-outlinedPrimary,
 html body .MuiButton-outlined {
-  border-color: var(--cv-border-strong) !important;
+  border: 1px solid var(--cv-primary) !important;
+  color: var(--cv-primary) !important;
+  background: transparent !important;
+}
+
+html body .MuiButton-textPrimary,
+html body .MuiButton-text {
   color: var(--cv-primary) !important;
   background: transparent !important;
 }
@@ -369,36 +487,38 @@ html body .MuiButton-outlined {
 html body .MuiChip-root {
   border-radius: var(--cv-radius-sm) !important;
   font-family: var(--cv-font-sans) !important;
+  background: var(--cv-apple-gray-5) !important;
 }
 
 html body .the-traffic {
   display: block;
-  margin: var(--cv-space-2) var(--cv-space-2) var(--cv-space-3);
-  padding: var(--cv-space-3) var(--cv-space-4);
-  border: 1px solid var(--cv-border-subtle);
-  border-radius: var(--cv-radius-lg);
+  margin: 12px 12px 16px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--cv-radius-md);
   background: var(--cv-surface-card);
+  box-shadow: var(--cv-apple-shadow-sm);
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
-  letter-spacing: 0;
+  font-size: 17px;
   color: var(--cv-text-primary) !important;
-  box-shadow: none;
 }
 
 html body .the-traffic::before {
   content: 'Throughput';
   display: block;
-  margin-bottom: var(--cv-space-1);
+  margin-bottom: 4px;
   font-family: var(--cv-font-sans);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 400;
   letter-spacing: 0;
+  text-transform: uppercase;
   color: var(--cv-text-secondary);
-  opacity: 1;
 }
 
 html body .the-traffic::after {
+  content: none !important;
   display: none !important;
 }
 
@@ -406,6 +526,14 @@ html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-shadow: none !important;
+}
+
+html body .MuiLinearProgress-root {
+  background-color: var(--cv-apple-gray-5) !important;
+  border-radius: 4px !important;
+  overflow: hidden;
 }
 
 html body .MuiLinearProgress-bar {
@@ -413,13 +541,13 @@ html body .MuiLinearProgress-bar {
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
-  border-radius: var(--cv-radius-float) !important;
-  border: 1px solid var(--cv-border-subtle) !important;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16) !important;
+  border-radius: var(--cv-radius-md) !important;
+  border: none !important;
+  box-shadow: var(--cv-apple-shadow-md), 0 16px 48px rgba(0, 0, 0, 0.12) !important;
   background: var(--cv-surface-elevated) !important;
   backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
+
 
 html body .MuiSwitch-switchBase.Mui-checked {
   color: #ffffff !important;
@@ -427,26 +555,47 @@ html body .MuiSwitch-switchBase.Mui-checked {
 
 html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
   background-color: #ffffff !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: var(--cv-apple-shadow-md) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: var(--cv-primary) !important;
+  background-color: var(--cv-apple-green) !important;
   opacity: 1 !important;
   box-shadow: none !important;
 }
 
+html body .MuiSwitch-track {
+  background-color: var(--cv-apple-gray-4) !important;
+  opacity: 1 !important;
+  border-radius: 16px !important;
+}
+
 html body .MuiOutlinedInput-root,
 html body .MuiInputBase-root {
-  border-radius: var(--cv-radius-sm) !important;
+  border-radius: 10px !important;
   font-family: var(--cv-font-sans);
+  background: var(--cv-apple-gray-5) !important;
   color: var(--cv-text-primary) !important;
+}
+
+html body .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
+html body .MuiOutlinedInput-root.Mui-focused {
+  background: var(--cv-surface-elevated) !important;
 }
 
 html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: var(--cv-primary) !important;
   border-width: 1px !important;
   box-shadow: none !important;
+}
+
+html body .MuiOutlinedInput-input::placeholder,
+html body .MuiInputBase-input::placeholder {
+  color: var(--cv-apple-gray-1) !important;
+  opacity: 1;
 }
 
 html body .MuiChip-colorSuccess,
@@ -485,18 +634,7 @@ html body [class*='latency-error'] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html body *,
-  html body *::before,
-  html body *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  html body .enhanced-card:hover,
-  html body .cv-card:hover,
-  html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
-  html body .base-content .MuiGrid-root > .MuiBox-root:hover {
+  html body .MuiButton-root:active {
     transform: none !important;
   }
 }

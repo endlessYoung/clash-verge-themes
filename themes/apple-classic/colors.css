@@ -1,10 +1,28 @@
 /**
  * Theme: Apple Classic — colors.css
- * Spec 12 Calm family — system grays, single system blue, flat surfaces.
+ * Internalized from apple-style skill demo (iOS Settings HIG tokens).
  */
 
 @media (prefers-color-scheme: light) {
   body {
+    --cv-apple-blue: #007aff;
+    --cv-apple-green: #34c759;
+    --cv-apple-red: #ff3b30;
+    --cv-apple-orange: #ff9500;
+    --cv-apple-gray-1: #8e8e93;
+    --cv-apple-gray-3: #c7c7cc;
+    --cv-apple-gray-4: #d1d1d6;
+    --cv-apple-gray-5: #e5e5ea;
+    --cv-apple-gray-6: #f2f2f7;
+    --cv-apple-separator: rgba(60, 60, 67, 0.29);
+    --cv-apple-label-secondary: rgba(60, 60, 67, 0.6);
+    --cv-apple-label-tertiary: rgba(60, 60, 67, 0.3);
+    --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-apple-nav-bg: rgba(255, 255, 255, 0.72);
+
     --cv-bg-primary: #f2f2f7;
     --cv-bg-secondary: #ffffff;
     --cv-surface: rgba(0, 0, 0, 0.04);
@@ -12,33 +30,50 @@
     --cv-surface-card: #ffffff;
     --cv-primary: #007aff;
     --cv-secondary: #8e8e93;
-    --cv-text-primary: #1c1c1e;
-    --cv-text-secondary: #8e8e93;
-    --cv-border-subtle: rgba(0, 0, 0, 0.06);
-    --cv-border-strong: rgba(0, 0, 0, 0.12);
+    --cv-text-primary: #000000;
+    --cv-text-secondary: rgba(60, 60, 67, 0.6);
+    --cv-border-subtle: rgba(60, 60, 67, 0.18);
+    --cv-border-strong: rgba(60, 60, 67, 0.29);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 0px;
+    --cv-effect-blur: 20px;
     --cv-effect-glow: none;
     --cv-ambient: none;
     --cv-radius-sm: 8px;
-    --cv-radius-md: 10px;
-    --cv-radius-lg: 12px;
-    --cv-radius-float: 14px;
-    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-radius-md: 14px;
+    --cv-radius-lg: 20px;
+    --cv-radius-float: 20px;
+    --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+      'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+      'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+      sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
       'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+    --cv-scrollbar-thumb: rgba(60, 60, 67, 0.28);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
+  --cv-apple-blue: #007aff;
+  --cv-apple-green: #34c759;
+  --cv-apple-red: #ff3b30;
+  --cv-apple-orange: #ff9500;
+  --cv-apple-gray-1: #8e8e93;
+  --cv-apple-gray-3: #c7c7cc;
+  --cv-apple-gray-4: #d1d1d6;
+  --cv-apple-gray-5: #e5e5ea;
+  --cv-apple-gray-6: #f2f2f7;
+  --cv-apple-separator: rgba(60, 60, 67, 0.29);
+  --cv-apple-label-secondary: rgba(60, 60, 67, 0.6);
+  --cv-apple-label-tertiary: rgba(60, 60, 67, 0.3);
+  --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-apple-nav-bg: rgba(255, 255, 255, 0.72);
   --cv-bg-primary: #f2f2f7;
   --cv-bg-secondary: #ffffff;
   --cv-surface: rgba(0, 0, 0, 0.04);
@@ -46,95 +81,130 @@ html[data-theme='light'] body {
   --cv-surface-card: #ffffff;
   --cv-primary: #007aff;
   --cv-secondary: #8e8e93;
-  --cv-text-primary: #1c1c1e;
-  --cv-text-secondary: #8e8e93;
-  --cv-border-subtle: rgba(0, 0, 0, 0.06);
-  --cv-border-strong: rgba(0, 0, 0, 0.12);
+  --cv-text-primary: #000000;
+  --cv-text-secondary: rgba(60, 60, 67, 0.6);
+  --cv-border-subtle: rgba(60, 60, 67, 0.18);
+  --cv-border-strong: rgba(60, 60, 67, 0.29);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 0px;
+  --cv-effect-blur: 20px;
   --cv-effect-glow: none;
   --cv-ambient: none;
   --cv-radius-sm: 8px;
-  --cv-radius-md: 10px;
-  --cv-radius-lg: 12px;
-  --cv-radius-float: 14px;
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-radius-md: 14px;
+  --cv-radius-lg: 20px;
+  --cv-radius-float: 20px;
+  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+    'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+    sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
     'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+  --cv-scrollbar-thumb: rgba(60, 60, 67, 0.28);
   --cv-selection-fg: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
+    --cv-apple-blue: #0a84ff;
+    --cv-apple-green: #30d158;
+    --cv-apple-red: #ff453a;
+    --cv-apple-orange: #ff9f0a;
+    --cv-apple-gray-1: #8e8e93;
+    --cv-apple-gray-3: #48484a;
+    --cv-apple-gray-4: #3a3a3c;
+    --cv-apple-gray-5: #2c2c2e;
+    --cv-apple-gray-6: #1c1c1e;
+    --cv-apple-separator: rgba(84, 84, 88, 0.6);
+    --cv-apple-label-secondary: rgba(235, 235, 245, 0.6);
+    --cv-apple-label-tertiary: rgba(235, 235, 245, 0.3);
+    --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+    --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-apple-nav-bg: rgba(0, 0, 0, 0.72);
+
     --cv-bg-primary: #000000;
     --cv-bg-secondary: #1c1c1e;
     --cv-surface: rgba(255, 255, 255, 0.06);
-    --cv-surface-elevated: #2c2c2e;
+    --cv-surface-elevated: #1c1c1e;
     --cv-surface-card: #1c1c1e;
     --cv-primary: #0a84ff;
     --cv-secondary: #8e8e93;
-    --cv-text-primary: #f5f5f7;
-    --cv-text-secondary: #98989d;
-    --cv-border-subtle: rgba(255, 255, 255, 0.08);
-    --cv-border-strong: rgba(255, 255, 255, 0.14);
+    --cv-text-primary: #ffffff;
+    --cv-text-secondary: rgba(235, 235, 245, 0.6);
+    --cv-border-subtle: rgba(84, 84, 88, 0.45);
+    --cv-border-strong: rgba(84, 84, 88, 0.65);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 0px;
+    --cv-effect-blur: 20px;
     --cv-effect-glow: none;
     --cv-ambient: none;
     --cv-radius-sm: 8px;
-    --cv-radius-md: 10px;
-    --cv-radius-lg: 12px;
-    --cv-radius-float: 14px;
-    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-radius-md: 14px;
+    --cv-radius-lg: 20px;
+    --cv-radius-float: 20px;
+    --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+      'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+      'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+      sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
       'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.2);
+    --cv-scrollbar-thumb: rgba(235, 235, 245, 0.28);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='dark'] body {
+  --cv-apple-blue: #0a84ff;
+  --cv-apple-green: #30d158;
+  --cv-apple-red: #ff453a;
+  --cv-apple-orange: #ff9f0a;
+  --cv-apple-gray-1: #8e8e93;
+  --cv-apple-gray-3: #48484a;
+  --cv-apple-gray-4: #3a3a3c;
+  --cv-apple-gray-5: #2c2c2e;
+  --cv-apple-gray-6: #1c1c1e;
+  --cv-apple-separator: rgba(84, 84, 88, 0.6);
+  --cv-apple-label-secondary: rgba(235, 235, 245, 0.6);
+  --cv-apple-label-tertiary: rgba(235, 235, 245, 0.3);
+  --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-apple-nav-bg: rgba(0, 0, 0, 0.72);
   --cv-bg-primary: #000000;
   --cv-bg-secondary: #1c1c1e;
   --cv-surface: rgba(255, 255, 255, 0.06);
-  --cv-surface-elevated: #2c2c2e;
+  --cv-surface-elevated: #1c1c1e;
   --cv-surface-card: #1c1c1e;
   --cv-primary: #0a84ff;
   --cv-secondary: #8e8e93;
-  --cv-text-primary: #f5f5f7;
-  --cv-text-secondary: #98989d;
-  --cv-border-subtle: rgba(255, 255, 255, 0.08);
-  --cv-border-strong: rgba(255, 255, 255, 0.14);
+  --cv-text-primary: #ffffff;
+  --cv-text-secondary: rgba(235, 235, 245, 0.6);
+  --cv-border-subtle: rgba(84, 84, 88, 0.45);
+  --cv-border-strong: rgba(84, 84, 88, 0.65);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 0px;
+  --cv-effect-blur: 20px;
   --cv-effect-glow: none;
   --cv-ambient: none;
   --cv-radius-sm: 8px;
-  --cv-radius-md: 10px;
-  --cv-radius-lg: 12px;
-  --cv-radius-float: 14px;
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-radius-md: 14px;
+  --cv-radius-lg: 20px;
+  --cv-radius-float: 20px;
+  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+    'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+    sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
     'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --cv-scrollbar-thumb: rgba(235, 235, 245, 0.28);
   --cv-selection-fg: #ffffff;
 }

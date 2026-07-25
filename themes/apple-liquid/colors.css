@@ -1,170 +1,230 @@
 /**
  * Theme: Apple Liquid Glass — colors.css
- * Spec 12 Apple Liquid — hierarchy from translucency, system blue only.
+ * Same HIG tokens as Classic; materials lean into frosted liquid glass.
  */
-
-@media (prefers-color-scheme: dark) {
-  body {
-    --cv-bg-primary: #0a0a0c;
-    --cv-bg-secondary: #161618;
-    --cv-surface: rgba(255, 255, 255, 0.08);
-    --cv-surface-elevated: #1c1c1e;
-    --cv-surface-card: rgba(40, 40, 42, 0.72);
-    --cv-primary: #0a84ff;
-    --cv-secondary: #64d2ff;
-    --cv-text-primary: #f5f5f7;
-    --cv-text-secondary: #a1a1a6;
-    --cv-border-subtle: rgba(255, 255, 255, 0.1);
-    --cv-border-strong: rgba(255, 255, 255, 0.16);
-    --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 24px;
-    --cv-effect-glow: none;
-    --cv-radius-sm: 12px;
-    --cv-radius-md: 16px;
-    --cv-radius-lg: 20px;
-    --cv-radius-float: 24px;
-    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji',
-      'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas,
-      monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    /* Soft radial blue / white ambient wash */
-    --cv-ambient: radial-gradient(
-        920px circle at 8% -4%,
-        rgba(10, 132, 255, 0.1),
-        transparent 58%
-      ),
-      radial-gradient(
-        780px circle at 96% 12%,
-        rgba(255, 255, 255, 0.05),
-        transparent 52%
-      );
-    --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.2);
-    --cv-selection-fg: #ffffff;
-  }
-}
-
-html[data-theme='dark'] body {
-  --cv-bg-primary: #0a0a0c;
-  --cv-bg-secondary: #161618;
-  --cv-surface: rgba(255, 255, 255, 0.08);
-  --cv-surface-elevated: #1c1c1e;
-  --cv-surface-card: rgba(40, 40, 42, 0.72);
-  --cv-primary: #0a84ff;
-  --cv-secondary: #64d2ff;
-  --cv-text-primary: #f5f5f7;
-  --cv-text-secondary: #a1a1a6;
-  --cv-border-subtle: rgba(255, 255, 255, 0.1);
-  --cv-border-strong: rgba(255, 255, 255, 0.16);
-  --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 24px;
-  --cv-effect-glow: none;
-  --cv-radius-sm: 12px;
-  --cv-radius-md: 16px;
-  --cv-radius-lg: 20px;
-  --cv-radius-float: 24px;
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji',
-    'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas,
-    monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-ambient: radial-gradient(
-      920px circle at 8% -4%,
-      rgba(10, 132, 255, 0.1),
-      transparent 58%
-    ),
-    radial-gradient(
-      780px circle at 96% 12%,
-      rgba(255, 255, 255, 0.05),
-      transparent 52%
-    );
-  --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.2);
-  --cv-selection-fg: #ffffff;
-}
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #e8e8ed;
-    --cv-bg-secondary: #f5f5f7;
+    --cv-apple-blue: #007aff;
+    --cv-apple-green: #34c759;
+    --cv-apple-red: #ff3b30;
+    --cv-apple-orange: #ff9500;
+    --cv-apple-gray-1: #8e8e93;
+    --cv-apple-gray-3: #c7c7cc;
+    --cv-apple-gray-4: #d1d1d6;
+    --cv-apple-gray-5: #e5e5ea;
+    --cv-apple-gray-6: #f2f2f7;
+    --cv-apple-separator: rgba(60, 60, 67, 0.29);
+    --cv-apple-label-secondary: rgba(60, 60, 67, 0.6);
+    --cv-apple-label-tertiary: rgba(60, 60, 67, 0.3);
+    --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-apple-nav-bg: rgba(255, 255, 255, 0.72);
+    --cv-apple-glass: rgba(255, 255, 255, 0.55);
+
+    --cv-bg-primary: #f2f2f7;
+    --cv-bg-secondary: rgba(255, 255, 255, 0.72);
     --cv-surface: rgba(255, 255, 255, 0.55);
     --cv-surface-elevated: rgba(255, 255, 255, 0.82);
     --cv-surface-card: rgba(255, 255, 255, 0.72);
     --cv-primary: #007aff;
-    --cv-secondary: #64d2ff;
-    --cv-text-primary: #1d1d1f;
-    --cv-text-secondary: #6e6e73;
-    --cv-border-subtle: rgba(0, 0, 0, 0.06);
-    --cv-border-strong: rgba(0, 0, 0, 0.1);
+    --cv-secondary: #8e8e93;
+    --cv-text-primary: #000000;
+    --cv-text-secondary: rgba(60, 60, 67, 0.6);
+    --cv-border-subtle: rgba(60, 60, 67, 0.12);
+    --cv-border-strong: rgba(60, 60, 67, 0.29);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 24px;
+    --cv-effect-blur: 20px;
     --cv-effect-glow: none;
-    --cv-radius-sm: 12px;
-    --cv-radius-md: 16px;
-    --cv-radius-lg: 20px;
-    --cv-radius-float: 24px;
-    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-      Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji',
-      'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas,
-      monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    /* Soft blue ambient wash */
     --cv-ambient: radial-gradient(
-        900px circle at 0% 0%,
-        rgba(0, 122, 255, 0.08),
-        transparent 55%
-      ),
-      radial-gradient(
-        760px circle at 100% 8%,
-        rgba(255, 255, 255, 0.65),
-        transparent 50%
-      );
+      80% 50% at 50% -10%,
+      rgba(0, 122, 255, 0.06),
+      transparent 60%
+    );
+    --cv-radius-sm: 8px;
+    --cv-radius-md: 14px;
+    --cv-radius-lg: 20px;
+    --cv-radius-float: 20px;
+    --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+      'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+      'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+      sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
+      'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+    --cv-scrollbar-thumb: rgba(60, 60, 67, 0.28);
     --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #e8e8ed;
-  --cv-bg-secondary: #f5f5f7;
+  --cv-apple-blue: #007aff;
+  --cv-apple-green: #34c759;
+  --cv-apple-red: #ff3b30;
+  --cv-apple-orange: #ff9500;
+  --cv-apple-gray-1: #8e8e93;
+  --cv-apple-gray-3: #c7c7cc;
+  --cv-apple-gray-4: #d1d1d6;
+  --cv-apple-gray-5: #e5e5ea;
+  --cv-apple-gray-6: #f2f2f7;
+  --cv-apple-separator: rgba(60, 60, 67, 0.29);
+  --cv-apple-label-secondary: rgba(60, 60, 67, 0.6);
+  --cv-apple-label-tertiary: rgba(60, 60, 67, 0.3);
+  --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-apple-nav-bg: rgba(255, 255, 255, 0.72);
+  --cv-apple-glass: rgba(255, 255, 255, 0.55);
+  --cv-bg-primary: #f2f2f7;
+  --cv-bg-secondary: rgba(255, 255, 255, 0.72);
   --cv-surface: rgba(255, 255, 255, 0.55);
   --cv-surface-elevated: rgba(255, 255, 255, 0.82);
   --cv-surface-card: rgba(255, 255, 255, 0.72);
   --cv-primary: #007aff;
-  --cv-secondary: #64d2ff;
-  --cv-text-primary: #1d1d1f;
-  --cv-text-secondary: #6e6e73;
-  --cv-border-subtle: rgba(0, 0, 0, 0.06);
-  --cv-border-strong: rgba(0, 0, 0, 0.1);
+  --cv-secondary: #8e8e93;
+  --cv-text-primary: #000000;
+  --cv-text-secondary: rgba(60, 60, 67, 0.6);
+  --cv-border-subtle: rgba(60, 60, 67, 0.12);
+  --cv-border-strong: rgba(60, 60, 67, 0.29);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 24px;
+  --cv-effect-blur: 20px;
   --cv-effect-glow: none;
-  --cv-radius-sm: 12px;
-  --cv-radius-md: 16px;
-  --cv-radius-lg: 20px;
-  --cv-radius-float: 24px;
-  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC',
-    Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji',
-    'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas,
-    monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-ambient: radial-gradient(
-      900px circle at 0% 0%,
-      rgba(0, 122, 255, 0.08),
-      transparent 55%
-    ),
-    radial-gradient(
-      760px circle at 100% 8%,
-      rgba(255, 255, 255, 0.65),
-      transparent 50%
-    );
+    80% 50% at 50% -10%,
+    rgba(0, 122, 255, 0.06),
+    transparent 60%
+  );
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 14px;
+  --cv-radius-lg: 20px;
+  --cv-radius-float: 20px;
+  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+    'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+    sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
+    'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+  --cv-scrollbar-thumb: rgba(60, 60, 67, 0.28);
+  --cv-selection-fg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --cv-apple-blue: #0a84ff;
+    --cv-apple-green: #30d158;
+    --cv-apple-red: #ff453a;
+    --cv-apple-orange: #ff9f0a;
+    --cv-apple-gray-1: #8e8e93;
+    --cv-apple-gray-3: #48484a;
+    --cv-apple-gray-4: #3a3a3c;
+    --cv-apple-gray-5: #2c2c2e;
+    --cv-apple-gray-6: #1c1c1e;
+    --cv-apple-separator: rgba(84, 84, 88, 0.6);
+    --cv-apple-label-secondary: rgba(235, 235, 245, 0.6);
+    --cv-apple-label-tertiary: rgba(235, 235, 245, 0.3);
+    --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+    --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-apple-nav-bg: rgba(0, 0, 0, 0.72);
+    --cv-apple-glass: rgba(28, 28, 30, 0.72);
+
+    --cv-bg-primary: #000000;
+    --cv-bg-secondary: rgba(28, 28, 30, 0.72);
+    --cv-surface: rgba(255, 255, 255, 0.08);
+    --cv-surface-elevated: rgba(44, 44, 46, 0.82);
+    --cv-surface-card: rgba(28, 28, 30, 0.72);
+    --cv-primary: #0a84ff;
+    --cv-secondary: #8e8e93;
+    --cv-text-primary: #ffffff;
+    --cv-text-secondary: rgba(235, 235, 245, 0.6);
+    --cv-border-subtle: rgba(84, 84, 88, 0.45);
+    --cv-border-strong: rgba(84, 84, 88, 0.65);
+    --cv-border-focus: var(--cv-primary);
+    --cv-effect-blur: 20px;
+    --cv-effect-glow: none;
+    --cv-ambient: radial-gradient(
+      80% 50% at 50% -10%,
+      rgba(10, 132, 255, 0.1),
+      transparent 60%
+    );
+    --cv-radius-sm: 8px;
+    --cv-radius-md: 14px;
+    --cv-radius-lg: 20px;
+    --cv-radius-float: 20px;
+    --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+      'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+      'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+      sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
+      'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
+    --cv-scrollbar-bg: var(--cv-bg-primary);
+    --cv-scrollbar-thumb: rgba(235, 235, 245, 0.28);
+    --cv-selection-fg: #ffffff;
+  }
+}
+
+html[data-theme='dark'] body {
+  --cv-apple-blue: #0a84ff;
+  --cv-apple-green: #30d158;
+  --cv-apple-red: #ff453a;
+  --cv-apple-orange: #ff9f0a;
+  --cv-apple-gray-1: #8e8e93;
+  --cv-apple-gray-3: #48484a;
+  --cv-apple-gray-4: #3a3a3c;
+  --cv-apple-gray-5: #2c2c2e;
+  --cv-apple-gray-6: #1c1c1e;
+  --cv-apple-separator: rgba(84, 84, 88, 0.6);
+  --cv-apple-label-secondary: rgba(235, 235, 245, 0.6);
+  --cv-apple-label-tertiary: rgba(235, 235, 245, 0.3);
+  --cv-apple-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --cv-apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --cv-apple-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cv-apple-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-apple-nav-bg: rgba(0, 0, 0, 0.72);
+  --cv-apple-glass: rgba(28, 28, 30, 0.72);
+  --cv-bg-primary: #000000;
+  --cv-bg-secondary: rgba(28, 28, 30, 0.72);
+  --cv-surface: rgba(255, 255, 255, 0.08);
+  --cv-surface-elevated: rgba(44, 44, 46, 0.82);
+  --cv-surface-card: rgba(28, 28, 30, 0.72);
+  --cv-primary: #0a84ff;
+  --cv-secondary: #8e8e93;
+  --cv-text-primary: #ffffff;
+  --cv-text-secondary: rgba(235, 235, 245, 0.6);
+  --cv-border-subtle: rgba(84, 84, 88, 0.45);
+  --cv-border-strong: rgba(84, 84, 88, 0.65);
+  --cv-border-focus: var(--cv-primary);
+  --cv-effect-blur: 20px;
+  --cv-effect-glow: none;
+  --cv-ambient: radial-gradient(
+    80% 50% at 50% -10%,
+    rgba(10, 132, 255, 0.1),
+    transparent 60%
+  );
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 14px;
+  --cv-radius-lg: 20px;
+  --cv-radius-float: 20px;
+  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'SF Pro Display', 'Helvetica Neue', 'Segoe UI', 'Microsoft YaHei UI',
+    'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', Arial, system-ui,
+    sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace,
+    'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
+  --cv-scrollbar-bg: var(--cv-bg-primary);
+  --cv-scrollbar-thumb: rgba(235, 235, 245, 0.28);
   --cv-selection-fg: #ffffff;
 }
