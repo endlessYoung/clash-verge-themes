@@ -2,7 +2,7 @@
  * Spec 12 five-theme bold redesign. Build: node scripts/build-dist.mjs
  */
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 @font-face {
   font-family: 'cv-emoji';
@@ -106,277 +106,225 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    --cv-bg-primary: #05080a;
-    --cv-bg-secondary: #0a1014;
-    --cv-surface: rgba(57, 255, 139, 0.06);
-    --cv-surface-elevated: #0e161b;
-    --cv-surface-card: #0e161b;
-    --cv-primary: #39ff8b;
-    --cv-secondary: #ffb627;
-    --cv-text-primary: #d6f5e3;
-    --cv-text-secondary: #7fa394;
-    --cv-border-subtle: #16302a;
-    --cv-border-strong: #1d3a2f;
-    --cv-border-focus: var(--cv-primary);
+    --cv-bg-primary: #09090b;
+    --cv-bg-secondary: #18181b;
+    --cv-surface: rgba(255, 255, 255, 0.04);
+    --cv-surface-elevated: #27272a;
+    --cv-surface-card: #18181b;
+    --cv-primary: #3b82f6;
+    --cv-secondary: #71717a;
+    --cv-text-primary: #fafafa;
+    --cv-text-secondary: #a1a1aa;
+    --cv-border-subtle: rgba(255, 255, 255, 0.08);
+    --cv-border-strong: rgba(255, 255, 255, 0.14);
+    --cv-border-focus: #2563eb;
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
-    --cv-radius-sm: 1px;
-    --cv-radius-md: 2px;
-    --cv-radius-lg: 2px;
-    --cv-radius-float: 2px;
+    --cv-radius-sm: 8px;
+    --cv-radius-md: 10px;
+    --cv-radius-lg: 12px;
+    --cv-radius-float: 12px;
+    --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+      'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
+      'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
       monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-sans: 'JetBrains Mono', 'Microsoft YaHei UI', 'Microsoft YaHei',
-      'PingFang SC', 'Noto Sans SC', ui-monospace, system-ui, sans-serif,
-      'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-display: var(--cv-font-mono);
-    --cv-ambient: repeating-linear-gradient(
-        0deg,
-        transparent 0 2px,
-        rgba(57, 255, 139, 0.03) 2px 3px
-      ),
-      radial-gradient(
-        circle,
-        rgba(57, 255, 139, 0.045) 1px,
-        transparent 1px
-      );
+    --cv-font-display: var(--cv-font-sans);
+    --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: #1d3a2f;
-    --cv-selection-fg: #05080a;
+    --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
+    --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='dark'] body {
-  --cv-bg-primary: #05080a;
-  --cv-bg-secondary: #0a1014;
-  --cv-surface: rgba(57, 255, 139, 0.06);
-  --cv-surface-elevated: #0e161b;
-  --cv-surface-card: #0e161b;
-  --cv-primary: #39ff8b;
-  --cv-secondary: #ffb627;
-  --cv-text-primary: #d6f5e3;
-  --cv-text-secondary: #7fa394;
-  --cv-border-subtle: #16302a;
-  --cv-border-strong: #1d3a2f;
-  --cv-border-focus: var(--cv-primary);
+  --cv-bg-primary: #09090b;
+  --cv-bg-secondary: #18181b;
+  --cv-surface: rgba(255, 255, 255, 0.04);
+  --cv-surface-elevated: #27272a;
+  --cv-surface-card: #18181b;
+  --cv-primary: #3b82f6;
+  --cv-secondary: #71717a;
+  --cv-text-primary: #fafafa;
+  --cv-text-secondary: #a1a1aa;
+  --cv-border-subtle: rgba(255, 255, 255, 0.08);
+  --cv-border-strong: rgba(255, 255, 255, 0.14);
+  --cv-border-focus: #2563eb;
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
-  --cv-radius-sm: 1px;
-  --cv-radius-md: 2px;
-  --cv-radius-lg: 2px;
-  --cv-radius-float: 2px;
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 10px;
+  --cv-radius-lg: 12px;
+  --cv-radius-float: 12px;
+  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+    'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
+    'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
     monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-sans: 'JetBrains Mono', 'Microsoft YaHei UI', 'Microsoft YaHei',
-    'PingFang SC', 'Noto Sans SC', ui-monospace, system-ui, sans-serif,
-    'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-display: var(--cv-font-mono);
-  --cv-ambient: repeating-linear-gradient(
-      0deg,
-      transparent 0 2px,
-      rgba(57, 255, 139, 0.03) 2px 3px
-    ),
-    radial-gradient(circle, rgba(57, 255, 139, 0.045) 1px, transparent 1px);
+  --cv-font-display: var(--cv-font-sans);
+  --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: #1d3a2f;
-  --cv-selection-fg: #05080a;
+  --cv-scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --cv-selection-fg: #ffffff;
 }
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #eef4f0;
-    --cv-bg-secondary: #e2ebe5;
-    --cv-surface: rgba(26, 127, 55, 0.08);
+    --cv-bg-primary: #fafafa;
+    --cv-bg-secondary: #ffffff;
+    --cv-surface: rgba(0, 0, 0, 0.03);
     --cv-surface-elevated: #ffffff;
     --cv-surface-card: #ffffff;
-    --cv-primary: #1a7f37;
-    --cv-secondary: #9a6700;
-    --cv-text-primary: #0d1a12;
-    --cv-text-secondary: #4d6356;
-    --cv-border-subtle: #c5d4cb;
-    --cv-border-strong: #8fad9a;
-    --cv-border-focus: var(--cv-primary);
+    --cv-primary: #2563eb;
+    --cv-secondary: #71717a;
+    --cv-text-primary: #09090b;
+    --cv-text-secondary: #71717a;
+    --cv-border-subtle: rgba(0, 0, 0, 0.08);
+    --cv-border-strong: rgba(0, 0, 0, 0.12);
+    --cv-border-focus: #2563eb;
     --cv-effect-blur: 0px;
     --cv-effect-glow: none;
-    --cv-radius-sm: 1px;
-    --cv-radius-md: 2px;
-    --cv-radius-lg: 2px;
-    --cv-radius-float: 2px;
+    --cv-radius-sm: 8px;
+    --cv-radius-md: 10px;
+    --cv-radius-lg: 12px;
+    --cv-radius-float: 12px;
+    --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+      'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
+      'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
     --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
       monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-sans: 'JetBrains Mono', 'Microsoft YaHei UI', 'Microsoft YaHei',
-      'PingFang SC', 'Noto Sans SC', ui-monospace, system-ui, sans-serif,
-      'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-display: var(--cv-font-mono);
-    --cv-ambient: repeating-linear-gradient(
-        0deg,
-        transparent 0 2px,
-        rgba(26, 127, 55, 0.04) 2px 3px
-      ),
-      radial-gradient(circle, rgba(26, 127, 55, 0.05) 1px, transparent 1px);
+    --cv-font-display: var(--cv-font-sans);
+    --cv-ambient: none;
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: #8fad9a;
-    --cv-selection-fg: #f6fff8;
+    --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+    --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #eef4f0;
-  --cv-bg-secondary: #e2ebe5;
-  --cv-surface: rgba(26, 127, 55, 0.08);
+  --cv-bg-primary: #fafafa;
+  --cv-bg-secondary: #ffffff;
+  --cv-surface: rgba(0, 0, 0, 0.03);
   --cv-surface-elevated: #ffffff;
   --cv-surface-card: #ffffff;
-  --cv-primary: #1a7f37;
-  --cv-secondary: #9a6700;
-  --cv-text-primary: #0d1a12;
-  --cv-text-secondary: #4d6356;
-  --cv-border-subtle: #c5d4cb;
-  --cv-border-strong: #8fad9a;
-  --cv-border-focus: var(--cv-primary);
+  --cv-primary: #2563eb;
+  --cv-secondary: #71717a;
+  --cv-text-primary: #09090b;
+  --cv-text-secondary: #71717a;
+  --cv-border-subtle: rgba(0, 0, 0, 0.08);
+  --cv-border-strong: rgba(0, 0, 0, 0.12);
+  --cv-border-focus: #2563eb;
   --cv-effect-blur: 0px;
   --cv-effect-glow: none;
-  --cv-radius-sm: 1px;
-  --cv-radius-md: 2px;
-  --cv-radius-lg: 2px;
-  --cv-radius-float: 2px;
+  --cv-radius-sm: 8px;
+  --cv-radius-md: 10px;
+  --cv-radius-lg: 12px;
+  --cv-radius-float: 12px;
+  --cv-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+    'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif,
+    'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
   --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
     monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-sans: 'JetBrains Mono', 'Microsoft YaHei UI', 'Microsoft YaHei',
-    'PingFang SC', 'Noto Sans SC', ui-monospace, system-ui, sans-serif,
-    'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-display: var(--cv-font-mono);
-  --cv-ambient: repeating-linear-gradient(
-      0deg,
-      transparent 0 2px,
-      rgba(26, 127, 55, 0.04) 2px 3px
-    ),
-    radial-gradient(circle, rgba(26, 127, 55, 0.05) 1px, transparent 1px);
+  --cv-font-display: var(--cv-font-sans);
+  --cv-ambient: none;
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: #8fad9a;
-  --cv-selection-fg: #f6fff8;
-}
-
-html body .base-page .base-container,
-html body .base-container {
-  background-size: auto, 14px 14px !important;
+  --cv-scrollbar-thumb: rgba(0, 0, 0, 0.18);
+  --cv-selection-fg: #ffffff;
 }
 
 html body {
-  font-family: var(--cv-font-mono);
+  font-family: var(--cv-font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 html body .MuiPaper-root.layout,
 html body .layout {
-  border: 1px solid var(--cv-border-strong) !important;
-  border-style: solid !important;
+  border: 1px solid var(--cv-border-subtle) !important;
   box-shadow: none !important;
-  border-radius: 2px !important;
   background: var(--cv-bg-primary) !important;
+  border-radius: var(--cv-radius-md) !important;
 }
 
-
 html body .layout .layout-content__left {
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 18px,
-      rgba(57, 255, 139, 0.04) 18px 19px
-    ),
-    var(--cv-bg-secondary) !important;
-  border-right: 1px dashed var(--cv-border-strong) !important;
-  box-shadow: inset 2px 0 0 var(--cv-primary) !important;
+  background: var(--cv-bg-secondary) !important;
+  border-right: 1px solid var(--cv-border-subtle) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 html body .the-menu {
-  padding: 6px;
+  padding: 8px;
 }
 
 html body .the-menu .MuiListItemButton-root {
   position: relative;
-  border-radius: 1px !important;
-  margin-bottom: 2px;
-  border: 1px solid transparent;
-  border-left: 2px solid transparent;
-  padding-left: 26px !important;
+  border-radius: var(--cv-radius-sm) !important;
+  margin: 2px 6px;
+  border: none !important;
+  border-left: 3px solid transparent !important;
+  padding-left: 12px !important;
   min-height: 36px;
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
-  transition: background 120ms linear, border-color 120ms linear, color 120ms linear;
+  font-family: var(--cv-font-sans) !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.01em;
+  text-transform: none !important;
+  transition: background 180ms var(--cv-motion-ease),
+    border-color 180ms var(--cv-motion-ease);
 }
 
 html body .the-menu .MuiListItemButton-root::before {
-  content: '>';
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: var(--cv-font-mono);
-  font-size: 11px;
-  color: transparent;
+  content: none !important;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
-  background-color: rgba(57, 255, 139, 0.06) !important;
-  border-color: var(--cv-border-subtle);
-}
-
-html body .the-menu .MuiListItemButton-root:hover::before {
-  color: var(--cv-secondary);
+  background: var(--cv-surface) !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
   border-left-color: var(--cv-primary) !important;
-  border-color: var(--cv-border-strong) !important;
-  background: rgba(57, 255, 139, 0.1) !important;
+  background: color-mix(in srgb, var(--cv-primary) 10%, transparent) !important;
   box-shadow: none !important;
-}
-
-html body .the-menu .MuiListItemButton-root.Mui-selected::before {
-  content: '$';
-  color: var(--cv-primary);
-  font-weight: 700;
-  animation: cv-ai-caret 1s steps(1) infinite;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   color: var(--cv-primary) !important;
-  font-weight: 700;
+  font-weight: 600;
   text-shadow: none !important;
+  animation: none !important;
 }
 
 html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.75rem !important;
+  font-family: var(--cv-font-sans) !important;
+  font-size: 0.875rem !important;
 }
 
 html body .the-logo {
   filter: none;
-  opacity: 0.9;
+  opacity: 1;
 }
 
-
 html body .base-page > header {
-  padding: 10px 12px !important;
-  border-bottom: 1px dashed var(--cv-border-strong) !important;
-  background: var(--cv-bg-secondary) !important;
+  padding: 14px 16px !important;
+  border-bottom: 1px solid var(--cv-border-subtle) !important;
+  background: var(--cv-bg-primary) !important;
   box-shadow: none !important;
 }
 
 html body .base-page > header .MuiTypography-root {
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.75rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em;
-  text-transform: lowercase;
+  font-family: var(--cv-font-sans) !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+  text-transform: none !important;
 }
 
 html body .base-page > header .MuiTypography-root::before {
-  content: '// ';
-  color: var(--cv-secondary);
-  letter-spacing: 0.08em;
+  content: none !important;
 }
 
 
@@ -384,29 +332,16 @@ html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
-  --cv-tick: var(--cv-border-strong);
   position: relative !important;
   background-color: var(--cv-surface-card) !important;
-  background-image:
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)) !important;
-  background-size: 10px 1px, 1px 10px, 10px 1px, 1px 10px, 10px 1px, 1px 10px,
-    10px 1px, 1px 10px !important;
-  background-position: left top, left top, right top, right top, left bottom,
-    left bottom, right bottom, right bottom !important;
-  background-repeat: no-repeat !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  border-radius: 2px !important;
+  background-image: none !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
   box-shadow: none !important;
   clip-path: none !important;
   overflow: hidden !important;
-  transition: border-color 120ms linear, background-color 120ms linear;
+  transition: border-color 180ms var(--cv-motion-ease),
+    background-color 180ms var(--cv-motion-ease);
 }
 
 html body .enhanced-card:hover,
@@ -414,59 +349,33 @@ html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
 html body .enhanced-card:focus-within,
 html body .cv-card:focus-within {
-  --cv-tick: var(--cv-primary);
   transform: none !important;
-  border-color: var(--cv-primary) !important;
-  background-color: color-mix(
-    in srgb,
-    var(--cv-surface-card) 90%,
-    var(--cv-primary)
-  ) !important;
+  border-color: var(--cv-border-strong) !important;
+  background-color: var(--cv-surface-elevated) !important;
   box-shadow: none !important;
 }
 
+html body .enhanced-card::before,
+html body .cv-card::before,
 html body .enhanced-card::after,
 html body .cv-card::after {
   content: none !important;
-}
-
-html body .enhanced-card::before,
-html body .cv-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: transparent;
-  transition: background 120ms linear;
-}
-
-html body .enhanced-card:hover::before,
-html body .cv-card:hover::before,
-html body .enhanced-card:focus-within::before,
-html body .cv-card:focus-within::before {
-  background: repeating-linear-gradient(
-    90deg,
-    var(--cv-primary) 0 4px,
-    transparent 4px 8px
-  );
-  animation: cv-ai-channel 1.6s linear infinite;
+  animation: none !important;
 }
 
 html body .enhanced-card .MuiTypography-h6,
 html body .cv-card .MuiTypography-h6,
 html body .enhanced-card .MuiTypography-subtitle1 {
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.6875rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.1em;
-  text-transform: lowercase;
+  font-family: var(--cv-font-sans) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  text-transform: none !important;
   color: var(--cv-text-secondary) !important;
 }
 
 html body .base-content .MuiTypography-root {
-  font-family: var(--cv-font-mono);
+  font-family: var(--cv-font-sans);
   text-shadow: none !important;
   color: var(--cv-text-primary) !important;
 }
@@ -478,60 +387,66 @@ html body .base-content .MuiTypography-body2 {
 
 html body .base-content .MuiPaper-root:not(.layout) {
   background: var(--cv-surface-elevated) !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  border-radius: 2px !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
   box-shadow: none !important;
 }
 
 html body .base-content .MuiDivider-root {
-  border-style: dashed !important;
+  border-style: solid !important;
   border-color: var(--cv-border-subtle) !important;
 }
 
 html body .MuiButton-root {
-  border-radius: 1px !important;
-  text-transform: lowercase !important;
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.06em;
+  border-radius: var(--cv-radius-sm) !important;
+  text-transform: none !important;
+  font-family: var(--cv-font-sans) !important;
+  font-weight: 550 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.01em;
   box-shadow: none !important;
+  transition: background 180ms var(--cv-motion-ease), opacity 180ms ease;
 }
 
 html body .MuiButton-containedPrimary {
   background: var(--cv-primary) !important;
-  color: #05080a !important;
-  font-weight: 700;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+html body .MuiButton-containedPrimary:hover {
+  filter: brightness(1.06);
   box-shadow: none !important;
 }
 
 html body .MuiButton-outlinedPrimary,
 html body .MuiButton-outlined {
-  border: 1px dashed var(--cv-border-strong) !important;
-  color: var(--cv-primary) !important;
+  border: 1px solid var(--cv-border-strong) !important;
+  color: var(--cv-text-primary) !important;
   background: transparent !important;
 }
 
 html body .MuiChip-root {
-  border-radius: 1px !important;
-  font-family: var(--cv-font-mono) !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  background: transparent !important;
+  border-radius: 999px !important;
+  font-family: var(--cv-font-sans) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  background: var(--cv-surface) !important;
 }
 
 html body .the-traffic {
   position: relative;
   display: block;
-  margin: 8px 6px 12px;
-  padding: 10px 12px 12px 14px;
-  border: 1px solid var(--cv-border-strong);
-  border-radius: 2px;
-  background: #05080a;
+  margin: 10px 10px 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--cv-border-subtle);
+  border-radius: var(--cv-radius-md);
+  background: var(--cv-surface-card);
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9375rem;
-  letter-spacing: 0.04em;
-  color: var(--cv-primary) !important;
+  letter-spacing: 0;
+  color: var(--cv-text-primary) !important;
   box-shadow: none;
   text-shadow: none !important;
   clip-path: none !important;
@@ -539,61 +454,58 @@ html body .the-traffic {
 }
 
 html body .the-traffic::before {
-  content: '$ thruput --watch';
+  content: 'Throughput';
   display: block;
-  margin-bottom: 6px;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  color: var(--cv-secondary);
-  text-shadow: none;
+  margin-bottom: 4px;
+  font-family: var(--cv-font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--cv-text-secondary);
+  text-transform: none;
 }
 
 html body .the-traffic::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--cv-primary);
-  animation: cv-ai-bar 2s steps(2) infinite;
-  box-shadow: none;
+  content: none !important;
+  display: none !important;
+  animation: none !important;
 }
 
 html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-weight: 600;
   text-shadow: none !important;
-  color: var(--cv-primary) !important;
+  color: var(--cv-text-primary) !important;
 }
 
 html body .MuiLinearProgress-root {
-  border-radius: 0 !important;
-  background: var(--cv-border-subtle) !important;
-  height: 4px !important;
+  border-radius: 999px !important;
+  background: var(--cv-surface) !important;
+  height: 6px !important;
 }
 
 html body .MuiLinearProgress-bar {
   background: var(--cv-primary) !important;
   box-shadow: none !important;
+  border-radius: 999px !important;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
-  border-radius: 2px !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  box-shadow: none !important;
+  border-radius: var(--cv-radius-lg) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18) !important;
   background: var(--cv-surface-elevated) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked {
-  color: #05080a !important;
+  color: #ffffff !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
-  background-color: #05080a !important;
-  box-shadow: none !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
@@ -603,9 +515,9 @@ html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
 }
 
 html body .MuiOutlinedInput-root {
-  border-radius: 1px !important;
-  font-family: var(--cv-font-mono) !important;
-  background: #05080a !important;
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-sans) !important;
+  background: var(--cv-surface) !important;
 }
 
 html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
@@ -615,7 +527,7 @@ html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
 
 html body .MuiOutlinedInput-input::placeholder {
   color: var(--cv-text-secondary) !important;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 html body .MuiChip-colorSuccess,
@@ -656,43 +568,17 @@ html body [class*='latency-error'] {
   color: var(--cv-latency-timeout) !important;
 }
 
-@keyframes cv-ai-caret {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0.15;
-  }
-}
-
-@keyframes cv-ai-channel {
-  0% {
-    background-position: 0% 0;
-  }
-  100% {
-    background-position: 100% 0;
-  }
-}
-
-@keyframes cv-ai-bar {
-  0%,
-  100% {
-    opacity: 0.55;
-    box-shadow: none;
-  }
-  50% {
-    opacity: 1;
-  }
+html body .MuiCircularProgress-root,
+html body [class*='loading'] {
+  color: var(--cv-primary) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html body .the-menu .MuiListItemButton-root.Mui-selected::before,
-  html body .enhanced-card:hover::before,
-  html body .cv-card:hover::before,
-  html body .the-traffic::after {
-    animation: none !important;
+  html body .enhanced-card,
+  html body .cv-card,
+  html body .MuiButton-root,
+  html body .the-menu .MuiListItemButton-root {
+    transition: none !important;
   }
 }
 

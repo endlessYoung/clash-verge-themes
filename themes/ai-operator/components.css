@@ -1,160 +1,115 @@
 /**
  * Theme: AI Operator — components.css
- * Spec 14 neo-terminal: mono-first, corner ticks, amber process accent,
- * zero neon bloom / no chamfer / no cyan-magenta.
+ * Spec 15 Agent desk — Linear / Cursor / Operator clean product UI.
+ * No terminal phosphor, no $, no cyberpunk.
  */
 
-html body .base-page .base-container,
-html body .base-container {
-  background-size: auto, 14px 14px !important;
-}
-
 html body {
-  font-family: var(--cv-font-mono);
+  font-family: var(--cv-font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 html body .MuiPaper-root.layout,
 html body .layout {
-  border: 1px solid var(--cv-border-strong) !important;
-  border-style: solid !important;
+  border: 1px solid var(--cv-border-subtle) !important;
   box-shadow: none !important;
-  border-radius: 2px !important;
   background: var(--cv-bg-primary) !important;
+  border-radius: var(--cv-radius-md) !important;
 }
 
-/* Sidebar: matrix rows + flat primary rail — not luminous triad */
 html body .layout .layout-content__left {
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 18px,
-      rgba(57, 255, 139, 0.04) 18px 19px
-    ),
-    var(--cv-bg-secondary) !important;
-  border-right: 1px dashed var(--cv-border-strong) !important;
-  box-shadow: inset 2px 0 0 var(--cv-primary) !important;
+  background: var(--cv-bg-secondary) !important;
+  border-right: 1px solid var(--cv-border-subtle) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 html body .the-menu {
-  padding: 6px;
+  padding: 8px;
 }
 
 html body .the-menu .MuiListItemButton-root {
   position: relative;
-  border-radius: 1px !important;
-  margin-bottom: 2px;
-  border: 1px solid transparent;
-  border-left: 2px solid transparent;
-  padding-left: 26px !important;
+  border-radius: var(--cv-radius-sm) !important;
+  margin: 2px 6px;
+  border: none !important;
+  border-left: 3px solid transparent !important;
+  padding-left: 12px !important;
   min-height: 36px;
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
-  transition: background 120ms linear, border-color 120ms linear, color 120ms linear;
+  font-family: var(--cv-font-sans) !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.01em;
+  text-transform: none !important;
+  transition: background 180ms var(--cv-motion-ease),
+    border-color 180ms var(--cv-motion-ease);
 }
 
 html body .the-menu .MuiListItemButton-root::before {
-  content: '>';
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: var(--cv-font-mono);
-  font-size: 11px;
-  color: transparent;
+  content: none !important;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
-  background-color: rgba(57, 255, 139, 0.06) !important;
-  border-color: var(--cv-border-subtle);
-}
-
-html body .the-menu .MuiListItemButton-root:hover::before {
-  color: var(--cv-secondary);
+  background: var(--cv-surface) !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
   border-left-color: var(--cv-primary) !important;
-  border-color: var(--cv-border-strong) !important;
-  background: rgba(57, 255, 139, 0.1) !important;
+  background: color-mix(in srgb, var(--cv-primary) 10%, transparent) !important;
   box-shadow: none !important;
-}
-
-html body .the-menu .MuiListItemButton-root.Mui-selected::before {
-  content: '$';
-  color: var(--cv-primary);
-  font-weight: 700;
-  animation: cv-ai-caret 1s steps(1) infinite;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
   color: var(--cv-primary) !important;
-  font-weight: 700;
+  font-weight: 600;
   text-shadow: none !important;
+  animation: none !important;
 }
 
 html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.75rem !important;
+  font-family: var(--cv-font-sans) !important;
+  font-size: 0.875rem !important;
 }
 
 html body .the-logo {
   filter: none;
-  opacity: 0.9;
+  opacity: 1;
 }
 
-/* Header = terminal title bar */
 html body .base-page > header {
-  padding: 10px 12px !important;
-  border-bottom: 1px dashed var(--cv-border-strong) !important;
-  background: var(--cv-bg-secondary) !important;
+  padding: 14px 16px !important;
+  border-bottom: 1px solid var(--cv-border-subtle) !important;
+  background: var(--cv-bg-primary) !important;
   box-shadow: none !important;
 }
 
 html body .base-page > header .MuiTypography-root {
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.75rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em;
-  text-transform: lowercase;
+  font-family: var(--cv-font-sans) !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+  text-transform: none !important;
 }
 
 html body .base-page > header .MuiTypography-root::before {
-  content: '// ';
-  color: var(--cv-secondary);
-  letter-spacing: 0.08em;
+  content: none !important;
 }
 
-/* Cards: square panes + corner ticks (neo-terminal), no chamfer/glow */
+/* Workspace cards — flat elevated, hairline only */
 html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
-  --cv-tick: var(--cv-border-strong);
   position: relative !important;
   background-color: var(--cv-surface-card) !important;
-  background-image:
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)),
-    linear-gradient(var(--cv-tick), var(--cv-tick)) !important;
-  background-size: 10px 1px, 1px 10px, 10px 1px, 1px 10px, 10px 1px, 1px 10px,
-    10px 1px, 1px 10px !important;
-  background-position: left top, left top, right top, right top, left bottom,
-    left bottom, right bottom, right bottom !important;
-  background-repeat: no-repeat !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  border-radius: 2px !important;
+  background-image: none !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
   box-shadow: none !important;
   clip-path: none !important;
   overflow: hidden !important;
-  transition: border-color 120ms linear, background-color 120ms linear;
+  transition: border-color 180ms var(--cv-motion-ease),
+    background-color 180ms var(--cv-motion-ease);
 }
 
 html body .enhanced-card:hover,
@@ -162,59 +117,33 @@ html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
 html body .enhanced-card:focus-within,
 html body .cv-card:focus-within {
-  --cv-tick: var(--cv-primary);
   transform: none !important;
-  border-color: var(--cv-primary) !important;
-  background-color: color-mix(
-    in srgb,
-    var(--cv-surface-card) 90%,
-    var(--cv-primary)
-  ) !important;
+  border-color: var(--cv-border-strong) !important;
+  background-color: var(--cv-surface-elevated) !important;
   box-shadow: none !important;
 }
 
+html body .enhanced-card::before,
+html body .cv-card::before,
 html body .enhanced-card::after,
 html body .cv-card::after {
   content: none !important;
-}
-
-html body .enhanced-card::before,
-html body .cv-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: transparent;
-  transition: background 120ms linear;
-}
-
-html body .enhanced-card:hover::before,
-html body .cv-card:hover::before,
-html body .enhanced-card:focus-within::before,
-html body .cv-card:focus-within::before {
-  background: repeating-linear-gradient(
-    90deg,
-    var(--cv-primary) 0 4px,
-    transparent 4px 8px
-  );
-  animation: cv-ai-channel 1.6s linear infinite;
+  animation: none !important;
 }
 
 html body .enhanced-card .MuiTypography-h6,
 html body .cv-card .MuiTypography-h6,
 html body .enhanced-card .MuiTypography-subtitle1 {
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.6875rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.1em;
-  text-transform: lowercase;
+  font-family: var(--cv-font-sans) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  text-transform: none !important;
   color: var(--cv-text-secondary) !important;
 }
 
 html body .base-content .MuiTypography-root {
-  font-family: var(--cv-font-mono);
+  font-family: var(--cv-font-sans);
   text-shadow: none !important;
   color: var(--cv-text-primary) !important;
 }
@@ -226,60 +155,66 @@ html body .base-content .MuiTypography-body2 {
 
 html body .base-content .MuiPaper-root:not(.layout) {
   background: var(--cv-surface-elevated) !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  border-radius: 2px !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
   box-shadow: none !important;
 }
 
 html body .base-content .MuiDivider-root {
-  border-style: dashed !important;
+  border-style: solid !important;
   border-color: var(--cv-border-subtle) !important;
 }
 
 html body .MuiButton-root {
-  border-radius: 1px !important;
-  text-transform: lowercase !important;
-  font-family: var(--cv-font-mono) !important;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.06em;
+  border-radius: var(--cv-radius-sm) !important;
+  text-transform: none !important;
+  font-family: var(--cv-font-sans) !important;
+  font-weight: 550 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.01em;
   box-shadow: none !important;
+  transition: background 180ms var(--cv-motion-ease), opacity 180ms ease;
 }
 
 html body .MuiButton-containedPrimary {
   background: var(--cv-primary) !important;
-  color: #05080a !important;
-  font-weight: 700;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+html body .MuiButton-containedPrimary:hover {
+  filter: brightness(1.06);
   box-shadow: none !important;
 }
 
 html body .MuiButton-outlinedPrimary,
 html body .MuiButton-outlined {
-  border: 1px dashed var(--cv-border-strong) !important;
-  color: var(--cv-primary) !important;
+  border: 1px solid var(--cv-border-strong) !important;
+  color: var(--cv-text-primary) !important;
   background: transparent !important;
 }
 
 html body .MuiChip-root {
-  border-radius: 1px !important;
-  font-family: var(--cv-font-mono) !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  background: transparent !important;
+  border-radius: 999px !important;
+  font-family: var(--cv-font-sans) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  background: var(--cv-surface) !important;
 }
 
 html body .the-traffic {
   position: relative;
   display: block;
-  margin: 8px 6px 12px;
-  padding: 10px 12px 12px 14px;
-  border: 1px solid var(--cv-border-strong);
-  border-radius: 2px;
-  background: #05080a;
+  margin: 10px 10px 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--cv-border-subtle);
+  border-radius: var(--cv-radius-md);
+  background: var(--cv-surface-card);
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9375rem;
-  letter-spacing: 0.04em;
-  color: var(--cv-primary) !important;
+  letter-spacing: 0;
+  color: var(--cv-text-primary) !important;
   box-shadow: none;
   text-shadow: none !important;
   clip-path: none !important;
@@ -287,61 +222,58 @@ html body .the-traffic {
 }
 
 html body .the-traffic::before {
-  content: '$ thruput --watch';
+  content: 'Throughput';
   display: block;
-  margin-bottom: 6px;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  color: var(--cv-secondary);
-  text-shadow: none;
+  margin-bottom: 4px;
+  font-family: var(--cv-font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--cv-text-secondary);
+  text-transform: none;
 }
 
 html body .the-traffic::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--cv-primary);
-  animation: cv-ai-bar 2s steps(2) infinite;
-  box-shadow: none;
+  content: none !important;
+  display: none !important;
+  animation: none !important;
 }
 
 html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
+  font-weight: 600;
   text-shadow: none !important;
-  color: var(--cv-primary) !important;
+  color: var(--cv-text-primary) !important;
 }
 
 html body .MuiLinearProgress-root {
-  border-radius: 0 !important;
-  background: var(--cv-border-subtle) !important;
-  height: 4px !important;
+  border-radius: 999px !important;
+  background: var(--cv-surface) !important;
+  height: 6px !important;
 }
 
 html body .MuiLinearProgress-bar {
   background: var(--cv-primary) !important;
   box-shadow: none !important;
+  border-radius: 999px !important;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
-  border-radius: 2px !important;
-  border: 1px solid var(--cv-border-strong) !important;
-  box-shadow: none !important;
+  border-radius: var(--cv-radius-lg) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18) !important;
   background: var(--cv-surface-elevated) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked {
-  color: #05080a !important;
+  color: #ffffff !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
-  background-color: #05080a !important;
-  box-shadow: none !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
@@ -351,9 +283,9 @@ html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
 }
 
 html body .MuiOutlinedInput-root {
-  border-radius: 1px !important;
-  font-family: var(--cv-font-mono) !important;
-  background: #05080a !important;
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-sans) !important;
+  background: var(--cv-surface) !important;
 }
 
 html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
@@ -363,5 +295,5 @@ html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
 
 html body .MuiOutlinedInput-input::placeholder {
   color: var(--cv-text-secondary) !important;
-  opacity: 0.8;
+  opacity: 0.85;
 }

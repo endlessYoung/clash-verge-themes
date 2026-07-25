@@ -1,44 +1,18 @@
 /**
  * Theme: AI Operator — animation.css
- * Spec 12: caret pulse, channel bar, hover row — no neon bloom.
+ * Skill: fade / progress 150–300ms. No caret / channel spectacles.
  */
 
-@keyframes cv-ai-caret {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0.15;
-  }
-}
-
-@keyframes cv-ai-channel {
-  0% {
-    background-position: 0% 0;
-  }
-  100% {
-    background-position: 100% 0;
-  }
-}
-
-@keyframes cv-ai-bar {
-  0%,
-  100% {
-    opacity: 0.55;
-    box-shadow: none;
-  }
-  50% {
-    opacity: 1;
-  }
+html body .MuiCircularProgress-root,
+html body [class*='loading'] {
+  color: var(--cv-primary) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html body .the-menu .MuiListItemButton-root.Mui-selected::before,
-  html body .enhanced-card:hover::before,
-  html body .cv-card:hover::before,
-  html body .the-traffic::after {
-    animation: none !important;
+  html body .enhanced-card,
+  html body .cv-card,
+  html body .MuiButton-root,
+  html body .the-menu .MuiListItemButton-root {
+    transition: none !important;
   }
 }

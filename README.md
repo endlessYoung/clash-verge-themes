@@ -15,8 +15,8 @@ Injectable CSS themes for
 
 | Theme | Dist | Atmosphere |
 |-------|------|------------|
-| **Cyber Nexus** | `dist/cyber-nexus.css` | Cyberpunk HUD — chamfer, cyan/magenta/green, glow, Orbitron chrome |
-| **AI Operator** | `dist/ai-operator.css` | Neo-terminal — phosphor+amber only, mono-first, corner ticks, zero bloom |
+| **Cyber Nexus** | `dist/cyber-nexus.css` | Neural OS — cyan signal, purple secondary, glass layers (skill) |
+| **AI Operator** | `dist/ai-operator.css` | Agent desk — Linear/Cursor blue, zinc surfaces (skill) |
 | **Aurora Glass** | `dist/aurora-glass.css` | Spatial glass — aurora wash, pill lift |
 | **Apple Classic** | `dist/apple-classic.css` | iOS Settings HIG — list groups, green toggles, frosted header |
 | **Apple Liquid Glass** | `dist/apple-liquid.css` | Same HIG tokens + frosted liquid materials, float/press |

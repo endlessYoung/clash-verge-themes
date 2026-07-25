@@ -2,7 +2,7 @@
  * Spec 12 five-theme bold redesign. Build: node scripts/build-dist.mjs
  */
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 
 @font-face {
   font-family: 'cv-emoji';
@@ -106,347 +106,262 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    --cv-bg-primary: #07060f;
-    --cv-bg-secondary: #0c0b16;
-    --cv-surface: rgba(0, 255, 136, 0.05);
-    --cv-surface-elevated: #141322;
-    --cv-surface-card: #161428;
-    --cv-primary: #00ff88;
-    --cv-secondary: #ff00ff;
-    --cv-text-primary: #f2fff8;
-    --cv-text-secondary: #b4c4d4;
-    --cv-border-subtle: rgba(0, 212, 255, 0.14);
-    --cv-border-strong: rgba(0, 255, 136, 0.28);
+    --cv-bg-primary: #05070d;
+    --cv-bg-secondary: #0b1120;
+    --cv-surface: rgba(0, 229, 255, 0.06);
+    --cv-surface-elevated: #111827;
+    --cv-surface-card: #111827;
+    --cv-primary: #00e5ff;
+    --cv-secondary: #8b5cf6;
+    --cv-text-primary: #e8eef9;
+    --cv-text-secondary: #94a3b8;
+    --cv-border-subtle: rgba(0, 229, 255, 0.12);
+    --cv-border-strong: rgba(0, 229, 255, 0.22);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 0px;
-    --cv-effect-glow: 0 0 24px rgba(0, 255, 136, 0.35);
-    --cv-hud-bracket: rgba(0, 212, 255, 0.5);
-    --cv-hud-bracket-strong: rgba(0, 212, 255, 0.95);
-    --cv-hud-grid: rgba(0, 255, 136, 0.05);
-    --cv-phosphor: #d4ffe8;
-    --cv-plasma: #ff00ff;
-    --cv-cyan: #00d4ff;
-    --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-radius-sm: 0px;
-    --cv-radius-md: 0px;
-    --cv-radius-lg: 0px;
-    --cv-ambient: repeating-linear-gradient(
-        0deg,
-        transparent 0 2px,
-        rgba(0, 255, 136, 0.02) 2px 3px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 16px,
-        var(--cv-hud-grid) 16px 17px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 16px,
-        rgba(0, 212, 255, 0.03) 16px 17px
+    --cv-effect-blur: 16px;
+    --cv-effect-glow: 0 0 20px rgba(0, 229, 255, 0.18);
+    --cv-radius-sm: 6px;
+    --cv-radius-md: 10px;
+    --cv-radius-lg: 16px;
+    --cv-radius-float: 16px;
+    --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+      'Noto Sans SC', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
+      'Apple Color Emoji';
+    --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
+      monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
+    --cv-ambient: radial-gradient(
+        70% 45% at 10% 0%,
+        rgba(0, 229, 255, 0.07),
+        transparent 55%
       ),
       radial-gradient(
-        80% 50% at 50% 0%,
-        rgba(0, 255, 136, 0.05),
-        transparent 55%
+        55% 40% at 90% 10%,
+        rgba(139, 92, 246, 0.06),
+        transparent 50%
       );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(0, 255, 136, 0.35);
-    --cv-selection-fg: #04140c;
+    --cv-scrollbar-thumb: rgba(0, 229, 255, 0.28);
+    --cv-selection-fg: #041018;
   }
 }
 
 html[data-theme='dark'] body {
-  --cv-bg-primary: #07060f;
-  --cv-bg-secondary: #0c0b16;
-  --cv-surface: rgba(0, 255, 136, 0.05);
-  --cv-surface-elevated: #141322;
-  --cv-surface-card: #161428;
-  --cv-primary: #00ff88;
-  --cv-secondary: #ff00ff;
-  --cv-text-primary: #f2fff8;
-  --cv-text-secondary: #b4c4d4;
-  --cv-border-subtle: rgba(0, 212, 255, 0.14);
-  --cv-border-strong: rgba(0, 255, 136, 0.28);
+  --cv-bg-primary: #05070d;
+  --cv-bg-secondary: #0b1120;
+  --cv-surface: rgba(0, 229, 255, 0.06);
+  --cv-surface-elevated: #111827;
+  --cv-surface-card: #111827;
+  --cv-primary: #00e5ff;
+  --cv-secondary: #8b5cf6;
+  --cv-text-primary: #e8eef9;
+  --cv-text-secondary: #94a3b8;
+  --cv-border-subtle: rgba(0, 229, 255, 0.12);
+  --cv-border-strong: rgba(0, 229, 255, 0.22);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 0px;
-  --cv-effect-glow: 0 0 24px rgba(0, 255, 136, 0.35);
-  --cv-hud-bracket: rgba(0, 212, 255, 0.5);
-  --cv-hud-bracket-strong: rgba(0, 212, 255, 0.95);
-  --cv-hud-grid: rgba(0, 255, 136, 0.05);
-  --cv-phosphor: #d4ffe8;
-  --cv-plasma: #ff00ff;
-  --cv-cyan: #00d4ff;
-  --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-radius-sm: 0px;
-  --cv-radius-md: 0px;
-  --cv-radius-lg: 0px;
-  --cv-ambient: repeating-linear-gradient(
-      0deg,
-      transparent 0 2px,
-      rgba(0, 255, 136, 0.02) 2px 3px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 16px,
-      var(--cv-hud-grid) 16px 17px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 16px,
-      rgba(0, 212, 255, 0.03) 16px 17px
+  --cv-effect-blur: 16px;
+  --cv-effect-glow: 0 0 20px rgba(0, 229, 255, 0.18);
+  --cv-radius-sm: 6px;
+  --cv-radius-md: 10px;
+  --cv-radius-lg: 16px;
+  --cv-radius-float: 16px;
+  --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+    'Noto Sans SC', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
+    'Apple Color Emoji';
+  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
+    monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
+  --cv-ambient: radial-gradient(
+      70% 45% at 10% 0%,
+      rgba(0, 229, 255, 0.07),
+      transparent 55%
     ),
     radial-gradient(
-      80% 50% at 50% 0%,
-      rgba(0, 255, 136, 0.05),
-      transparent 55%
+      55% 40% at 90% 10%,
+      rgba(139, 92, 246, 0.06),
+      transparent 50%
     );
   --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(0, 255, 136, 0.35);
-  --cv-selection-fg: #04140c;
+  --cv-scrollbar-thumb: rgba(0, 229, 255, 0.28);
+  --cv-selection-fg: #041018;
 }
 
 @media (prefers-color-scheme: light) {
   body {
-    --cv-bg-primary: #e6edf2;
-    --cv-bg-secondary: #d5dee6;
-    --cv-surface: rgba(0, 140, 90, 0.08);
-    --cv-surface-elevated: #f7fafc;
+    --cv-bg-primary: #f1f5f9;
+    --cv-bg-secondary: #ffffff;
+    --cv-surface: rgba(14, 165, 233, 0.06);
+    --cv-surface-elevated: #ffffff;
     --cv-surface-card: #ffffff;
-    --cv-primary: #008f5a;
-    --cv-secondary: #b000b0;
-    --cv-text-primary: #0a1218;
-    --cv-text-secondary: #3d5160;
-    --cv-border-subtle: rgba(10, 18, 24, 0.1);
-    --cv-border-strong: rgba(0, 143, 90, 0.28);
+    --cv-primary: #0891b2;
+    --cv-secondary: #7c3aed;
+    --cv-text-primary: #0f172a;
+    --cv-text-secondary: #64748b;
+    --cv-border-subtle: rgba(8, 145, 178, 0.14);
+    --cv-border-strong: rgba(8, 145, 178, 0.28);
     --cv-border-focus: var(--cv-primary);
-    --cv-effect-blur: 0px;
-    --cv-effect-glow: none;
-    --cv-hud-bracket: rgba(0, 120, 180, 0.55);
-    --cv-hud-bracket-strong: #0078b4;
-    --cv-hud-grid: rgba(0, 143, 90, 0.06);
-    --cv-phosphor: #043d28;
-    --cv-plasma: #b000b0;
-    --cv-cyan: #0078b4;
-    --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-    --cv-radius-sm: 0px;
-    --cv-radius-md: 0px;
-    --cv-radius-lg: 0px;
-    --cv-ambient: repeating-linear-gradient(
-        0deg,
-        transparent 0 2px,
-        rgba(0, 143, 90, 0.03) 2px 3px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 16px,
-        var(--cv-hud-grid) 16px 17px
-      );
+    --cv-effect-blur: 12px;
+    --cv-effect-glow: 0 0 16px rgba(8, 145, 178, 0.12);
+    --cv-radius-sm: 6px;
+    --cv-radius-md: 10px;
+    --cv-radius-lg: 16px;
+    --cv-radius-float: 16px;
+    --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+      'Noto Sans SC', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
+      'Apple Color Emoji';
+    --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
+      monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+    --cv-font-display: var(--cv-font-sans);
+    --cv-ambient: radial-gradient(
+      70% 40% at 0% 0%,
+      rgba(8, 145, 178, 0.08),
+      transparent 55%
+    );
     --cv-scrollbar-bg: var(--cv-bg-primary);
-    --cv-scrollbar-thumb: rgba(10, 18, 24, 0.25);
-    --cv-selection-fg: #f3fff8;
+    --cv-scrollbar-thumb: rgba(15, 23, 42, 0.2);
+    --cv-selection-fg: #ffffff;
   }
 }
 
 html[data-theme='light'] body {
-  --cv-bg-primary: #e6edf2;
-  --cv-bg-secondary: #d5dee6;
-  --cv-surface: rgba(0, 140, 90, 0.08);
-  --cv-surface-elevated: #f7fafc;
+  --cv-bg-primary: #f1f5f9;
+  --cv-bg-secondary: #ffffff;
+  --cv-surface: rgba(14, 165, 233, 0.06);
+  --cv-surface-elevated: #ffffff;
   --cv-surface-card: #ffffff;
-  --cv-primary: #008f5a;
-  --cv-secondary: #b000b0;
-  --cv-text-primary: #0a1218;
-  --cv-text-secondary: #3d5160;
-  --cv-border-subtle: rgba(10, 18, 24, 0.1);
-  --cv-border-strong: rgba(0, 143, 90, 0.28);
+  --cv-primary: #0891b2;
+  --cv-secondary: #7c3aed;
+  --cv-text-primary: #0f172a;
+  --cv-text-secondary: #64748b;
+  --cv-border-subtle: rgba(8, 145, 178, 0.14);
+  --cv-border-strong: rgba(8, 145, 178, 0.28);
   --cv-border-focus: var(--cv-primary);
-  --cv-effect-blur: 0px;
-  --cv-effect-glow: none;
-  --cv-hud-bracket: rgba(0, 120, 180, 0.55);
-  --cv-hud-bracket-strong: #0078b4;
-  --cv-hud-grid: rgba(0, 143, 90, 0.06);
-  --cv-phosphor: #043d28;
-  --cv-plasma: #b000b0;
-  --cv-cyan: #0078b4;
-  --cv-font-display: 'Orbitron', ui-sans-serif, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-font-sans: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
-  --cv-radius-sm: 0px;
-  --cv-radius-md: 0px;
-  --cv-radius-lg: 0px;
-  --cv-ambient: repeating-linear-gradient(
-      0deg,
-      transparent 0 2px,
-      rgba(0, 143, 90, 0.03) 2px 3px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 16px,
-      var(--cv-hud-grid) 16px 17px
-    );
-  --cv-scrollbar-bg: var(--cv-bg-primary);
-  --cv-scrollbar-thumb: rgba(10, 18, 24, 0.25);
-  --cv-selection-fg: #f3fff8;
-}
-
-html body .MuiPaper-root.layout::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 40;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.1) 0 1px,
-      transparent 1px 5px
-    ),
-    radial-gradient(70% 50% at 100% 0%, rgba(0, 212, 255, 0.07), transparent 55%),
-    radial-gradient(60% 45% at 0% 100%, rgba(255, 0, 255, 0.05), transparent 50%);
-  mix-blend-mode: screen;
-  opacity: 0.45;
-}
-
-html body .MuiPaper-root.layout {
-  position: relative !important;
-  overflow: hidden !important;
-  background:
-    linear-gradient(155deg, rgba(0, 255, 136, 0.06), transparent 40%),
-    var(--cv-bg-primary) !important;
-  border: 1px solid rgba(0, 255, 136, 0.32) !important;
-  box-shadow:
-    inset 0 0 100px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(0, 212, 255, 0.12) !important;
-  font-family: var(--cv-font-sans);
-}
-
-html body .MuiPaper-root.layout::after {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  pointer-events: none;
-  z-index: 41;
-  border: 1px solid rgba(0, 212, 255, 0.28);
-  clip-path: polygon(
-    0 16px,
-    16px 0,
-    calc(100% - 16px) 0,
-    100% 16px,
-    100% calc(100% - 16px),
-    calc(100% - 16px) 100%,
-    16px 100%,
-    0 calc(100% - 16px)
+  --cv-effect-blur: 12px;
+  --cv-effect-glow: 0 0 16px rgba(8, 145, 178, 0.12);
+  --cv-radius-sm: 6px;
+  --cv-radius-md: 10px;
+  --cv-radius-lg: 16px;
+  --cv-radius-float: 16px;
+  --cv-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --cv-font-sans: 'Inter', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC',
+    'Noto Sans SC', system-ui, sans-serif, 'cv-emoji', 'twemoji mozilla',
+    'Apple Color Emoji';
+  --cv-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas,
+    monospace, 'cv-emoji', 'twemoji mozilla', 'Apple Color Emoji';
+  --cv-font-display: var(--cv-font-sans);
+  --cv-ambient: radial-gradient(
+    70% 40% at 0% 0%,
+    rgba(8, 145, 178, 0.08),
+    transparent 55%
   );
+  --cv-scrollbar-bg: var(--cv-bg-primary);
+  --cv-scrollbar-thumb: rgba(15, 23, 42, 0.2);
+  --cv-selection-fg: #ffffff;
 }
 
-html body .layout .layout-content__right {
-  position: relative !important;
+html body {
+  font-family: var(--cv-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+html body .MuiPaper-root.layout,
+html body .layout {
+  border: 1px solid var(--cv-border-subtle) !important;
+  box-shadow: none !important;
+  background: var(--cv-bg-primary) !important;
+  border-radius: var(--cv-radius-md) !important;
+  overflow: hidden !important;
+}
+
+html body .MuiPaper-root.layout::before,
+html body .MuiPaper-root.layout::after {
+  content: none !important;
 }
 
 html body .layout .layout-content__right::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -30%;
-  width: 24%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 3;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 255, 136, 0.04),
-    rgba(0, 212, 255, 0.06),
-    transparent
-  );
-  animation: cv-content-sweep 8s ease-in-out infinite;
+  content: none !important;
 }
 
-
 html body .layout .layout-content__left {
-  background:
-    linear-gradient(180deg, rgba(0, 255, 136, 0.07), transparent 30%),
-    repeating-linear-gradient(
-      180deg,
-      transparent 0 28px,
-      rgba(0, 212, 255, 0.035) 28px 29px
-    ),
-    var(--cv-bg-secondary) !important;
-  border-right: 1px solid rgba(0, 255, 136, 0.2) !important;
-  box-shadow: inset 2px 0 0 rgba(0, 255, 136, 0.4) !important;
+  background: color-mix(in srgb, var(--cv-bg-secondary) 92%, transparent) !important;
+  border-right: 1px solid var(--cv-border-subtle) !important;
+  backdrop-filter: blur(var(--cv-effect-blur));
+  -webkit-backdrop-filter: blur(var(--cv-effect-blur));
+  box-shadow: none !important;
 }
 
 html body .the-menu {
-  padding: 10px 8px;
+  padding: 8px;
 }
 
 html body .the-menu .MuiListItemButton-root {
-  position: relative;
-  border-radius: 0 !important;
-  margin-bottom: 6px;
+  border-radius: var(--cv-radius-sm) !important;
+  margin: 2px 6px;
   border: 1px solid transparent;
-  border-left: 3px solid transparent;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  border-left: none !important;
+  clip-path: none !important;
   font-family: var(--cv-font-sans);
   font-size: 0.875rem;
-  letter-spacing: 0.02em;
-  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-}
-
-html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
-  font-family: var(--cv-font-sans) !important;
-  text-shadow: none !important;
+  letter-spacing: -0.01em;
   text-transform: none;
-}
-
-html body .the-menu .MuiListItemButton-root.Mui-selected::after {
-  content: '';
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  transform: translateY(-50%) rotate(45deg);
-  background: #ff00ff;
-  box-shadow: 0 0 8px #ff00ff;
+  transition: background 200ms var(--cv-motion-ease),
+    border-color 200ms var(--cv-motion-ease),
+    box-shadow 200ms var(--cv-motion-ease);
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
-  background: rgba(0, 212, 255, 0.1) !important;
-  border-color: rgba(0, 212, 255, 0.35);
-  box-shadow: 0 0 18px rgba(0, 212, 255, 0.12);
+  background: var(--cv-surface) !important;
+  border-color: var(--cv-border-subtle);
+  box-shadow: none;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected {
-  border-left-color: #00ff88 !important;
-  border-color: rgba(0, 255, 136, 0.55) !important;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 255, 136, 0.3),
-    rgba(0, 212, 255, 0.08) 50%,
-    transparent
-  ) !important;
-  box-shadow:
-    0 0 26px rgba(0, 255, 136, 0.28),
-    inset 0 0 20px rgba(0, 255, 136, 0.08) !important;
+  background: color-mix(in srgb, var(--cv-primary) 12%, transparent) !important;
+  border-color: rgba(0, 229, 255, 0.28) !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.18),
+    0 0 16px rgba(0, 229, 255, 0.12) !important;
 }
 
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiListItemText-primary,
 html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
-  color: #00ff88 !important;
-  text-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
-  font-weight: 700;
+  color: var(--cv-primary) !important;
+  font-weight: 600;
+  text-shadow: none !important;
+}
+
+html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
+  font-family: var(--cv-font-sans) !important;
 }
 
 html body .the-logo {
-  filter: drop-shadow(0 0 8px #00ff88);
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.35));
+}
+
+html body .base-page > header {
+  padding: 14px 16px !important;
+  border-bottom: 1px solid var(--cv-border-subtle) !important;
+  background: color-mix(in srgb, var(--cv-bg-secondary) 80%, transparent) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: none !important;
+}
+
+html body .base-page > header::before,
+html body .base-page > header::after {
+  content: none !important;
+}
+
+html body .base-page > header .MuiTypography-root {
+  font-family: var(--cv-font-sans) !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem !important;
+  letter-spacing: -0.02em;
+  text-transform: none !important;
+  color: var(--cv-text-primary) !important;
+  text-shadow: none !important;
 }
 
 
@@ -454,307 +369,171 @@ html body .enhanced-card,
 html body .cv-card,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root,
 html body .base-content .MuiGrid-root > .MuiBox-root {
-  --cv-cut: 14px;
-  --cv-hud-arm: 16px;
-  --cv-hud-stroke: 1px;
-  --cv-hud-bracket: rgba(0, 212, 255, 0.32);
   position: relative !important;
-  background-color: var(--cv-surface-card) !important;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 10px,
-      rgba(0, 255, 136, 0.035) 10px 11px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 10px,
-      rgba(0, 212, 255, 0.028) 10px 11px
-    ),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)),
-    linear-gradient(var(--cv-hud-bracket), var(--cv-hud-bracket)) !important;
-  background-size:
-    auto, auto,
-    var(--cv-hud-arm) var(--cv-hud-stroke),
-    var(--cv-hud-stroke) var(--cv-hud-arm),
-    var(--cv-hud-arm) var(--cv-hud-stroke),
-    var(--cv-hud-stroke) var(--cv-hud-arm),
-    var(--cv-hud-arm) var(--cv-hud-stroke),
-    var(--cv-hud-stroke) var(--cv-hud-arm),
-    var(--cv-hud-arm) var(--cv-hud-stroke),
-    var(--cv-hud-stroke) var(--cv-hud-arm) !important;
-  background-position:
-    0 0, 0 0,
-    left top, left top, right top, right top,
-    left bottom, left bottom, right bottom, right bottom !important;
-  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-    no-repeat, no-repeat, no-repeat, no-repeat !important;
-  border: 1px solid rgba(0, 212, 255, 0.16) !important;
-  border-radius: 0 !important;
+  background-color: color-mix(
+    in srgb,
+    var(--cv-surface-card) 88%,
+    transparent
+  ) !important;
+  background-image: none !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
   box-shadow: none !important;
-  clip-path: polygon(
-    0 var(--cv-cut),
-    var(--cv-cut) 0,
-    calc(100% - var(--cv-cut)) 0,
-    100% var(--cv-cut),
-    100% calc(100% - var(--cv-cut)),
-    calc(100% - var(--cv-cut)) 100%,
-    var(--cv-cut) 100%,
-    0 calc(100% - var(--cv-cut))
-  );
+  clip-path: none !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   overflow: hidden !important;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  transition: border-color 220ms var(--cv-motion-ease),
+    box-shadow 220ms var(--cv-motion-ease),
+    transform 220ms var(--cv-motion-ease);
 }
 
 html body .enhanced-card:hover,
 html body .cv-card:hover,
 html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:hover,
 html body .enhanced-card:focus-within,
-html body .cv-card:focus-within,
-html body .base-content .MuiGrid-grid-xs-6 > .MuiBox-root:focus-within {
-  --cv-hud-bracket: var(--cv-hud-bracket-strong);
-  --cv-hud-stroke: 2px;
-  transform: translateY(-2px);
-  border-color: rgba(0, 255, 136, 0.6) !important;
-  box-shadow:
-    0 0 0 1px rgba(0, 255, 136, 0.22),
-    0 0 28px rgba(0, 255, 136, 0.18),
-    0 0 40px rgba(255, 0, 255, 0.08),
-    0 16px 32px rgba(0, 0, 0, 0.5) !important;
+html body .cv-card:focus-within {
+  transform: translateY(-1px);
+  border-color: rgba(0, 229, 255, 0.35) !important;
+  box-shadow: var(--cv-effect-glow) !important;
 }
 
 html body .enhanced-card::after,
-html body .cv-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #00ff88,
-    #00d4ff,
-    #ff00ff,
-    transparent
-  );
-  opacity: 0;
-  pointer-events: none;
-  z-index: 2;
-  transition: opacity 160ms ease;
-}
-
-html body .enhanced-card:hover::after,
-html body .cv-card:hover::after,
-html body .enhanced-card:focus-within::after,
-html body .cv-card:focus-within::after {
-  opacity: 1;
-}
-
-html body .base-content .MuiTypography-root,
-html body .enhanced-card .MuiTypography-root,
-html body .cv-card .MuiTypography-root {
-  font-family: var(--cv-font-sans);
-  text-shadow: none !important;
-}
-
-html body .base-content .MuiTypography-root {
-  color: var(--cv-text-primary) !important;
-}
-
-html body .base-content .MuiTypography-colorTextSecondary,
-html body .base-content .MuiListItemText-secondary,
-html body .base-content .MuiTypography-body2 {
-  color: var(--cv-text-secondary) !important;
-  opacity: 1 !important;
-}
-
-html body .base-content .MuiPaper-root:not(.layout) {
-  background-color: var(--cv-surface-elevated) !important;
-  border: 1px solid rgba(0, 212, 255, 0.18) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+html body .cv-card::after,
+html body .enhanced-card::before,
+html body .cv-card::before {
+  content: none !important;
 }
 
 html body .enhanced-card .MuiTypography-h6,
 html body .cv-card .MuiTypography-h6,
 html body .enhanced-card .MuiTypography-subtitle1 {
-  font-weight: 800 !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: 0.8rem !important;
-}
-
-html body .MuiLinearProgress-root {
-  background-color: rgba(0, 212, 255, 0.12) !important;
-  border-radius: 0 !important;
-}
-
-html body .MuiLinearProgress-bar {
-  background: linear-gradient(90deg, #00ff88, #00d4ff, #ff00ff) !important;
-  box-shadow: 0 0 14px rgba(0, 255, 136, 0.7);
-}
-
-html body .base-page > header {
-  position: relative;
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
-  border-bottom: 1px solid rgba(0, 255, 136, 0.25) !important;
-  background: rgba(0, 255, 136, 0.05) !important;
-  box-shadow: inset 0 2px 0 #00ff88;
-}
-
-html body .base-page > header::before {
-  content: none;
-}
-
-html body .base-page > header::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, #00ff88, #00d4ff, transparent 75%);
-  opacity: 0.85;
-}
-
-html body .base-page > header .MuiTypography-root {
   font-family: var(--cv-font-sans) !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: -0.01em;
+  text-transform: none !important;
   color: var(--cv-text-primary) !important;
+}
+
+html body .base-content .MuiTypography-root {
+  font-family: var(--cv-font-sans);
   text-shadow: none !important;
+  color: var(--cv-text-primary) !important;
+}
+
+html body .base-content .MuiTypography-colorTextSecondary,
+html body .base-content .MuiTypography-body2 {
+  color: var(--cv-text-secondary) !important;
+}
+
+html body .base-content .MuiPaper-root:not(.layout) {
+  background: var(--cv-surface-elevated) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
+  border-radius: var(--cv-radius-md) !important;
+  box-shadow: none !important;
+}
+
+html body .MuiButton-root {
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-sans) !important;
+  text-transform: none;
+  font-weight: 600;
+  clip-path: none !important;
+  transition: background 200ms var(--cv-motion-ease),
+    box-shadow 200ms var(--cv-motion-ease);
+}
+
+html body .MuiButton-containedPrimary,
+html body .MuiButtonGroup-groupedContainedPrimary {
+  background: var(--cv-primary) !important;
+  color: #041018 !important;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.25) !important;
+}
+
+html body .MuiButton-containedPrimary:hover {
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.35) !important;
+  filter: brightness(1.05);
+}
+
+html body .MuiButton-outlinedPrimary,
+html body .MuiButton-outlined {
+  border-color: var(--cv-border-strong) !important;
+  color: var(--cv-primary) !important;
+  background: transparent !important;
+}
+
+html body .MuiChip-root {
+  border-radius: var(--cv-radius-sm) !important;
+  font-family: var(--cv-font-sans) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
 }
 
 html body .the-traffic {
-  --cv-cut: 10px;
-  position: relative;
   display: block;
-  margin: 12px 8px 16px;
-  padding: 14px 14px 16px;
-  border: 1px solid rgba(0, 255, 136, 0.6);
-  border-radius: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 255, 136, 0.14), rgba(255, 0, 255, 0.05)),
-    #06060b;
-  box-shadow:
-    inset 0 0 28px rgba(0, 255, 136, 0.12),
-    0 0 28px rgba(0, 255, 136, 0.32),
-    0 0 40px rgba(255, 0, 255, 0.12);
-  clip-path: polygon(
-    0 var(--cv-cut),
-    var(--cv-cut) 0,
-    calc(100% - var(--cv-cut)) 0,
-    100% var(--cv-cut),
-    100% calc(100% - var(--cv-cut)),
-    calc(100% - var(--cv-cut)) 100%,
-    var(--cv-cut) 100%,
-    0 calc(100% - var(--cv-cut))
-  );
+  margin: 10px 10px 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--cv-border-strong);
+  border-radius: var(--cv-radius-md);
+  background: color-mix(in srgb, var(--cv-surface-elevated) 90%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: none;
+  clip-path: none !important;
   font-family: var(--cv-font-mono) !important;
-  font-size: 1.05rem;
-  font-weight: 700;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.05em;
-  color: var(--cv-phosphor) !important;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
-  animation: cv-phosphor-breathe 3s ease-in-out infinite;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--cv-primary) !important;
+  text-shadow: none !important;
+  animation: none !important;
 }
 
 html body .the-traffic::before {
-  content: 'THRUPUT';
+  content: 'Throughput';
   display: block;
-  margin-bottom: 8px;
-  font-family: var(--cv-font-display);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  color: #ff66ff;
-  text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+  margin-bottom: 6px;
+  font-family: var(--cv-font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--cv-text-secondary);
+  text-shadow: none;
 }
 
 html body .the-traffic::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  top: 0;
-  background: linear-gradient(90deg, #00ff88, #00d4ff);
-  box-shadow: 0 0 12px #00ff88;
-  animation: cv-lock-scan 2.2s linear infinite;
+  content: none !important;
+  display: none !important;
+  animation: none !important;
 }
 
 html body .the-traffic *,
 html body .the-delay {
   font-family: var(--cv-font-mono) !important;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
-  color: var(--cv-phosphor) !important;
-  text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+  font-weight: 600;
+  text-shadow: none !important;
+  color: var(--cv-primary) !important;
 }
 
-html body .MuiButton-root {
-  border-radius: 0 !important;
-  font-family: var(--cv-font-sans) !important;
-  text-transform: none;
-  clip-path: polygon(
-    0 0,
-    calc(100% - 7px) 0,
-    100% 7px,
-    100% 100%,
-    7px 100%,
-    0 calc(100% - 7px)
-  );
+html body .MuiLinearProgress-root {
+  border-radius: 999px !important;
+  background: rgba(0, 229, 255, 0.12) !important;
+  overflow: hidden;
 }
 
-html body .MuiButton-containedPrimary,
-html body .MuiButtonGroup-groupedContainedPrimary {
-  background: linear-gradient(90deg, #00ff88, #00d4ff) !important;
-  color: #04140c !important;
-  box-shadow: 0 0 24px rgba(0, 255, 136, 0.45) !important;
-  font-weight: 800;
-}
-
-html body .MuiButton-containedPrimary:hover,
-html body .MuiButtonGroup-groupedContainedPrimary:hover {
-  filter: brightness(1.1);
-  box-shadow:
-    0 0 32px rgba(0, 255, 136, 0.6),
-    0 0 40px rgba(255, 0, 255, 0.2) !important;
-}
-
-html body .MuiButton-outlinedPrimary,
-html body .MuiButton-outlined {
-  border-color: rgba(0, 212, 255, 0.55) !important;
-  color: var(--cv-text-primary) !important;
-  background: rgba(0, 212, 255, 0.08) !important;
-}
-
-html body .MuiChip-root {
-  border-radius: 0 !important;
-  border: 1px solid rgba(0, 212, 255, 0.35) !important;
-  font-family: var(--cv-font-mono) !important;
+html body .MuiLinearProgress-bar {
+  background: linear-gradient(90deg, var(--cv-primary), var(--cv-secondary)) !important;
+  box-shadow: none !important;
 }
 
 html body .MuiDialog-root .MuiDialog-paper {
-  border-radius: 0 !important;
-  border: 1px solid rgba(0, 255, 136, 0.45) !important;
-  box-shadow:
-    0 0 0 1px rgba(255, 0, 255, 0.12),
-    0 0 40px rgba(0, 255, 136, 0.18),
-    0 28px 72px rgba(0, 0, 0, 0.85) !important;
+  border-radius: var(--cv-radius-lg) !important;
+  border: 1px solid var(--cv-border-subtle) !important;
   background: var(--cv-surface-elevated) !important;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(16px);
 }
 
 html body .MuiSwitch-switchBase.Mui-checked {
@@ -763,25 +542,23 @@ html body .MuiSwitch-switchBase.Mui-checked {
 
 html body .MuiSwitch-switchBase.Mui-checked .MuiSwitch-thumb {
   background-color: #ffffff !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) !important;
 }
 
 html body .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-  background-color: #00c974 !important;
+  background-color: var(--cv-primary) !important;
   opacity: 1 !important;
   box-shadow: none !important;
 }
 
-html body .MuiOutlinedInput-root,
-html body .MuiInputBase-root {
-  border-radius: 0 !important;
+html body .MuiOutlinedInput-root {
+  border-radius: var(--cv-radius-sm) !important;
   font-family: var(--cv-font-sans);
-  color: var(--cv-text-primary) !important;
 }
 
 html body .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: #00ff88 !important;
-  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.35), 0 0 16px rgba(0, 255, 136, 0.25);
+  border-color: var(--cv-primary) !important;
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.25);
 }
 
 html body .MuiChip-colorSuccess,
@@ -819,93 +596,36 @@ html body [class*='latency-error'] {
   color: var(--cv-latency-timeout) !important;
 }
 
-@keyframes cv-pulse {
+@keyframes cv-cyan-pulse {
   0%,
   100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.4;
-  }
-}
-
-@keyframes cv-phosphor-breathe {
-  0%,
-  100% {
-    box-shadow: inset 0 0 24px rgba(0, 255, 136, 0.1),
-      0 0 24px rgba(0, 255, 136, 0.28), 0 0 36px rgba(255, 0, 255, 0.1);
-  }
-  50% {
-    box-shadow: inset 0 0 28px rgba(0, 255, 136, 0.14),
-      0 0 32px rgba(0, 255, 136, 0.38), 0 0 48px rgba(255, 0, 255, 0.16);
-  }
-}
-
-@keyframes cv-lock-scan {
-  0% {
-    top: 0;
-    opacity: 0.95;
-  }
-  100% {
-    top: calc(100% - 2px);
-    opacity: 0.2;
-  }
-}
-
-@keyframes cv-scan-sweep {
-  0% {
-    transform: translateX(-20%);
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(25%);
-    opacity: 0.35;
-  }
-}
-
-@keyframes cv-content-sweep {
-  0% {
-    left: -35%;
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  85% {
-    opacity: 0.2;
-  }
-  100% {
-    left: 110%;
-    opacity: 0;
+    opacity: 0.55;
   }
 }
 
 html body .MuiCircularProgress-root,
 html body [class*='loading'] {
-  animation: cv-pulse 1.2s var(--cv-motion-ease) infinite;
-  color: #00ff88 !important;
+  animation: cv-cyan-pulse 1.4s var(--cv-motion-ease) infinite;
+  color: var(--cv-primary) !important;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
+  animation: cv-cyan-pulse 2.2s var(--cv-motion-ease) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html body .MuiCircularProgress-root,
   html body [class*='loading'],
-  html body .layout .layout-content__left,
-  html body .the-traffic,
-  html body .the-traffic::after,
-  html body .base-page > header::after,
-  html body .layout .layout-content__right::before {
+  html body .the-menu .MuiListItemButton-root.Mui-selected .MuiSvgIcon-root {
     animation: none !important;
   }
 
   html body .enhanced-card:hover,
   html body .cv-card:hover {
-    transform: none;
+    transform: none !important;
   }
 }
 

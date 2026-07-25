@@ -1,8 +1,8 @@
 /**
- * Clash Verge Neo — AI Operator (Spec 12 Spectacle)
+ * Clash Verge Neo — AI Operator (Spec 15 Agent desk)
  * Prefer dist/ai-operator.css for injection.
  */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import url('../../core/emoji.css');
 @import url('../../core/tokens.css');
 @import url('../../core/reset.css');
