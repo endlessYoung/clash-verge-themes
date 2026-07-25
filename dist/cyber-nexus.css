@@ -106,23 +106,23 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    --cv-bg-primary: #0a0a0f;
-    --cv-bg-secondary: #0e0e16;
+    --cv-bg-primary: #07060f;
+    --cv-bg-secondary: #0c0b16;
     --cv-surface: rgba(0, 255, 136, 0.05);
-    --cv-surface-elevated: #15151f;
-    --cv-surface-card: #171722;
+    --cv-surface-elevated: #141322;
+    --cv-surface-card: #161428;
     --cv-primary: #00ff88;
     --cv-secondary: #ff00ff;
     --cv-text-primary: #f2fff8;
     --cv-text-secondary: #b4c4d4;
-    --cv-border-subtle: rgba(0, 212, 255, 0.12);
-    --cv-border-strong: rgba(0, 255, 136, 0.22);
+    --cv-border-subtle: rgba(0, 212, 255, 0.14);
+    --cv-border-strong: rgba(0, 255, 136, 0.28);
     --cv-border-focus: var(--cv-primary);
     --cv-effect-blur: 0px;
-    --cv-effect-glow: none;
-    --cv-hud-bracket: rgba(0, 212, 255, 0.45);
-    --cv-hud-bracket-strong: rgba(0, 212, 255, 0.85);
-    --cv-hud-grid: rgba(0, 255, 136, 0.045);
+    --cv-effect-glow: 0 0 24px rgba(0, 255, 136, 0.35);
+    --cv-hud-bracket: rgba(0, 212, 255, 0.5);
+    --cv-hud-bracket-strong: rgba(0, 212, 255, 0.95);
+    --cv-hud-grid: rgba(0, 255, 136, 0.05);
     --cv-phosphor: #d4ffe8;
     --cv-plasma: #ff00ff;
     --cv-cyan: #00d4ff;
@@ -159,23 +159,23 @@ body {
 }
 
 html[data-theme='dark'] body {
-  --cv-bg-primary: #0a0a0f;
-  --cv-bg-secondary: #0e0e16;
+  --cv-bg-primary: #07060f;
+  --cv-bg-secondary: #0c0b16;
   --cv-surface: rgba(0, 255, 136, 0.05);
-  --cv-surface-elevated: #15151f;
-  --cv-surface-card: #171722;
+  --cv-surface-elevated: #141322;
+  --cv-surface-card: #161428;
   --cv-primary: #00ff88;
   --cv-secondary: #ff00ff;
   --cv-text-primary: #f2fff8;
   --cv-text-secondary: #b4c4d4;
-  --cv-border-subtle: rgba(0, 212, 255, 0.12);
-  --cv-border-strong: rgba(0, 255, 136, 0.22);
+  --cv-border-subtle: rgba(0, 212, 255, 0.14);
+  --cv-border-strong: rgba(0, 255, 136, 0.28);
   --cv-border-focus: var(--cv-primary);
   --cv-effect-blur: 0px;
-  --cv-effect-glow: none;
-  --cv-hud-bracket: rgba(0, 212, 255, 0.45);
-  --cv-hud-bracket-strong: rgba(0, 212, 255, 0.85);
-  --cv-hud-grid: rgba(0, 255, 136, 0.045);
+  --cv-effect-glow: 0 0 24px rgba(0, 255, 136, 0.35);
+  --cv-hud-bracket: rgba(0, 212, 255, 0.5);
+  --cv-hud-bracket-strong: rgba(0, 212, 255, 0.95);
+  --cv-hud-grid: rgba(0, 255, 136, 0.05);
   --cv-phosphor: #d4ffe8;
   --cv-plasma: #ff00ff;
   --cv-cyan: #00d4ff;
@@ -402,6 +402,19 @@ html body .the-menu .MuiListItemButton-root {
 html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
   font-family: var(--cv-font-sans) !important;
   text-shadow: none !important;
+  text-transform: none;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translateY(-50%) rotate(45deg);
+  background: #ff00ff;
+  box-shadow: 0 0 8px #ff00ff;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {

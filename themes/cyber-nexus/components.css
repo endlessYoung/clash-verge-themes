@@ -110,6 +110,19 @@ html body .the-menu .MuiListItemButton-root {
 html body .the-menu .MuiListItemButton-root .MuiListItemText-primary {
   font-family: var(--cv-font-sans) !important;
   text-shadow: none !important;
+  text-transform: none;
+}
+
+html body .the-menu .MuiListItemButton-root.Mui-selected::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translateY(-50%) rotate(45deg);
+  background: #ff00ff;
+  box-shadow: 0 0 8px #ff00ff;
 }
 
 html body .the-menu .MuiListItemButton-root:hover {
