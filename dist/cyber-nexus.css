@@ -388,6 +388,7 @@ html body .the-menu {
 }
 
 html body .the-menu .MuiListItemButton-root {
+  position: relative;
   border-radius: 0 !important;
   margin-bottom: 6px;
   border: 1px solid transparent;
