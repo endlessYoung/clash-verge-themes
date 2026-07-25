@@ -1,123 +1,155 @@
-# Clash Verge Themes
+# Clash Verge 主题 / Clash Verge Themes
 
-**Version `1.0.0`** · Injectable CSS themes for
-[Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev)
-（官方 **CSS Injection**，无需改源码 / fork）
+免费开源的 **Clash Verge Rev CSS 主题包**：一键美化侧栏、卡片、流量统计与设置页。支持赛博风、苹果风、毛玻璃等多种风格，通过官方 **CSS Injection（编辑 CSS）** 即可使用，无需改源码、无需 fork。
 
-[![release](https://img.shields.io/badge/release-v1.0.0-blue)](https://github.com/endlessYoung/clash-verge-themes/releases/tag/v1.0.0)
+[![release](https://img.shields.io/badge/version-v1.0.1-blue)](https://github.com/endlessYoung/clash-verge-themes/releases/tag/v1.0.1)
 [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![Clash Verge](https://img.shields.io/badge/Clash%20Verge-CSS%20Injection-indigo)](https://github.com/clash-verge-rev/clash-verge-rev)
 
-## 预览
+**关键词：** Clash Verge 主题 · Clash Verge Rev 美化 · CSS Injection · 赛博主题 · 苹果风格主题 · 毛玻璃 UI · 深色模式主题
 
-| Cyber Nexus | AI Operator |
-|-------------|-------------|
-| ![Cyber Nexus](docs/screenshots/cyber-nexus.png) | ![AI Operator](docs/screenshots/ai-operator.png) |
+---
 
-| Aurora Glass | Apple Classic |
-|--------------|---------------|
-| ![Aurora Glass](docs/screenshots/aurora-glass.png) | ![Apple Classic](docs/screenshots/apple-classic.png) |
+## 为什么用这个仓库？
 
-| Apple Liquid Glass |
-|--------------------|
-| ![Apple Liquid](docs/screenshots/apple-liquid.png) |
+- **官方能力即可用**：粘贴一行 `@import`，Clash Verge 立刻换肤  
+- **五套成品主题**：赛博 / 专业蓝灰 / 极光玻璃 / Apple 设置风 / 液态玻璃  
+- **浅色 + 深色**：跟随系统主题自动切换  
+- **CDN 直链**：jsDelivr 全球加速，钉版本号更稳定  
+- **开源 MIT**：可学习、可二次分发
 
-> 截图来自仓库内壳层预览页（`docs/previews/shell.html`），用于展示主题气质；实际 Clash Verge 窗口细节可能略有差异。
+完整步骤见 [使用说明 docs/USAGE.md](docs/USAGE.md)。
 
-## 主题一览
+---
 
-| 主题 | 文件 | 气质 |
-|------|------|------|
-| **Cyber Nexus** | `dist/cyber-nexus.css` | Neural OS — 青/紫玻璃信号层 |
-| **AI Operator** | `dist/ai-operator.css` | Agent desk — Linear / Cursor 蓝锌 |
-| **Aurora Glass** | `dist/aurora-glass.css` | 极光空间玻璃 |
-| **Apple Classic** | `dist/apple-classic.css` | iOS Settings HIG |
-| **Apple Liquid Glass** | `dist/apple-liquid.css` | 液态毛玻璃 |
+## 主题预览
 
-五套均支持 **浅色 / 深色**（跟随系统 `prefers-color-scheme`，或 `html[data-theme]`）。
+| Cyber Nexus（赛博青紫） | AI Operator（专业蓝） |
+|-------------------------|------------------------|
+| ![Clash Verge Cyber Nexus 主题预览](docs/screenshots/cyber-nexus.png) | ![Clash Verge AI Operator 主题预览](docs/screenshots/ai-operator.png) |
 
-## 30 秒上手
+| Aurora Glass（极光玻璃） | Apple Classic（苹果设置风） |
+|--------------------------|-----------------------------|
+| ![Clash Verge Aurora Glass 主题预览](docs/screenshots/aurora-glass.png) | ![Clash Verge Apple Classic 主题预览](docs/screenshots/apple-classic.png) |
 
-1. 打开 Clash Verge → **设置 → 外观设置 → 编辑 CSS**（Theme Setting → Edit CSS）
-2. 粘贴下面 **一行** `@import`（只用 `dist/` 单文件）
-3. 主题模式建议选 **系统**
+| Apple Liquid Glass（液态毛玻璃） |
+|----------------------------------|
+| ![Clash Verge Apple Liquid Glass 主题预览](docs/screenshots/apple-liquid.png) |
+
+---
+
+## 快速开始（30 秒）
+
+1. 打开 **Clash Verge** → **设置** → **外观设置 / Theme Setting** → **编辑 CSS**  
+2. 粘贴下面任意主题的 **一行** 代码  
+3. 主题模式建议选 **系统**  
 4. 保存
 
-推荐钉 **版本标签** `v1.0.0`（或 commit hash），**不要**用 `@develop` / `@main` 分支别名（jsDelivr 缓存很凶）。
+> 请使用版本标签 `@v1.0.1`（或具体 commit）。不要用 `@main` / `@develop` 分支名，避免 CDN 缓存到旧文件。
 
-### Cyber Nexus
+### Cyber Nexus — 赛博青紫玻璃
 
-```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/cyber-nexus.css");
-```
-
-### AI Operator
+适合喜欢科技感、深色仪表盘氛围的用户。
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/ai-operator.css");
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.1/dist/cyber-nexus.css");
 ```
 
-### Aurora Glass
+### AI Operator — 简洁专业蓝
+
+干净的产品级界面，蓝强调色，适合日常办公观感。
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/aurora-glass.css");
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.1/dist/ai-operator.css");
 ```
 
-### Apple Classic
+### Aurora Glass — 极光毛玻璃
+
+柔和渐变与玻璃质感，侧栏与卡片更有空间层次。
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/apple-classic.css");
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.1/dist/aurora-glass.css");
 ```
 
-### Apple Liquid Glass
+### Apple Classic — 苹果设置风格
+
+接近 iOS / macOS「设置」列表气质：系统灰、系统蓝、清晰分组。
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.0/dist/apple-liquid.css");
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.1/dist/apple-classic.css");
 ```
 
-更完整的说明（切换主题、故障排查、本地预览）见 **[docs/USAGE.md](docs/USAGE.md)**。
+### Apple Liquid Glass — 液态玻璃
 
-## 版本与分支
+半透明毛玻璃材质，浮起与柔和高光，现代 Apple 风界面。
 
-| 项 | 约定 |
-|----|------|
-| SemVer | `MAJOR.MINOR.PATCH`（见 `package.json` + `CHANGELOG.md`） |
-| 当前正式版 | **`v1.0.0`** |
-| `main` | 稳定发布线（用户应钉 tag / release） |
-| `develop` | 开发线 |
-| 变更日志 | [CHANGELOG.md](./CHANGELOG.md) |
-
-升级：把 `@v1.0.0` 换成新 tag，或换成具体 commit short hash。
-
-## 开发（维护者）
-
-```bash
-npm run build
-# → dist/cyber-nexus.css …
+```css
+@import url("https://cdn.jsdelivr.net/gh/endlessYoung/clash-verge-themes@v1.0.1/dist/apple-liquid.css");
 ```
 
-```
-core/                  # tokens / reset / compatibility / emoji
-themes/<name>/         # colors → components → states → animation
-dist/<name>.css        # 注入用单文件
-docs/previews/         # 壳层预览
-docs/screenshots/      # README 截图
-specs/                 # 设计 Spec
-```
+---
 
-本地预览：
+## 主题对照表
+
+| 主题名称 | 文件 | 风格一句话 |
+|----------|------|------------|
+| Cyber Nexus | `dist/cyber-nexus.css` | 赛博青紫 · 玻璃面板 |
+| AI Operator | `dist/ai-operator.css` | 专业蓝 · 简洁高效 |
+| Aurora Glass | `dist/aurora-glass.css` | 极光 · 空间玻璃 |
+| Apple Classic | `dist/apple-classic.css` | 苹果设置 · 系统灰蓝 |
+| Apple Liquid Glass | `dist/apple-liquid.css` | 液态毛玻璃 |
+
+---
+
+## 常见问题 FAQ
+
+**Q: 粘贴后没有变化？**  
+A: 确认用的是 `dist/*.css` 单文件地址；保存后重启 Clash Verge；检查是否只保留一条 `@import`。
+
+**Q: 为什么不要用 raw.githubusercontent.com？**  
+A: GitHub raw 常以 `text/plain` 返回，浏览器可能直接忽略样式。请用 jsDelivr。
+
+**Q: 如何换主题？**  
+A: 改 `@import` 里的文件名即可，每次只保留一行。
+
+**Q: 支持浅色模式吗？**  
+A: 支持。主题模式选「系统」，会跟随 Windows / macOS 浅色或深色。
+
+**Q: 可以商用或二次分发吗？**  
+A: 可以，遵循 [MIT License](./LICENSE)。
+
+---
+
+## 版本与下载
+
+| 项目 | 说明 |
+|------|------|
+| 当前版本 | **v1.0.1** |
+| 稳定分支 | `main` |
+| 开发分支 | `develop` |
+| 更新日志 | [CHANGELOG.md](./CHANGELOG.md) |
+| 详细教程 | [docs/USAGE.md](docs/USAGE.md) |
+
+仓库地址：<https://github.com/endlessYoung/clash-verge-themes>
+
+---
+
+## 本地预览（可选）
 
 ```bash
 npx serve . -p 4173
-# http://localhost:4173/docs/previews/cyber-nexus.html
 ```
 
-## 工程约束
+浏览器打开：
 
-- 不改壳层布局几何
-- 状态色锁定于 `core/tokens.css`
-- 禁止 `raw.githubusercontent.com`（MIME 错误会导致样式静默失败）
-- 禁止在 CSS 注释里写会提前闭合的 `*/` 路径片段
+- http://localhost:4173/docs/previews/cyber-nexus.html  
+- http://localhost:4173/docs/previews/ai-operator.html  
+- http://localhost:4173/docs/previews/aurora-glass.html  
+- http://localhost:4173/docs/previews/apple-classic.html  
+- http://localhost:4173/docs/previews/apple-liquid.html  
+
+---
 
 ## License
 
-MIT
+MIT © contributors

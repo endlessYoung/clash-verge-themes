@@ -1,6 +1,6 @@
 {
   "name": "clash-verge-themes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Injectable CSS themes for Clash Verge Rev (CSS Injection)",
   "type": "module",
